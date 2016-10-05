@@ -13,7 +13,7 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 %>
-<% language_tabs = current_page.data.language_tabs || [] %>
+<% var language_tabs = current_page.data.language_tabs || []; %>
 <!doctype html>
 <html>
   <head>
@@ -23,73 +23,73 @@ under the License.
     <title><%= current_page.data.title || "API Documentation" %></title>
 
     <style>
-      <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
+      <%# was:= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
-    <%= stylesheet_link_tag :screen, media: :screen %>
-    <%= stylesheet_link_tag :print, media: :print %>
-    <% if current_page.data.search %>
-      <%= javascript_include_tag  "all" %>
-    <% else %>
-      <%= javascript_include_tag  "all_nosearch" %>
-    <% end %>
+    <%- stylesheet_link_tag('screen') %>
+    <%- stylesheet_link_tag('print') %>
+    <% if (current_page.data.search) {%>
+      <%- javascript_include_tag("all") %>
+    <% } else { %>
+      <%- javascript_include_tag("all_nosearch") %>
+    <% } %>
   </head>
 
-  <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+  <body class="<%= current_page.page_classes %>" data-languages="<%- JSON.stringify(current_page.data.language_tabs) %>">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <%= image_tag('navbar.png') %>
+        <%- image_tag('navbar.png') %>
       </span>
     </a>
     <div class="tocify-wrapper">
-      <%= image_tag "logo.png" %>
-      <% if language_tabs %>
+      <%- image_tag("logo.png") %>
+      <% if (language_tabs) {%>
         <div class="lang-selector">
-          <% language_tabs.each do |lang| %>
-            <% if lang.is_a? Hash %>
-              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-            <% else %>
-              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
-            <% end %>
-          <% end %>
+          <% for (var lang in language_tabs) { %>
+            <% if (typeof lang === 'object') { %>
+              <a href="#" data-language-name="<%= language_tabs[lang][0] %>"><%= language_tabs[lang][0] %></a>
+            <% } else { %>
+              <a href="#" data-language-name="<%= language_tabs[lang] %>"><%= language_tabs[lang] %></a>
+            <% } %>
+          <% } %>
         </div>
-      <% end %>
-      <% if current_page.data.search %>
+      <% } %>
+      <% if (current_page.data.search) { %>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-      <% end %>
+      <% } %>
       <div id="toc">
       </div>
-      <% if current_page.data.toc_footers %>
+      <% if (current_page.data.toc_footers) { %>
         <ul class="toc-footer">
-          <% current_page.data.toc_footers.each do |footer| %>
-            <li><%= footer %></li>
-          <% end %>
+          <% for (var footer in current_page.data.toc_footers) { %>
+            <li><%- current_page.data.toc_footers[footer] %></li>
+          <% } %>
         </ul>
-      <% end %>
+      <% } %>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <%= yield %>
-        <% current_page.data.includes && current_page.data.includes.each do |include| %>
-          <%= partial "includes/#{include}" %>
-        <% end %>
+        <%- yield(); %>
+        <% if (current_page.data.includes) { for (var include in current_page.data.includes) { %>
+          <%= partial("includes/#{include}") %>
+        <% } %>
       </div>
       <div class="dark-box">
-        <% if language_tabs %>
+        <% if (language_tabs) %>
           <div class="lang-selector">
-            <% language_tabs.each do |lang| %>
-              <% if lang.is_a? Hash %>
+            <% for (var lang in language_tabs) { %>
+              <% if (typeof lang === 'object') { %>
                 <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-              <% else %>
-                <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
-              <% end %>
-            <% end %>
+              <% } else { %>
+                <a href="#" data-language-name="<%= language_tabs[lang] %>"><%= language_tabs[lang] %></a>
+              <% } %>
+            <% } %>
           </div>
-        <% end %>
+        <% } %>
       </div>
     </div>
   </body>

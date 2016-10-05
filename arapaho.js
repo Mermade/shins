@@ -14,7 +14,7 @@ app.get('/', function(req,res) { res.render(path.join(__dirname,'index.html')) }
 app.get('*.html', function(req,res) { res.render(path.join(__dirname,req.path)) });
 app.use("/",  express.static(__dirname));
 
-var myport = process.env.PORT || 3000;
+var myport = process.env.PORT || 4567;
 if (process.argv.length>2) myport = process.argv[2];
 
 var server = app.listen(myport, function () {

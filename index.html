@@ -1,4 +1,262 @@
+
+
+<!doctype html>
 <html>
-<img src="http://mermade.github.io/shins/logo.jpg" alt="logo"/>
-<h1>It Works! If you're seeing this, you have successfully installed Shins
-<h2><%='With embedded Javascript support from Node'+process.version %>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      
+    </style>
+    <link rel="stylesheet" media="screen" href="/pub/css/screen.css">
+    <link rel="stylesheet" media="print" href="/pub/css/print.css">
+    
+      <script src="/source/javascripts/lib/_jquery.js"></script>
+<script src="/source/javascripts/lib/_jquery_ui.js"></script>
+<script src="/source/javascripts/lib/_jquery.highlight.js"></script>
+<script src="/source/javascripts/lib/_jquery.tocify.js"></script>
+<script src="/source/javascripts/lib/_lunr.js"></script>
+<script src="/source/javascripts/lib/_imagesloaded.min.js"></script>
+<script src="/source/javascripts/lib/_energize.js"></script>
+<script src="/source/javascripts/app/_lang.js"></script>
+<script src="/source/javascripts/app/_search.js"></script>
+<script src="/source/javascripts/app/_toc.js"></script>
+
+    
+  </head>
+
+  <body class="" data-languages="["shell","ruby","python","javascript"]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="/source/images/navbar.png">
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="/source/images/logo.png">
+      
+        <div class="lang-selector">
+          
+            
+              <a href="#" data-language-name="shell">shell</a>
+            
+          
+            
+              <a href="#" data-language-name="ruby">ruby</a>
+            
+          
+            
+              <a href="#" data-language-name="python">python</a>
+            
+          
+            
+              <a href="#" data-language-name="javascript">javascript</a>
+            
+          
+        </div>
+      
+      
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      
+      <div id="toc">
+      </div>
+      
+        <ul class="toc-footer">
+          
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+          
+            <li><a href='https://github.com/mermade/shins'>Documentation Powered by Shins</a></li>
+          
+        </ul>
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1>Introduction</h1>
+<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>This example API documentation page was created with <a href="https://github.com/mermade/shins">Shins</a>. Feel free to edit it and use it as a base for your own API's documentation.</p>
+<h1>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre><code class="language-ruby">require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+</code></pre>
+<pre><code class="language-python">import kittn
+
+api = kittn.authorize('meowmeowmeow')
+</code></pre>
+<pre><code class="language-shell"># With shell, you can just pass the correct header with each request
+curl &quot;api_endpoint_here&quot;
+  -H &quot;Authorization: meowmeowmeow&quot;
+</code></pre>
+<pre><code class="language-javascript">const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+</blockquote>
+<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p><code>Authorization: meowmeowmeow</code></p>
+<p>&lt;aside class=&quot;notice&quot;&gt;
+You must replace &lt;code&gt;meowmeowmeow&lt;/code&gt; with your personal API key.
+&lt;/aside&gt;</p>
+<h1>Kittens</h1>
+<h2>Get All Kittens</h2>
+<pre><code class="language-ruby">require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get
+</code></pre>
+<pre><code class="language-python">import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get()
+</code></pre>
+<pre><code class="language-shell">curl &quot;http://example.com/api/kittens&quot;
+  -H &quot;Authorization: meowmeowmeow&quot;
+</code></pre>
+<pre><code class="language-javascript">const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Fluffums&quot;,
+    &quot;breed&quot;: &quot;calico&quot;,
+    &quot;fluffiness&quot;: 6,
+    &quot;cuteness&quot;: 7
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;Max&quot;,
+    &quot;breed&quot;: &quot;unknown&quot;,
+    &quot;fluffiness&quot;: 5,
+    &quot;cuteness&quot;: 10
+  }
+]
+</code></pre>
+<p>This endpoint retrieves all kittens.</p>
+<h3>HTTP Request</h3>
+<p><code>GET http://example.com/api/kittens</code></p>
+<h3>Query Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>include_cats</td>
+<td>false</td>
+<td>If set to true, the result will also include cats.</td>
+</tr>
+<tr>
+<td>available</td>
+<td>true</td>
+<td>If set to false, the result will include kittens that have already been adopted.</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;aside class=&quot;success&quot;&gt;
+Remember — a happy kitten is an authenticated kitten!
+&lt;/aside&gt;</p>
+<h2>Get a Specific Kitten</h2>
+<pre><code class="language-ruby">require 'kittn'
+
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get(2)
+</code></pre>
+<pre><code class="language-python">import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get(2)
+</code></pre>
+<pre><code class="language-shell">curl &quot;http://example.com/api/kittens/2&quot;
+  -H &quot;Authorization: meowmeowmeow&quot;
+</code></pre>
+<pre><code class="language-javascript">const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.get(2);
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;id&quot;: 2,
+  &quot;name&quot;: &quot;Max&quot;,
+  &quot;breed&quot;: &quot;unknown&quot;,
+  &quot;fluffiness&quot;: 5,
+  &quot;cuteness&quot;: 10
+}
+</code></pre>
+<p>This endpoint retrieves a specific kitten.</p>
+<p>&lt;aside class=&quot;warning&quot;&gt;Inside HTML code blocks like this one, you can't use Markdown, so use &lt;code&gt;&lt;code&gt;&lt;/code&gt; blocks to denote code.&lt;/aside&gt;</p>
+<h3>HTTP Request</h3>
+<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<h3>URL Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to retrieve</td>
+</tr>
+</tbody>
+</table>
+
+        
+          
+        
+      </div>
+      <div class="dark-box">
+        
+          <div class="lang-selector">
+            
+              
+                <a href="#" data-language-name="shell">shell</a>
+              
+            
+              
+                <a href="#" data-language-name="ruby">ruby</a>
+              
+            
+              
+                <a href="#" data-language-name="python">python</a>
+              
+            
+              
+                <a href="#" data-language-name="javascript">javascript</a>
+              
+            
+          </div>
+        
+      </div>
+    </div>
+  </body>
+</html>
