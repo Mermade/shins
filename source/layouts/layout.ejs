@@ -34,7 +34,7 @@ under the License.
     <% } %>
   </head>
 
-  <body class="<%= current_page.page_classes %>" data-languages="<%= JSON.stringify(current_page.data.language_tabs) %>">
+  <body class="<%= current_page.page_classes %>" data-languages="<%- JSON.stringify(current_page.data.language_tabs).split('"').join("&quot;") %>">
     <a href="#" id="nav-button">
       <span>
         NAV

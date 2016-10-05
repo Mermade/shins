@@ -30,8 +30,6 @@ console.log(JSON.stringify(header,null,2));
 
 var content = md.render(inputArr[2]);
 
-//console.log(content);
-
 console.log(inputArr.length==3);
 
 var locals = {};
