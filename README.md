@@ -22,4 +22,4 @@ Shins is a port of [Slate](https://github.com/lord/slate) to Javascript / Nodejs
 ### Notes
 
 * Windows is definitely supported
-
+* Syntax highlighting in 166 languages
