@@ -2,7 +2,7 @@
   "name": "shins",
   "version": "0.1.0",
   "description": "Shins Is Not Slate",
-  "main": "index.js",
+  "main": "arapaho.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
