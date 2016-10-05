@@ -75,7 +75,7 @@ under the License.
       <div class="content">
         <%- yield(); %>
         <% if (current_page.data.includes) { for (var include in current_page.data.includes) { %>
-          <%= partial("includes/#{include}") %>
+          <%- partial(current_page.data.includes[include]) %>
         <% } %>
       </div>
       <div class="dark-box">

@@ -20,6 +20,11 @@ function javascript_include_tag(include) {
     return includeStr;
 }
 
+function partial(include) {
+    var includeStr = fs.readFileSync('./source/includes/_'+include+'.md','utf8');
+    return md.render(includeStr);
+}
+
 var inputStr = fs.readFileSync('./source/index.html.md','utf8');
 inputStr = inputStr.split('\r\n').join('\n');
 var inputArr = ('\n'+inputStr).split('\n---\n');
@@ -36,7 +41,7 @@ var locals = {};
 locals.current_page = {};
 locals.current_page.data = header;
 locals.yield = function() { return content };
-locals.partial = function(include) { return '' };
+locals.partial = partial;
 locals.image_tag = function(image) { return '<img src="/source/images/'+image+'">'; };
 locals.stylesheet_link_tag = function(stylesheet,media) { return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">' };
 locals.javascript_include_tag = javascript_include_tag;
