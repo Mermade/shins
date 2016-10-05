@@ -24,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/Mermade/shins/issues"
   },
-  "homepage": "https://github.com/Mermade/shins#readme"
+  "homepage": "https://github.com/Mermade/shins#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "compression": "^1.6.2",
+    "ejs": "^2.5.1"
+  }
 }
