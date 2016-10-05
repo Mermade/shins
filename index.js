@@ -37,6 +37,10 @@ var content = md.render(inputArr[2]);
 
 console.log(inputArr.length==3);
 
+var sh = hljs.getLanguage('bash');
+hljs.registerLanguage('shell',function(hljs){return sh;});
+hljs.registerLanguage('sh',function(hljs){return sh;});
+
 var locals = {};
 locals.current_page = {};
 locals.current_page.data = header;
