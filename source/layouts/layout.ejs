@@ -23,10 +23,10 @@ under the License.
     <title><%= current_page.data.title || "API Documentation" %></title>
 
     <style>
-      <%# was:= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
-    <%- stylesheet_link_tag('screen') %>
-    <%- stylesheet_link_tag('print') %>
+    <%- stylesheet_link_tag('screen','screen') %>
+    <%- stylesheet_link_tag('print','print') %>
+    <%- stylesheet_link_tag('dark','screen') %>
     <% if (current_page.data.search) {%>
       <%- javascript_include_tag("all") %>
     <% } else { %>

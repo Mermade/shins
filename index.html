@@ -9,10 +9,10 @@
     <title>API Reference</title>
 
     <style>
-      
     </style>
     <link rel="stylesheet" media="screen" href="/pub/css/screen.css">
     <link rel="stylesheet" media="print" href="/pub/css/print.css">
+    <link rel="stylesheet" media="screen" href="/pub/css/dark.css">
     
       <script src="/source/javascripts/lib/_jquery.js"></script>
 <script src="/source/javascripts/lib/_jquery_ui.js"></script>
@@ -87,21 +87,21 @@
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre><code class="language-ruby">require 'kittn'
+<pre><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'kittn'</span>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = <span class="hljs-constant">Kittn::APIClient</span>.authorize!(<span class="hljs-string">'meowmeowmeow'</span>)
 </code></pre>
-<pre><code class="language-python">import kittn
+<pre><code class="language-python"><span class="hljs-keyword">import</span> kittn
 
-api = kittn.authorize('meowmeowmeow')
+api = kittn.authorize(<span class="hljs-string">'meowmeowmeow'</span>)
 </code></pre>
 <pre><code class="language-shell"># With shell, you can just pass the correct header with each request
 curl &quot;api_endpoint_here&quot;
   -H &quot;Authorization: meowmeowmeow&quot;
 </code></pre>
-<pre><code class="language-javascript">const kittn = require('kittn');
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> kittn = <span class="hljs-built_in">require</span>(<span class="hljs-string">'kittn'</span>);
 
-let api = kittn.authorize('meowmeowmeow');
+<span class="hljs-keyword">let</span> api = kittn.authorize(<span class="hljs-string">'meowmeowmeow'</span>);
 </code></pre>
 <blockquote>
 <p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
@@ -114,42 +114,42 @@ You must replace &lt;code&gt;meowmeowmeow&lt;/code&gt; with your personal API ke
 &lt;/aside&gt;</p>
 <h1>Kittens</h1>
 <h2>Get All Kittens</h2>
-<pre><code class="language-ruby">require 'kittn'
+<pre><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'kittn'</span>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = <span class="hljs-constant">Kittn::APIClient</span>.authorize!(<span class="hljs-string">'meowmeowmeow'</span>)
 api.kittens.get
 </code></pre>
-<pre><code class="language-python">import kittn
+<pre><code class="language-python"><span class="hljs-keyword">import</span> kittn
 
-api = kittn.authorize('meowmeowmeow')
+api = kittn.authorize(<span class="hljs-string">'meowmeowmeow'</span>)
 api.kittens.get()
 </code></pre>
 <pre><code class="language-shell">curl &quot;http://example.com/api/kittens&quot;
   -H &quot;Authorization: meowmeowmeow&quot;
 </code></pre>
-<pre><code class="language-javascript">const kittn = require('kittn');
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> kittn = <span class="hljs-built_in">require</span>(<span class="hljs-string">'kittn'</span>);
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+<span class="hljs-keyword">let</span> api = kittn.authorize(<span class="hljs-string">'meowmeowmeow'</span>);
+<span class="hljs-keyword">let</span> kittens = api.kittens.get();
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre><code class="language-json">[
   {
-    &quot;id&quot;: 1,
-    &quot;name&quot;: &quot;Fluffums&quot;,
-    &quot;breed&quot;: &quot;calico&quot;,
-    &quot;fluffiness&quot;: 6,
-    &quot;cuteness&quot;: 7
-  },
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Fluffums"</span></span>,
+    "<span class="hljs-attribute">breed</span>": <span class="hljs-value"><span class="hljs-string">"calico"</span></span>,
+    "<span class="hljs-attribute">fluffiness</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
+    "<span class="hljs-attribute">cuteness</span>": <span class="hljs-value"><span class="hljs-number">7</span>
+  </span>},
   {
-    &quot;id&quot;: 2,
-    &quot;name&quot;: &quot;Max&quot;,
-    &quot;breed&quot;: &quot;unknown&quot;,
-    &quot;fluffiness&quot;: 5,
-    &quot;cuteness&quot;: 10
-  }
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Max"</span></span>,
+    "<span class="hljs-attribute">breed</span>": <span class="hljs-value"><span class="hljs-string">"unknown"</span></span>,
+    "<span class="hljs-attribute">fluffiness</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+    "<span class="hljs-attribute">cuteness</span>": <span class="hljs-value"><span class="hljs-number">10</span>
+  </span>}
 ]
 </code></pre>
 <p>This endpoint retrieves all kittens.</p>
@@ -181,34 +181,34 @@ let kittens = api.kittens.get();
 Remember — a happy kitten is an authenticated kitten!
 &lt;/aside&gt;</p>
 <h2>Get a Specific Kitten</h2>
-<pre><code class="language-ruby">require 'kittn'
+<pre><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'kittn'</span>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+api = <span class="hljs-constant">Kittn::APIClient</span>.authorize!(<span class="hljs-string">'meowmeowmeow'</span>)
+api.kittens.get(<span class="hljs-number">2</span>)
 </code></pre>
-<pre><code class="language-python">import kittn
+<pre><code class="language-python"><span class="hljs-keyword">import</span> kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+api = kittn.authorize(<span class="hljs-string">'meowmeowmeow'</span>)
+api.kittens.get(<span class="hljs-number">2</span>)
 </code></pre>
 <pre><code class="language-shell">curl &quot;http://example.com/api/kittens/2&quot;
   -H &quot;Authorization: meowmeowmeow&quot;
 </code></pre>
-<pre><code class="language-javascript">const kittn = require('kittn');
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> kittn = <span class="hljs-built_in">require</span>(<span class="hljs-string">'kittn'</span>);
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+<span class="hljs-keyword">let</span> api = kittn.authorize(<span class="hljs-string">'meowmeowmeow'</span>);
+<span class="hljs-keyword">let</span> max = api.kittens.get(<span class="hljs-number">2</span>);
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;id&quot;: 2,
-  &quot;name&quot;: &quot;Max&quot;,
-  &quot;breed&quot;: &quot;unknown&quot;,
-  &quot;fluffiness&quot;: 5,
-  &quot;cuteness&quot;: 10
-}
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Max"</span></span>,
+  "<span class="hljs-attribute">breed</span>": <span class="hljs-value"><span class="hljs-string">"unknown"</span></span>,
+  "<span class="hljs-attribute">fluffiness</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+  "<span class="hljs-attribute">cuteness</span>": <span class="hljs-value"><span class="hljs-number">10</span>
+</span>}
 </code></pre>
 <p>This endpoint retrieves a specific kitten.</p>
 <p>&lt;aside class=&quot;warning&quot;&gt;Inside HTML code blocks like this one, you can't use Markdown, so use &lt;code&gt;&lt;code&gt;&lt;/code&gt; blocks to denote code.&lt;/aside&gt;</p>

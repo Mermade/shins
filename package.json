@@ -26,9 +26,10 @@
   },
   "homepage": "https://github.com/Mermade/shins#readme",
   "dependencies": {
-    "express": "^4.13.3",
     "compression": "^1.6.2",
     "ejs": "^2.5.1",
+    "express": "^4.13.3",
+    "highlightjs": "^8.7.0",
     "js-yaml": "latest",
     "markdown-it": "latest"
   },

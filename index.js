@@ -1,6 +1,17 @@
 var fs = require('fs');
 
-var md = require('markdown-it')({linkify: true});
+var hljs = require('highlightjs/highlight.pack.js');
+var md = require('markdown-it')({linkify: true,
+    highlight: function (str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          try {
+            return hljs.highlight(lang, str).value;
+          } catch (__) {}
+        }
+
+        return ''; // use external default escaping
+    }
+});
 var yaml = require('js-yaml');
 var ejs = require('ejs');
 
@@ -29,7 +40,7 @@ locals.current_page.data = header;
 locals.yield = function() { return content };
 locals.partial = function(include) { return '' };
 locals.image_tag = function(image) { return '<img src="/source/images/'+image+'">'; };
-locals.stylesheet_link_tag = function(stylesheet) { return '<link rel="stylesheet" media="'+stylesheet+'" href="/pub/css/'+stylesheet+'.css">' };
+locals.stylesheet_link_tag = function(stylesheet,media) { return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">' };
 locals.javascript_include_tag = javascript_include_tag;
 
 var options = {};
