@@ -25,6 +25,14 @@ function partial(include) {
     return md.render(includeStr);
 }
 
+function postProcess(content){
+    content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g,function(match,group1,group2){
+       console.log(group1,group2);
+       return '<'+group1+' id="'+group2.toLowerCase().split(' ').join('-')+'">'+group2+'</'+group1+'>';
+    });
+    return content;
+}
+
 var inputStr = fs.readFileSync('./source/index.html.md','utf8');
 inputStr = inputStr.split('\r\n').join('\n');
 var inputArr = ('\n'+inputStr).split('\n---\n');
@@ -34,6 +42,7 @@ var header = yaml.safeLoad(headerStr);
 console.log(JSON.stringify(header,null,2));
 
 var content = md.render(inputArr[2]);
+content = postProcess(content);
 
 console.log(inputArr.length==3);
 
