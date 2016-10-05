@@ -1,0 +1,28 @@
+{
+  "name": "shins",
+  "version": "0.1.0",
+  "description": "Shins Is Not Slate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mermade/shins.git"
+  },
+  "keywords": [
+    "shins",
+    "slate",
+    "swagger",
+    "openapi",
+    "api",
+    "documentation",
+    "docs"
+  ],
+  "author": "Mike Ralphson",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Mermade/shins/issues"
+  },
+  "homepage": "https://github.com/Mermade/shins#readme"
+}
