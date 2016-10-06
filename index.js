@@ -1,4 +1,5 @@
 var fs = require('fs');
+var path = require('path');
 
 var hljs = require('highlightjs/highlight.pack.js');
 var md = require('markdown-it')({linkify: true, html: true,
@@ -16,12 +17,12 @@ var yaml = require('js-yaml');
 var ejs = require('ejs');
 
 function javascript_include_tag(include) {
-    var includeStr = fs.readFileSync('./source/javascripts/'+include+'.inc');
+    var includeStr = fs.readFileSync(path.join(__dirname)+'/source/javascripts/'+include+'.inc');
     return includeStr;
 }
 
 function partial(include) {
-    var includeStr = fs.readFileSync('./source/includes/_'+include+'.md','utf8');
+    var includeStr = fs.readFileSync(path.join(__dirname)+'/source/includes/_'+include+'.md','utf8');
     return md.render(includeStr);
 }
 
@@ -57,11 +58,12 @@ function render(inputStr,callback){
 
     var options = {};
     options.debug = false;
-    ejs.renderFile('./source/layouts/layout.ejs', locals, options, function(err, str){
+    ejs.renderFile(path.join(__dirname,'/source/layouts/layout.ejs'), locals, options, function(err, str){
         callback(err,str);
     });
 }
 
 module.exports = {
-  render : render
+  render : render,
+  srcDir : function() { return __dirname; }
 };
