@@ -27,10 +27,9 @@ function partial(include) {
 
 function postProcess(content){
     content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g,function(match,group1,group2){
-       return '<'+group1+' id="'+group2.toLowerCase().split(' ').join('-')+'">'+group2+'</'+group1+'>';
+       return '<'+group1+' id="'+group2.toLowerCase().split(' ').join('-').split('/').join('-')+'">'+group2+'</'+group1+'>';
     });
-    content = content.split('<pre><code ').join('<pre><div class="highlight"><code ');
-    content = content.split('</code></pre>').join('</code></div></pre>');
+    content = content.split('<pre><code ').join('<pre class="highlight"><code ');
     return content;
 }
 
