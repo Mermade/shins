@@ -29,6 +29,8 @@ function postProcess(content){
     content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g,function(match,group1,group2){
        return '<'+group1+' id="'+group2.toLowerCase().split(' ').join('-')+'">'+group2+'</'+group1+'>';
     });
+    content = content.split('<pre><code ').join('<pre><div class="highlight"><code ');
+    content = content.split('</code></pre>').join('</code></div></pre>');
     return content;
 }
 
@@ -40,14 +42,14 @@ var header = yaml.safeLoad(headerStr);
 
 console.log(JSON.stringify(header,null,2));
 
+var sh = hljs.getLanguage('bash');
+hljs.registerLanguage('shell',function(hljs){return sh;});
+hljs.registerLanguage('sh',function(hljs){return sh;});
+
 var content = md.render(inputArr[2]);
 content = postProcess(content);
 
 console.log(inputArr.length==3);
-
-var sh = hljs.getLanguage('bash');
-hljs.registerLanguage('shell',function(hljs){return sh;});
-hljs.registerLanguage('sh',function(hljs){return sh;});
 
 var locals = {};
 locals.current_page = {};
