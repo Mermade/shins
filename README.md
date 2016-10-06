@@ -5,7 +5,10 @@ Beautiful static documentation for your API.
 
 ![logo](http://mermade.github.io/shins/logo.jpg)
 
-Shins is a port of [Slate](https://github.com/lord/slate) to Javascript / Nodejs.
+Shins is a port of [Slate](https://github.com/lord/slate) to Javascript / Nodejs, and would
+not be possible without all of that hard work.
+
+![screenshot](http://mermade.github.io/shins/screenshot.jpg)
 
 ### Usage
 
@@ -23,3 +26,4 @@ Shins is a port of [Slate](https://github.com/lord/slate) to Javascript / Nodejs
 
 * Windows is definitely supported
 * Syntax highlighting in 166 languages
+* For converting OpenApi / Swagger specs to Shins, see [widdershins](http://github.com/mermade/widdershins)

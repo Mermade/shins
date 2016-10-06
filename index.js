@@ -27,7 +27,6 @@ function partial(include) {
 
 function postProcess(content){
     content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g,function(match,group1,group2){
-       console.log(group1,group2);
        return '<'+group1+' id="'+group2.toLowerCase().split(' ').join('-')+'">'+group2+'</'+group1+'>';
     });
     return content;
