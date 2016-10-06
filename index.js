@@ -33,40 +33,35 @@ function postProcess(content){
     return content;
 }
 
-var inputStr = fs.readFileSync('./source/index.html.md','utf8');
-inputStr = inputStr.split('\r\n').join('\n');
-var inputArr = ('\n'+inputStr).split('\n---\n');
-var headerStr = inputArr[1];
-var header = yaml.safeLoad(headerStr);
+function render(inputStr,callback){
+    inputStr = inputStr.split('\r\n').join('\n');
+    var inputArr = ('\n'+inputStr).split('\n---\n');
+    var headerStr = inputArr[1];
+    var header = yaml.safeLoad(headerStr);
 
-console.log(JSON.stringify(header,null,2));
+    var sh = hljs.getLanguage('bash');
+    hljs.registerLanguage('shell',function(hljs){return sh;});
+    hljs.registerLanguage('sh',function(hljs){return sh;});
 
-var sh = hljs.getLanguage('bash');
-hljs.registerLanguage('shell',function(hljs){return sh;});
-hljs.registerLanguage('sh',function(hljs){return sh;});
+    var content = md.render(inputArr[2]);
+    content = postProcess(content);
 
-var content = md.render(inputArr[2]);
-content = postProcess(content);
+    var locals = {};
+    locals.current_page = {};
+    locals.current_page.data = header;
+    locals.yield = function() { return content };
+    locals.partial = partial;
+    locals.image_tag = function(image) { return '<img src="/source/images/'+image+'">'; };
+    locals.stylesheet_link_tag = function(stylesheet,media) { return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">' };
+    locals.javascript_include_tag = javascript_include_tag;
 
-console.log(inputArr.length==3);
+    var options = {};
+    options.debug = false;
+    ejs.renderFile('./source/layouts/layout.ejs', locals, options, function(err, str){
+        callback(err,str);
+    });
+}
 
-var locals = {};
-locals.current_page = {};
-locals.current_page.data = header;
-locals.yield = function() { return content };
-locals.partial = partial;
-locals.image_tag = function(image) { return '<img src="/source/images/'+image+'">'; };
-locals.stylesheet_link_tag = function(stylesheet,media) { return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">' };
-locals.javascript_include_tag = javascript_include_tag;
-
-var options = {};
-options.debug = false;
-ejs.renderFile('./source/layouts/layout.ejs', locals, options, function(err, str){
-  if (err) {
-    console.log(err);
-  }
-  else {
-    str = str.split('\r').join('');
-    fs.writeFileSync('./index.html',str,'utf8');
-  }
-});
+module.exports = {
+  render : render
+};

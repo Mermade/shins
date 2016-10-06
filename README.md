@@ -15,8 +15,8 @@ not be possible without all of that hard work.
 * Fork the repository
 * Clone the fork
 * Edit source/index.html.md
-* `node index.js`
-* To check locally: `node arapaho` and browse to `localhost:4567`
+* `node shins.js`
+* To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567)
 * Add, commit and push
 * Then (in your fork) press this button
 
