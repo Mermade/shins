@@ -27,6 +27,18 @@ Or, to deploy to GitHub Pages:
 * Change the setting on your fork so Github Pages are served from the root directory
 * Browse to `https://{yourname}.github.io/{repository-name}`
 
+### API
+
+````javascript
+
+var shins = require('shins');
+shins.render(markdownString, function(err, html) {
+  // ...
+});
+````
+
+The `err` parameter is the result of the `ejs` rendering step.
+
 ### Notes
 
 * Windows is definitely supported
