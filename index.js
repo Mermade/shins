@@ -57,6 +57,9 @@ function render(inputStr,callback){
     var headerStr = inputArr[1];
     var header = yaml.safeLoad(headerStr);
 
+    /* non-matching languages between Ruby Rouge and highlight.js at 2016/07/10 are
+    ['ceylon','common_lisp','conf','cowscript','erb','factor','io','json-doc','liquid','literate_coffeescript','literate_haskell','llvm','make',
+    'objective_c','plaintext','praat','properties','racket','sass','sed','shell','slim','sml','toml','tulip','viml'];*/
     var sh = hljs.getLanguage('bash');
     hljs.registerLanguage('shell',function(hljs){return sh;});
     hljs.registerLanguage('sh',function(hljs){return sh;});
