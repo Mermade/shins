@@ -1,3 +1,6 @@
+*.txt
+compare.js
+
 # Logs
 logs
 *.log
