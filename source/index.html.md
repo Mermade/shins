@@ -1,12 +1,12 @@
 ---
 title: Swagger Petstore 1.0.0
 language_tabs:
-  - shell
-  - http
-  - html
-  - javascript
-  - python
-  - ruby
+  - shell: Shell
+  - http: HTTP
+  - html: JavaScript
+  - javascript: Node.JS
+  - python: Python
+  - ruby: Ruby
 toc_footers:
   - Find out more about Swagger
   - '<a href="http://swagger.io">External Docs</a>'
