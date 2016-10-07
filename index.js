@@ -1,3 +1,5 @@
+'use strict';
+
 var fs = require('fs');
 var path = require('path');
 
@@ -52,10 +54,10 @@ function render(inputStr,callback){
     var locals = {};
     locals.current_page = {};
     locals.current_page.data = header;
-    locals.yield = function() { return content };
+    locals.yield = function() { return content; };
     locals.partial = partial;
     locals.image_tag = function(image) { return '<img src="/source/images/'+image+'">'; };
-    locals.stylesheet_link_tag = function(stylesheet,media) { return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">' };
+    locals.stylesheet_link_tag = function(stylesheet,media) { return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">'; };
     locals.javascript_include_tag = javascript_include_tag;
 
     var options = {};
@@ -69,3 +71,4 @@ module.exports = {
   render : render,
   srcDir : function() { return __dirname; }
 };
+

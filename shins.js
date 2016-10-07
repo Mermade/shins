@@ -1,8 +1,10 @@
+'use strict';
+
 var fs = require('fs');
 var shins = require('./index.js');
 
 var inputStr = fs.readFileSync('./source/index.html.md','utf8');
-var result = shins.render(inputStr,function(err,str){
+shins.render(inputStr,function(err,str){
   if (err) {
     console.log(err);
   }
