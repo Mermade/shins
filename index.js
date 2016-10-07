@@ -2,16 +2,19 @@ var fs = require('fs');
 var path = require('path');
 
 var hljs = require('highlightjs/highlight.pack.js');
-var md = require('markdown-it')({linkify: true, html: true,
-    highlight: function (str, lang) {
-        if (lang && hljs.getLanguage(lang)) {
-          try {
-            return hljs.highlight(lang, str).value;
-          } catch (__) {}
-        }
 
-        return ''; // use external default escaping
+var md = require('markdown-it')({linkify: true, html: true,
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return '<pre class="highlight '+lang+'"><code>' +
+               hljs.highlight(lang, str, true).value +
+               '</code></pre>';
+      } catch (__) {}
     }
+
+    return '<pre class="highlight"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+  }
 });
 var yaml = require('js-yaml');
 var ejs = require('ejs');
@@ -30,7 +33,6 @@ function postProcess(content){
     content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g,function(match,group1,group2){
        return '<'+group1+' id="'+group2.toLowerCase().split(' ').join('-').split('/').join('-')+'">'+group2+'</'+group1+'>';
     });
-    content = content.split('<pre><code ').join('<pre class="highlight"><code ');
     return content;
 }
 

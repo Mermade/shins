@@ -115,15 +115,15 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X post http://petstore.swagger.io/v2/pet
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
     method: <span class="hljs-string">'post'</span>,
@@ -133,10 +133,10 @@ curl -X post http://petstore.swagger.io/v2/pet
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span>
@@ -146,7 +146,7 @@ result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-st
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -180,7 +180,7 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'<
 <blockquote>
 <p>Body parameter</p>
 </blockquote>
-<pre class="highlight"><code class="language-json">{
+<pre class="highlight json"><code>{
   "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
   "<span class="hljs-attribute">category</span>": <span class="hljs-value">{}</span>,
   "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
@@ -193,7 +193,7 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'<
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
 </span>}
 </code></pre>
-<pre class="highlight"><code class="language-xml"><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">Pet</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">category</span>/&gt;</span>
@@ -227,15 +227,15 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'<
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X put http://petstore.swagger.io/v2/pet
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">PUT <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">PUT <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
     method: <span class="hljs-string">'put'</span>,
@@ -245,10 +245,10 @@ curl -X put http://petstore.swagger.io/v2/pet
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.put <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span>
@@ -258,7 +258,7 @@ result = <span class="hljs-constant">RestClient</span>.put <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -292,7 +292,7 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</
 <blockquote>
 <p>Body parameter</p>
 </blockquote>
-<pre class="highlight"><code class="language-json">{
+<pre class="highlight json"><code>{
   "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
   "<span class="hljs-attribute">category</span>": <span class="hljs-value">{}</span>,
   "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
@@ -305,7 +305,7 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
 </span>}
 </code></pre>
-<pre class="highlight"><code class="language-xml"><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">Pet</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">category</span>/&gt;</span>
@@ -349,14 +349,14 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X get http://petstore.swagger.io/v2/pet/findByStatus
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByStatus</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByStatus</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>,
     method: <span class="hljs-string">'get'</span>,
@@ -366,10 +366,10 @@ curl -X get http://petstore.swagger.io/v2/pet/findByStatus
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>, <span class="hljs-symbol">params:</span>
@@ -379,7 +379,7 @@ result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -440,14 +440,14 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X get http://petstore.swagger.io/v2/pet/findByTags
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByTags</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByTags</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>,
     method: <span class="hljs-string">'get'</span>,
@@ -457,10 +457,10 @@ curl -X get http://petstore.swagger.io/v2/pet/findByTags
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>, <span class="hljs-symbol">params:</span>
@@ -470,7 +470,7 @@ result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -531,14 +531,14 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X get http://petstore.swagger.io/v2/pet/{petId}
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
     method: <span class="hljs-string">'get'</span>,
@@ -548,10 +548,10 @@ curl -X get http://petstore.swagger.io/v2/pet/{petId}
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span>
@@ -561,7 +561,7 @@ result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -627,15 +627,15 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{p
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X post http://petstore.swagger.io/v2/pet/{petId}
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
     method: <span class="hljs-string">'post'</span>,
@@ -645,10 +645,10 @@ curl -X post http://petstore.swagger.io/v2/pet/{petId}
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span>
@@ -658,7 +658,7 @@ result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-st
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -727,14 +727,14 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X delete http://petstore.swagger.io/v2/pet/{petId}
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">DELETE <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">DELETE <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
     method: <span class="hljs-string">'delete'</span>,
@@ -744,10 +744,10 @@ curl -X delete http://petstore.swagger.io/v2/pet/{petId}
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.delete <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span>
@@ -757,7 +757,7 @@ result = <span class="hljs-constant">RestClient</span>.delete <span class="hljs-
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -824,15 +824,15 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/pet
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X post http://petstore.swagger.io/v2/pet/{petId}/uploadImage
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}/uploadImage</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}/uploadImage</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">multipart/form-data</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>,
     method: <span class="hljs-string">'post'</span>,
@@ -842,10 +842,10 @@ curl -X post http://petstore.swagger.io/v2/pet/{petId}/uploadImage
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>, <span class="hljs-symbol">params:</span>
@@ -855,7 +855,7 @@ result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-st
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -926,14 +926,14 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X get http://petstore.swagger.io/v2/store/inventory
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/store/inventory</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/store/inventory</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>,
     method: <span class="hljs-string">'get'</span>,
@@ -943,10 +943,10 @@ curl -X get http://petstore.swagger.io/v2/store/inventory
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>, <span class="hljs-symbol">params:</span>
@@ -956,7 +956,7 @@ result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -991,14 +991,14 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X post http://petstore.swagger.io/v2/store/order
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/store/order</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/store/order</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>,
     method: <span class="hljs-string">'post'</span>,
@@ -1008,10 +1008,10 @@ curl -X post http://petstore.swagger.io/v2/store/order
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>, <span class="hljs-symbol">params:</span>
@@ -1021,7 +1021,7 @@ result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-st
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1084,14 +1084,14 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/store
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X get http://petstore.swagger.io/v2/store/order/{orderId}
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
     method: <span class="hljs-string">'get'</span>,
@@ -1101,10 +1101,10 @@ curl -X get http://petstore.swagger.io/v2/store/order/{orderId}
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span>
@@ -1114,7 +1114,7 @@ result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1180,14 +1180,14 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X delete http://petstore.swagger.io/v2/store/order/{orderId}
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">DELETE <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">DELETE <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
     method: <span class="hljs-string">'delete'</span>,
@@ -1197,10 +1197,10 @@ curl -X delete http://petstore.swagger.io/v2/store/order/{orderId}
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.delete <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span>
@@ -1210,7 +1210,7 @@ result = <span class="hljs-constant">RestClient</span>.delete <span class="hljs-
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1275,14 +1275,14 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/sto
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X post http://petstore.swagger.io/v2/user
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/user</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/user</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>,
     method: <span class="hljs-string">'post'</span>,
@@ -1292,10 +1292,10 @@ curl -X post http://petstore.swagger.io/v2/user
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>, <span class="hljs-symbol">params:</span>
@@ -1305,7 +1305,7 @@ result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-st
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1364,14 +1364,14 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user'
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X post http://petstore.swagger.io/v2/user/createWithArray
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/user/createWithArray</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/user/createWithArray</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>,
     method: <span class="hljs-string">'post'</span>,
@@ -1381,10 +1381,10 @@ curl -X post http://petstore.swagger.io/v2/user/createWithArray
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>, <span class="hljs-symbol">params:</span>
@@ -1394,7 +1394,7 @@ result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-st
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1452,14 +1452,14 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X post http://petstore.swagger.io/v2/user/createWithList
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/user/createWithList</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/user/createWithList</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>,
     method: <span class="hljs-string">'post'</span>,
@@ -1469,10 +1469,10 @@ curl -X post http://petstore.swagger.io/v2/user/createWithList
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>, <span class="hljs-symbol">params:</span>
@@ -1482,7 +1482,7 @@ result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-st
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1540,14 +1540,14 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X get http://petstore.swagger.io/v2/user/login
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/user/login</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/user/login</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>,
     method: <span class="hljs-string">'get'</span>,
@@ -1557,10 +1557,10 @@ curl -X get http://petstore.swagger.io/v2/user/login
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>, <span class="hljs-symbol">params:</span>
@@ -1570,7 +1570,7 @@ result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1637,14 +1637,14 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/l
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X get http://petstore.swagger.io/v2/user/<span class="hljs-built_in">logout</span>
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/user/logout</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/user/logout</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>,
     method: <span class="hljs-string">'get'</span>,
@@ -1654,10 +1654,10 @@ curl -X get http://petstore.swagger.io/v2/user/<span class="hljs-built_in">logou
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>, <span class="hljs-symbol">params:</span>
@@ -1667,7 +1667,7 @@ result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1701,14 +1701,14 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/l
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X get http://petstore.swagger.io/v2/user/{username}
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
     method: <span class="hljs-string">'get'</span>,
@@ -1718,10 +1718,10 @@ curl -X get http://petstore.swagger.io/v2/user/{username}
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span>
@@ -1731,7 +1731,7 @@ result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1796,14 +1796,14 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X put http://petstore.swagger.io/v2/user/{username}
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">PUT <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">PUT <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
     method: <span class="hljs-string">'put'</span>,
@@ -1813,10 +1813,10 @@ curl -X put http://petstore.swagger.io/v2/user/{username}
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.put <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span>
@@ -1826,7 +1826,7 @@ result = <span class="hljs-constant">RestClient</span>.put <span class="hljs-str
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, params={
   <span class="hljs-comment"># TODO</span>
@@ -1897,14 +1897,14 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight"><code class="language-shell"><span class="hljs-comment"># you can also use wget</span>
+<pre class="highlight shell"><code><span class="hljs-comment"># you can also use wget</span>
 curl -X delete http://petstore.swagger.io/v2/user/{username}
 </code></pre>
-<pre class="highlight"><code class="language-http"><span class="hljs-request">DELETE <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1</span>
+<pre class="highlight http"><code><span class="hljs-request">DELETE <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1</span>
 <span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
 <span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 </code></pre>
-<pre class="highlight"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<pre class="highlight html"><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
   $.ajax({
     url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
     method: <span class="hljs-string">'delete'</span>,
@@ -1914,10 +1914,10 @@ curl -X delete http://petstore.swagger.io/v2/user/{username}
   })
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<pre class="highlight"><code class="language-javascript"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
+<pre class="highlight javascript"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'request'</span>);
 request(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>);
 </code></pre>
-<pre class="highlight"><code class="language-ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 result = <span class="hljs-constant">RestClient</span>.delete <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span>
@@ -1927,7 +1927,7 @@ result = <span class="hljs-constant">RestClient</span>.delete <span class="hljs-
 
 p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
-<pre class="highlight"><code class="language-python"><span class="hljs-keyword">import</span> requests
+<pre class="highlight python"><code><span class="hljs-keyword">import</span> requests
 
 r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, params={
   <span class="hljs-comment"># TODO</span>
