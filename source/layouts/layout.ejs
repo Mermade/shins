@@ -34,7 +34,7 @@ under the License.
     <% } %>
   </head>
 
-  <body class="<%= current_page.page_classes %>" data-languages="<%- JSON.stringify(current_page.data.language_tabs).split('"').join("&quot;") %>">
+  <body class="<%= current_page.page_classes %>" data-languages="<%- language_array(current_page.data.language_tabs) %>">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -46,8 +46,8 @@ under the License.
       <% if (language_tabs) {%>
         <div class="lang-selector">
           <% for (var lang in language_tabs) { %>
-            <% if (typeof lang === 'object') { %>
-              <a href="#" data-language-name="<%= language_tabs[lang][0] %>"><%= language_tabs[lang][0] %></a>
+            <% if (typeof language_tabs[lang] === 'object') { %>
+              <a href="#" data-language-name="<%= Object.keys(language_tabs[lang])[0] %>"><%= language_tabs[lang][Object.keys(language_tabs[lang])[0]] %></a>
             <% } else { %>
               <a href="#" data-language-name="<%= language_tabs[lang] %>"><%= language_tabs[lang] %></a>
             <% } %>
@@ -82,8 +82,8 @@ under the License.
         <% if (language_tabs) %>
           <div class="lang-selector">
             <% for (var lang in language_tabs) { %>
-              <% if (typeof lang === 'object') { %>
-                <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+              <% if (typeof language_tabs[lang] === 'object') { %>
+                <a href="#" data-language-name="<%= Object.keys(language_tabs[lang])[0] %>"><%= language_tabs[lang][Object.keys(language_tabs[lang])[0]]  %></a>
               <% } else { %>
                 <a href="#" data-language-name="<%= language_tabs[lang] %>"><%= language_tabs[lang] %></a>
               <% } %>

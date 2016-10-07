@@ -31,6 +31,19 @@ function partial(include) {
     return md.render(includeStr);
 }
 
+function language_array(language_tabs) {
+    var result = [];
+    for (var lang in language_tabs) {
+        if (typeof language_tabs[lang] === 'object') {
+            result.push(Object.keys(language_tabs[lang])[0]);
+        }
+        else {
+            result.push(language_tabs[lang])
+        }
+    }
+    return JSON.stringify(result).split('"').join('&quot;');
+}
+
 function postProcess(content){
     content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g,function(match,group1,group2){
        return '<'+group1+' id="'+group2.toLowerCase().split(' ').join('-').split('/').join('-')+'">'+group2+'</'+group1+'>';
@@ -59,6 +72,7 @@ function render(inputStr,callback){
     locals.image_tag = function(image) { return '<img src="/source/images/'+image+'">'; };
     locals.stylesheet_link_tag = function(stylesheet,media) { return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">'; };
     locals.javascript_include_tag = javascript_include_tag;
+    locals.language_array = language_array;
 
     var options = {};
     options.debug = false;
