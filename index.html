@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Swagger Petstore 1.0.0</title>
+    <title>Swagger Petstore v1.0.0</title>
 
     <style>
     </style>
@@ -77,9 +77,7 @@
       
         <ul class="toc-footer">
           
-            <li>Find out more about Swagger</li>
-          
-            <li><a href="http://swagger.io">External Docs</a></li>
+            <li><a href="http://swagger.io">Find out more about Swagger</a></li>
           
         </ul>
       
@@ -87,9 +85,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
-<p>Base URL = <a href="http://petstore.swagger.io/v2">http://petstore.swagger.io/v2</a></p>
+        <h1 id="swagger-petstore-v1.0.0">Swagger Petstore v1.0.0</h1>
 <p>This is a sample server Petstore server.  You can find out more about Swagger at <a href="http://swagger.io">http://swagger.io</a> or on <a href="http://swagger.io/irc/">irc.freenode.net, #swagger</a>.  For this sample, you can use the api key <code>special-key</code> to test the authorization filters.</p>
+<p>Base URL = <a href="http://petstore.swagger.io/v2">http://petstore.swagger.io/v2</a></p>
 <p><a href="http://swagger.io/terms/">Terms of service</a>
 Email: <a href="mailto:apiteam@swagger.io">Support</a>
 License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a></p>
@@ -109,9 +107,8 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 </ul>
 <h1 id="pet">pet</h1>
 <p>Everything about your Pets</p>
-<p>Find out more about Swagger
-<a href="http://swagger.io">External Docs</a></p>
-<h2 id="post--pet">POST /pet</h2>
+<p><a href="http://swagger.io">Find out more</a></p>
+<h2 id="addpet">addPet</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -154,7 +151,7 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'<
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>addPet</strong></p>
+<p><code>POST /pet</code></p>
 <p><em>Add a new pet to the store</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -220,10 +217,11 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'<
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<h2 id="put--pet">PUT /pet</h2>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
+<h2 id="updatepet">updatePet</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -266,7 +264,7 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>updatePet</strong></p>
+<p><code>PUT /pet</code></p>
 <p><em>Update an existing pet</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -342,10 +340,11 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<h2 id="get--pet-findbystatus">GET /pet/findByStatus</h2>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
+<h2 id="findpetsbystatus">findPetsByStatus</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -387,7 +386,7 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>findPetsByStatus</strong></p>
+<p><code>GET /pet/findByStatus</code></p>
 <p><em>Finds Pets by status</em></p>
 <p>Multiple status values can be provided with comma separated strings</p>
 <h3 id="parameters">Parameters</h3>
@@ -436,7 +435,11 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<h2 id="get--pet-findbytags">GET /pet/findByTags</h2>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
+<h2 id="findpetsbytags">findPetsByTags</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -478,7 +481,7 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>findPetsByTags</strong></p>
+<p><code>GET /pet/findByTags</code></p>
 <p><em>Finds Pets by tags</em></p>
 <p>Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.</p>
 <h3 id="parameters">Parameters</h3>
@@ -527,7 +530,11 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<h2 id="get--pet-{petid}">GET /pet/{petId}</h2>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
+<h2 id="getpetbyid">getPetById</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -569,7 +576,7 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{p
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>getPetById</strong></p>
+<p><code>GET /pet/{petId}</code></p>
 <p><em>Find pet by ID</em></p>
 <p>Returns a single pet</p>
 <h3 id="parameters">Parameters</h3>
@@ -623,7 +630,11 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{p
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<h2 id="post--pet-{petid}">POST /pet/{petId}</h2>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+apiKey
+</aside>
+<h2 id="updatepetwithform">updatePetWithForm</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -666,7 +677,7 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>updatePetWithForm</strong></p>
+<p><code>POST /pet/{petId}</code></p>
 <p><em>Updates a pet in the store with form data</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -720,10 +731,11 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<h2 id="delete--pet-{petid}">DELETE /pet/{petId}</h2>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
+<h2 id="deletepet">deletePet</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -765,7 +777,7 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/pet
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>deletePet</strong></p>
+<p><code>DELETE /pet/{petId}</code></p>
 <p><em>Deletes a pet</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -817,10 +829,11 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/pet
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<h2 id="post--pet-{petid}-uploadimage">POST /pet/{petId}/uploadImage</h2>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
+<h2 id="uploadfile">uploadFile</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -863,7 +876,7 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>uploadFile</strong></p>
+<p><code>POST /pet/{petId}/uploadImage</code></p>
 <p><em>uploads an image</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -920,9 +933,13 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
 <h1 id="store">store</h1>
 <p>Access to Petstore orders</p>
-<h2 id="get--store-inventory">GET /store/inventory</h2>
+<h2 id="getinventory">getInventory</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -964,7 +981,7 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>getInventory</strong></p>
+<p><code>GET /store/inventory</code></p>
 <p><em>Returns pet inventories by status</em></p>
 <p>Returns a map of status codes to quantities</p>
 <h3 id="responses">Responses</h3>
@@ -987,7 +1004,11 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<h2 id="post--store-order">POST /store/order</h2>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+apiKey
+</aside>
+<h2 id="placeorder">placeOrder</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1029,7 +1050,7 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/store
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>placeOrder</strong></p>
+<p><code>POST /store/order</code></p>
 <p><em>Place an order for a pet</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -1080,7 +1101,10 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/store
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<h2 id="get--store-order-{orderid}">GET /store/order/{orderId}</h2>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="getorderbyid">getOrderById</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1122,7 +1146,7 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>getOrderById</strong></p>
+<p><code>GET /store/order/{orderId}</code></p>
 <p><em>Find purchase order by ID</em></p>
 <p>For valid response try integer IDs with value &gt;= 1 and &lt;= 10. Other values will generated exceptions</p>
 <h3 id="parameters">Parameters</h3>
@@ -1176,7 +1200,10 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<h2 id="delete--store-order-{orderid}">DELETE /store/order/{orderId}</h2>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="deleteorder">deleteOrder</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1218,7 +1245,7 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/sto
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>deleteOrder</strong></p>
+<p><code>DELETE /store/order/{orderId}</code></p>
 <p><em>Delete purchase order by ID</em></p>
 <p>For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors</p>
 <h3 id="parameters">Parameters</h3>
@@ -1264,14 +1291,13 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/sto
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
+<aside class="success">
+This operation does not require authentication
+</aside>
 <h1 id="user">user</h1>
 <p>Operations about user</p>
-<p>Find out more about Swagger
-<a href="http://swagger.io">External Docs</a></p>
-<h2 id="post--user">POST /user</h2>
+<p><a href="http://swagger.io">Find out more about our store</a></p>
+<h2 id="createuser">createUser</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1313,7 +1339,7 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user'
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>createUser</strong></p>
+<p><code>POST /user</code></p>
 <p><em>Create user</em></p>
 <p>This can only be done by the logged in user.</p>
 <h3 id="parameters">Parameters</h3>
@@ -1352,15 +1378,15 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user'
 <tbody>
 <tr>
 <td>default</td>
-<td><a href="#">Unknown</a></td>
+<td>Default</td>
 <td>successful operation</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<h2 id="post--user-createwitharray">POST /user/createWithArray</h2>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="createuserswitharrayinput">createUsersWithArrayInput</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1402,7 +1428,7 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>createUsersWithArrayInput</strong></p>
+<p><code>POST /user/createWithArray</code></p>
 <p><em>Creates list of users with given input array</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -1440,15 +1466,15 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/
 <tbody>
 <tr>
 <td>default</td>
-<td><a href="#">Unknown</a></td>
+<td>Default</td>
 <td>successful operation</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<h2 id="post--user-createwithlist">POST /user/createWithList</h2>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="createuserswithlistinput">createUsersWithListInput</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1490,7 +1516,7 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>createUsersWithListInput</strong></p>
+<p><code>POST /user/createWithList</code></p>
 <p><em>Creates list of users with given input array</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -1528,15 +1554,15 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/
 <tbody>
 <tr>
 <td>default</td>
-<td><a href="#">Unknown</a></td>
+<td>Default</td>
 <td>successful operation</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<h2 id="get--user-login">GET /user/login</h2>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="loginuser">loginUser</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1578,7 +1604,7 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/l
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>loginUser</strong></p>
+<p><code>GET /user/login</code></p>
 <p><em>Logs user into the system</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -1633,7 +1659,10 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/l
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<h2 id="get--user-logout">GET /user/logout</h2>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="logoutuser">logoutUser</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1675,7 +1704,7 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/l
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>logoutUser</strong></p>
+<p><code>GET /user/logout</code></p>
 <p><em>Logs out current logged in user session</em></p>
 <h3 id="responses">Responses</h3>
 <table>
@@ -1689,15 +1718,15 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/l
 <tbody>
 <tr>
 <td>default</td>
-<td><a href="#">Unknown</a></td>
+<td>Default</td>
 <td>successful operation</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<h2 id="get--user-{username}">GET /user/{username}</h2>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="getuserbyname">getUserByName</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1739,7 +1768,7 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>getUserByName</strong></p>
+<p><code>GET /user/{username}</code></p>
 <p><em>Get user by user name</em></p>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -1792,7 +1821,10 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<h2 id="put--user-{username}">PUT /user/{username}</h2>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="updateuser">updateUser</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1834,7 +1866,7 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>updateUser</strong></p>
+<p><code>PUT /user/{username}</code></p>
 <p><em>Updated user</em></p>
 <p>This can only be done by the logged in user.</p>
 <h3 id="parameters">Parameters</h3>
@@ -1890,10 +1922,10 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<h2 id="delete--user-{username}">DELETE /user/{username}</h2>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h2 id="deleteuser">deleteUser</h2>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1935,7 +1967,7 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/use
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
-<p><strong>deleteUser</strong></p>
+<p><code>DELETE /user/{username}</code></p>
 <p><em>Delete user</em></p>
 <p>This can only be done by the logged in user.</p>
 <h3 id="parameters">Parameters</h3>
@@ -1981,9 +2013,9 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/use
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
+<aside class="success">
+This operation does not require authentication
+</aside>
 
         
       </div>

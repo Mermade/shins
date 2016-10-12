@@ -1,5 +1,5 @@
 ---
-title: Swagger Petstore 1.0.0
+title: Swagger Petstore v1.0.0
 language_tabs:
   - shell: Shell
   - http: HTTP
@@ -8,16 +8,16 @@ language_tabs:
   - python: Python
   - ruby: Ruby
 toc_footers:
-  - Find out more about Swagger
-  - '<a href="http://swagger.io">External Docs</a>'
+  - '<a href="http://swagger.io">Find out more about Swagger</a>'
 includes: []
 search: true
 ---
 
-# Introduction
-Base URL = http://petstore.swagger.io/v2
+# Swagger Petstore v1.0.0
 
 This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.
+
+Base URL = http://petstore.swagger.io/v2
 
 <a href="http://swagger.io/terms/">Terms of service</a>
 Email: <a href="mailto:apiteam@swagger.io">Support</a>
@@ -34,9 +34,8 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 
 Everything about your Pets
 
-Find out more about Swagger
-<a href="http://swagger.io">External Docs</a>
-## POST /pet
+<a href="http://swagger.io">Find out more</a>
+## addPet
 
 > Code samples
 
@@ -85,7 +84,7 @@ r = requests.post('http://petstore.swagger.io/v2/pet', params={
 
 print r.json()
 ````
-**addPet**
+`POST /pet`
 
 *Add a new pet to the store*
 
@@ -127,10 +126,12 @@ body|body|object|true|Pet object that needs to be added to the store
 Status|Meaning|Description
 ---|--|---|
 405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Invalid input
-> Example responses
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
 
-
-## PUT /pet
+## updatePet
 
 > Code samples
 
@@ -179,7 +180,7 @@ r = requests.put('http://petstore.swagger.io/v2/pet', params={
 
 print r.json()
 ````
-**updatePet**
+`PUT /pet`
 
 *Update an existing pet*
 
@@ -223,10 +224,12 @@ Status|Meaning|Description
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found
 405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Validation exception
-> Example responses
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
 
-
-## GET /pet/findByStatus
+## findPetsByStatus
 
 > Code samples
 
@@ -274,7 +277,7 @@ r = requests.get('http://petstore.swagger.io/v2/pet/findByStatus', params={
 
 print r.json()
 ````
-**findPetsByStatus**
+`GET /pet/findByStatus`
 
 *Finds Pets by status*
 
@@ -294,8 +297,12 @@ Status|Meaning|Description
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid status value
 > Example responses
 
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
 
-## GET /pet/findByTags
+## findPetsByTags
 
 > Code samples
 
@@ -343,7 +350,7 @@ r = requests.get('http://petstore.swagger.io/v2/pet/findByTags', params={
 
 print r.json()
 ````
-**findPetsByTags**
+`GET /pet/findByTags`
 
 *Finds Pets by tags*
 
@@ -363,8 +370,12 @@ Status|Meaning|Description
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid tag value
 > Example responses
 
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
 
-## GET /pet/{petId}
+## getPetById
 
 > Code samples
 
@@ -412,7 +423,7 @@ r = requests.get('http://petstore.swagger.io/v2/pet/{petId}', params={
 
 print r.json()
 ````
-**getPetById**
+`GET /pet/{petId}`
 
 *Find pet by ID*
 
@@ -433,8 +444,12 @@ Status|Meaning|Description
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found
 > Example responses
 
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+apiKey
+</aside>
 
-## POST /pet/{petId}
+## updatePetWithForm
 
 > Code samples
 
@@ -483,7 +498,7 @@ r = requests.post('http://petstore.swagger.io/v2/pet/{petId}', params={
 
 print r.json()
 ````
-**updatePetWithForm**
+`POST /pet/{petId}`
 
 *Updates a pet in the store with form data*
 
@@ -500,10 +515,12 @@ status|formData|string|false|Updated status of the pet
 Status|Meaning|Description
 ---|--|---|
 405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Invalid input
-> Example responses
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
 
-
-## DELETE /pet/{petId}
+## deletePet
 
 > Code samples
 
@@ -551,7 +568,7 @@ r = requests.delete('http://petstore.swagger.io/v2/pet/{petId}', params={
 
 print r.json()
 ````
-**deletePet**
+`DELETE /pet/{petId}`
 
 *Deletes a pet*
 
@@ -568,10 +585,12 @@ Status|Meaning|Description
 ---|--|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found
-> Example responses
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
 
-
-## POST /pet/{petId}/uploadImage
+## uploadFile
 
 > Code samples
 
@@ -620,7 +639,7 @@ r = requests.post('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', param
 
 print r.json()
 ````
-**uploadFile**
+`POST /pet/{petId}/uploadImage`
 
 *uploads an image*
 
@@ -639,12 +658,16 @@ Status|Meaning|Description
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 > Example responses
 
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+oauth2 ( Scopes: write:pets read:pets )
+</aside>
 
 # store
 
 Access to Petstore orders
 
-## GET /store/inventory
+## getInventory
 
 > Code samples
 
@@ -692,7 +715,7 @@ r = requests.get('http://petstore.swagger.io/v2/store/inventory', params={
 
 print r.json()
 ````
-**getInventory**
+`GET /store/inventory`
 
 *Returns pet inventories by status*
 
@@ -705,8 +728,12 @@ Status|Meaning|Description
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 > Example responses
 
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+apiKey
+</aside>
 
-## POST /store/order
+## placeOrder
 
 > Code samples
 
@@ -754,7 +781,7 @@ r = requests.post('http://petstore.swagger.io/v2/store/order', params={
 
 print r.json()
 ````
-**placeOrder**
+`POST /store/order`
 
 *Place an order for a pet*
 
@@ -774,8 +801,11 @@ Status|Meaning|Description
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid Order
 > Example responses
 
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-## GET /store/order/{orderId}
+## getOrderById
 
 > Code samples
 
@@ -823,7 +853,7 @@ r = requests.get('http://petstore.swagger.io/v2/store/order/{orderId}', params={
 
 print r.json()
 ````
-**getOrderById**
+`GET /store/order/{orderId}`
 
 *Find purchase order by ID*
 
@@ -844,8 +874,11 @@ Status|Meaning|Description
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found
 > Example responses
 
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-## DELETE /store/order/{orderId}
+## deleteOrder
 
 > Code samples
 
@@ -893,7 +926,7 @@ r = requests.delete('http://petstore.swagger.io/v2/store/order/{orderId}', param
 
 print r.json()
 ````
-**deleteOrder**
+`DELETE /store/order/{orderId}`
 
 *Delete purchase order by ID*
 
@@ -911,16 +944,16 @@ Status|Meaning|Description
 ---|--|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found
-> Example responses
-
+<aside class="success">
+This operation does not require authentication
+</aside>
 
 # user
 
 Operations about user
 
-Find out more about Swagger
-<a href="http://swagger.io">External Docs</a>
-## POST /user
+<a href="http://swagger.io">Find out more about our store</a>
+## createUser
 
 > Code samples
 
@@ -968,7 +1001,7 @@ r = requests.post('http://petstore.swagger.io/v2/user', params={
 
 print r.json()
 ````
-**createUser**
+`POST /user`
 
 *Create user*
 
@@ -986,11 +1019,12 @@ body|body|object|true|Created user object
 
 Status|Meaning|Description
 ---|--|---|
-default|[Unknown](#)|successful operation
-> Example responses
+default|Default|successful operation
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-
-## POST /user/createWithArray
+## createUsersWithArrayInput
 
 > Code samples
 
@@ -1038,7 +1072,7 @@ r = requests.post('http://petstore.swagger.io/v2/user/createWithArray', params={
 
 print r.json()
 ````
-**createUsersWithArrayInput**
+`POST /user/createWithArray`
 
 *Creates list of users with given input array*
 
@@ -1054,11 +1088,12 @@ body|body|object|true|List of user object
 
 Status|Meaning|Description
 ---|--|---|
-default|[Unknown](#)|successful operation
-> Example responses
+default|Default|successful operation
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-
-## POST /user/createWithList
+## createUsersWithListInput
 
 > Code samples
 
@@ -1106,7 +1141,7 @@ r = requests.post('http://petstore.swagger.io/v2/user/createWithList', params={
 
 print r.json()
 ````
-**createUsersWithListInput**
+`POST /user/createWithList`
 
 *Creates list of users with given input array*
 
@@ -1122,11 +1157,12 @@ body|body|object|true|List of user object
 
 Status|Meaning|Description
 ---|--|---|
-default|[Unknown](#)|successful operation
-> Example responses
+default|Default|successful operation
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-
-## GET /user/login
+## loginUser
 
 > Code samples
 
@@ -1174,7 +1210,7 @@ r = requests.get('http://petstore.swagger.io/v2/user/login', params={
 
 print r.json()
 ````
-**loginUser**
+`GET /user/login`
 
 *Logs user into the system*
 
@@ -1193,8 +1229,11 @@ Status|Meaning|Description
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username/password supplied
 > Example responses
 
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-## GET /user/logout
+## logoutUser
 
 > Code samples
 
@@ -1242,7 +1281,7 @@ r = requests.get('http://petstore.swagger.io/v2/user/logout', params={
 
 print r.json()
 ````
-**logoutUser**
+`GET /user/logout`
 
 *Logs out current logged in user session*
 
@@ -1250,11 +1289,12 @@ print r.json()
 
 Status|Meaning|Description
 ---|--|---|
-default|[Unknown](#)|successful operation
-> Example responses
+default|Default|successful operation
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-
-## GET /user/{username}
+## getUserByName
 
 > Code samples
 
@@ -1302,7 +1342,7 @@ r = requests.get('http://petstore.swagger.io/v2/user/{username}', params={
 
 print r.json()
 ````
-**getUserByName**
+`GET /user/{username}`
 
 *Get user by user name*
 
@@ -1321,8 +1361,11 @@ Status|Meaning|Description
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found
 > Example responses
 
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-## PUT /user/{username}
+## updateUser
 
 > Code samples
 
@@ -1370,7 +1413,7 @@ r = requests.put('http://petstore.swagger.io/v2/user/{username}', params={
 
 print r.json()
 ````
-**updateUser**
+`PUT /user/{username}`
 
 *Updated user*
 
@@ -1391,10 +1434,11 @@ Status|Meaning|Description
 ---|--|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid user supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found
-> Example responses
+<aside class="success">
+This operation does not require authentication
+</aside>
 
-
-## DELETE /user/{username}
+## deleteUser
 
 > Code samples
 
@@ -1442,7 +1486,7 @@ r = requests.delete('http://petstore.swagger.io/v2/user/{username}', params={
 
 print r.json()
 ````
-**deleteUser**
+`DELETE /user/{username}`
 
 *Delete user*
 
@@ -1460,7 +1504,8 @@ Status|Meaning|Description
 ---|--|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found
-> Example responses
-
+<aside class="success">
+This operation does not require authentication
+</aside>
 
 
