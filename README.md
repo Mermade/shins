@@ -42,5 +42,5 @@ The `err` parameter is the result of the `ejs` rendering step.
 ### Notes
 
 * Windows is definitely supported
-* Syntax highlighting in 166 languages
+* Syntax highlighting in 166 languages (you can specify the highlighter style to use by setting `highlighter_theme` in your slate markdown header)
 * For converting OpenApi / Swagger specs to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)

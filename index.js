@@ -4,6 +4,7 @@ var fs = require('fs');
 var path = require('path');
 
 var hljs = require('highlightjs/highlight.pack.js');
+var hlpath = require.resolve('highlightjs/highlight.pack.js').replace('highlight.pack.js','');
 
 var md = require('markdown-it')({linkify: true, html: true,
   highlight: function (str, lang) {
@@ -22,14 +23,25 @@ var yaml = require('js-yaml');
 var ejs = require('ejs');
 
 function javascript_include_tag(include) {
-    var includeStr = fs.readFileSync(path.join(__dirname)+'/source/javascripts/'+include+'.inc');
+    var includeStr = fs.readFileSync(path.join(__dirname,'/source/javascripts/'+include+'.inc'),'utf8');
     return includeStr;
 }
 
 function partial(include) {
-    var includeStr = fs.readFileSync(path.join(__dirname)+'/source/includes/_'+include+'.md','utf8');
+    var includeStr = fs.readFileSync(path.join(__dirname,'/source/includes/_'+include+'.md'),'utf8');
     return md.render(includeStr);
 }
+
+function stylesheet_link_tag(stylesheet,media) {
+    if (media == 'screen') {
+        var target = path.join(__dirname,'/pub/css/'+stylesheet+'.css');
+        if (!fs.existsSync(target)) {
+            var source = path.join(hlpath,'/styles/'+stylesheet+'.css');
+            fs.writeFileSync(target, fs.readFileSync(source));
+        }
+    }
+    return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">';
+};
 
 function language_array(language_tabs) {
     var result = [];
@@ -73,7 +85,7 @@ function render(inputStr,callback){
     locals.yield = function() { return content; };
     locals.partial = partial;
     locals.image_tag = function(image) { return '<img src="/source/images/'+image+'">'; };
-    locals.stylesheet_link_tag = function(stylesheet,media) { return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">'; };
+    locals.stylesheet_link_tag = stylesheet_link_tag;
     locals.javascript_include_tag = javascript_include_tag;
     locals.language_array = language_array;
 

@@ -26,7 +26,7 @@ under the License.
     </style>
     <%- stylesheet_link_tag('screen','screen') %>
     <%- stylesheet_link_tag('print','print') %>
-    <%- stylesheet_link_tag('darkula','screen') %>
+    <%- stylesheet_link_tag(current_page.data.highlight_theme||'darkula','screen') %>
     <% if (current_page.data.search) {%>
       <%- javascript_include_tag("all") %>
     <% } else { %>
