@@ -12,7 +12,7 @@
     </style>
     <link rel="stylesheet" media="screen" href="/pub/css/screen.css">
     <link rel="stylesheet" media="print" href="/pub/css/print.css">
-    <link rel="stylesheet" media="screen" href="/pub/css/darkula.css">
+    <link rel="stylesheet" media="screen" href="/pub/css/obsidian.css">
     
       <script src="/source/javascripts/lib/_jquery.js"></script>
 <script src="/source/javascripts/lib/_jquery_ui.js"></script>
@@ -179,13 +179,19 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'<
 </blockquote>
 <pre class="highlight json"><code>{
   "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-  "<span class="hljs-attribute">category</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+  </span>}</span>,
   "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
   "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
     <span class="hljs-string">"string"</span>
   ]</span>,
   "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
-    {}
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
   ]</span>,
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
 </span>}
@@ -193,10 +199,16 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'<
 <pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">Pet</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">category</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">tags</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">Pet</span>&gt;</span>
 </code></pre>
@@ -292,13 +304,19 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</
 </blockquote>
 <pre class="highlight json"><code>{
   "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-  "<span class="hljs-attribute">category</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+  </span>}</span>,
   "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
   "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
     <span class="hljs-string">"string"</span>
   ]</span>,
   "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
-    {}
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
   ]</span>,
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
 </span>}
@@ -306,10 +324,16 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</
 <pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">Pet</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">category</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">tags</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">Pet</span>&gt;</span>
 </code></pre>
@@ -435,6 +459,41 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<pre class="highlight json"><code>[
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
+    "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
+      <span class="hljs-string">"string"</span>
+    ]</span>,
+    "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
+  </span>}
+]
+</code></pre>
+<pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+</code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -530,6 +589,41 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<pre class="highlight json"><code>[
+  {
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
+    "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
+      <span class="hljs-string">"string"</span>
+    ]</span>,
+    "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
+  </span>}
+]
+</code></pre>
+<pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+</code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -630,6 +724,41 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{p
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<pre class="highlight json"><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
+  "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
+    <span class="hljs-string">"string"</span>
+  ]</span>,
+  "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
+</span>}
+</code></pre>
+<pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Pet</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Pet</span>&gt;</span>
+</code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKey
@@ -933,6 +1062,12 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<pre class="highlight json"><code>{
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+</span>}
+</code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -1004,6 +1139,11 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<pre class="highlight json"><code>{
+  "<span class="hljs-attribute">property1</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">property2</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}
+</code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKey
@@ -1101,6 +1241,25 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/store
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<pre class="highlight json"><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">petId</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">quantity</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">shipDate</span>": <span class="hljs-value"><span class="hljs-string">"2016-10-15T12:39:32.834Z"</span></span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"placed"</span></span>,
+  "<span class="hljs-attribute">complete</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+</span>}
+</code></pre>
+<pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Order</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">petId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">quantity</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">shipDate</span>&gt;</span>2016-10-15T12:39:32.834Z<span class="hljs-tag">&lt;/<span class="hljs-title">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-title">complete</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Order</span>&gt;</span>
+</code></pre>
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1200,6 +1359,25 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<pre class="highlight json"><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">petId</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">quantity</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">shipDate</span>": <span class="hljs-value"><span class="hljs-string">"2016-10-15T12:39:32.834Z"</span></span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"placed"</span></span>,
+  "<span class="hljs-attribute">complete</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+</span>}
+</code></pre>
+<pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Order</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">petId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">quantity</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">shipDate</span>&gt;</span>2016-10-15T12:39:32.834Z<span class="hljs-tag">&lt;/<span class="hljs-title">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-title">complete</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Order</span>&gt;</span>
+</code></pre>
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1656,9 +1834,39 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/l
 </tr>
 </tbody>
 </table>
+<h3 id="response-headers">Response Headers</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Header</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>X-Rate-Limit</td>
+<td>integer</td>
+<td>int32</td>
+<td>calls per hour allowed by the user</td>
+</tr>
+<tr>
+<td>200</td>
+<td>X-Expires-After</td>
+<td>string</td>
+<td>date-time</td>
+<td>date in UTC when token expires</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<pre class="highlight json"><code><span class="hljs-string">"string"</span>
+</code></pre>
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1821,6 +2029,29 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{
 <blockquote>
 <p>Example responses</p>
 </blockquote>
+<pre class="highlight json"><code>{
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">firstName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">lastName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">userStatus</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}
+</code></pre>
+<pre class="highlight xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">User</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">username</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">firstName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">lastName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">email</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">password</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">phone</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">userStatus</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">User</span>&gt;</span>
+</code></pre>
 <aside class="success">
 This operation does not require authentication
 </aside>

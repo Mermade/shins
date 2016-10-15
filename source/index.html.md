@@ -11,6 +11,7 @@ toc_footers:
   - '<a href="http://swagger.io">Find out more about Swagger</a>'
 includes: []
 search: true
+highlight_theme: obsidian
 ---
 
 # Swagger Petstore v1.0.0
@@ -99,13 +100,19 @@ body|body|object|true|Pet object that needs to be added to the store
 ````json
 {
   "id": 0,
-  "category": {},
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
   "name": "doggie",
   "photoUrls": [
     "string"
   ],
   "tags": [
-    {}
+    {
+      "id": 0,
+      "name": "string"
+    }
   ],
   "status": "available"
 }
@@ -114,17 +121,23 @@ body|body|object|true|Pet object that needs to be added to the store
 <?xml version="1.0" encoding="UTF-8" ?>
 <Pet>
   <id>0</id>
-  <category/>
+  <category>
+    <id>0</id>
+    <name>string</name>
+  </category>
   <name>doggie</name>
   <photoUrls>string</photoUrls>
-  <tags/>
+  <tags>
+    <id>0</id>
+    <name>string</name>
+  </tags>
   <status>available</status>
 </Pet>
 ````
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Invalid input
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -195,13 +208,19 @@ body|body|object|true|Pet object that needs to be added to the store
 ````json
 {
   "id": 0,
-  "category": {},
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
   "name": "doggie",
   "photoUrls": [
     "string"
   ],
   "tags": [
-    {}
+    {
+      "id": 0,
+      "name": "string"
+    }
   ],
   "status": "available"
 }
@@ -210,17 +229,23 @@ body|body|object|true|Pet object that needs to be added to the store
 <?xml version="1.0" encoding="UTF-8" ?>
 <Pet>
   <id>0</id>
-  <category/>
+  <category>
+    <id>0</id>
+    <name>string</name>
+  </category>
   <name>doggie</name>
   <photoUrls>string</photoUrls>
-  <tags/>
+  <tags>
+    <id>0</id>
+    <name>string</name>
+  </tags>
   <status>available</status>
 </Pet>
 ````
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found
 405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Validation exception
@@ -292,11 +317,48 @@ status|query|array|true|Status values that need to be considered for filter
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid status value
 > Example responses
 
+````json
+[
+  {
+    "id": 0,
+    "category": {
+      "id": 0,
+      "name": "string"
+    },
+    "name": "doggie",
+    "photoUrls": [
+      "string"
+    ],
+    "tags": [
+      {
+        "id": 0,
+        "name": "string"
+      }
+    ],
+    "status": "available"
+  }
+]
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<id>0</id>
+<category>
+  <id>0</id>
+  <name>string</name>
+</category>
+<name>doggie</name>
+<photoUrls>string</photoUrls>
+<tags>
+  <id>0</id>
+  <name>string</name>
+</tags>
+<status>available</status>
+````
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -365,11 +427,48 @@ tags|query|array|true|Tags to filter by
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid tag value
 > Example responses
 
+````json
+[
+  {
+    "id": 0,
+    "category": {
+      "id": 0,
+      "name": "string"
+    },
+    "name": "doggie",
+    "photoUrls": [
+      "string"
+    ],
+    "tags": [
+      {
+        "id": 0,
+        "name": "string"
+      }
+    ],
+    "status": "available"
+  }
+]
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<id>0</id>
+<category>
+  <id>0</id>
+  <name>string</name>
+</category>
+<name>doggie</name>
+<photoUrls>string</photoUrls>
+<tags>
+  <id>0</id>
+  <name>string</name>
+</tags>
+<status>available</status>
+````
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -438,12 +537,49 @@ petId|path|integer|true|ID of pet to return
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found
 > Example responses
 
+````json
+{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Pet>
+  <id>0</id>
+  <category>
+    <id>0</id>
+    <name>string</name>
+  </category>
+  <name>doggie</name>
+  <photoUrls>string</photoUrls>
+  <tags>
+    <id>0</id>
+    <name>string</name>
+  </tags>
+  <status>available</status>
+</Pet>
+````
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKey
@@ -513,7 +649,7 @@ status|formData|string|false|Updated status of the pet
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Invalid input
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -582,7 +718,7 @@ petId|path|integer|true|Pet id to delete
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found
 <aside class="warning">
@@ -654,10 +790,17 @@ file|formData|file|false|file to upload
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 > Example responses
 
+````json
+{
+  "code": 0,
+  "type": "string",
+  "message": "string"
+}
+````
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -724,10 +867,16 @@ Returns a map of status codes to quantities
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 > Example responses
 
+````json
+{
+  "property1": 0,
+  "property2": 0
+}
+````
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKey
@@ -796,11 +945,32 @@ body|body|object|true|order placed for purchasing the pet
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid Order
 > Example responses
 
+````json
+{
+  "id": 0,
+  "petId": 0,
+  "quantity": 0,
+  "shipDate": "2016-10-15T12:39:32.834Z",
+  "status": "placed",
+  "complete": false
+}
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Order>
+  <id>0</id>
+  <petId>0</petId>
+  <quantity>0</quantity>
+  <shipDate>2016-10-15T12:39:32.834Z</shipDate>
+  <status>placed</status>
+  <complete>false</complete>
+</Order>
+````
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -868,12 +1038,33 @@ orderId|path|integer|true|ID of pet that needs to be fetched
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found
 > Example responses
 
+````json
+{
+  "id": 0,
+  "petId": 0,
+  "quantity": 0,
+  "shipDate": "2016-10-15T12:39:32.834Z",
+  "status": "placed",
+  "complete": false
+}
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Order>
+  <id>0</id>
+  <petId>0</petId>
+  <quantity>0</quantity>
+  <shipDate>2016-10-15T12:39:32.834Z</shipDate>
+  <status>placed</status>
+  <complete>false</complete>
+</Order>
+````
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -941,7 +1132,7 @@ orderId|path|integer|true|ID of the order that needs to be deleted
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found
 <aside class="success">
@@ -1018,7 +1209,7 @@ body|body|object|true|Created user object
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 default|Default|successful operation
 <aside class="success">
 This operation does not require authentication
@@ -1087,7 +1278,7 @@ body|body|object|true|List of user object
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 default|Default|successful operation
 <aside class="success">
 This operation does not require authentication
@@ -1156,7 +1347,7 @@ body|body|object|true|List of user object
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 default|Default|successful operation
 <aside class="success">
 This operation does not require authentication
@@ -1224,11 +1415,20 @@ password|query|string|true|The password for login in clear text
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username/password supplied
+### Response Headers
+
+Status|Header|Type|Format|Description
+---|---|---|---|---|
+200|X-Rate-Limit|integer|int32|calls per hour allowed by the user
+200|X-Expires-After|string|date-time|date in UTC when token expires
 > Example responses
 
+````json
+"string"
+````
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1288,7 +1488,7 @@ print r.json()
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 default|Default|successful operation
 <aside class="success">
 This operation does not require authentication
@@ -1355,12 +1555,37 @@ username|path|string|true|The name that needs to be fetched. Use user1 for testi
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found
 > Example responses
 
+````json
+{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<User>
+  <id>0</id>
+  <username>string</username>
+  <firstName>string</firstName>
+  <lastName>string</lastName>
+  <email>string</email>
+  <password>string</password>
+  <phone>string</phone>
+  <userStatus>0</userStatus>
+</User>
+````
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1431,7 +1656,7 @@ body|body|object|true|Updated user object
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid user supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found
 <aside class="success">
@@ -1501,11 +1726,10 @@ username|path|string|true|The name that needs to be deleted
 ### Responses
 
 Status|Meaning|Description
----|--|---|
+---|---|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found
 <aside class="success">
 This operation does not require authentication
 </aside>
-
 
