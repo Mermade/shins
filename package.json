@@ -35,6 +35,6 @@
   },
   "devDependencies": {
     "ejs-lint": "^0.2.0",
-    "node-sass": "^3.10.1"
+    "node-sass": "^3.14.0-0"
   }
 }

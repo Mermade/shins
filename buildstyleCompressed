@@ -1,0 +1,3 @@
+#!/bin/sh
+./sass --output-style compressed source/stylesheets/print.css.scss > pub/css/print.css
+./sass --output-style compressed source/stylesheets/screen.css.scss > pub/css/screen.css

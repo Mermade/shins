@@ -488,7 +488,7 @@ html, body {
       top: 17px;
       left: 15px;
       color: #fff; }
-  .tocify-wrapper img + .tocify {
+  .tocify-wrapper img + .tocify, .tocify-wrapper .lang-selector + .tocify {
     margin-top: 20px; }
   .tocify-wrapper .search-results {
     margin-top: 0;
