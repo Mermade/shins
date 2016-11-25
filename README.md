@@ -16,7 +16,7 @@ not be possible without all of that hard work.
 * Clone the fork
 * Edit source/index.html.md
 * `npm install`
-* `node shins.js`
+* `node shins.js` or `node shins.js --minify`
 * To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567)
 * Add, commit and push
 * Then (in your fork) press this button
@@ -31,9 +31,9 @@ Or, to deploy to GitHub Pages:
 ### API
 
 ````javascript
-
 var shins = require('shins');
-shins.render(markdownString, function(err, html) {
+var options = {};
+shins.render(markdownString, options, function(err, html) {
   // ...
 });
 ````

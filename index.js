@@ -21,9 +21,26 @@ var md = require('markdown-it')({linkify: true, html: true,
 });
 var yaml = require('js-yaml');
 var ejs = require('ejs');
+var uglify = require('uglify-js');
+
+var globalOptions = {};
 
 function javascript_include_tag(include) {
     var includeStr = fs.readFileSync(path.join(__dirname,'/source/javascripts/'+include+'.inc'),'utf8');
+	if (globalOptions.minify) {
+		var scripts = [];
+		var includes = includeStr.split('\r').join().split('\n');
+		for (var i in includes) {
+			var inc = includes[i];
+			var elements = inc.split('"');
+			if (elements[1]) {
+				scripts.push(path.join(__dirname,elements[1]));
+			}
+		}
+		var bundle = uglify.minify(scripts);
+		fs.writeFileSync(path.join(__dirname,'/pub/js/shins.js'),bundle.code,'utf8');
+		includeStr = fs.readFileSync(path.join(__dirname,'/source/javascripts/'+include+'.bundle.inc'),'utf8');
+	}
     return includeStr;
 }
 
@@ -63,7 +80,14 @@ function postProcess(content){
     return content;
 }
 
-function render(inputStr,callback){
+function render(inputStr,options,callback) {
+
+	if (typeof callback === 'undefined') { // for pre-v1.4.0 compatibility
+		callback = options;
+		options = {};
+	}
+	globalOptions = options;
+
     inputStr = inputStr.split('\r\n').join('\n');
     var inputArr = ('\n'+inputStr).split('\n---\n');
     var headerStr = inputArr[1];
@@ -89,9 +113,9 @@ function render(inputStr,callback){
     locals.javascript_include_tag = javascript_include_tag;
     locals.language_array = language_array;
 
-    var options = {};
-    options.debug = false;
-    ejs.renderFile(path.join(__dirname,'/source/layouts/layout.ejs'), locals, options, function(err, str){
+    var ejsOptions = {};
+    ejsOptions.debug = false;
+    ejs.renderFile(path.join(__dirname,'/source/layouts/layout.ejs'), locals, ejsOptions, function(err, str){
         callback(err,str);
     });
 }

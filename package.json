@@ -31,7 +31,8 @@
     "express": "^4.13.3",
     "highlightjs": "^8.7.0",
     "js-yaml": "latest",
-    "markdown-it": "latest"
+    "markdown-it": "latest",
+    "uglify-js": "^2.7.4"
   },
   "devDependencies": {
     "ejs-lint": "^0.2.0",
