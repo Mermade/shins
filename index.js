@@ -57,7 +57,7 @@ function stylesheet_link_tag(stylesheet,media) {
             fs.writeFileSync(target, fs.readFileSync(source));
         }
     }
-    return '<link rel="stylesheet" media="'+media+'" href="/pub/css/'+stylesheet+'.css">';
+    return '<link rel="stylesheet" media="'+media+'" href="pub/css/'+stylesheet+'.css">';
 };
 
 function language_array(language_tabs) {
@@ -90,6 +90,9 @@ function render(inputStr,options,callback) {
 
     inputStr = inputStr.split('\r\n').join('\n');
     var inputArr = ('\n'+inputStr).split('\n---\n');
+	if (inputArr.length === 1) {
+    	inputArr = ('\n'+inputStr).split('\n--- \n');
+	}
     var headerStr = inputArr[1];
     var header = yaml.safeLoad(headerStr);
 
@@ -108,7 +111,7 @@ function render(inputStr,options,callback) {
     locals.current_page.data = header;
     locals.yield = function() { return content; };
     locals.partial = partial;
-    locals.image_tag = function(image) { return '<img src="/source/images/'+image+'">'; };
+    locals.image_tag = function(image) { return '<img src="source/images/'+image+'">'; };
     locals.stylesheet_link_tag = stylesheet_link_tag;
     locals.javascript_include_tag = javascript_include_tag;
     locals.language_array = language_array;
