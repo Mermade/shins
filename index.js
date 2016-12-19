@@ -18,7 +18,7 @@ var md = require('markdown-it')({linkify: true, html: true,
 
     return '<pre class="highlight"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
   }
-});
+}).use(require('markdown-it-lazy-headers'));
 var yaml = require('js-yaml');
 var ejs = require('ejs');
 var uglify = require('uglify-js');
