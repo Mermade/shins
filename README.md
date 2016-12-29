@@ -33,6 +33,7 @@ Or, to deploy to GitHub Pages:
 ````javascript
 var shins = require('shins');
 var options = {};
+options.minify = false;
 shins.render(markdownString, options, function(err, html) {
   // ...
 });
