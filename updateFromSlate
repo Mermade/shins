@@ -1,11 +1,10 @@
 #!/bin/sh
 # This script assumes you have Ruby Slate checkout by the side of shins
-cp ../slate/source/fonts source/fonts
-cp ../slate/source/images source/images
-cp ../slate/source/includes source/includes
-cp ../slate/source/javascripts source/javascripts
-cp ../slate/source/javascripts/app source/javascripts/app
-cp ../slate/source/javascripts/lib source/javascripts/lib
-cp ../slate/source/layouts source/layouts
-cp ../slate/source/stylesheets source/stylesheets
+cp -r ../slate/source/fonts source/
+cp -r ../slate/source/images source/
+cp -r ../slate/source/includes source/
+cp -r ../slate/source/javascripts source/
+cp -r ../slate/source/layouts source/
+cp -r ../slate/source/stylesheets source/
+git checkout HEAD source/images/logo.png
 echo Please run ./buildstyle to rebuild the .css files

@@ -8,10 +8,11 @@ var hlpath = require.resolve('highlightjs/highlight.pack.js').replace('highlight
 
 var md = require('markdown-it')({linkify: true, html: true,
   highlight: function (str, lang) {
-    if (lang && hljs.getLanguage(lang)) {
+    var slang = lang.split('--')[0]; // allows multiple language tabs for the same language
+    if (slang && hljs.getLanguage(slang)) {
       try {
-        return '<pre class="highlight '+lang+'"><code>' +
-               hljs.highlight(lang, str, true).value +
+        return '<pre class="highlight tab-'+lang+'"><code>' +
+               hljs.highlight(slang, str, true).value +
                '</code></pre>';
       } catch (__) {}
     }

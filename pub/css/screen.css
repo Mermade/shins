@@ -626,6 +626,7 @@ html, body {
     display: block; }
 
 .content {
+  -webkit-transform: translateZ(0);
   position: relative;
   z-index: 30; }
   .content:after {

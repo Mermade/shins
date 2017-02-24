@@ -3,15 +3,16 @@ title: Swagger Petstore v1.0.0
 language_tabs:
   - shell: Shell
   - http: HTTP
-  - html: JavaScript
-  - javascript: Node.JS
+  - javascript: JavaScript
+  - javascript--nodejs: Node.JS
   - python: Python
   - ruby: Ruby
+  - java: Java
 toc_footers:
   - '<a href="http://swagger.io">Find out more about Swagger</a>'
 includes: []
 search: true
-highlight_theme: obsidian
+highlight_theme: darkula
 ---
 
 # Swagger Petstore v1.0.0
@@ -23,14 +24,34 @@ Base URL = http://petstore.swagger.io/v2
 <a href="http://swagger.io/terms/">Terms of service</a>
 Email: <a href="mailto:apiteam@swagger.io">Support</a>
 License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
+
 # Authentication
+
+
+
+
+
 - oAuth2 authentication. 
 - Flow: implicit
 - Authorization URL = [http://petstore.swagger.io/oauth/dialog](http://petstore.swagger.io/oauth/dialog)
-- Scope: write:pets = modify pets in your account
-- Scope: read:pets = read your pets
-* apiKey
+
+
+|Scope|Scope Description|
+|---|---|
+|write:pets|modify pets in your account|
+|read:pets|read your pets|
+
+
+
+
+
+* API Key
 - Parameter Name: **api_key**, in: header. 
+
+
+
+
+
 # pet
 
 Everything about your Pets
@@ -41,50 +62,93 @@ Everything about your Pets
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X post http://petstore.swagger.io/v2/pet
 ````
+
 ````http
 POST http://petstore.swagger.io/v2/pet HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/pet',
-    method: 'post',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/pet');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/pet',
+  method: 'post',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/pet', { method: 'POST'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://petstore.swagger.io/v2/pet', params:
-  {
-    # TODO
-  }
+result = RestClient.post 'http://petstore.swagger.io/v2/pet', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.post('http://petstore.swagger.io/v2/pet', params={
-  # TODO
+	'body':{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/pet");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `POST /pet`
 
 *Add a new pet to the store*
@@ -93,7 +157,9 @@ print r.json()
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-body|body|object|true|Pet object that needs to be added to the store
+body|body|Pet|true|Pet object that needs to be added to the store
+
+
 
 > Body parameter
 
@@ -139,60 +205,105 @@ body|body|object|true|Pet object that needs to be added to the store
 Status|Meaning|Description
 ---|---|---|
 405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Invalid input
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## updatePet
 
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X put http://petstore.swagger.io/v2/pet
 ````
+
 ````http
 PUT http://petstore.swagger.io/v2/pet HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/pet',
-    method: 'put',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/pet');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/pet',
+  method: 'put',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/pet', { method: 'PUT'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.put 'http://petstore.swagger.io/v2/pet', params:
-  {
-    # TODO
-  }
+result = RestClient.put 'http://petstore.swagger.io/v2/pet', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.put('http://petstore.swagger.io/v2/pet', params={
-  # TODO
+	'body':{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/pet");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `PUT /pet`
 
 *Update an existing pet*
@@ -201,7 +312,9 @@ print r.json()
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-body|body|object|true|Pet object that needs to be added to the store
+body|body|Pet|true|Pet object that needs to be added to the store
+
+
 
 > Body parameter
 
@@ -249,59 +362,88 @@ Status|Meaning|Description
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found
 405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Validation exception
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## findPetsByStatus
 
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X get http://petstore.swagger.io/v2/pet/findByStatus
 ````
+
 ````http
 GET http://petstore.swagger.io/v2/pet/findByStatus HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/pet/findByStatus',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/pet/findByStatus');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/pet/findByStatus',
+  method: 'get',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/pet/findByStatus', { method: 'GET'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByStatus', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByStatus', params: {
+  'status':'array[string]'
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.get('http://petstore.swagger.io/v2/pet/findByStatus', params={
-  # TODO
+	'status':[]
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/pet/findByStatus");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `GET /pet/findByStatus`
 
 *Finds Pets by status*
@@ -312,7 +454,18 @@ Multiple status values can be provided with comma separated strings
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-status|query|array|true|Status values that need to be considered for filter
+status|query|array[string]|true|Status values that need to be considered for filter
+
+
+
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+status|available|
+status|pending|
+status|sold|
+
 
 ### Responses
 
@@ -320,6 +473,7 @@ Status|Meaning|Description
 ---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid status value
+
 > Example responses
 
 ````json
@@ -364,54 +518,82 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
+
 ## findPetsByTags
 
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X get http://petstore.swagger.io/v2/pet/findByTags
 ````
+
 ````http
 GET http://petstore.swagger.io/v2/pet/findByTags HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/pet/findByTags',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/pet/findByTags');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/pet/findByTags',
+  method: 'get',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/pet/findByTags', { method: 'GET'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByTags', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByTags', params: {
+  'tags':'array[string]'
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.get('http://petstore.swagger.io/v2/pet/findByTags', params={
-  # TODO
+	'tags':[]
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/pet/findByTags");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `GET /pet/findByTags`
 
 *Finds Pets by tags*
@@ -422,7 +604,9 @@ Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-tags|query|array|true|Tags to filter by
+tags|query|array[string]|true|Tags to filter by
+
+
 
 ### Responses
 
@@ -430,6 +614,7 @@ Status|Meaning|Description
 ---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid tag value
+
 > Example responses
 
 ````json
@@ -474,54 +659,82 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
+
 ## getPetById
 
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X get http://petstore.swagger.io/v2/pet/{petId}
 ````
+
 ````http
 GET http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/pet/{petId}',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/pet/{petId}');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/pet/{petId}',
+  method: 'get',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/pet/{petId}', { method: 'GET'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://petstore.swagger.io/v2/pet/{petId}', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'http://petstore.swagger.io/v2/pet/{petId}', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.get('http://petstore.swagger.io/v2/pet/{petId}', params={
-  # TODO
+	'petId':0
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/pet/{petId}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `GET /pet/{petId}`
 
 *Find pet by ID*
@@ -534,6 +747,8 @@ Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 petId|path|integer|true|ID of pet to return
 
+
+
 ### Responses
 
 Status|Meaning|Description
@@ -541,6 +756,7 @@ Status|Meaning|Description
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found
+
 > Example responses
 
 ````json
@@ -585,55 +801,86 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKey
 </aside>
 
+
 ## updatePetWithForm
 
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X post http://petstore.swagger.io/v2/pet/{petId}
 ````
+
 ````http
 POST http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/x-www-form-urlencoded
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/pet/{petId}',
-    method: 'post',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/pet/{petId}');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/pet/{petId}',
+  method: 'post',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/pet/{petId}', { method: 'POST'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}', params:
-  {
-    # TODO
-  }
+result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}', params: {
+  
+  
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.post('http://petstore.swagger.io/v2/pet/{petId}', params={
-  # TODO
+	'petId':0,
+	'name':'string'
+	'status':'string'
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/pet/{petId}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `POST /pet/{petId}`
 
 *Updates a pet in the store with form data*
@@ -646,64 +893,97 @@ petId|path|integer|true|ID of pet that needs to be updated
 name|formData|string|false|Updated name of the pet
 status|formData|string|false|Updated status of the pet
 
+
+
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 405|[Method Not Allowed](https://tools.ietf.org/html/rfc7231#section-6.5.5)|Invalid input
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## deletePet
 
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X delete http://petstore.swagger.io/v2/pet/{petId}
 ````
+
 ````http
 DELETE http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/pet/{petId}',
-    method: 'delete',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/pet/{petId}');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/pet/{petId}',
+  method: 'delete',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/pet/{petId}', { method: 'DELETE'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.delete 'http://petstore.swagger.io/v2/pet/{petId}', params:
-  {
-    # TODO
-  }
+result = RestClient.delete 'http://petstore.swagger.io/v2/pet/{petId}', params: {
+  
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.delete('http://petstore.swagger.io/v2/pet/{petId}', params={
-  # TODO
+	'api_key':'string',
+	'petId':0
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/pet/{petId}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `DELETE /pet/{petId}`
 
 *Deletes a pet*
@@ -715,66 +995,100 @@ Parameter|In|Type|Required|Description
 api_key|header|string|false|No description
 petId|path|integer|true|Pet id to delete
 
+
+
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## uploadFile
 
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X post http://petstore.swagger.io/v2/pet/{petId}/uploadImage
 ````
+
 ````http
 POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: multipart/form-data
 Accept: application/json
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
-    method: 'post',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/pet/{petId}/uploadImage');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
+  method: 'post',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', { method: 'POST'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params:
-  {
-    # TODO
-  }
+result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params: {
+  
+  
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.post('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params={
-  # TODO
+	'petId':0,
+	'additionalMetadata':'string'
+	'file':{}
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/pet/{petId}/uploadImage");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `POST /pet/{petId}/uploadImage`
 
 *uploads an image*
@@ -787,11 +1101,14 @@ petId|path|integer|true|ID of pet to update
 additionalMetadata|formData|string|false|Additional data to pass to server
 file|formData|file|false|file to upload
 
+
+
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
+
 > Example responses
 
 ````json
@@ -806,6 +1123,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
+
 # store
 
 Access to Petstore orders
@@ -815,49 +1133,74 @@ Access to Petstore orders
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X get http://petstore.swagger.io/v2/store/inventory
 ````
+
 ````http
 GET http://petstore.swagger.io/v2/store/inventory HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/json
 Accept: application/json
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/store/inventory',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/store/inventory');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/store/inventory',
+  method: 'get',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/store/inventory', { method: 'GET'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://petstore.swagger.io/v2/store/inventory', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'http://petstore.swagger.io/v2/store/inventory', params: {
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.get('http://petstore.swagger.io/v2/store/inventory', params={
-  # TODO
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/store/inventory");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `GET /store/inventory`
 
 *Returns pet inventories by status*
@@ -869,6 +1212,7 @@ Returns a map of status codes to quantities
 Status|Meaning|Description
 ---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
+
 > Example responses
 
 ````json
@@ -882,54 +1226,89 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKey
 </aside>
 
+
 ## placeOrder
 
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X post http://petstore.swagger.io/v2/store/order
 ````
+
 ````http
 POST http://petstore.swagger.io/v2/store/order HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/store/order',
-    method: 'post',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/store/order');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/store/order',
+  method: 'post',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/store/order', { method: 'POST'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://petstore.swagger.io/v2/store/order', params:
-  {
-    # TODO
-  }
+result = RestClient.post 'http://petstore.swagger.io/v2/store/order', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.post('http://petstore.swagger.io/v2/store/order', params={
-  # TODO
+	'body':{
+  "id": 0,
+  "petId": 0,
+  "quantity": 0,
+  "shipDate": "2017-02-24T10:49:09Z",
+  "status": "placed",
+  "complete": false
+}
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/store/order");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `POST /store/order`
 
 *Place an order for a pet*
@@ -938,24 +1317,18 @@ print r.json()
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-body|body|object|true|order placed for purchasing the pet
+body|body|Order|true|order placed for purchasing the pet
+
+
 
 > Body parameter
-
-### Responses
-
-Status|Meaning|Description
----|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid Order
-> Example responses
 
 ````json
 {
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2016-10-15T12:39:32.834Z",
+  "shipDate": "2017-02-24T10:49:09Z",
   "status": "placed",
   "complete": false
 }
@@ -966,7 +1339,37 @@ Status|Meaning|Description
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2016-10-15T12:39:32.834Z</shipDate>
+  <shipDate>2017-02-24T10:49:09Z</shipDate>
+  <status>placed</status>
+  <complete>false</complete>
+</Order>
+````
+### Responses
+
+Status|Meaning|Description
+---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid Order
+
+> Example responses
+
+````json
+{
+  "id": 0,
+  "petId": 0,
+  "quantity": 0,
+  "shipDate": "2017-02-24T10:49:09Z",
+  "status": "placed",
+  "complete": false
+}
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Order>
+  <id>0</id>
+  <petId>0</petId>
+  <quantity>0</quantity>
+  <shipDate>2017-02-24T10:49:09Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -980,49 +1383,76 @@ This operation does not require authentication
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X get http://petstore.swagger.io/v2/store/order/{orderId}
 ````
+
 ````http
 GET http://petstore.swagger.io/v2/store/order/{orderId} HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/store/order/{orderId}');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
+  method: 'get',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/store/order/{orderId}', { method: 'GET'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://petstore.swagger.io/v2/store/order/{orderId}', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'http://petstore.swagger.io/v2/store/order/{orderId}', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.get('http://petstore.swagger.io/v2/store/order/{orderId}', params={
-  # TODO
+	'orderId':0
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/store/order/{orderId}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `GET /store/order/{orderId}`
 
 *Find purchase order by ID*
@@ -1035,6 +1465,8 @@ Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 orderId|path|integer|true|ID of pet that needs to be fetched
 
+
+
 ### Responses
 
 Status|Meaning|Description
@@ -1042,6 +1474,7 @@ Status|Meaning|Description
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found
+
 > Example responses
 
 ````json
@@ -1049,7 +1482,7 @@ Status|Meaning|Description
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2016-10-15T12:39:32.834Z",
+  "shipDate": "2017-02-24T10:49:09Z",
   "status": "placed",
   "complete": false
 }
@@ -1060,7 +1493,7 @@ Status|Meaning|Description
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2016-10-15T12:39:32.834Z</shipDate>
+  <shipDate>2017-02-24T10:49:09Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1074,49 +1507,76 @@ This operation does not require authentication
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X delete http://petstore.swagger.io/v2/store/order/{orderId}
 ````
+
 ````http
 DELETE http://petstore.swagger.io/v2/store/order/{orderId} HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
-    method: 'delete',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/store/order/{orderId}');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
+  method: 'delete',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/store/order/{orderId}', { method: 'DELETE'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.delete 'http://petstore.swagger.io/v2/store/order/{orderId}', params:
-  {
-    # TODO
-  }
+result = RestClient.delete 'http://petstore.swagger.io/v2/store/order/{orderId}', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.delete('http://petstore.swagger.io/v2/store/order/{orderId}', params={
-  # TODO
+	'orderId':0
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/store/order/{orderId}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `DELETE /store/order/{orderId}`
 
 *Delete purchase order by ID*
@@ -1129,12 +1589,15 @@ Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 orderId|path|integer|true|ID of the order that needs to be deleted
 
+
+
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found
+
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1149,49 +1612,85 @@ Operations about user
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X post http://petstore.swagger.io/v2/user
 ````
+
 ````http
 POST http://petstore.swagger.io/v2/user HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/user',
-    method: 'post',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/user');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/user',
+  method: 'post',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/user', { method: 'POST'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://petstore.swagger.io/v2/user', params:
-  {
-    # TODO
-  }
+result = RestClient.post 'http://petstore.swagger.io/v2/user', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.post('http://petstore.swagger.io/v2/user', params={
-  # TODO
+	'body':{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/user");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `POST /user`
 
 *Create user*
@@ -1202,15 +1701,43 @@ This can only be done by the logged in user.
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-body|body|object|true|Created user object
+body|body|User|true|Created user object
+
+
 
 > Body parameter
 
+````json
+{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<User>
+  <id>0</id>
+  <username>string</username>
+  <firstName>string</firstName>
+  <lastName>string</lastName>
+  <email>string</email>
+  <password>string</password>
+  <phone>string</phone>
+  <userStatus>0</userStatus>
+</User>
+````
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 default|Default|successful operation
+
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1220,49 +1747,87 @@ This operation does not require authentication
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X post http://petstore.swagger.io/v2/user/createWithArray
 ````
+
 ````http
 POST http://petstore.swagger.io/v2/user/createWithArray HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/user/createWithArray',
-    method: 'post',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/user/createWithArray');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/user/createWithArray',
+  method: 'post',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/user/createWithArray', { method: 'POST'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithArray', params:
-  {
-    # TODO
-  }
+result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithArray', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.post('http://petstore.swagger.io/v2/user/createWithArray', params={
-  # TODO
+	'body':[
+  {
+    "id": 0,
+    "username": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  }
+]
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/user/createWithArray");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `POST /user/createWithArray`
 
 *Creates list of users with given input array*
@@ -1271,15 +1836,43 @@ print r.json()
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-body|body|object|true|List of user object
+body|body|array[User]|true|List of user object
+
+
 
 > Body parameter
 
+````json
+[
+  {
+    "id": 0,
+    "username": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  }
+]
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<id>0</id>
+<username>string</username>
+<firstName>string</firstName>
+<lastName>string</lastName>
+<email>string</email>
+<password>string</password>
+<phone>string</phone>
+<userStatus>0</userStatus>
+````
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 default|Default|successful operation
+
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1289,49 +1882,87 @@ This operation does not require authentication
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X post http://petstore.swagger.io/v2/user/createWithList
 ````
+
 ````http
 POST http://petstore.swagger.io/v2/user/createWithList HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/user/createWithList',
-    method: 'post',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/user/createWithList');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/user/createWithList',
+  method: 'post',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/user/createWithList', { method: 'POST'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithList', params:
-  {
-    # TODO
-  }
+result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithList', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.post('http://petstore.swagger.io/v2/user/createWithList', params={
-  # TODO
+	'body':[
+  {
+    "id": 0,
+    "username": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  }
+]
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/user/createWithList");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("POST");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `POST /user/createWithList`
 
 *Creates list of users with given input array*
@@ -1340,15 +1971,43 @@ print r.json()
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-body|body|object|true|List of user object
+body|body|array[User]|true|List of user object
+
+
 
 > Body parameter
 
+````json
+[
+  {
+    "id": 0,
+    "username": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  }
+]
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<id>0</id>
+<username>string</username>
+<firstName>string</firstName>
+<lastName>string</lastName>
+<email>string</email>
+<password>string</password>
+<phone>string</phone>
+<userStatus>0</userStatus>
+````
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 default|Default|successful operation
+
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1358,49 +2017,78 @@ This operation does not require authentication
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X get http://petstore.swagger.io/v2/user/login
 ````
+
 ````http
 GET http://petstore.swagger.io/v2/user/login HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/user/login',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/user/login');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/user/login',
+  method: 'get',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/user/login', { method: 'GET'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://petstore.swagger.io/v2/user/login', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'http://petstore.swagger.io/v2/user/login', params: {
+  'username':'string',
+  'password':'string'
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.get('http://petstore.swagger.io/v2/user/login', params={
-  # TODO
+	'username':'string',
+	'password':'pa$$word'
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/user/login");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `GET /user/login`
 
 *Logs user into the system*
@@ -1412,18 +2100,22 @@ Parameter|In|Type|Required|Description
 username|query|string|true|The user name for login
 password|query|string|true|The password for login in clear text
 
+
+
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username/password supplied
+
 ### Response Headers
 
 Status|Header|Type|Format|Description
 ---|---|---|---|---|
 200|X-Rate-Limit|integer|int32|calls per hour allowed by the user
 200|X-Expires-After|string|date-time|date in UTC when token expires
+
 > Example responses
 
 ````json
@@ -1438,49 +2130,74 @@ This operation does not require authentication
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X get http://petstore.swagger.io/v2/user/logout
 ````
+
 ````http
 GET http://petstore.swagger.io/v2/user/logout HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/user/logout',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/user/logout');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/user/logout',
+  method: 'get',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/user/logout', { method: 'GET'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://petstore.swagger.io/v2/user/logout', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'http://petstore.swagger.io/v2/user/logout', params: {
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.get('http://petstore.swagger.io/v2/user/logout', params={
-  # TODO
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/user/logout");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `GET /user/logout`
 
 *Logs out current logged in user session*
@@ -1490,6 +2207,7 @@ print r.json()
 Status|Meaning|Description
 ---|---|---|
 default|Default|successful operation
+
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1499,49 +2217,76 @@ This operation does not require authentication
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X get http://petstore.swagger.io/v2/user/{username}
 ````
+
 ````http
 GET http://petstore.swagger.io/v2/user/{username} HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/user/{username}',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/user/{username}');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/user/{username}',
+  method: 'get',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/user/{username}', { method: 'GET'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://petstore.swagger.io/v2/user/{username}', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'http://petstore.swagger.io/v2/user/{username}', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.get('http://petstore.swagger.io/v2/user/{username}', params={
-  # TODO
+	'username':'string'
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/user/{username}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `GET /user/{username}`
 
 *Get user by user name*
@@ -1552,6 +2297,8 @@ Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 username|path|string|true|The name that needs to be fetched. Use user1 for testing. 
 
+
+
 ### Responses
 
 Status|Meaning|Description
@@ -1559,6 +2306,7 @@ Status|Meaning|Description
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found
+
 > Example responses
 
 ````json
@@ -1595,49 +2343,87 @@ This operation does not require authentication
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X put http://petstore.swagger.io/v2/user/{username}
 ````
+
 ````http
 PUT http://petstore.swagger.io/v2/user/{username} HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/user/{username}',
-    method: 'put',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/user/{username}');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/user/{username}',
+  method: 'put',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/user/{username}', { method: 'PUT'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.put 'http://petstore.swagger.io/v2/user/{username}', params:
-  {
-    # TODO
-  }
+result = RestClient.put 'http://petstore.swagger.io/v2/user/{username}', params: {
+  
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.put('http://petstore.swagger.io/v2/user/{username}', params={
-  # TODO
+	'username':'string',
+	'body':{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/user/{username}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("PUT");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `PUT /user/{username}`
 
 *Updated user*
@@ -1649,16 +2435,44 @@ This can only be done by the logged in user.
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 username|path|string|true|name that need to be updated
-body|body|object|true|Updated user object
+body|body|User|true|Updated user object
+
+
 
 > Body parameter
 
+````json
+{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}
+````
+````xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<User>
+  <id>0</id>
+  <username>string</username>
+  <firstName>string</firstName>
+  <lastName>string</lastName>
+  <email>string</email>
+  <password>string</password>
+  <phone>string</phone>
+  <userStatus>0</userStatus>
+</User>
+````
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid user supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found
+
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1668,49 +2482,76 @@ This operation does not require authentication
 > Code samples
 
 ````shell
-# you can also use wget
+# You can also use wget
 curl -X delete http://petstore.swagger.io/v2/user/{username}
 ````
+
 ````http
 DELETE http://petstore.swagger.io/v2/user/{username} HTTP/1.1
 Host: petstore.swagger.io
+Content-Type: application/xml
 Accept: application/xml
 ````
-````html
-<script>
-  $.ajax({
-    url: 'http://petstore.swagger.io/v2/user/{username}',
-    method: 'delete',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
+
 ````javascript
-const request = require('request');
-request('http://petstore.swagger.io/v2/user/{username}');
+$.ajax({
+  url: 'http://petstore.swagger.io/v2/user/{username}',
+  method: 'delete',
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
 ````
+
+````javascript--nodejs
+const request = require('node-fetch');
+fetch('http://petstore.swagger.io/v2/user/{username}', { method: 'DELETE'})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
 ````ruby
 require 'rest-client'
 require 'json'
 
-result = RestClient.delete 'http://petstore.swagger.io/v2/user/{username}', params:
-  {
-    # TODO
-  }
+result = RestClient.delete 'http://petstore.swagger.io/v2/user/{username}', params: {
+  
+  
+}
 
 p JSON.parse(result)
 ````
+
 ````python
 import requests
 
 r = requests.delete('http://petstore.swagger.io/v2/user/{username}', params={
-  # TODO
+	'username':'string'
+	
 })
 
 print r.json()
 ````
+
+````java
+URL obj = new URL("http://petstore.swagger.io/v2/user/{username}");
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod("DELETE");
+int responseCode = con.getResponseCode();
+BufferedReader in = new BufferedReader(
+    new InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = new StringBuffer();
+while ((inputLine = in.readLine()) != null) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+````
+
 `DELETE /user/{username}`
 
 *Delete user*
@@ -1723,13 +2564,19 @@ Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 username|path|string|true|The name that needs to be deleted
 
+
+
 ### Responses
 
 Status|Meaning|Description
 ---|---|---|
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username supplied
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found
+
 <aside class="success">
 This operation does not require authentication
 </aside>
+
+
+
 

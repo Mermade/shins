@@ -1,5 +1,7 @@
 *.txt
 compare.js
+doit.sh
+source/layouts/layout.erb
 
 # Logs
 logs
