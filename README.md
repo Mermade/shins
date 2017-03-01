@@ -18,7 +18,9 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 * Clone the fork
 * Edit source/index.html.md
 * `npm install`
-* `node shins.js` or `node shins.js --minify`
+* `node shins.js` or 
+    * `node shins.js --minify` or
+	* `node shins.js --customcss`
 * To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567)
 * Add, commit and push
 * Then (in your fork) press this button
@@ -36,12 +38,15 @@ Or, to deploy to GitHub Pages:
 var shins = require('shins');
 var options = {};
 options.minify = false;
+options.customCss = false;
 shins.render(markdownString, options, function(err, html) {
   // ...
 });
 ````
 
 The `err` parameter is the result of the `ejs` rendering step.
+
+Setting `customCss` to `true` will include the `pub/css/screen_overrides.css`,`pub/css/print_overrides.css` and `pub/css/theme_override.css` files, in which you can override any of the default Slate theme, to save you from having to alter the main css files directly. This should make syncing up with future Shins / Slate releases easier.
 
 ### Notes
 

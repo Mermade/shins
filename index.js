@@ -58,7 +58,14 @@ function stylesheet_link_tag(stylesheet,media) {
             fs.writeFileSync(target, fs.readFileSync(source));
         }
     }
-    return '<link rel="stylesheet" media="'+media+'" href="pub/css/'+stylesheet+'.css">';
+	var include = '<link rel="stylesheet" media="'+media+'" href="pub/css/'+stylesheet+'.css">';
+	if (globalOptions.customCss) {
+		if ((stylesheet != 'print') && (stylesheet != 'screen')) {
+			stylesheet = 'theme';
+		}
+		include += '\n    <link rel="stylesheet" media="'+media+'" href="pub/css/'+stylesheet+'_overrides.css">';
+	}
+	return include;
 };
 
 function language_array(language_tabs) {

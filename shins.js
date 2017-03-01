@@ -5,12 +5,23 @@
 var fs = require('fs');
 var shins = require('./index.js');
 
-var inputStr = fs.readFileSync('./source/index.html.md','utf8');
 var options = {};
+var inputName = './source/index.html.md';
 
 if (process.argv.length > 2) {
-	if (process.argv[2] == '--minify') options.minify = true;
+	for (var i=2;i<process.argv.length;i++) {
+		var opt = process.argv[i];
+		if (opt.startsWith('--')) {
+			if (opt == '--minify') options.minify = true;
+			if (opt == '--customcss') options.customCss = true;
+		}
+		else {
+			inputName = opt;
+		}
+	}
 }
+
+var inputStr = fs.readFileSync(inputName,'utf8');
 
 shins.render(inputStr,options,function(err,str){
   if (err) {
