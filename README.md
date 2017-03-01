@@ -54,3 +54,7 @@ Setting `customCss` to `true` will include the `pub/css/screen_overrides.css`,`p
 * Syntax highlighting in 169 [languages](https://highlightjs.org/static/demo/) and 77 [themes](https://highlightjs.org/static/demo/) (you can specify the highlighter theme to use by setting `highlighter_theme` in your slate markdown header)
 * Multiple language tabs per language are supported
 * For converting OpenApi / Swagger specs to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
+
+### Shins in the wild
+
+Please feel free to add a link to your API documentation here
