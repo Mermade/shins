@@ -1578,7 +1578,7 @@ const inputBody = '{
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-03-03T15:08:44Z",
+  "shipDate": "2017-03-03T16:09:22Z",
   "status": "placed",
   "complete": false
 }';
@@ -1670,7 +1670,7 @@ body|body|Order|true|order placed for purchasing the pet
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-03-03T15:08:44Z",
+  "shipDate": "2017-03-03T16:09:22Z",
   "status": "placed",
   "complete": false
 }
@@ -1681,7 +1681,7 @@ body|body|Order|true|order placed for purchasing the pet
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-03-03T15:08:44Z</shipDate>
+  <shipDate>2017-03-03T16:09:22Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1700,7 +1700,7 @@ Status|Meaning|Description
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-03-03T15:08:44Z",
+  "shipDate": "2017-03-03T16:09:22Z",
   "status": "placed",
   "complete": false
 }
@@ -1711,7 +1711,7 @@ Status|Meaning|Description
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-03-03T15:08:44Z</shipDate>
+  <shipDate>2017-03-03T16:09:22Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1859,7 +1859,7 @@ Status|Meaning|Description
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-03-03T15:08:44Z",
+  "shipDate": "2017-03-03T16:09:22Z",
   "status": "placed",
   "complete": false
 }
@@ -1870,7 +1870,7 @@ Status|Meaning|Description
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-03-03T15:08:44Z</shipDate>
+  <shipDate>2017-03-03T16:09:22Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -3280,7 +3280,7 @@ This operation does not require authentication
   "@type": "WebAPI",
   "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
   "documentation": "http://swagger.io",
-  "termsOfService": "http://swagger.io/terms/"
+  "termsOfService": "http://swagger.io/terms/",
   "name": "Swagger Petstore"
 }
 </script>
