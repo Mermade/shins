@@ -17,9 +17,11 @@ highlight_theme: darkula
 
 # Swagger Petstore v1.0.0
 
+> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+
 This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.
 
-Base URL = http://petstore.swagger.io/v2
+Base URL = <a href="http://petstore.swagger.io/v2">http://petstore.swagger.io/v2</a>
 
 <a href="http://swagger.io/terms/">Terms of service</a>
 Email: <a href="mailto:apiteam@swagger.io">Support</a>
@@ -29,12 +31,9 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 
 
 
-
-
 - oAuth2 authentication. 
-- Flow: implicit
-- Authorization URL = [http://petstore.swagger.io/oauth/dialog](http://petstore.swagger.io/oauth/dialog)
-
+    - Flow: implicit
+    - Authorization URL = [http://petstore.swagger.io/oauth/dialog](http://petstore.swagger.io/oauth/dialog)
 
 |Scope|Scope Description|
 |---|---|
@@ -43,12 +42,8 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 
 
 
-
-
 * API Key
-- Parameter Name: **api_key**, in: header. 
-
-
+    - Parameter Name: **api_key**, in: header. 
 
 
 
@@ -63,7 +58,10 @@ Everything about your Pets
 
 ````shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/pet
+curl -X post http://petstore.swagger.io/v2/pet \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/json'
+
 ````
 
 ````http
@@ -71,12 +69,21 @@ POST http://petstore.swagger.io/v2/pet HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/json'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/pet',
   method: 'post',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -85,31 +92,7 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/pet', { method: 'POST'})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-````
-
-````ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.post 'http://petstore.swagger.io/v2/pet', params: {
-  
-  
-}
-
-p JSON.parse(result)
-````
-
-````python
-import requests
-
-r = requests.post('http://petstore.swagger.io/v2/pet', params={
-	'body':{
+const inputBody = '{
   "id": 0,
   "category": {
     "id": 0,
@@ -126,9 +109,57 @@ r = requests.post('http://petstore.swagger.io/v2/pet', params={
     }
   ],
   "status": "available"
-}
-	
+}';
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/json'
+
+};
+
+fetch('http://petstore.swagger.io/v2/pet',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
 })
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
+````ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/json'
+
+}
+
+result = RestClient.post 'http://petstore.swagger.io/v2/pet', params: {
+  
+}, headers: headers
+
+p JSON.parse(result)
+````
+
+````python
+import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/json'
+
+}
+
+r = requests.post('http://petstore.swagger.io/v2/pet', params={
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -158,7 +189,6 @@ System.out.println(response.toString());
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 body|body|Pet|true|Pet object that needs to be added to the store
-
 
 
 > Body parameter
@@ -211,14 +241,16 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
-
 ## updatePet
 
 > Code samples
 
 ````shell
 # You can also use wget
-curl -X put http://petstore.swagger.io/v2/pet
+curl -X put http://petstore.swagger.io/v2/pet \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/json'
+
 ````
 
 ````http
@@ -226,12 +258,21 @@ PUT http://petstore.swagger.io/v2/pet HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/json'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/pet',
   method: 'put',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -240,31 +281,7 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/pet', { method: 'PUT'})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
-});
-````
-
-````ruby
-require 'rest-client'
-require 'json'
-
-result = RestClient.put 'http://petstore.swagger.io/v2/pet', params: {
-  
-  
-}
-
-p JSON.parse(result)
-````
-
-````python
-import requests
-
-r = requests.put('http://petstore.swagger.io/v2/pet', params={
-	'body':{
+const inputBody = '{
   "id": 0,
   "category": {
     "id": 0,
@@ -281,9 +298,57 @@ r = requests.put('http://petstore.swagger.io/v2/pet', params={
     }
   ],
   "status": "available"
-}
-	
+}';
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/json'
+
+};
+
+fetch('http://petstore.swagger.io/v2/pet',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
 })
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
+````ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/json'
+
+}
+
+result = RestClient.put 'http://petstore.swagger.io/v2/pet', params: {
+  
+}, headers: headers
+
+p JSON.parse(result)
+````
+
+````python
+import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/json'
+
+}
+
+r = requests.put('http://petstore.swagger.io/v2/pet', params={
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -313,7 +378,6 @@ System.out.println(response.toString());
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 body|body|Pet|true|Pet object that needs to be added to the store
-
 
 
 > Body parameter
@@ -368,27 +432,38 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
-
 ## findPetsByStatus
 
 > Code samples
 
 ````shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/pet/findByStatus
+curl -X get http://petstore.swagger.io/v2/pet/findByStatus?status=... \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
-GET http://petstore.swagger.io/v2/pet/findByStatus HTTP/1.1
+GET http://petstore.swagger.io/v2/pet/findByStatus?status=... HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/pet/findByStatus',
   method: 'get',
+  data: '?status=...',
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -397,7 +472,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/pet/findByStatus', { method: 'GET'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/pet/findByStatus?status=...',
+{
+  method: 'GET',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -409,27 +496,43 @@ fetch('http://petstore.swagger.io/v2/pet/findByStatus', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByStatus', params: {
   'status':'array[string]'
   
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.get('http://petstore.swagger.io/v2/pet/findByStatus', params={
-	'status':[]
-	
-})
+        'status':[
+  "string"
+]
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
 
 ````java
-URL obj = new URL("http://petstore.swagger.io/v2/pet/findByStatus");
+URL obj = new URL("http://petstore.swagger.io/v2/pet/findByStatus?status=...");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -457,7 +560,6 @@ Parameter|In|Type|Required|Description
 status|query|array[string]|true|Status values that need to be considered for filter
 
 
-
 #### Enumerated Values
 
 |Parameter|Value|
@@ -465,7 +567,6 @@ status|query|array[string]|true|Status values that need to be considered for fil
 status|available|
 status|pending|
 status|sold|
-
 
 ### Responses
 
@@ -518,27 +619,38 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
-
 ## findPetsByTags
 
 > Code samples
 
 ````shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/pet/findByTags
+curl -X get http://petstore.swagger.io/v2/pet/findByTags?tags=... \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
-GET http://petstore.swagger.io/v2/pet/findByTags HTTP/1.1
+GET http://petstore.swagger.io/v2/pet/findByTags?tags=... HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/pet/findByTags',
   method: 'get',
+  data: '?tags=...',
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -547,7 +659,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/pet/findByTags', { method: 'GET'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/pet/findByTags?tags=...',
+{
+  method: 'GET',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -559,27 +683,43 @@ fetch('http://petstore.swagger.io/v2/pet/findByTags', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByTags', params: {
   'tags':'array[string]'
   
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.get('http://petstore.swagger.io/v2/pet/findByTags', params={
-	'tags':[]
-	
-})
+        'tags':[
+  "string"
+]
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
 
 ````java
-URL obj = new URL("http://petstore.swagger.io/v2/pet/findByTags");
+URL obj = new URL("http://petstore.swagger.io/v2/pet/findByTags?tags=...");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -605,7 +745,6 @@ Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 tags|query|array[string]|true|Tags to filter by
-
 
 
 ### Responses
@@ -659,14 +798,16 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
-
 ## getPetById
 
 > Code samples
 
 ````shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/pet/{petId}
+curl -X get http://petstore.swagger.io/v2/pet/{petId} \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -674,12 +815,21 @@ GET http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/pet/{petId}',
   method: 'get',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -688,7 +838,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/pet/{petId}', { method: 'GET'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/pet/{petId}',
+{
+  method: 'GET',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -700,21 +862,33 @@ fetch('http://petstore.swagger.io/v2/pet/{petId}', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.get 'http://petstore.swagger.io/v2/pet/{petId}', params: {
   
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.get('http://petstore.swagger.io/v2/pet/{petId}', params={
-	'petId':0
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -746,7 +920,6 @@ Returns a single pet
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 petId|path|integer|true|ID of pet to return
-
 
 
 ### Responses
@@ -801,14 +974,16 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKey
 </aside>
 
-
 ## updatePetWithForm
 
 > Code samples
 
 ````shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/pet/{petId}
+curl -X post http://petstore.swagger.io/v2/pet/{petId} \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/x-www-form-urlencoded'
+
 ````
 
 ````http
@@ -816,12 +991,21 @@ POST http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/x-www-form-urlencoded
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/x-www-form-urlencoded'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/pet/{petId}',
   method: 'post',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -830,7 +1014,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/pet/{petId}', { method: 'POST'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/x-www-form-urlencoded'
+
+};
+
+fetch('http://petstore.swagger.io/v2/pet/{petId}',
+{
+  method: 'POST',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -842,25 +1038,33 @@ fetch('http://petstore.swagger.io/v2/pet/{petId}', { method: 'POST'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/x-www-form-urlencoded'
+
+}
+
 result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}', params: {
   
-  
-  
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/x-www-form-urlencoded'
+
+}
 
 r = requests.post('http://petstore.swagger.io/v2/pet/{petId}', params={
-	'petId':0,
-	'name':'string'
-	'status':'string'
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -894,7 +1098,6 @@ name|formData|string|false|Updated name of the pet
 status|formData|string|false|Updated status of the pet
 
 
-
 ### Responses
 
 Status|Meaning|Description
@@ -906,14 +1109,17 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
-
 ## deletePet
 
 > Code samples
 
 ````shell
 # You can also use wget
-curl -X delete http://petstore.swagger.io/v2/pet/{petId}
+curl -X delete http://petstore.swagger.io/v2/pet/{petId} \
+  -H 'api_key: string' \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -921,12 +1127,23 @@ DELETE http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+api_key: string
+
 ````
 
 ````javascript
+var headers = {
+  'api_key':'string',
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/pet/{petId}',
   method: 'delete',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -935,7 +1152,20 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/pet/{petId}', { method: 'DELETE'})
+
+const headers = {
+  'api_key':'string',
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/pet/{petId}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -947,23 +1177,35 @@ fetch('http://petstore.swagger.io/v2/pet/{petId}', { method: 'DELETE'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'api_key':'string',
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.delete 'http://petstore.swagger.io/v2/pet/{petId}', params: {
   
-  
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'api_key':'string',
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.delete('http://petstore.swagger.io/v2/pet/{petId}', params={
-	'api_key':'string',
-	'petId':0
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -996,7 +1238,6 @@ api_key|header|string|false|No description
 petId|path|integer|true|Pet id to delete
 
 
-
 ### Responses
 
 Status|Meaning|Description
@@ -1009,14 +1250,16 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
-
 ## uploadFile
 
 > Code samples
 
 ````shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/pet/{petId}/uploadImage
+curl -X post http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: multipart/form-data'
+
 ````
 
 ````http
@@ -1024,12 +1267,21 @@ POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: multipart/form-data
 Accept: application/json
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/json',
+  'Content-Type':'multipart/form-data'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
   method: 'post',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -1038,7 +1290,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', { method: 'POST'})
+
+const headers = {
+  'Accept':'application/json',
+  'Content-Type':'multipart/form-data'
+
+};
+
+fetch('http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
+{
+  method: 'POST',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -1050,25 +1314,33 @@ fetch('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', { method: 'POST'}
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/json',
+    'Content-Type':'multipart/form-data'
+
+}
+
 result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params: {
   
-  
-  
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/json',
+    'Content-Type':'multipart/form-data'
+
+}
 
 r = requests.post('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params={
-	'petId':0,
-	'additionalMetadata':'string'
-	'file':{}
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -1102,7 +1374,6 @@ additionalMetadata|formData|string|false|Additional data to pass to server
 file|formData|file|false|file to upload
 
 
-
 ### Responses
 
 Status|Meaning|Description
@@ -1123,7 +1394,6 @@ To perform this operation, you must be authenticated by means of one of the foll
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
 
-
 # store
 
 Access to Petstore orders
@@ -1134,7 +1404,10 @@ Access to Petstore orders
 
 ````shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/store/inventory
+curl -X get http://petstore.swagger.io/v2/store/inventory \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json'
+
 ````
 
 ````http
@@ -1142,12 +1415,21 @@ GET http://petstore.swagger.io/v2/store/inventory HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
 Accept: application/json
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/json',
+  'Content-Type':'application/json'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/store/inventory',
   method: 'get',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -1156,7 +1438,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/store/inventory', { method: 'GET'})
+
+const headers = {
+  'Accept':'application/json',
+  'Content-Type':'application/json'
+
+};
+
+fetch('http://petstore.swagger.io/v2/store/inventory',
+{
+  method: 'GET',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -1168,19 +1462,33 @@ fetch('http://petstore.swagger.io/v2/store/inventory', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/json',
+    'Content-Type':'application/json'
+
+}
+
 result = RestClient.get 'http://petstore.swagger.io/v2/store/inventory', params: {
   
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/json',
+    'Content-Type':'application/json'
+
+}
 
 r = requests.get('http://petstore.swagger.io/v2/store/inventory', params={
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -1226,14 +1534,16 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKey
 </aside>
 
-
 ## placeOrder
 
 > Code samples
 
 ````shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/store/order
+curl -X post http://petstore.swagger.io/v2/store/order \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -1241,12 +1551,21 @@ POST http://petstore.swagger.io/v2/store/order HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/store/order',
   method: 'post',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -1255,7 +1574,26 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/store/order', { method: 'POST'})
+const inputBody = '{
+  "id": 0,
+  "petId": 0,
+  "quantity": 0,
+  "shipDate": "2017-03-03T09:41:20Z",
+  "status": "placed",
+  "complete": false
+}';
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/store/order',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -1267,28 +1605,33 @@ fetch('http://petstore.swagger.io/v2/store/order', { method: 'POST'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.post 'http://petstore.swagger.io/v2/store/order', params: {
   
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.post('http://petstore.swagger.io/v2/store/order', params={
-	'body':{
-  "id": 0,
-  "petId": 0,
-  "quantity": 0,
-  "shipDate": "2017-02-24T10:49:09Z",
-  "status": "placed",
-  "complete": false
-}
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -1320,7 +1663,6 @@ Parameter|In|Type|Required|Description
 body|body|Order|true|order placed for purchasing the pet
 
 
-
 > Body parameter
 
 ````json
@@ -1328,7 +1670,7 @@ body|body|Order|true|order placed for purchasing the pet
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-02-24T10:49:09Z",
+  "shipDate": "2017-03-03T09:41:20Z",
   "status": "placed",
   "complete": false
 }
@@ -1339,7 +1681,7 @@ body|body|Order|true|order placed for purchasing the pet
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-02-24T10:49:09Z</shipDate>
+  <shipDate>2017-03-03T09:41:20Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1358,7 +1700,7 @@ Status|Meaning|Description
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-02-24T10:49:09Z",
+  "shipDate": "2017-03-03T09:41:20Z",
   "status": "placed",
   "complete": false
 }
@@ -1369,7 +1711,7 @@ Status|Meaning|Description
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-02-24T10:49:09Z</shipDate>
+  <shipDate>2017-03-03T09:41:20Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1384,7 +1726,10 @@ This operation does not require authentication
 
 ````shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/store/order/{orderId}
+curl -X get http://petstore.swagger.io/v2/store/order/{orderId} \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -1392,12 +1737,21 @@ GET http://petstore.swagger.io/v2/store/order/{orderId} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
   method: 'get',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -1406,7 +1760,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/store/order/{orderId}', { method: 'GET'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/store/order/{orderId}',
+{
+  method: 'GET',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -1418,21 +1784,33 @@ fetch('http://petstore.swagger.io/v2/store/order/{orderId}', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.get 'http://petstore.swagger.io/v2/store/order/{orderId}', params: {
   
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.get('http://petstore.swagger.io/v2/store/order/{orderId}', params={
-	'orderId':0
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -1466,7 +1844,6 @@ Parameter|In|Type|Required|Description
 orderId|path|integer|true|ID of pet that needs to be fetched
 
 
-
 ### Responses
 
 Status|Meaning|Description
@@ -1482,7 +1859,7 @@ Status|Meaning|Description
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-02-24T10:49:09Z",
+  "shipDate": "2017-03-03T09:41:20Z",
   "status": "placed",
   "complete": false
 }
@@ -1493,7 +1870,7 @@ Status|Meaning|Description
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-02-24T10:49:09Z</shipDate>
+  <shipDate>2017-03-03T09:41:20Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1508,7 +1885,10 @@ This operation does not require authentication
 
 ````shell
 # You can also use wget
-curl -X delete http://petstore.swagger.io/v2/store/order/{orderId}
+curl -X delete http://petstore.swagger.io/v2/store/order/{orderId} \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -1516,12 +1896,21 @@ DELETE http://petstore.swagger.io/v2/store/order/{orderId} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
   method: 'delete',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -1530,7 +1919,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/store/order/{orderId}', { method: 'DELETE'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/store/order/{orderId}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -1542,21 +1943,33 @@ fetch('http://petstore.swagger.io/v2/store/order/{orderId}', { method: 'DELETE'}
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.delete 'http://petstore.swagger.io/v2/store/order/{orderId}', params: {
   
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.delete('http://petstore.swagger.io/v2/store/order/{orderId}', params={
-	'orderId':0
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -1590,7 +2003,6 @@ Parameter|In|Type|Required|Description
 orderId|path|integer|true|ID of the order that needs to be deleted
 
 
-
 ### Responses
 
 Status|Meaning|Description
@@ -1613,7 +2025,10 @@ Operations about user
 
 ````shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/user
+curl -X post http://petstore.swagger.io/v2/user \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -1621,12 +2036,21 @@ POST http://petstore.swagger.io/v2/user HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user',
   method: 'post',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -1635,7 +2059,28 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/user', { method: 'POST'})
+const inputBody = '{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}';
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/user',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -1647,30 +2092,33 @@ fetch('http://petstore.swagger.io/v2/user', { method: 'POST'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.post 'http://petstore.swagger.io/v2/user', params: {
   
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.post('http://petstore.swagger.io/v2/user', params={
-	'body':{
-  "id": 0,
-  "username": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "string",
-  "userStatus": 0
-}
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -1702,7 +2150,6 @@ This can only be done by the logged in user.
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 body|body|User|true|Created user object
-
 
 
 > Body parameter
@@ -1748,7 +2195,10 @@ This operation does not require authentication
 
 ````shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/user/createWithArray
+curl -X post http://petstore.swagger.io/v2/user/createWithArray \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -1756,12 +2206,21 @@ POST http://petstore.swagger.io/v2/user/createWithArray HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user/createWithArray',
   method: 'post',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -1770,7 +2229,30 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/user/createWithArray', { method: 'POST'})
+const inputBody = '[
+  {
+    "id": 0,
+    "username": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  }
+]';
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/user/createWithArray',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -1782,32 +2264,33 @@ fetch('http://petstore.swagger.io/v2/user/createWithArray', { method: 'POST'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithArray', params: {
   
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.post('http://petstore.swagger.io/v2/user/createWithArray', params={
-	'body':[
-  {
-    "id": 0,
-    "username": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "email": "string",
-    "password": "string",
-    "phone": "string",
-    "userStatus": 0
-  }
-]
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -1837,7 +2320,6 @@ System.out.println(response.toString());
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 body|body|array[User]|true|List of user object
-
 
 
 > Body parameter
@@ -1883,7 +2365,10 @@ This operation does not require authentication
 
 ````shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/user/createWithList
+curl -X post http://petstore.swagger.io/v2/user/createWithList \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -1891,12 +2376,21 @@ POST http://petstore.swagger.io/v2/user/createWithList HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user/createWithList',
   method: 'post',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -1905,7 +2399,30 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/user/createWithList', { method: 'POST'})
+const inputBody = '[
+  {
+    "id": 0,
+    "username": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "password": "string",
+    "phone": "string",
+    "userStatus": 0
+  }
+]';
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/user/createWithList',
+{
+  method: 'POST',
+  body: inputBody,
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -1917,32 +2434,33 @@ fetch('http://petstore.swagger.io/v2/user/createWithList', { method: 'POST'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithList', params: {
   
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.post('http://petstore.swagger.io/v2/user/createWithList', params={
-	'body':[
-  {
-    "id": 0,
-    "username": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "email": "string",
-    "password": "string",
-    "phone": "string",
-    "userStatus": 0
-  }
-]
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -1972,7 +2490,6 @@ System.out.println(response.toString());
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 body|body|array[User]|true|List of user object
-
 
 
 > Body parameter
@@ -2018,20 +2535,32 @@ This operation does not require authentication
 
 ````shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/user/login
+curl -X get http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
-GET http://petstore.swagger.io/v2/user/login HTTP/1.1
+GET http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user/login',
   method: 'get',
+  data: '?username=string&password=pa%24%24word',
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -2040,7 +2569,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/user/login', { method: 'GET'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word',
+{
+  method: 'GET',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -2052,29 +2593,43 @@ fetch('http://petstore.swagger.io/v2/user/login', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.get 'http://petstore.swagger.io/v2/user/login', params: {
   'username':'string',
   'password':'string'
   
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.get('http://petstore.swagger.io/v2/user/login', params={
-	'username':'string',
-	'password':'pa$$word'
-	
-})
+        'username':'string',
+        'password':'pa$$word'
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
 
 ````java
-URL obj = new URL("http://petstore.swagger.io/v2/user/login");
+URL obj = new URL("http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -2099,7 +2654,6 @@ Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 username|query|string|true|The user name for login
 password|query|string|true|The password for login in clear text
-
 
 
 ### Responses
@@ -2131,7 +2685,10 @@ This operation does not require authentication
 
 ````shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/user/logout
+curl -X get http://petstore.swagger.io/v2/user/logout \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -2139,12 +2696,21 @@ GET http://petstore.swagger.io/v2/user/logout HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user/logout',
   method: 'get',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -2153,7 +2719,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/user/logout', { method: 'GET'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/user/logout',
+{
+  method: 'GET',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -2165,19 +2743,33 @@ fetch('http://petstore.swagger.io/v2/user/logout', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.get 'http://petstore.swagger.io/v2/user/logout', params: {
   
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.get('http://petstore.swagger.io/v2/user/logout', params={
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -2218,7 +2810,10 @@ This operation does not require authentication
 
 ````shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/user/{username}
+curl -X get http://petstore.swagger.io/v2/user/{username} \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -2226,12 +2821,21 @@ GET http://petstore.swagger.io/v2/user/{username} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user/{username}',
   method: 'get',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -2240,7 +2844,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/user/{username}', { method: 'GET'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/user/{username}',
+{
+  method: 'GET',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -2252,21 +2868,33 @@ fetch('http://petstore.swagger.io/v2/user/{username}', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.get 'http://petstore.swagger.io/v2/user/{username}', params: {
   
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.get('http://petstore.swagger.io/v2/user/{username}', params={
-	'username':'string'
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -2296,7 +2924,6 @@ System.out.println(response.toString());
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 username|path|string|true|The name that needs to be fetched. Use user1 for testing. 
-
 
 
 ### Responses
@@ -2344,7 +2971,10 @@ This operation does not require authentication
 
 ````shell
 # You can also use wget
-curl -X put http://petstore.swagger.io/v2/user/{username}
+curl -X put http://petstore.swagger.io/v2/user/{username} \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -2352,12 +2982,21 @@ PUT http://petstore.swagger.io/v2/user/{username} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user/{username}',
   method: 'put',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -2366,7 +3005,28 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/user/{username}', { method: 'PUT'})
+const inputBody = '{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}';
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/user/{username}',
+{
+  method: 'PUT',
+  body: inputBody,
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -2378,32 +3038,33 @@ fetch('http://petstore.swagger.io/v2/user/{username}', { method: 'PUT'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.put 'http://petstore.swagger.io/v2/user/{username}', params: {
   
-  
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.put('http://petstore.swagger.io/v2/user/{username}', params={
-	'username':'string',
-	'body':{
-  "id": 0,
-  "username": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "email": "string",
-  "password": "string",
-  "phone": "string",
-  "userStatus": 0
-}
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -2436,7 +3097,6 @@ Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 username|path|string|true|name that need to be updated
 body|body|User|true|Updated user object
-
 
 
 > Body parameter
@@ -2483,7 +3143,10 @@ This operation does not require authentication
 
 ````shell
 # You can also use wget
-curl -X delete http://petstore.swagger.io/v2/user/{username}
+curl -X delete http://petstore.swagger.io/v2/user/{username} \
+  -H 'Accept: application/xml' \
+  -H 'Content-Type: application/xml'
+
 ````
 
 ````http
@@ -2491,12 +3154,21 @@ DELETE http://petstore.swagger.io/v2/user/{username} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/xml
 Accept: application/xml
+
 ````
 
 ````javascript
+var headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user/{username}',
   method: 'delete',
+
+  headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -2505,7 +3177,19 @@ $.ajax({
 
 ````javascript--nodejs
 const request = require('node-fetch');
-fetch('http://petstore.swagger.io/v2/user/{username}', { method: 'DELETE'})
+
+const headers = {
+  'Accept':'application/xml',
+  'Content-Type':'application/xml'
+
+};
+
+fetch('http://petstore.swagger.io/v2/user/{username}',
+{
+  method: 'DELETE',
+
+  headers: headers
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -2517,21 +3201,33 @@ fetch('http://petstore.swagger.io/v2/user/{username}', { method: 'DELETE'})
 require 'rest-client'
 require 'json'
 
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
+
 result = RestClient.delete 'http://petstore.swagger.io/v2/user/{username}', params: {
   
-  
-}
+}, headers: headers
 
 p JSON.parse(result)
 ````
 
 ````python
 import requests
+headers = {
+    'Accept':'application/xml',
+    'Content-Type':'application/xml'
+
+}
 
 r = requests.delete('http://petstore.swagger.io/v2/user/{username}', params={
-	'username':'string'
-	
-})
+
+    },
+    headers=headers
+
+)
 
 print r.json()
 ````
@@ -2565,7 +3261,6 @@ Parameter|In|Type|Required|Description
 username|path|string|true|The name that needs to be deleted
 
 
-
 ### Responses
 
 Status|Meaning|Description
@@ -2576,7 +3271,6 @@ Status|Meaning|Description
 <aside class="success">
 This operation does not require authentication
 </aside>
-
 
 
 
