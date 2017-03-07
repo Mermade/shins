@@ -3,14 +3,14 @@
 
 Beautiful static documentation for your API.
 
-![logo](http://mermade.github.io/shins/logo.jpg)
+![logo](https://github.com/Mermade/shins/blob/master/docs/logo.jpg?raw=true)
 
 Shins is a port of [Slate](https://github.com/lord/slate) to Javascript / Nodejs, and would
 not be possible without all of that hard work.
 
 Version numbers of Shins aim to track the version of Slate they are compatible with.
 
-![screenshot](http://mermade.github.io/shins/screenshot.jpg)
+![screenshot](https://github.com/Mermade/shins/blob/master/docs/screenshot.jpg?raw=true)
 
 ### Usage
 
