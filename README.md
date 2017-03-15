@@ -1,5 +1,5 @@
 # shins
-###Shins Is Not Slate
+### Shins Is Not Slate
 
 Beautiful static documentation for your API.
 
