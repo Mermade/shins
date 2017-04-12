@@ -208,30 +208,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/json'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -404,30 +398,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/json'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
 result = RestClient.put <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>
 }
 
 r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -593,34 +581,27 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus?
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>, <span class="hljs-symbol">params:</span> {
-  <span class="hljs-string">'status'</span><span class="hljs-symbol">:<span class="hljs-string">'array[string]'</span></span>
-  
+  <span class="hljs-string">'status'</span> =&gt; <span class="hljs-string">'array[string]'</span>
 }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>, params={
-        <span class="hljs-string">'status'</span>:[
+  <span class="hljs-string">'status'</span>: [
   <span class="hljs-string">"string"</span>
 ]
-
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -805,34 +786,27 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags?ta
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>, <span class="hljs-symbol">params:</span> {
-  <span class="hljs-string">'tags'</span><span class="hljs-symbol">:<span class="hljs-string">'array[string]'</span></span>
-  
+  <span class="hljs-string">'tags'</span> =&gt; <span class="hljs-string">'array[string]'</span>
 }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>, params={
-        <span class="hljs-string">'tags'</span>:[
+  <span class="hljs-string">'tags'</span>: [
   <span class="hljs-string">"string"</span>
 ]
-
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -994,30 +968,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</spa
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -1184,30 +1152,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</spa
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/x-www-form-urlencoded'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/x-www-form-urlencoded'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/x-www-form-urlencoded'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/x-www-form-urlencoded'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -1343,32 +1305,26 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</spa
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'api_key'</span><span class="hljs-symbol">:<span class="hljs-string">'string'</span></span>,
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'api_key'</span> =&gt; <span class="hljs-string">'string'</span>,
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'api_key'</span>:<span class="hljs-string">'string'</span>,
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'api_key'</span>: <span class="hljs-string">'string'</span>,
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -1498,30 +1454,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploa
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/json'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'multipart/form-data'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'multipart/form-data'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'multipart/form-data'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'multipart/form-data'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -1664,30 +1614,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'<
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/json'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/json'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -1774,7 +1718,7 @@ $.ajax({
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-03-03T16:09:22Z",
+  "shipDate": "2017-04-12T18:18:06Z",
   "status": "placed",
   "complete": false
 }'</span>;
@@ -1800,30 +1744,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</spa
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -1871,7 +1809,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-03-03T16:09:22Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-04-12T18:18:06Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -1881,7 +1819,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-03-03T16:09:22Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-04-12T18:18:06Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -1915,7 +1853,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-03-03T16:09:22Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-04-12T18:18:06Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -1925,7 +1863,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-03-03T16:09:22Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-04-12T18:18:06Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -1989,30 +1927,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orde
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -2088,7 +2020,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-03-03T16:09:22Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-04-12T18:18:06Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2098,7 +2030,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-03-03T16:09:22Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-04-12T18:18:06Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -2162,30 +2094,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orde
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -2320,30 +2246,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>,
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -2498,30 +2418,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithAr
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -2675,30 +2589,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithLi
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -2841,34 +2749,26 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/login?userna
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>, <span class="hljs-symbol">params:</span> {
-  <span class="hljs-string">'username'</span><span class="hljs-symbol">:<span class="hljs-string">'string'</span></span>,
-  <span class="hljs-string">'password'</span><span class="hljs-symbol">:<span class="hljs-string">'string'</span></span>
-  
+  <span class="hljs-string">'username'</span> =&gt; <span class="hljs-string">'string'</span>,
+<span class="hljs-string">'password'</span> =&gt; <span class="hljs-string">'string'</span>
 }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>, params={
-        <span class="hljs-string">'username'</span>:<span class="hljs-string">'string'</span>,
-        <span class="hljs-string">'password'</span>:<span class="hljs-string">'pa$$word'</span>
-
-    },
-    headers=headers
-
-)
+  <span class="hljs-string">'username'</span>: <span class="hljs-string">'string'</span>,  <span class="hljs-string">'password'</span>: <span class="hljs-string">'pa$$word'</span>
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -3030,30 +2930,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</spa
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -3149,30 +3043,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'<
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -3334,30 +3222,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'<
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.put <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -3513,30 +3395,24 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'<
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-    <span class="hljs-string">'Accept'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>,
-    <span class="hljs-string">'Content-Type'</span><span class="hljs-symbol">:<span class="hljs-string">'application/xml'</span></span>
-
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
 result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
-  
-}, <span class="hljs-symbol">headers:</span> headers
+  }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-    <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-    <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/xml'</span>
-
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/xml'</span>
 }
 
 r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 <span class="hljs-keyword">print</span> r.json()
 </code></pre>
@@ -3603,16 +3479,6 @@ System.out.println(response.toString());
 <aside class="success">
 This operation does not require authentication
 </aside>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org/",
-  "@type": "WebAPI",
-  "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
-  "documentation": "http://swagger.io",
-  "termsOfService": "http://swagger.io/terms/",
-  "name": "Swagger Petstore"
-}
-</script>
 
         
       </div>

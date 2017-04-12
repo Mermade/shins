@@ -134,14 +134,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/json'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/json'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/pet', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -149,17 +147,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/json'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/json'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/pet', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -323,14 +317,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/json'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/json'
 }
 
 result = RestClient.put 'http://petstore.swagger.io/v2/pet', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -338,17 +330,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/json'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/json'
 }
 
 r = requests.put('http://petstore.swagger.io/v2/pet', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -497,14 +485,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByStatus', params: {
-  'status':'array[string]'
-  
+  'status' => 'array[string]'
 }, headers: headers
 
 p JSON.parse(result)
@@ -513,20 +499,15 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/pet/findByStatus', params={
-        'status':[
+  'status': [
   "string"
 ]
-
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -684,14 +665,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByTags', params: {
-  'tags':'array[string]'
-  
+  'tags' => 'array[string]'
 }, headers: headers
 
 p JSON.parse(result)
@@ -700,20 +679,15 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/pet/findByTags', params={
-        'tags':[
+  'tags': [
   "string"
 ]
-
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -863,14 +837,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/pet/{petId}', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -878,17 +850,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/pet/{petId}', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -1039,14 +1007,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/x-www-form-urlencoded'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/x-www-form-urlencoded'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -1054,17 +1020,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/x-www-form-urlencoded'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/x-www-form-urlencoded'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/pet/{petId}', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -1178,15 +1140,13 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'api_key':'string',
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'api_key' => 'string',
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.delete 'http://petstore.swagger.io/v2/pet/{petId}', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -1194,18 +1154,14 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'api_key':'string',
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'api_key': 'string',
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.delete('http://petstore.swagger.io/v2/pet/{petId}', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -1315,14 +1271,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/json',
-    'Content-Type':'multipart/form-data'
-
+  'Accept' => 'application/json',
+  'Content-Type' => 'multipart/form-data'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -1330,17 +1284,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/json',
-    'Content-Type':'multipart/form-data'
-
+  'Accept': 'application/json',
+  'Content-Type': 'multipart/form-data'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -1463,14 +1413,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/json',
-    'Content-Type':'application/json'
-
+  'Accept' => 'application/json',
+  'Content-Type' => 'application/json'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/store/inventory', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -1478,17 +1426,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/json',
-    'Content-Type':'application/json'
-
+  'Accept': 'application/json',
+  'Content-Type': 'application/json'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/store/inventory', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -1578,7 +1522,7 @@ const inputBody = '{
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-03-03T16:09:22Z",
+  "shipDate": "2017-04-12T18:18:06Z",
   "status": "placed",
   "complete": false
 }';
@@ -1606,14 +1550,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/store/order', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -1621,17 +1563,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/store/order', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -1670,7 +1608,7 @@ body|body|Order|true|order placed for purchasing the pet
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-03-03T16:09:22Z",
+  "shipDate": "2017-04-12T18:18:06Z",
   "status": "placed",
   "complete": false
 }
@@ -1681,7 +1619,7 @@ body|body|Order|true|order placed for purchasing the pet
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-03-03T16:09:22Z</shipDate>
+  <shipDate>2017-04-12T18:18:06Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1700,7 +1638,7 @@ Status|Meaning|Description
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-03-03T16:09:22Z",
+  "shipDate": "2017-04-12T18:18:06Z",
   "status": "placed",
   "complete": false
 }
@@ -1711,7 +1649,7 @@ Status|Meaning|Description
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-03-03T16:09:22Z</shipDate>
+  <shipDate>2017-04-12T18:18:06Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1785,14 +1723,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/store/order/{orderId}', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -1800,17 +1736,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/store/order/{orderId}', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -1859,7 +1791,7 @@ Status|Meaning|Description
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-03-03T16:09:22Z",
+  "shipDate": "2017-04-12T18:18:06Z",
   "status": "placed",
   "complete": false
 }
@@ -1870,7 +1802,7 @@ Status|Meaning|Description
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-03-03T16:09:22Z</shipDate>
+  <shipDate>2017-04-12T18:18:06Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1944,14 +1876,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.delete 'http://petstore.swagger.io/v2/store/order/{orderId}', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -1959,17 +1889,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.delete('http://petstore.swagger.io/v2/store/order/{orderId}', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -2093,14 +2019,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/user', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -2108,17 +2032,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/user', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -2265,14 +2185,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithArray', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -2280,17 +2198,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/user/createWithArray', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -2435,14 +2349,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithList', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -2450,17 +2362,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/user/createWithList', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -2594,15 +2502,13 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/user/login', params: {
-  'username':'string',
-  'password':'string'
-  
+  'username' => 'string',
+'password' => 'string'
 }, headers: headers
 
 p JSON.parse(result)
@@ -2611,19 +2517,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/user/login', params={
-        'username':'string',
-        'password':'pa$$word'
-
-    },
-    headers=headers
-
-)
+  'username': 'string',  'password': 'pa$$word'
+}, headers = headers)
 
 print r.json()
 ````
@@ -2744,14 +2644,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/user/logout', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -2759,17 +2657,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/user/logout', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -2869,14 +2763,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/user/{username}', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -2884,17 +2776,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/user/{username}', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -3039,14 +2927,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.put 'http://petstore.swagger.io/v2/user/{username}', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -3054,17 +2940,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.put('http://petstore.swagger.io/v2/user/{username}', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -3202,14 +3084,12 @@ require 'rest-client'
 require 'json'
 
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept' => 'application/xml',
+  'Content-Type' => 'application/xml'
 }
 
 result = RestClient.delete 'http://petstore.swagger.io/v2/user/{username}', params: {
-  
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 ````
@@ -3217,17 +3097,13 @@ p JSON.parse(result)
 ````python
 import requests
 headers = {
-    'Accept':'application/xml',
-    'Content-Type':'application/xml'
-
+  'Accept': 'application/xml',
+  'Content-Type': 'application/xml'
 }
 
 r = requests.delete('http://petstore.swagger.io/v2/user/{username}', params={
 
-    },
-    headers=headers
-
-)
+}, headers = headers)
 
 print r.json()
 ````
@@ -3273,15 +3149,4 @@ This operation does not require authentication
 </aside>
 
 
-
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org/",
-  "@type": "WebAPI",
-  "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
-  "documentation": "http://swagger.io",
-  "termsOfService": "http://swagger.io/terms/",
-  "name": "Swagger Petstore"
-}
-</script>
 
