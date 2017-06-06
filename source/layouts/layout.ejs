@@ -34,7 +34,7 @@ under the License.
     <% } %>
   </head>
 
-  <body class="<%= current_page.page_classes %>" data-languages="<%- language_array(current_page.data.language_tabs) %>">
+  <body <% if (current_page.page_classes) {%>class="<%= current_page.page_classes %>" <% } %>data-languages="<%- language_array(current_page.data.language_tabs) %>">
     <a href="#" id="nav-button">
       <span>
         NAV
