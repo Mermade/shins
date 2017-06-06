@@ -119,7 +119,9 @@ function render(inputStr,options,callback) {
     locals.current_page.data = header;
     locals.yield = function() { return content; };
     locals.partial = partial;
-    locals.image_tag = function(image) { return '<img src="source/images/'+image+'">'; };
+    locals.image_tag = function(image, altText) {
+        return '<img src="source/images/'+image+'" alt="'+altText+'">';
+	};
     locals.stylesheet_link_tag = stylesheet_link_tag;
     locals.javascript_include_tag = javascript_include_tag;
     locals.language_array = language_array;
