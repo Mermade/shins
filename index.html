@@ -145,10 +145,10 @@ curl -X post http://petstore.swagger.io/v2/pet \
   -H <span class="hljs-string">'Content-Type: application/json'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/json
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -158,11 +158,11 @@ curl -X post http://petstore.swagger.io/v2/pet \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'post'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
+  method: <span class="hljs-string">'post'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -194,9 +194,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
-  <span class="hljs-attr">body</span>: inputBody,
-  <span class="hljs-attr">headers</span>: headers
+  method: <span class="hljs-string">'POST'</span>,
+  body: inputBody,
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -212,10 +212,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -270,39 +270,39 @@ System.out.println(response.toString());
 <p>Body parameter</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"category"</span>: {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-  },
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"doggie"</span>,
-  <span class="hljs-attr">"photoUrls"</span>: [
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
+  "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
     <span class="hljs-string">"string"</span>
-  ],
-  <span class="hljs-attr">"tags"</span>: [
+  ]</span>,
+  "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
     {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-    }
-  ],
-  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"available"</span>
-}
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
+</span>}
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">Pet</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">category</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">photoUrls</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">tags</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tags</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Pet</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Pet</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Pet</span>&gt;</span>
 </code></pre>
 <h3 id="responses">Responses</h3>
 <table>
@@ -335,10 +335,10 @@ curl -X put http://petstore.swagger.io/v2/pet \
   -H <span class="hljs-string">'Content-Type: application/json'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/json
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">PUT <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -348,11 +348,11 @@ curl -X put http://petstore.swagger.io/v2/pet \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'put'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
+  method: <span class="hljs-string">'put'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -384,9 +384,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'PUT'</span>,
-  <span class="hljs-attr">body</span>: inputBody,
-  <span class="hljs-attr">headers</span>: headers
+  method: <span class="hljs-string">'PUT'</span>,
+  body: inputBody,
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -402,10 +402,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.put <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.put <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -460,39 +460,39 @@ System.out.println(response.toString());
 <p>Body parameter</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"category"</span>: {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-  },
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"doggie"</span>,
-  <span class="hljs-attr">"photoUrls"</span>: [
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
+  "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
     <span class="hljs-string">"string"</span>
-  ],
-  <span class="hljs-attr">"tags"</span>: [
+  ]</span>,
+  "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
     {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-    }
-  ],
-  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"available"</span>
-}
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
+</span>}
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">Pet</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">category</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">photoUrls</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">tags</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tags</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Pet</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Pet</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Pet</span>&gt;</span>
 </code></pre>
 <h3 id="responses">Responses</h3>
 <table>
@@ -535,10 +535,10 @@ curl -X get http://petstore.swagger.io/v2/pet/findByStatus?status=... \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByStatus?status=...</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByStatus?status=...</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -548,11 +548,11 @@ curl -X get http://petstore.swagger.io/v2/pet/findByStatus?status=... \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,
-  <span class="hljs-attr">data</span>: <span class="hljs-string">'?status=...'</span>,
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>,
+  method: <span class="hljs-string">'get'</span>,
+  data: <span class="hljs-string">'?status=...'</span>,
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -567,9 +567,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus?status=...'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+  method: <span class="hljs-string">'GET'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -585,11 +585,11 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>, <span class="hljs-symbol">params:</span> {
   <span class="hljs-string">'status'</span> =&gt; <span class="hljs-string">'array[string]'</span>
 }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -693,38 +693,38 @@ System.out.println(response.toString());
 </blockquote>
 <pre class="highlight tab-json"><code>[
   {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"category"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-    },
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"doggie"</span>,
-    <span class="hljs-attr">"photoUrls"</span>: [
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
+    "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
       <span class="hljs-string">"string"</span>
-    ],
-    <span class="hljs-attr">"tags"</span>: [
+    ]</span>,
+    "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
       {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-      }
-    ],
-    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"available"</span>
-  }
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
+  </span>}
 ]
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">category</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">photoUrls</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">tags</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">tags</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
 </code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -740,10 +740,10 @@ curl -X get http://petstore.swagger.io/v2/pet/findByTags?tags=... \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByTags?tags=...</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByTags?tags=...</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -753,11 +753,11 @@ curl -X get http://petstore.swagger.io/v2/pet/findByTags?tags=... \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,
-  <span class="hljs-attr">data</span>: <span class="hljs-string">'?tags=...'</span>,
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>,
+  method: <span class="hljs-string">'get'</span>,
+  data: <span class="hljs-string">'?tags=...'</span>,
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -772,9 +772,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags?tags=...'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+  method: <span class="hljs-string">'GET'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -790,11 +790,11 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>, <span class="hljs-symbol">params:</span> {
   <span class="hljs-string">'tags'</span> =&gt; <span class="hljs-string">'array[string]'</span>
 }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -875,38 +875,38 @@ System.out.println(response.toString());
 </blockquote>
 <pre class="highlight tab-json"><code>[
   {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"category"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-    },
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"doggie"</span>,
-    <span class="hljs-attr">"photoUrls"</span>: [
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
+    "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
       <span class="hljs-string">"string"</span>
-    ],
-    <span class="hljs-attr">"tags"</span>: [
+    ]</span>,
+    "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
       {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-      }
-    ],
-    <span class="hljs-attr">"status"</span>: <span class="hljs-string">"available"</span>
-  }
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
+  </span>}
 ]
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">category</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">photoUrls</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">tags</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">tags</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
 </code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -922,10 +922,10 @@ curl -X get http://petstore.swagger.io/v2/pet/{petId} \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -935,11 +935,11 @@ curl -X get http://petstore.swagger.io/v2/pet/{petId} \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
+  method: <span class="hljs-string">'get'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -954,9 +954,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+  method: <span class="hljs-string">'GET'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -972,10 +972,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -1058,39 +1058,39 @@ System.out.println(response.toString());
 <p>Example responses</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"category"</span>: {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-  },
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"doggie"</span>,
-  <span class="hljs-attr">"photoUrls"</span>: [
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">category</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"doggie"</span></span>,
+  "<span class="hljs-attribute">photoUrls</span>": <span class="hljs-value">[
     <span class="hljs-string">"string"</span>
-  ],
-  <span class="hljs-attr">"tags"</span>: [
+  ]</span>,
+  "<span class="hljs-attribute">tags</span>": <span class="hljs-value">[
     {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
-    }
-  ],
-  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"available"</span>
-}
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"available"</span>
+</span>}
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">Pet</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">category</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">photoUrls</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">tags</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tags</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Pet</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Pet</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">category</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">category</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>doggie<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">photoUrls</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">photoUrls</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">tags</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">tags</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Pet</span>&gt;</span>
 </code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1106,10 +1106,10 @@ curl -X post http://petstore.swagger.io/v2/pet/{petId} \
   -H <span class="hljs-string">'Content-Type: application/x-www-form-urlencoded'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/x-www-form-urlencoded
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -1119,11 +1119,11 @@ curl -X post http://petstore.swagger.io/v2/pet/{petId} \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'post'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
+  method: <span class="hljs-string">'post'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -1138,9 +1138,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
+  method: <span class="hljs-string">'POST'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -1156,10 +1156,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/x-www-form-urlencoded'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -1256,11 +1256,11 @@ curl -X delete http://petstore.swagger.io/v2/pet/{petId} \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
-<span class="hljs-attribute">api_key</span>: string
+<pre class="highlight tab-http"><code><span class="hljs-request">DELETE <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">api_key</span>: <span class="hljs-string">string</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -1271,11 +1271,11 @@ curl -X delete http://petstore.swagger.io/v2/pet/{petId} \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'delete'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
+  method: <span class="hljs-string">'delete'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -1291,9 +1291,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'DELETE'</span>,
+  method: <span class="hljs-string">'DELETE'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -1310,10 +1310,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.delete <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -1408,10 +1408,10 @@ curl -X post http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
   -H <span class="hljs-string">'Content-Type: multipart/form-data'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}/uploadImage</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: multipart/form-data
-<span class="hljs-attribute">Accept</span>: application/json
+<pre class="highlight tab-http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}/uploadImage</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">multipart/form-data</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -1421,11 +1421,11 @@ curl -X post http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'post'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>,
+  method: <span class="hljs-string">'post'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -1440,9 +1440,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
+  method: <span class="hljs-string">'POST'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -1458,10 +1458,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'multipart/form-data'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -1547,10 +1547,10 @@ System.out.println(response.toString());
 <p>Example responses</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"code"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
-}
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+</span>}
 </code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1568,10 +1568,10 @@ curl -X get http://petstore.swagger.io/v2/store/inventory \
   -H <span class="hljs-string">'Content-Type: application/json'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/store/inventory</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/json
-<span class="hljs-attribute">Accept</span>: application/json
+<pre class="highlight tab-http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/store/inventory</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -1581,11 +1581,11 @@ curl -X get http://petstore.swagger.io/v2/store/inventory \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>,
+  method: <span class="hljs-string">'get'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -1600,9 +1600,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+  method: <span class="hljs-string">'GET'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -1618,10 +1618,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -1673,9 +1673,9 @@ System.out.println(response.toString());
 <p>Example responses</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"property1"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"property2"</span>: <span class="hljs-number">0</span>
-}
+  "<span class="hljs-attribute">property1</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">property2</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}
 </code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1691,10 +1691,10 @@ curl -X post http://petstore.swagger.io/v2/store/order \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/store/order</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/store/order</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -1704,11 +1704,11 @@ curl -X post http://petstore.swagger.io/v2/store/order \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'post'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>,
+  method: <span class="hljs-string">'post'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -1730,9 +1730,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
-  <span class="hljs-attr">body</span>: inputBody,
-  <span class="hljs-attr">headers</span>: headers
+  method: <span class="hljs-string">'POST'</span>,
+  body: inputBody,
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -1748,10 +1748,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -1806,23 +1806,23 @@ System.out.println(response.toString());
 <p>Body parameter</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-04-12T18:18:06Z"</span>,
-  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
-  <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
-}
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">petId</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">quantity</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">shipDate</span>": <span class="hljs-value"><span class="hljs-string">"2017-04-12T18:18:06Z"</span></span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"placed"</span></span>,
+  "<span class="hljs-attribute">complete</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+</span>}
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-04-12T18:18:06Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Order</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">petId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">quantity</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">shipDate</span>&gt;</span>2017-04-12T18:18:06Z<span class="hljs-tag">&lt;/<span class="hljs-title">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-title">complete</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Order</span>&gt;</span>
 </code></pre>
 <h3 id="responses">Responses</h3>
 <table>
@@ -1850,23 +1850,23 @@ System.out.println(response.toString());
 <p>Example responses</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-04-12T18:18:06Z"</span>,
-  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
-  <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
-}
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">petId</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">quantity</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">shipDate</span>": <span class="hljs-value"><span class="hljs-string">"2017-04-12T18:18:06Z"</span></span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"placed"</span></span>,
+  "<span class="hljs-attribute">complete</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+</span>}
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-04-12T18:18:06Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Order</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">petId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">quantity</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">shipDate</span>&gt;</span>2017-04-12T18:18:06Z<span class="hljs-tag">&lt;/<span class="hljs-title">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-title">complete</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Order</span>&gt;</span>
 </code></pre>
 <aside class="success">
 This operation does not require authentication
@@ -1881,10 +1881,10 @@ curl -X get http://petstore.swagger.io/v2/store/order/{orderId} \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -1894,11 +1894,11 @@ curl -X get http://petstore.swagger.io/v2/store/order/{orderId} \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
+  method: <span class="hljs-string">'get'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -1913,9 +1913,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+  method: <span class="hljs-string">'GET'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -1931,10 +1931,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -2017,23 +2017,23 @@ System.out.println(response.toString());
 <p>Example responses</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-04-12T18:18:06Z"</span>,
-  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
-  <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
-}
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">petId</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">quantity</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">shipDate</span>": <span class="hljs-value"><span class="hljs-string">"2017-04-12T18:18:06Z"</span></span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"placed"</span></span>,
+  "<span class="hljs-attribute">complete</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+</span>}
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-04-12T18:18:06Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">Order</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">petId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">quantity</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">shipDate</span>&gt;</span>2017-04-12T18:18:06Z<span class="hljs-tag">&lt;/<span class="hljs-title">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-title">status</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-title">complete</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">Order</span>&gt;</span>
 </code></pre>
 <aside class="success">
 This operation does not require authentication
@@ -2048,10 +2048,10 @@ curl -X delete http://petstore.swagger.io/v2/store/order/{orderId} \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">DELETE <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -2061,11 +2061,11 @@ curl -X delete http://petstore.swagger.io/v2/store/order/{orderId} \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'delete'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
+  method: <span class="hljs-string">'delete'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -2080,9 +2080,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'DELETE'</span>,
+  method: <span class="hljs-string">'DELETE'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -2098,10 +2098,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.delete <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -2191,10 +2191,10 @@ curl -X post http://petstore.swagger.io/v2/user \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/user</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/user</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -2204,11 +2204,11 @@ curl -X post http://petstore.swagger.io/v2/user \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'post'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>,
+  method: <span class="hljs-string">'post'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -2232,9 +2232,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
-  <span class="hljs-attr">body</span>: inputBody,
-  <span class="hljs-attr">headers</span>: headers
+  method: <span class="hljs-string">'POST'</span>,
+  body: inputBody,
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -2250,10 +2250,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -2309,27 +2309,27 @@ System.out.println(response.toString());
 <p>Body parameter</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"password"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
-}
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">firstName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">lastName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">userStatus</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">User</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">firstName</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">lastName</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">email</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">userStatus</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">User</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">User</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">username</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">firstName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">lastName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">email</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">password</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">phone</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">userStatus</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">User</span>&gt;</span>
 </code></pre>
 <h3 id="responses">Responses</h3>
 <table>
@@ -2361,10 +2361,10 @@ curl -X post http://petstore.swagger.io/v2/user/createWithArray \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/createWithArray</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/user/createWithArray</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -2374,11 +2374,11 @@ curl -X post http://petstore.swagger.io/v2/user/createWithArray \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'post'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>,
+  method: <span class="hljs-string">'post'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -2404,9 +2404,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
-  <span class="hljs-attr">body</span>: inputBody,
-  <span class="hljs-attr">headers</span>: headers
+  method: <span class="hljs-string">'POST'</span>,
+  body: inputBody,
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -2422,10 +2422,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -2481,26 +2481,26 @@ System.out.println(response.toString());
 </blockquote>
 <pre class="highlight tab-json"><code>[
   {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"password"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
-  }
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">firstName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">lastName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">userStatus</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+  </span>}
 ]
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">firstName</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">lastName</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">email</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">userStatus</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">username</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">firstName</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">lastName</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">email</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">password</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">phone</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">userStatus</span>&gt;</span>
 </code></pre>
 <h3 id="responses">Responses</h3>
 <table>
@@ -2532,10 +2532,10 @@ curl -X post http://petstore.swagger.io/v2/user/createWithList \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/createWithList</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">POST <span class="hljs-string">http://petstore.swagger.io/v2/user/createWithList</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -2545,11 +2545,11 @@ curl -X post http://petstore.swagger.io/v2/user/createWithList \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'post'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>,
+  method: <span class="hljs-string">'post'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -2575,9 +2575,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'POST'</span>,
-  <span class="hljs-attr">body</span>: inputBody,
-  <span class="hljs-attr">headers</span>: headers
+  method: <span class="hljs-string">'POST'</span>,
+  body: inputBody,
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -2593,10 +2593,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -2652,26 +2652,26 @@ System.out.println(response.toString());
 </blockquote>
 <pre class="highlight tab-json"><code>[
   {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"password"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
-    <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
-  }
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">firstName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">lastName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+    "<span class="hljs-attribute">userStatus</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+  </span>}
 ]
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">firstName</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">lastName</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">email</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">userStatus</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">username</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">firstName</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">lastName</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">email</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">password</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">phone</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">userStatus</span>&gt;</span>
 </code></pre>
 <h3 id="responses">Responses</h3>
 <table>
@@ -2698,15 +2698,15 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X get http://petstore.swagger.io/v2/user/login?username=string&amp;password=pa%24%24word \
+curl -X get http://petstore.swagger.io/v2/user/login?username=string&amp;password=pa%<span class="hljs-number">24</span>%<span class="hljs-number">24</span>word \
   -H <span class="hljs-string">'Accept: application/xml'</span> \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/login?username=string&amp;password=pa%24%24word</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/user/login?username=string&amp;password=pa%24%24word</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -2716,11 +2716,11 @@ curl -X get http://petstore.swagger.io/v2/user/login?username=string&amp;passwor
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,
-  <span class="hljs-attr">data</span>: <span class="hljs-string">'?username=string&amp;password=pa%24%24word'</span>,
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>,
+  method: <span class="hljs-string">'get'</span>,
+  data: <span class="hljs-string">'?username=string&amp;password=pa%24%24word'</span>,
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -2735,9 +2735,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/login?username=string&amp;password=pa%24%24word'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+  method: <span class="hljs-string">'GET'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -2753,12 +2753,12 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>, <span class="hljs-symbol">params:</span> {
   <span class="hljs-string">'username'</span> =&gt; <span class="hljs-string">'string'</span>,
 <span class="hljs-string">'password'</span> =&gt; <span class="hljs-string">'string'</span>
 }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -2884,10 +2884,10 @@ curl -X get http://petstore.swagger.io/v2/user/<span class="hljs-built_in">logou
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/logout</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/user/logout</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -2897,11 +2897,11 @@ curl -X get http://petstore.swagger.io/v2/user/<span class="hljs-built_in">logou
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>,
+  method: <span class="hljs-string">'get'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -2916,9 +2916,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+  method: <span class="hljs-string">'GET'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -2934,10 +2934,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -2997,10 +2997,10 @@ curl -X get http://petstore.swagger.io/v2/user/{username} \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">GET <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -3010,11 +3010,11 @@ curl -X get http://petstore.swagger.io/v2/user/{username} \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
+  method: <span class="hljs-string">'get'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -3029,9 +3029,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+  method: <span class="hljs-string">'GET'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -3047,10 +3047,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -3132,27 +3132,27 @@ System.out.println(response.toString());
 <p>Example responses</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"password"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
-}
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">firstName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">lastName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">userStatus</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">User</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">firstName</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">lastName</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">email</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">userStatus</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">User</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">User</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">username</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">firstName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">lastName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">email</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">password</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">phone</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">userStatus</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">User</span>&gt;</span>
 </code></pre>
 <aside class="success">
 This operation does not require authentication
@@ -3167,10 +3167,10 @@ curl -X put http://petstore.swagger.io/v2/user/{username} \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">PUT <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -3180,11 +3180,11 @@ curl -X put http://petstore.swagger.io/v2/user/{username} \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'put'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
+  method: <span class="hljs-string">'put'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -3208,9 +3208,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'PUT'</span>,
-  <span class="hljs-attr">body</span>: inputBody,
-  <span class="hljs-attr">headers</span>: headers
+  method: <span class="hljs-string">'PUT'</span>,
+  body: inputBody,
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -3226,10 +3226,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.put <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.put <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
@@ -3292,27 +3292,27 @@ System.out.println(response.toString());
 <p>Body parameter</p>
 </blockquote>
 <pre class="highlight tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"password"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
-}
+  "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">firstName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">lastName</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">phone</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+  "<span class="hljs-attribute">userStatus</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}
 </code></pre>
-<pre class="highlight tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">User</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">firstName</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">lastName</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">email</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">userStatus</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">User</span>&gt;</span>
+<pre class="highlight tab-xml"><code><span class="hljs-pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">User</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">username</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">firstName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">lastName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">email</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">password</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-title">phone</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-title">userStatus</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">User</span>&gt;</span>
 </code></pre>
 <h3 id="responses">Responses</h3>
 <table>
@@ -3349,10 +3349,10 @@ curl -X delete http://petstore.swagger.io/v2/user/{username} \
   -H <span class="hljs-string">'Content-Type: application/xml'</span>
 
 </code></pre>
-<pre class="highlight tab-http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1
-<span class="hljs-attribute">Host</span>: petstore.swagger.io
-<span class="hljs-attribute">Content-Type</span>: application/xml
-<span class="hljs-attribute">Accept</span>: application/xml
+<pre class="highlight tab-http"><code><span class="hljs-request">DELETE <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1</span>
+<span class="hljs-attribute">Host</span>: <span class="hljs-string">petstore.swagger.io</span>
+<span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/xml</span>
+<span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/xml</span>
 
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
@@ -3362,11 +3362,11 @@ curl -X delete http://petstore.swagger.io/v2/user/{username} \
 };
 
 $.ajax({
-  <span class="hljs-attr">url</span>: <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'delete'</span>,
+  url: <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
+  method: <span class="hljs-string">'delete'</span>,
 
-  <span class="hljs-attr">headers</span>: headers,
-  <span class="hljs-attr">success</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+  headers: headers,
+  success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(data));
   }
 })
@@ -3381,9 +3381,9 @@ $.ajax({
 
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
 {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">'DELETE'</span>,
+  method: <span class="hljs-string">'DELETE'</span>,
 
-  <span class="hljs-attr">headers</span>: headers
+  headers: headers
 })
 .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
     <span class="hljs-keyword">return</span> res.json();
@@ -3399,10 +3399,10 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
+result = <span class="hljs-constant">RestClient</span>.delete <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
-p JSON.parse(result)
+p <span class="hljs-constant">JSON</span>.parse(result)
 </code></pre>
 <pre class="highlight tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
