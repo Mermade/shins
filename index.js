@@ -3,22 +3,25 @@
 var fs = require('fs');
 var path = require('path');
 
+var maybe = require('call-me-maybe');
+
 var hljs = require('highlightjs/highlight.pack.js');
-var hlpath = require.resolve('highlightjs/highlight.pack.js').replace('highlight.pack.js','');
+var hlpath = require.resolve('highlightjs/highlight.pack.js').replace('highlight.pack.js', '');
 
-var md = require('markdown-it')({linkify: true, html: true,
-  highlight: function (str, lang) {
-    var slang = lang.split('--')[0]; // allows multiple language tabs for the same language
-    if (slang && hljs.getLanguage(slang)) {
-      try {
-        return '<pre class="highlight tab-'+lang+'"><code>' +
-               hljs.highlight(slang, str, true).value +
-               '</code></pre>';
-      } catch (__) {}
+var md = require('markdown-it')({
+    linkify: true, html: true,
+    highlight: function (str, lang) {
+        var slang = lang.split('--')[0]; // allows multiple language tabs for the same language
+        if (slang && hljs.getLanguage(slang)) {
+            try {
+                return '<pre class="highlight tab-' + lang + '"><code>' +
+                    hljs.highlight(slang, str, true).value +
+                    '</code></pre>';
+            } catch (__) { }
+        }
+
+        return '<pre class="highlight"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
     }
-
-    return '<pre class="highlight"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-  }
 }).use(require('markdown-it-lazy-headers'));
 var yaml = require('js-yaml');
 var ejs = require('ejs');
@@ -27,45 +30,45 @@ var uglify = require('uglify-js');
 var globalOptions = {};
 
 function javascript_include_tag(include) {
-    var includeStr = fs.readFileSync(path.join(__dirname,'/source/javascripts/'+include+'.inc'),'utf8');
-	if (globalOptions.minify) {
-		var scripts = [];
-		var includes = includeStr.split('\r').join().split('\n');
-		for (var i in includes) {
-			var inc = includes[i];
-			var elements = inc.split('"');
-			if (elements[1]) {
-				scripts.push(path.join(__dirname,elements[1]));
-			}
-		}
-		var bundle = uglify.minify(scripts);
-		fs.writeFileSync(path.join(__dirname,'/pub/js/shins.js'),bundle.code,'utf8');
-		includeStr = fs.readFileSync(path.join(__dirname,'/source/javascripts/'+include+'.bundle.inc'),'utf8');
-	}
+    var includeStr = fs.readFileSync(path.join(__dirname, '/source/javascripts/' + include + '.inc'), 'utf8');
+    if (globalOptions.minify) {
+        var scripts = [];
+        var includes = includeStr.split('\r').join().split('\n');
+        for (var i in includes) {
+            var inc = includes[i];
+            var elements = inc.split('"');
+            if (elements[1]) {
+                scripts.push(path.join(__dirname, elements[1]));
+            }
+        }
+        var bundle = uglify.minify(scripts);
+        fs.writeFileSync(path.join(__dirname, '/pub/js/shins.js'), bundle.code, 'utf8');
+        includeStr = fs.readFileSync(path.join(__dirname, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
+    }
     return includeStr;
 }
 
 function partial(include) {
-    var includeStr = fs.readFileSync(path.join(__dirname,'/source/includes/_'+include+'.md'),'utf8');
+    var includeStr = fs.readFileSync(path.join(__dirname, '/source/includes/_' + include + '.md'), 'utf8');
     return md.render(includeStr);
 }
 
-function stylesheet_link_tag(stylesheet,media) {
+function stylesheet_link_tag(stylesheet, media) {
     if (media == 'screen') {
-        var target = path.join(__dirname,'/pub/css/'+stylesheet+'.css');
+        var target = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
         if (!fs.existsSync(target)) {
-            var source = path.join(hlpath,'/styles/'+stylesheet+'.css');
+            var source = path.join(hlpath, '/styles/' + stylesheet + '.css');
             fs.writeFileSync(target, fs.readFileSync(source));
         }
     }
-	var include = '<link rel="stylesheet" media="'+media+'" href="pub/css/'+stylesheet+'.css">';
-	if (globalOptions.customCss) {
-		if ((stylesheet != 'print') && (stylesheet != 'screen')) {
-			stylesheet = 'theme';
-		}
-		include += '\n    <link rel="stylesheet" media="'+media+'" href="pub/css/'+stylesheet+'_overrides.css">';
-	}
-	return include;
+    var include = '<link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '.css">';
+    if (globalOptions.customCss) {
+        if ((stylesheet != 'print') && (stylesheet != 'screen')) {
+            stylesheet = 'theme';
+        }
+        include += '\n    <link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '_overrides.css">';
+    }
+    return include;
 };
 
 function language_array(language_tabs) {
@@ -81,60 +84,63 @@ function language_array(language_tabs) {
     return JSON.stringify(result).split('"').join('&quot;');
 }
 
-function postProcess(content){
-    content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g,function(match,group1,group2){
-       return '<'+group1+' id="'+group2.toLowerCase().split(' ').join('-').split('/').join('-')+'">'+group2+'</'+group1+'>';
+function postProcess(content) {
+    content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (match, group1, group2) {
+        return '<' + group1 + ' id="' + group2.toLowerCase().split(' ').join('-').split('/').join('-') + '">' + group2 + '</' + group1 + '>';
     });
     return content;
 }
 
-function render(inputStr,options,callback) {
+function render(inputStr, options, callback) {
 
-	if (typeof callback === 'undefined') { // for pre-v1.4.0 compatibility
-		callback = options;
-		options = {};
-	}
-	globalOptions = options;
+    if (typeof callback === 'undefined') { // for pre-v1.4.0 compatibility
+        callback = options;
+        options = {};
+    }
+    return maybe(callback, new Promise(function (resolve, reject) {
+        globalOptions = options;
 
-    inputStr = inputStr.split('\r\n').join('\n');
-    var inputArr = ('\n'+inputStr).split('\n---\n');
-	if (inputArr.length === 1) {
-    	inputArr = ('\n'+inputStr).split('\n--- \n');
-	}
-    var headerStr = inputArr[1];
-    var header = yaml.safeLoad(headerStr);
+        inputStr = inputStr.split('\r\n').join('\n');
+        var inputArr = ('\n' + inputStr).split('\n---\n');
+        if (inputArr.length === 1) {
+            inputArr = ('\n' + inputStr).split('\n--- \n');
+        }
+        var headerStr = inputArr[1];
+        var header = yaml.safeLoad(headerStr);
 
-    /* non-matching languages between Ruby Rouge and highlight.js at 2016/07/10 are
-    ['ceylon','common_lisp','conf','cowscript','erb','factor','io','json-doc','liquid','literate_coffeescript','literate_haskell','llvm','make',
-    'objective_c','plaintext','praat','properties','racket','sass','sed','shell','slim','sml','toml','tulip','viml'];*/
-    var sh = hljs.getLanguage('bash');
-    hljs.registerLanguage('shell',function(hljs){return sh;});
-    hljs.registerLanguage('sh',function(hljs){return sh;});
+        /* non-matching languages between Ruby Rouge and highlight.js at 2016/07/10 are
+        ['ceylon','common_lisp','conf','cowscript','erb','factor','io','json-doc','liquid','literate_coffeescript','literate_haskell','llvm','make',
+        'objective_c','plaintext','praat','properties','racket','sass','sed','shell','slim','sml','toml','tulip','viml'];*/
+        var sh = hljs.getLanguage('bash');
+        hljs.registerLanguage('shell', function (hljs) { return sh; });
+        hljs.registerLanguage('sh', function (hljs) { return sh; });
 
-    var content = md.render(inputArr[2]);
-    content = postProcess(content);
+        var content = md.render(inputArr[2]);
+        content = postProcess(content);
 
-    var locals = {};
-    locals.current_page = {};
-    locals.current_page.data = header;
-    locals.yield = function() { return content; };
-    locals.partial = partial;
-    locals.image_tag = function(image, altText) {
-        return '<img src="source/images/'+image+'" alt="'+altText+'">';
-	};
-    locals.stylesheet_link_tag = stylesheet_link_tag;
-    locals.javascript_include_tag = javascript_include_tag;
-    locals.language_array = language_array;
+        var locals = {};
+        locals.current_page = {};
+        locals.current_page.data = header;
+        locals.yield = function () { return content; };
+        locals.partial = partial;
+        locals.image_tag = function (image, altText) {
+            return '<img src="source/images/' + image + '" alt="' + altText + '">';
+        };
+        locals.stylesheet_link_tag = stylesheet_link_tag;
+        locals.javascript_include_tag = javascript_include_tag;
+        locals.language_array = language_array;
 
-    var ejsOptions = {};
-    ejsOptions.debug = false;
-    ejs.renderFile(path.join(__dirname,'/source/layouts/layout.ejs'), locals, ejsOptions, function(err, str){
-        callback(err,str);
-    });
+        var ejsOptions = {};
+        ejsOptions.debug = false;
+        ejs.renderFile(path.join(__dirname, '/source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
+            if (err) reject(err)
+            else resolve(str);
+        });
+    }));
 }
 
 module.exports = {
-  render : render,
-  srcDir : function() { return __dirname; }
+    render: render,
+    srcDir: function () { return __dirname; }
 };
 

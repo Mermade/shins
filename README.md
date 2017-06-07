@@ -34,7 +34,7 @@ Or, to deploy to GitHub Pages:
 
 ### API
 
-````javascript
+```javascript
 var shins = require('shins');
 var options = {};
 options.minify = false;
@@ -42,7 +42,20 @@ options.customCss = false;
 shins.render(markdownString, options, function(err, html) {
   // ...
 });
-````
+```
+
+or, with Promises:
+
+```javascript
+var shins = require('shins');
+var options = {};
+options.minify = false;
+options.customCss = false;
+shins.render(markdownString, options)
+.then(html => {
+  // ...
+});
+```
 
 The `err` parameter is the result of the `ejs` rendering step.
 
