@@ -8,6 +8,7 @@ var maybe = require('call-me-maybe');
 var hljs = require('highlightjs/highlight.pack.js');
 var hlpath = require.resolve('highlightjs/highlight.pack.js').replace('highlight.pack.js', '');
 
+var emoji = require('markdown-it-emoji');
 var md = require('markdown-it')({
     linkify: true, html: true,
     highlight: function (str, lang) {
@@ -23,6 +24,7 @@ var md = require('markdown-it')({
         return '<pre class="highlight"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
     }
 }).use(require('markdown-it-lazy-headers'));
+md.use(emoji);
 var yaml = require('js-yaml');
 var ejs = require('ejs');
 var uglify = require('uglify-js');
