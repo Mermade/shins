@@ -42,7 +42,7 @@ under the License.
       </span>
     </a>
     <div class="toc-wrapper">
-      <%- image_tag("logo.png", 'Logo') %>
+      <%- image_tag("logo.png", 'Logo', 'logo') %>
       <% if (language_tabs.length>0) {%>
         <div class="lang-selector">
           <% for (var lang in language_tabs) { %>
@@ -60,7 +60,21 @@ under the License.
         </div>
         <ul class="search-results"></ul>
       <% } %>
-      <div id="toc">
+      <div id="toc" class="toc-list-h1">
+        <% for (var h1 of toc_data(page_content)) { %>
+          <li>
+            <a href="#<%= h1.id %>" class="toc-h1 toc-link" data-title="<%= h1.content %>"><%= h1.content %></a>
+            <% if (h1.children && (h1.children.length > 0)) { %>
+              <ul class="toc-list-h2">
+                <% for (var h2 of h1.children) { %>
+                  <li>
+                    <a href="#<%= h2.id %>" class="toc-h2 toc-link" data-title="<%= h1.content %>"><%= h2.content %></a>
+                  </li>
+                <% } %>
+              </ul>
+            <% } %>
+          </li>
+        <% } %>
       </div>
       <% if (current_page.data.toc_footers) { %>
         <ul class="toc-footer">
@@ -73,7 +87,7 @@ under the License.
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <%- yield(); %>
+        <%- page_content %>
         <% if (current_page.data.includes) { for (var include in current_page.data.includes) { %>
           <%- partial(current_page.data.includes[include]) %>
         <% } %>

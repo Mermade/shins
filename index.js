@@ -28,6 +28,7 @@ md.use(emoji);
 var yaml = require('js-yaml');
 var ejs = require('ejs');
 var uglify = require('uglify-js');
+var cheerio = require('cheerio');
 
 var globalOptions = {};
 
@@ -119,14 +120,26 @@ function render(inputStr, options, callback) {
 
         var content = md.render(inputArr[2]);
         content = postProcess(content);
+		var $ = cheerio.load(content);
 
         var locals = {};
         locals.current_page = {};
         locals.current_page.data = header;
-        locals.yield = function () { return content; };
+		locals.page_content = content;
+		locals.toc_data = function(content) {
+			var result = [];
+			$('h1').each(function(e){
+				var entry = {};
+				entry.id = $(this).attr('id');
+				entry.content = $(this).text();
+				entry.children = [];
+				result.push(entry); 
+			});
+			return result; //[{id:'test',content:'hello',children:[]}];
+		};
         locals.partial = partial;
-        locals.image_tag = function (image, altText) {
-            return '<img src="source/images/' + image + '" alt="' + altText + '">';
+        locals.image_tag = function (image, altText, className) {
+            return '<img src="source/images/' + image + '" class="' + className + '" alt="' + altText + '">';
         };
         locals.stylesheet_link_tag = stylesheet_link_tag;
         locals.javascript_include_tag = javascript_include_tag;
