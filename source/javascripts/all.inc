@@ -1,7 +1,5 @@
 <script src="source/javascripts/lib/_jquery.js"></script>
-<script src="source/javascripts/lib/_jquery_ui.js"></script>
 <script src="source/javascripts/lib/_jquery.highlight.js"></script>
-<script src="source/javascripts/lib/_jquery.tocify.js"></script>
 <script src="source/javascripts/lib/_lunr.js"></script>
 <script src="source/javascripts/lib/_imagesloaded.min.js"></script>
 <script src="source/javascripts/lib/_energize.js"></script>
