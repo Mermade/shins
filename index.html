@@ -15,8 +15,12 @@
     <link rel="stylesheet" media="screen" href="pub/css/darkula.css">
     
       <script src="source/javascripts/lib/_jquery.js"></script>
+<script src="source/javascripts/lib/_jquery.highlight.js"></script>
+<script src="source/javascripts/lib/_lunr.js"></script>
+<script src="source/javascripts/lib/_imagesloaded.min.js"></script>
 <script src="source/javascripts/lib/_energize.js"></script>
 <script src="source/javascripts/app/_lang.js"></script>
+<script src="source/javascripts/app/_search.js"></script>
 <script src="source/javascripts/app/_toc.js"></script>
 <script type="text/javascript">
 $(function() {
@@ -78,6 +82,11 @@ window.onpopstate = function() {
           
         </div>
       
+      
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
       
       <div id="toc" class="toc-list-h1">
 	  	<ul class="toc-list-h1">

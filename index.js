@@ -42,7 +42,13 @@ function javascript_include_tag(include) {
             var inc = includes[i];
             var elements = inc.split('"');
             if (elements[1]) {
-                scripts.push(path.join(__dirname, elements[1]));
+				if (elements[1] == 'text/javascript') {
+					scripts.push(path.join(__dirname, 'source/javascripts/all_nosearch.js'));
+					break;
+				}
+				else {
+                	scripts.push(path.join(__dirname, elements[1]));
+				}
             }
         }
         var bundle = uglify.minify(scripts);
