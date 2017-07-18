@@ -61,6 +61,7 @@ under the License.
         <ul class="search-results"></ul>
       <% } %>
       <div id="toc" class="toc-list-h1">
+	  	<ul class="toc-list-h1">
         <% for (var h1 of toc_data(page_content)) { %>
           <li>
             <a href="#<%= h1.id %>" class="toc-h1 toc-link" data-title="<%= h1.content %>"><%= h1.content %></a>
@@ -75,6 +76,7 @@ under the License.
             <% } %>
           </li>
         <% } %>
+		</ul>
       </div>
       <% if (current_page.data.toc_footers) { %>
         <ul class="toc-footer">

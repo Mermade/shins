@@ -64,7 +64,7 @@ Setting `customCss` to `true` will include the `pub/css/screen_overrides.css`,`p
 ### Notes
 
 * Windows is definitely supported
-* Syntax highlighting in 169 [languages](https://highlightjs.org/static/demo/) and 77 [themes](https://highlightjs.org/static/demo/) (you can specify the highlighter theme to use by setting `highlighter_theme` in your slate markdown header)
+* Syntax highlighting in 176 [languages](https://highlightjs.org/static/demo/) and 79 [themes](https://highlightjs.org/static/demo/) (you can specify the highlighter theme to use by setting `highlighter_theme` in your slate markdown header)
 * Multiple language tabs per language are supported
 * For converting [OpenApi / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
 

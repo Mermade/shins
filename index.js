@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var util = require('util');
 
 var maybe = require('call-me-maybe');
 
@@ -15,7 +16,7 @@ var md = require('markdown-it')({
         var slang = lang.split('--')[0]; // allows multiple language tabs for the same language
         if (slang && hljs.getLanguage(slang)) {
             try {
-                return '<pre class="highlight tab-' + lang + '"><code>' +
+                return '<pre class="highlight tab tab-' + lang + '"><code>' +
                     hljs.highlight(slang, str, true).value +
                     '</code></pre>';
             } catch (__) { }
@@ -89,7 +90,7 @@ function language_array(language_tabs) {
 
 function postProcess(content) {
     content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (match, group1, group2) {
-        return '<' + group1 + ' id="' + group2.toLowerCase().split(' ').join('-').split('/').join('-') + '">' + group2 + '</' + group1 + '>';
+        return '<' + group1 + ' id="' + group2.toLowerCase().split(' ').join('-').split('/').join('-').split('.').join('-') + '">' + group2 + '</' + group1 + '>';
     });
     return content;
 }
@@ -128,12 +129,23 @@ function render(inputStr, options, callback) {
 		locals.page_content = content;
 		locals.toc_data = function(content) {
 			var result = [];
-			$('h1').each(function(e){
+			var h1;
+			$(':header').each(function(e){
+				var tag = $(this).get(0).tagName.toLowerCase();
 				var entry = {};
-				entry.id = $(this).attr('id');
-				entry.content = $(this).text();
-				entry.children = [];
-				result.push(entry); 
+				if (tag == 'h1') {
+					entry.id = $(this).attr('id');
+					entry.content = $(this).text();
+					entry.children = [];
+					h1 = entry;
+					result.push(entry);
+				}
+				if (tag == 'h2') {
+					var child = {};
+					child.id = $(this).attr('id');
+					child.content = $(this).text();
+					h1.children.push(child);
+				}
 			});
 			return result; //[{id:'test',content:'hello',children:[]}];
 		};
