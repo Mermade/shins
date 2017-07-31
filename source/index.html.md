@@ -544,13 +544,6 @@ status|available|
 status|pending|
 status|sold|
 
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid status value|None
-
 > Example responses
 
 ```xml
@@ -590,6 +583,33 @@ Status|Meaning|Description|Schema
   }
 ]
 ```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid status value|None
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+ id|integer(int64)|false|No description
+ category|[Category](#schemacategory)|false|No description
+» id|integer(int64)|false|No description
+» name|string|false|No description
+ name|string|true|No description
+ photoUrls|array|true|No description
+ tags|array|false|No description
+» id|integer(int64)|false|No description
+» name|string|false|No description
+ status|string|false|pet status in the store
+additionalProperties|array|false|No description
+
+
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -711,13 +731,6 @@ Parameter|In|Type|Required|Description
 tags|query|array[string]|true|Tags to filter by
 
 
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid tag value|None
-
 > Example responses
 
 ```xml
@@ -757,6 +770,33 @@ Status|Meaning|Description|Schema
   }
 ]
 ```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid tag value|None
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+ id|integer(int64)|false|No description
+ category|[Category](#schemacategory)|false|No description
+» id|integer(int64)|false|No description
+» name|string|false|No description
+ name|string|true|No description
+ photoUrls|array|true|No description
+ tags|array|false|No description
+» id|integer(int64)|false|No description
+» name|string|false|No description
+ status|string|false|pet status in the store
+additionalProperties|array|false|No description
+
+
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -875,14 +915,6 @@ Parameter|In|Type|Required|Description
 petId|path|integer(int64)|true|ID of pet to return
 
 
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[Pet](#schemapet)
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found|None
-
 > Example responses
 
 ```xml
@@ -922,6 +954,14 @@ Status|Meaning|Description|Schema
   "status": "available"
 }
 ```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[Pet](#schemapet)
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied|None
+404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Pet not found|None
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKey
@@ -1305,12 +1345,6 @@ petId|path|integer(int64)|true|ID of pet to update
 body|body|string(binary)|false|No description
 
 
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[ApiResponse](#schemaapiresponse)
-
 > Example responses
 
 ```json
@@ -1320,6 +1354,12 @@ Status|Meaning|Description|Schema
   "message": "string"
 }
 ```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[ApiResponse](#schemaapiresponse)
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -1435,12 +1475,6 @@ System.out.println(response.toString());
 
 Returns a map of status codes to quantities
 
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
-
 > Example responses
 
 ```json
@@ -1449,6 +1483,22 @@ Status|Meaning|Description|Schema
   "property2": 0
 }
 ```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
+
+### Response Schema
+
+Status Code **200**
+
+Name|Type|Required|Description
+---|---|---|---|---|
+additionalProperties|object|false|No description
+
+
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKey
@@ -1570,7 +1620,7 @@ System.out.println(response.toString());
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-28T12:27:26Z",
+  "shipDate": "2017-07-30T17:52:07Z",
   "status": "placed",
   "complete": false
 }
@@ -1599,13 +1649,6 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
 » status|approved|
 » status|delivered|
 
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[Order](#schemaorder)
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid Order|None
-
 > Example responses
 
 ```xml
@@ -1614,7 +1657,7 @@ Status|Meaning|Description|Schema
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-07-28T12:27:26Z</shipDate>
+  <shipDate>2017-07-30T17:52:07Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1624,11 +1667,18 @@ Status|Meaning|Description|Schema
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-28T12:27:26Z",
+  "shipDate": "2017-07-30T17:52:07Z",
   "status": "placed",
   "complete": false
 }
 ```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[Order](#schemaorder)
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid Order|None
+
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -1746,14 +1796,6 @@ Parameter|In|Type|Required|Description
 orderId|path|integer(int64)|true|ID of pet that needs to be fetched
 
 
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[Order](#schemaorder)
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found|None
-
 > Example responses
 
 ```xml
@@ -1762,7 +1804,7 @@ Status|Meaning|Description|Schema
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-07-28T12:27:26Z</shipDate>
+  <shipDate>2017-07-30T17:52:07Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1772,11 +1814,19 @@ Status|Meaning|Description|Schema
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-28T12:27:26Z",
+  "shipDate": "2017-07-30T17:52:07Z",
   "status": "placed",
   "complete": false
 }
 ```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[Order](#schemaorder)
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid ID supplied|None
+404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Order not found|None
+
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -2434,11 +2484,16 @@ username|query|string|true|The user name for login
 password|query|string(password)|true|The password for login in clear text
 
 
+> Example responses
+
+```json
+"string"
+```
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|string
 400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username/password supplied|None
 
 ### Response Headers
@@ -2448,11 +2503,6 @@ Status|Header|Type|Format|Description
 200|X-Rate-Limit|integer|int32|calls per hour allowed by the user
 200|X-Expires-After|string|date-time|date in UTC when token expires
 
-> Example responses
-
-```json
-"string"
-```
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -2663,14 +2713,6 @@ Parameter|In|Type|Required|Description
 username|path|string|true|The name that needs to be fetched. Use user1 for testing. 
 
 
-### Responses
-
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[User](#schemauser)
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username supplied|None
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found|None
-
 > Example responses
 
 ```xml
@@ -2698,6 +2740,14 @@ Status|Meaning|Description|Schema
   "userStatus": 0
 }
 ```
+### Responses
+
+Status|Meaning|Description|Schema
+---|---|---|---|
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|[User](#schemauser)
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid username supplied|None
+404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|User not found|None
+
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -2964,7 +3014,7 @@ This operation does not require authentication
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-28T12:27:26Z",
+  "shipDate": "2017-07-30T17:52:07Z",
   "status": "placed",
   "complete": false
 } 

@@ -980,31 +980,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>successful operation</td>
-<td>Inline</td>
-</tr>
-<tr>
-<td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
-<td>Invalid status value</td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
@@ -1043,6 +1018,111 @@ System.out.println(response.toString());
   }
 ]
 </code></pre>
+<h3 id="responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>successful operation</td>
+<td>Inline</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Invalid status value</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response-schema">Response Schema</h3>
+<p>Status Code <strong>200</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>category</td>
+<td><a href="#schemacategory">Category</a></td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>photoUrls</td>
+<td>array</td>
+<td>true</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>array</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>false</td>
+<td>pet status in the store</td>
+</tr>
+<tr>
+<td>additionalProperties</td>
+<td>array</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -1160,31 +1240,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>successful operation</td>
-<td>Inline</td>
-</tr>
-<tr>
-<td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
-<td>Invalid tag value</td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
@@ -1223,6 +1278,111 @@ System.out.println(response.toString());
   }
 ]
 </code></pre>
+<h3 id="responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>successful operation</td>
+<td>Inline</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Invalid tag value</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response-schema">Response Schema</h3>
+<p>Status Code <strong>200</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>category</td>
+<td><a href="#schemacategory">Category</a></td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>true</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>photoUrls</td>
+<td>array</td>
+<td>true</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>array</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» name</td>
+<td>string</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>false</td>
+<td>pet status in the store</td>
+</tr>
+<tr>
+<td>additionalProperties</td>
+<td>array</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -1337,37 +1497,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th>Meaning</th>
-<th>Description</th>
-<th>Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
-<td>successful operation</td>
-<td><a href="#schemapet">Pet</a></td>
-</tr>
-<tr>
-<td>400</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
-<td>Invalid ID supplied</td>
-<td>None</td>
-</tr>
-<tr>
-<td>404</td>
-<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
-<td>Pet not found</td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
 <blockquote>
 <p>Example responses</p>
 </blockquote>
@@ -1406,6 +1535,37 @@ System.out.println(response.toString());
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"available"</span>
 }
 </code></pre>
+<h3 id="responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>successful operation</td>
+<td><a href="#schemapet">Pet</a></td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Invalid ID supplied</td>
+<td>None</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">Not Found</a></td>
+<td>Pet not found</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKey
@@ -1841,6 +2001,15 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"code"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
+}
+</code></pre>
 <h3 id="responses">Responses</h3>
 <table>
 <thead>
@@ -1860,15 +2029,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"code"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
-}
-</code></pre>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
@@ -1964,6 +2124,14 @@ System.out.println(response.toString());
 <p><code>GET /store/inventory</code></p>
 <p><em>Returns pet inventories by status</em></p>
 <p>Returns a map of status codes to quantities</p>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"property1"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"property2"</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
 <h3 id="responses">Responses</h3>
 <table>
 <thead>
@@ -1983,14 +2151,26 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"property1"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"property2"</span>: <span class="hljs-number">0</span>
-}
-</code></pre>
+<h3 id="response-schema">Response Schema</h3>
+<p>Status Code <strong>200</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>additionalProperties</td>
+<td>object</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKey
@@ -2095,7 +2275,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-28T12:27:26Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-30T17:52:07Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2188,6 +2368,28 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-30T17:52:07Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+</code></pre>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-30T17:52:07Z"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
+  <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
+}
+</code></pre>
 <h3 id="responses">Responses</h3>
 <table>
 <thead>
@@ -2213,28 +2415,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-28T12:27:26Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
-</code></pre>
-<pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-28T12:27:26Z"</span>,
-  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
-  <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
-}
-</code></pre>
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -2348,6 +2528,28 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-30T17:52:07Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+</code></pre>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-30T17:52:07Z"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
+  <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
+}
+</code></pre>
 <h3 id="responses">Responses</h3>
 <table>
 <thead>
@@ -2379,28 +2581,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-28T12:27:26Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
-</code></pre>
-<pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-28T12:27:26Z"</span>,
-  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
-  <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
-}
-</code></pre>
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -3150,6 +3330,11 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span>
+</code></pre>
 <h3 id="responses">Responses</h3>
 <table>
 <thead>
@@ -3165,7 +3350,7 @@ System.out.println(response.toString());
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
 <td>successful operation</td>
-<td>Inline</td>
+<td>string</td>
 </tr>
 <tr>
 <td>400</td>
@@ -3203,11 +3388,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span>
-</code></pre>
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -3411,6 +3591,32 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">User</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">firstName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">lastName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">email</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">userStatus</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">User</span>&gt;</span>
+</code></pre>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"password"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
 <h3 id="responses">Responses</h3>
 <table>
 <thead>
@@ -3442,32 +3648,6 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
-<span class="hljs-tag">&lt;<span class="hljs-name">User</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">firstName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">firstName</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">lastName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">lastName</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">email</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">email</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">userStatus</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">userStatus</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">User</span>&gt;</span>
-</code></pre>
-<pre class="highlight tab tab-json"><code>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"email"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"password"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"string"</span>,
-  <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
-}
-</code></pre>
 <aside class="success">
 This operation does not require authentication
 </aside>
@@ -3811,7 +3991,7 @@ This operation does not require authentication
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-28T12:27:26Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-30T17:52:07Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 } 

@@ -1,4 +1,5 @@
 # shins
+
 ### Shins Is Not Slate
 
 Beautiful static documentation for your API.
@@ -66,6 +67,8 @@ Setting `customCss` to `true` will include the `pub/css/screen_overrides.css`,`p
 * Windows is definitely supported
 * Syntax highlighting in 176 [languages](https://highlightjs.org/static/demo/) and 79 [themes](https://highlightjs.org/static/demo/) (you can specify the highlighter theme to use by setting `highlighter_theme` in your slate markdown header)
 * Multiple language tabs per language are supported
+* Static TOC as per Slate v2.0
+* [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
 * For converting [OpenApi / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
 
 ### Shins in the wild
