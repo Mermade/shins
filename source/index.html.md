@@ -28,7 +28,7 @@ Base URLs:
 * <a href="http://petstore.swagger.io/v2">http://petstore.swagger.io/v2</a>
 
 <a href="http://swagger.io/terms/">Terms of service</a>
-Email: <a href="mailto:apiteam@swagger.io">Support</a>
+Email: <a href="mailto:apiteam@swagger.io">Support</a> 
 License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
 
 # Authentication
@@ -95,7 +95,24 @@ $.ajax({
 
 ```javascript--nodejs
 const request = require('node-fetch');
-const inputBody = ''available'';
+const inputBody = '{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}';
 const headers = {
   'Content-Type':'application/json'
 
@@ -201,9 +218,6 @@ System.out.println(response.toString());
   <status>available</status>
 </Pet>
 ```
-```json
-"available"
-```
 ### Parameters
 
 Parameter|In|Type|Required|Description
@@ -214,11 +228,11 @@ body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store
 »» id|body|integer(int64)|false|No description
 »» name|body|string|false|No description
 » name|body|string|true|No description
-» photoUrls|body|array|true|No description
-» tags|body|array|false|No description
+» status|body|string|false|pet status in the store
+» photoUrls|body|[string]|false|No description
+» tags|body|[[Tag](#schematag)]|false|No description
 »» id|body|integer(int64)|false|No description
 »» name|body|string|false|No description
-» status|body|string|false|pet status in the store
 
 
 #### Enumerated Values
@@ -277,7 +291,24 @@ $.ajax({
 
 ```javascript--nodejs
 const request = require('node-fetch');
-const inputBody = ''available'';
+const inputBody = '{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}';
 const headers = {
   'Content-Type':'application/json'
 
@@ -383,9 +414,6 @@ System.out.println(response.toString());
   <status>available</status>
 </Pet>
 ```
-```json
-"available"
-```
 ### Parameters
 
 Parameter|In|Type|Required|Description
@@ -396,11 +424,11 @@ body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store
 »» id|body|integer(int64)|false|No description
 »» name|body|string|false|No description
 » name|body|string|true|No description
-» photoUrls|body|array|true|No description
-» tags|body|array|false|No description
+» status|body|string|false|pet status in the store
+» photoUrls|body|[string]|false|No description
+» tags|body|[[Tag](#schematag)]|false|No description
 »» id|body|integer(int64)|false|No description
 »» name|body|string|false|No description
-» status|body|string|false|pet status in the store
 
 
 #### Enumerated Values
@@ -602,16 +630,17 @@ Status Code **200**
 Name|Type|Required|Description
 ---|---|---|---|---|
 anonymous|array|false|No description
-» id|integer(int64)|false|No description
-» category|[Category](#schemacategory)|false|No description
+»anonymous|[[Pet](#schemapet)]|false|No description
 »» id|integer(int64)|false|No description
-»» name|string|false|No description
-» name|string|true|No description
-» photoUrls|array|true|No description
-» tags|array|false|No description
-»» id|integer(int64)|false|No description
-»» name|string|false|No description
-» status|string|false|pet status in the store
+»» category|[Category](#schemacategory)|false|No description
+»»» id|integer(int64)|false|No description
+»»» name|string|false|No description
+»» name|string|true|No description
+»» status|string|false|pet status in the store
+»» anonymous|[string]|false|No description
+»» anonymous|[[Tag](#schematag)]|false|No description
+»»» id|integer(int64)|false|No description
+»»» name|string|false|No description
 
 
 
@@ -790,16 +819,17 @@ Status Code **200**
 Name|Type|Required|Description
 ---|---|---|---|---|
 anonymous|array|false|No description
-» id|integer(int64)|false|No description
-» category|[Category](#schemacategory)|false|No description
+»anonymous|[[Pet](#schemapet)]|false|No description
 »» id|integer(int64)|false|No description
-»» name|string|false|No description
-» name|string|true|No description
-» photoUrls|array|true|No description
-» tags|array|false|No description
-»» id|integer(int64)|false|No description
-»» name|string|false|No description
-» status|string|false|pet status in the store
+»» category|[Category](#schemacategory)|false|No description
+»»» id|integer(int64)|false|No description
+»»» name|string|false|No description
+»» name|string|true|No description
+»» status|string|false|pet status in the store
+»» anonymous|[string]|false|No description
+»» anonymous|[[Tag](#schematag)]|false|No description
+»»» id|integer(int64)|false|No description
+»»» name|string|false|No description
 
 
 
@@ -1011,7 +1041,10 @@ $.ajax({
 
 ```javascript--nodejs
 const request = require('node-fetch');
-const inputBody = '{}';
+const inputBody = '{
+  "name": "string",
+  "status": "string"
+}';
 const headers = {
   'Content-Type':'application/x-www-form-urlencoded'
 
@@ -1555,7 +1588,14 @@ $.ajax({
 
 ```javascript--nodejs
 const request = require('node-fetch');
-const inputBody = '{}';
+const inputBody = '{
+  "id": 0,
+  "petId": 0,
+  "quantity": 0,
+  "shipDate": "2017-07-31T15:07:40Z",
+  "status": "placed",
+  "complete": false
+}';
 const headers = {
   'Content-Type':'application/json',
   'Accept':'application/xml'
@@ -1632,13 +1672,10 @@ System.out.println(response.toString());
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-31T06:55:13Z",
+  "shipDate": "2017-07-31T15:07:40Z",
   "status": "placed",
   "complete": false
 }
-```
-```json
-"placed"
 ```
 ### Parameters
 
@@ -1669,7 +1706,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-07-31T06:55:13Z</shipDate>
+  <shipDate>2017-07-31T15:07:40Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1679,7 +1716,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-31T06:55:13Z",
+  "shipDate": "2017-07-31T15:07:40Z",
   "status": "placed",
   "complete": false
 }
@@ -1817,7 +1854,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-07-31T06:55:13Z</shipDate>
+  <shipDate>2017-07-31T15:07:40Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1827,7 +1864,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-31T06:55:13Z",
+  "shipDate": "2017-07-31T15:07:40Z",
   "status": "placed",
   "complete": false
 }
@@ -1992,7 +2029,16 @@ $.ajax({
 
 ```javascript--nodejs
 const request = require('node-fetch');
-const inputBody = '{}';
+const inputBody = '{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}';
 const headers = {
   'Content-Type':'application/json'
 
@@ -2809,7 +2855,16 @@ $.ajax({
 
 ```javascript--nodejs
 const request = require('node-fetch');
-const inputBody = '{}';
+const inputBody = '{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}';
 const headers = {
   'Content-Type':'application/json'
 
@@ -3036,7 +3091,7 @@ This operation does not require authentication
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-31T06:55:13Z",
+  "shipDate": "2017-07-31T15:07:40Z",
   "status": "placed",
   "complete": false
 } 
@@ -3046,21 +3101,21 @@ This operation does not require authentication
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- id|integer(int64)|false|No description
- petId|integer(int64)|false|No description
- quantity|integer(int32)|false|No description
- shipDate|string(date-time)|false|No description
- status|string|false|Order Status
- complete|boolean|false|No description
+id|integer(int64)|false|No description
+petId|integer(int64)|false|No description
+quantity|integer(int32)|false|No description
+shipDate|string(date-time)|false|No description
+status|string|false|Order Status
+complete|boolean|false|No description
 
 
 #### Enumerated Values
 
 |Property|Value|
 |---|---|
- status|placed|
- status|approved|
- status|delivered|
+status|placed|
+status|approved|
+status|delivered|
 
 
 ## Category
@@ -3078,8 +3133,8 @@ Name|Type|Required|Description
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- id|integer(int64)|false|No description
- name|string|false|No description
+id|integer(int64)|false|No description
+name|string|false|No description
 
 
 
@@ -3104,14 +3159,14 @@ Name|Type|Required|Description
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- id|integer(int64)|false|No description
- username|string|false|No description
- firstName|string|false|No description
- lastName|string|false|No description
- email|string|false|No description
- password|string|false|No description
- phone|string|false|No description
- userStatus|integer(int32)|false|User Status
+id|integer(int64)|false|No description
+username|string|false|No description
+firstName|string|false|No description
+lastName|string|false|No description
+email|string|false|No description
+password|string|false|No description
+phone|string|false|No description
+userStatus|integer(int32)|false|User Status
 
 
 
@@ -3130,8 +3185,8 @@ Name|Type|Required|Description
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- id|integer(int64)|false|No description
- name|string|false|No description
+id|integer(int64)|false|No description
+name|string|false|No description
 
 
 
@@ -3164,25 +3219,25 @@ Name|Type|Required|Description
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- id|integer(int64)|false|No description
- category|[Category](#schemacategory)|false|No description
+id|integer(int64)|false|No description
+category|[Category](#schemacategory)|false|No description
 » id|integer(int64)|false|No description
 » name|string|false|No description
- name|string|true|No description
- photoUrls|array|true|No description
- tags|array|false|No description
+name|string|true|No description
+status|string|false|pet status in the store
+photoUrls|[string]|false|No description
+tags|[[Tag](#schematag)]|false|No description
 » id|integer(int64)|false|No description
 » name|string|false|No description
- status|string|false|pet status in the store
 
 
 #### Enumerated Values
 
 |Property|Value|
 |---|---|
- status|available|
- status|pending|
- status|sold|
+status|available|
+status|pending|
+status|sold|
 
 
 ## ApiResponse
@@ -3201,9 +3256,9 @@ Name|Type|Required|Description
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- code|integer(int32)|false|No description
- type|string|false|No description
- message|string|false|No description
+code|integer(int32)|false|No description
+type|string|false|No description
+message|string|false|No description
 
 
 

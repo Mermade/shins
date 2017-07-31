@@ -334,7 +334,24 @@ $.ajax({
 })
 </code></pre>
 <pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
-<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">''</span>available<span class="hljs-string">''</span>;
+<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}'</span>;
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>
 
@@ -430,8 +447,6 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Pet</span>&gt;</span>
 </code></pre>
-<pre class="highlight tab tab-json"><code><span class="hljs-string">"available"</span>
-</code></pre>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -487,16 +502,23 @@ System.out.println(response.toString());
 <td>No description</td>
 </tr>
 <tr>
+<td>» status</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>pet status in the store</td>
+</tr>
+<tr>
 <td>» photoUrls</td>
 <td>body</td>
-<td>array</td>
-<td>true</td>
+<td>[string]</td>
+<td>false</td>
 <td>No description</td>
 </tr>
 <tr>
 <td>» tags</td>
 <td>body</td>
-<td>array</td>
+<td>[<a href="#schematag">Tag</a>]</td>
 <td>false</td>
 <td>No description</td>
 </tr>
@@ -513,13 +535,6 @@ System.out.println(response.toString());
 <td>string</td>
 <td>false</td>
 <td>No description</td>
-</tr>
-<tr>
-<td>» status</td>
-<td>body</td>
-<td>string</td>
-<td>false</td>
-<td>pet status in the store</td>
 </tr>
 </tbody>
 </table>
@@ -599,7 +614,24 @@ $.ajax({
 })
 </code></pre>
 <pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
-<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">''</span>available<span class="hljs-string">''</span>;
+<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}'</span>;
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>
 
@@ -695,8 +727,6 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Pet</span>&gt;</span>
 </code></pre>
-<pre class="highlight tab tab-json"><code><span class="hljs-string">"available"</span>
-</code></pre>
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -752,16 +782,23 @@ System.out.println(response.toString());
 <td>No description</td>
 </tr>
 <tr>
+<td>» status</td>
+<td>body</td>
+<td>string</td>
+<td>false</td>
+<td>pet status in the store</td>
+</tr>
+<tr>
 <td>» photoUrls</td>
 <td>body</td>
-<td>array</td>
-<td>true</td>
+<td>[string]</td>
+<td>false</td>
 <td>No description</td>
 </tr>
 <tr>
 <td>» tags</td>
 <td>body</td>
-<td>array</td>
+<td>[<a href="#schematag">Tag</a>]</td>
 <td>false</td>
 <td>No description</td>
 </tr>
@@ -778,13 +815,6 @@ System.out.println(response.toString());
 <td>string</td>
 <td>false</td>
 <td>No description</td>
-</tr>
-<tr>
-<td>» status</td>
-<td>body</td>
-<td>string</td>
-<td>false</td>
-<td>pet status in the store</td>
 </tr>
 </tbody>
 </table>
@@ -1065,64 +1095,70 @@ System.out.println(response.toString());
 <td>No description</td>
 </tr>
 <tr>
-<td>» id</td>
+<td>»anonymous</td>
+<td>[<a href="#schemapet">Pet</a>]</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»» id</td>
 <td>integer(int64)</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» category</td>
+<td>»» category</td>
 <td><a href="#schemacategory">Category</a></td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>»» id</td>
+<td>»»» id</td>
 <td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»»» name</td>
+<td>string</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
 <td>»» name</td>
 <td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>» name</td>
-<td>string</td>
 <td>true</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» photoUrls</td>
-<td>array</td>
-<td>true</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>» tags</td>
-<td>array</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>»» id</td>
-<td>integer(int64)</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>»» name</td>
-<td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>» status</td>
+<td>»» status</td>
 <td>string</td>
 <td>false</td>
 <td>pet status in the store</td>
+</tr>
+<tr>
+<td>»» anonymous</td>
+<td>[string]</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»» anonymous</td>
+<td>[<a href="#schematag">Tag</a>]</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»»» id</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»»» name</td>
+<td>string</td>
+<td>false</td>
+<td>No description</td>
 </tr>
 </tbody>
 </table>
@@ -1326,64 +1362,70 @@ System.out.println(response.toString());
 <td>No description</td>
 </tr>
 <tr>
-<td>» id</td>
+<td>»anonymous</td>
+<td>[<a href="#schemapet">Pet</a>]</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»» id</td>
 <td>integer(int64)</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» category</td>
+<td>»» category</td>
 <td><a href="#schemacategory">Category</a></td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>»» id</td>
+<td>»»» id</td>
 <td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»»» name</td>
+<td>string</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
 <td>»» name</td>
 <td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>» name</td>
-<td>string</td>
 <td>true</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» photoUrls</td>
-<td>array</td>
-<td>true</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>» tags</td>
-<td>array</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>»» id</td>
-<td>integer(int64)</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>»» name</td>
-<td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>» status</td>
+<td>»» status</td>
 <td>string</td>
 <td>false</td>
 <td>pet status in the store</td>
+</tr>
+<tr>
+<td>»» anonymous</td>
+<td>[string]</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»» anonymous</td>
+<td>[<a href="#schematag">Tag</a>]</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»»» id</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»»» name</td>
+<td>string</td>
+<td>false</td>
+<td>No description</td>
 </tr>
 </tbody>
 </table>
@@ -1605,7 +1647,10 @@ $.ajax({
 })
 </code></pre>
 <pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
-<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{}'</span>;
+<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
+  "name": "string",
+  "status": "string"
+}'</span>;
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/x-www-form-urlencoded'</span>
 
@@ -2217,7 +2262,14 @@ $.ajax({
 })
 </code></pre>
 <pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
-<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{}'</span>;
+<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
+  "id": 0,
+  "petId": 0,
+  "quantity": 0,
+  "shipDate": "2017-07-31T15:07:40Z",
+  "status": "placed",
+  "complete": false
+}'</span>;
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>,
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>
@@ -2285,12 +2337,10 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:55:13Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T15:07:40Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
-</code></pre>
-<pre class="highlight tab tab-json"><code><span class="hljs-string">"placed"</span>
 </code></pre>
 <h3 id="parameters">Parameters</h3>
 <table>
@@ -2386,7 +2436,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-31T06:55:13Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-31T15:07:40Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -2395,7 +2445,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:55:13Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T15:07:40Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2547,7 +2597,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-31T06:55:13Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-31T15:07:40Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -2556,7 +2606,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:55:13Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T15:07:40Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2748,7 +2798,16 @@ $.ajax({
 })
 </code></pre>
 <pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
-<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{}'</span>;
+<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}'</span>;
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>
 
@@ -3699,7 +3758,16 @@ $.ajax({
 })
 </code></pre>
 <pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
-<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{}'</span>;
+<span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}'</span>;
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>
 
@@ -4011,7 +4079,7 @@ This operation does not require authentication
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:55:13Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T15:07:40Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 } 
@@ -4289,14 +4357,20 @@ This operation does not require authentication
 <td>No description</td>
 </tr>
 <tr>
+<td>status</td>
+<td>string</td>
+<td>false</td>
+<td>pet status in the store</td>
+</tr>
+<tr>
 <td>photoUrls</td>
-<td>array</td>
-<td>true</td>
+<td>[string]</td>
+<td>false</td>
 <td>No description</td>
 </tr>
 <tr>
 <td>tags</td>
-<td>array</td>
+<td>[<a href="#schematag">Tag</a>]</td>
 <td>false</td>
 <td>No description</td>
 </tr>
@@ -4311,12 +4385,6 @@ This operation does not require authentication
 <td>string</td>
 <td>false</td>
 <td>No description</td>
-</tr>
-<tr>
-<td>status</td>
-<td>string</td>
-<td>false</td>
-<td>pet status in the store</td>
 </tr>
 </tbody>
 </table>
