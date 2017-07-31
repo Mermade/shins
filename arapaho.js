@@ -1,8 +1,11 @@
+var fs = require('fs');
 var path = require('path');
 
 var express = require('express');
 var ejs = require('ejs');
 var compression = require('compression');
+
+var shins = require('./index.js');
 
 var app = express();
 app.use(compression());
@@ -10,8 +13,32 @@ app.use(compression());
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
-app.get('/', function(req,res) { res.render(path.join(__dirname,'index.html')) });
-app.get('*.html', function(req,res) { res.render(path.join(__dirname,req.path)) });
+function check(req,res,fpath) {
+	fpath = fpath.split('/').join('');
+	var srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
+	var dstStat = fs.statSync(path.join(__dirname,fpath));
+	if (srcStat.mtime>dstStat.mtime) {
+		console.log('Rebuilding '+fpath);
+		fs.readFile(path.join(__dirname,'source',fpath+'.md'),'utf8',function(err,markdown){
+			if (markdown) {
+				shins.render(markdown,{},function(err,html){
+					res.send(html);
+					fs.writeFile(path.join(__dirname,fpath),html,'utf8');
+				});
+			}
+		});
+	}
+	else {
+		res.render(path.join(__dirname,fpath));
+	}
+}
+
+app.get('/', function(req,res) {
+	check(req,res,'index.html');
+});
+app.get('*.html', function(req,res) {
+	check(req,res,req.path);
+});
 app.use("/",  express.static(__dirname));
 
 var myport = process.env.PORT || 4567;
