@@ -9,7 +9,9 @@ language_tabs:
   - ruby: Ruby
   - java: Java
 toc_footers:
-  - '<a href="http://swagger.io">Find out more about Swagger</a>'
+  - >-
+    <a href="https://mermade.github.io/shins/asyncapi.html">See AsyncAPI
+    example</a>
 includes: []
 search: true
 highlight_theme: darkula
@@ -1620,7 +1622,7 @@ System.out.println(response.toString());
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-30T17:52:07Z",
+  "shipDate": "2017-07-31T06:10:07Z",
   "status": "placed",
   "complete": false
 }
@@ -1657,7 +1659,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-07-30T17:52:07Z</shipDate>
+  <shipDate>2017-07-31T06:10:07Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1667,7 +1669,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-30T17:52:07Z",
+  "shipDate": "2017-07-31T06:10:07Z",
   "status": "placed",
   "complete": false
 }
@@ -1804,7 +1806,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-07-30T17:52:07Z</shipDate>
+  <shipDate>2017-07-31T06:10:07Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1814,7 +1816,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-30T17:52:07Z",
+  "shipDate": "2017-07-31T06:10:07Z",
   "status": "placed",
   "complete": false
 }
@@ -3014,7 +3016,7 @@ This operation does not require authentication
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-30T17:52:07Z",
+  "shipDate": "2017-07-31T06:10:07Z",
   "status": "placed",
   "complete": false
 } 

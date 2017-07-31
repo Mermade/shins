@@ -1,0 +1,689 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>AsyncAPI Sample v1.0.0</title>
+
+    <style>
+    </style>
+    <link rel="stylesheet" media="screen" href="pub/css/screen.css">
+    <link rel="stylesheet" media="print" href="pub/css/print.css">
+    <link rel="stylesheet" media="screen" href="pub/css/darkula.css">
+    
+      <script src="source/javascripts/lib/_jquery.js"></script>
+<script src="source/javascripts/lib/_jquery.highlight.js"></script>
+<script src="source/javascripts/lib/_lunr.js"></script>
+<script src="source/javascripts/lib/_imagesloaded.min.js"></script>
+<script src="source/javascripts/lib/_energize.js"></script>
+<script src="source/javascripts/app/_lang.js"></script>
+<script src="source/javascripts/app/_search.js"></script>
+<script src="source/javascripts/app/_toc.js"></script>
+<script type="text/javascript">
+$(function() {
+  loadToc($('#toc'), '.toc-link', '.toc-list-h2', 10);
+  setupLanguages($('body').data('languages'));
+  $('.content').imagesLoaded( function() {
+    recacheHeights();
+    refreshToc();
+  });
+});
+
+window.onpopstate = function() {
+  activateLanguage(getLanguageFromQueryString());
+};
+</script>
+
+    
+  </head>
+
+  <body data-languages="[&quot;javascript&quot;,&quot;javascript--nodejs&quot;,&quot;python&quot;,&quot;ruby&quot;,&quot;java&quot;,&quot;go&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="source/images/navbar.png" class="undefined" alt="Navigation">
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="source/images/logo.png" class="logo" alt="Logo">
+      
+        <div class="lang-selector">
+          
+            
+              <a href="#" data-language-name="javascript">JavaScript</a>
+            
+          
+            
+              <a href="#" data-language-name="javascript--nodejs">Node.JS</a>
+            
+          
+            
+              <a href="#" data-language-name="python">Python</a>
+            
+          
+            
+              <a href="#" data-language-name="ruby">Ruby</a>
+            
+          
+            
+              <a href="#" data-language-name="java">Java</a>
+            
+          
+            
+              <a href="#" data-language-name="go">Go</a>
+            
+          
+        </div>
+      
+      
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      
+      <div id="toc" class="toc-list-h1">
+	  	<ul class="toc-list-h1">
+        
+          <li>
+            <a href="#asyncapi-sample-v1-0-0" class="toc-h1 toc-link" data-title="AsyncAPI Sample v1.0.0">AsyncAPI Sample v1.0.0</a>
+            
+          </li>
+        
+          <li>
+            <a href="#user" class="toc-h1 toc-link" data-title="user">user</a>
+            
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#publish-hitch-accounts-1-0-action-user-signup" class="toc-h2 toc-link" data-title="user">publish hitch.accounts.1.0.action.user.signup</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="#default" class="toc-h1 toc-link" data-title="Default">Default</a>
+            
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#subscribe-hitch-accounts-1-0-event-user-signup" class="toc-h2 toc-link" data-title="Default">subscribe hitch.accounts.1.0.event.user.signup</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li>
+            <a href="#schemas" class="toc-h1 toc-link" data-title="Schemas">Schemas</a>
+            
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#id" class="toc-h2 toc-link" data-title="Schemas">id</a>
+                  </li>
+                
+                  <li>
+                    <a href="#username" class="toc-h2 toc-link" data-title="Schemas">username</a>
+                  </li>
+                
+                  <li>
+                    <a href="#datetime" class="toc-h2 toc-link" data-title="Schemas">datetime</a>
+                  </li>
+                
+                  <li>
+                    <a href="#mqttqosheader" class="toc-h2 toc-link" data-title="Schemas">MQTTQoSHeader</a>
+                  </li>
+                
+                  <li>
+                    <a href="#mqttretainheader" class="toc-h2 toc-link" data-title="Schemas">MQTTRetainHeader</a>
+                  </li>
+                
+                  <li>
+                    <a href="#user" class="toc-h2 toc-link" data-title="Schemas">user</a>
+                  </li>
+                
+                  <li>
+                    <a href="#usercreate" class="toc-h2 toc-link" data-title="Schemas">userCreate</a>
+                  </li>
+                
+                  <li>
+                    <a href="#signup" class="toc-h2 toc-link" data-title="Schemas">signup</a>
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+		</ul>
+      </div>
+      
+        <ul class="toc-footer">
+          
+        </ul>
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="asyncapi-sample-v1-0-0">AsyncAPI Sample v1.0.0</h1>
+<blockquote>
+<p>Scroll down for code samples, example headers and payloads. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
+</blockquote>
+<p>Base URLs:</p>
+<ul>
+<li><a href="amqp://asyncapi.hitchhq.com/">amqp://asyncapi.hitchhq.com/</a></li>
+<li><a href="mqtt://asyncapi.hitchhq.com/">mqtt://asyncapi.hitchhq.com/</a></li>
+</ul>
+<p>Base Topic: <strong>hitch</strong></p>
+<h1 id="user">user</h1>
+<h2 id="publish-hitch-accounts-1-0-action-user-signup">publish hitch.accounts.1.0.action.user.signup</h2>
+<blockquote>
+<p>Example headers</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"qos"</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">"retainFlag"</span>: <span class="hljs-literal">false</span>
+}
+</code></pre>
+<blockquote>
+<p>Example payload</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"user"</span>: {
+    <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>
+  },
+  <span class="hljs-attr">"signup"</span>: {
+    <span class="hljs-attr">"method"</span>: <span class="hljs-string">"email"</span>,
+    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T06:05:03Z"</span>
+  }
+}
+</code></pre>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight tab tab-javascript"><code><span class="hljs-comment">//Coming soon...</span>
+</code></pre>
+<pre class="highlight tab tab-javascript--nodejs"><code>app.from.client.send({
+  <span class="hljs-attr">topic</span>: <span class="hljs-string">'hitch.accounts.1.0.action.user.signup'</span>,
+  <span class="hljs-attr">payload</span>: { <span class="hljs-attr">user</span>: { <span class="hljs-attr">full_name</span>: <span class="hljs-string">'string'</span>, <span class="hljs-attr">username</span>: <span class="hljs-string">'string'</span> },
+  <span class="hljs-attr">signup</span>: { <span class="hljs-attr">method</span>: <span class="hljs-string">'email'</span>, <span class="hljs-attr">datetime</span>: <span class="hljs-string">'2017-07-31T06:05:03Z'</span> } }
+});
+</code></pre>
+<pre class="highlight tab tab-ruby"><code>/<span class="hljs-regexp">/Coming soon...
+</span></code></pre>
+<pre class="highlight tab tab-python"><code>//Coming soon...
+</code></pre>
+<pre class="highlight tab tab-java"><code><span class="hljs-comment">//Coming soon...</span>
+</code></pre>
+<pre class="highlight tab tab-go"><code><span class="hljs-comment">//Coming soon...</span>
+</code></pre>
+<p><em>Action to sign a user up.</em></p>
+<p>Multiline description of what this action does.
+Here you have another line.</p>
+<h3 id="headers">Headers</h3>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>qos</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>Quality of Service</td>
+</tr>
+<tr>
+<td>retainFlag</td>
+<td>boolean</td>
+<td>false</td>
+<td>This flag determines if the message will be saved by the broker for the specified topic as last known good value. New clients that subscribe to that topic will receive the last retained message on that topic instantly after subscribing. More on retained messages and best practices in one of the next posts.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="payload">Payload</h3>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td><a href="#schemausercreate">userCreate</a></td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» full_name</td>
+<td>string</td>
+<td>false</td>
+<td>User full name</td>
+</tr>
+<tr>
+<td>» username</td>
+<td>string</td>
+<td>true</td>
+<td>User handle</td>
+</tr>
+<tr>
+<td>signup</td>
+<td><a href="#schemasignup">signup</a></td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» method</td>
+<td>string</td>
+<td>true</td>
+<td>Signup method</td>
+</tr>
+<tr>
+<td>» datetime</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>Date and Time of the message</td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h1 id="default">Default</h1>
+<h2 id="subscribe-hitch-accounts-1-0-event-user-signup">subscribe hitch.accounts.1.0.event.user.signup</h2>
+<blockquote>
+<p>Example payload</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"user"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>
+  },
+  <span class="hljs-attr">"signup"</span>: {
+    <span class="hljs-attr">"method"</span>: <span class="hljs-string">"email"</span>,
+    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T06:05:03Z"</span>
+  }
+}
+</code></pre>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight tab tab-javascript"><code><span class="hljs-comment">//Coming soon...</span>
+</code></pre>
+<pre class="highlight tab tab-javascript--nodejs"><code>app.from.client.send({
+  <span class="hljs-attr">topic</span>: <span class="hljs-string">'hitch.accounts.1.0.event.user.signup'</span>,
+  <span class="hljs-attr">payload</span>: { <span class="hljs-attr">user</span>: { <span class="hljs-attr">id</span>: <span class="hljs-string">'string'</span>, <span class="hljs-attr">full_name</span>: <span class="hljs-string">'string'</span>, <span class="hljs-attr">username</span>: <span class="hljs-string">'string'</span> },
+  <span class="hljs-attr">signup</span>: { <span class="hljs-attr">method</span>: <span class="hljs-string">'email'</span>, <span class="hljs-attr">datetime</span>: <span class="hljs-string">'2017-07-31T06:05:03Z'</span> } }
+});
+</code></pre>
+<pre class="highlight tab tab-ruby"><code>/<span class="hljs-regexp">/Coming soon...
+</span></code></pre>
+<pre class="highlight tab tab-python"><code>//Coming soon...
+</code></pre>
+<pre class="highlight tab tab-java"><code><span class="hljs-comment">//Coming soon...</span>
+</code></pre>
+<pre class="highlight tab tab-go"><code><span class="hljs-comment">//Coming soon...</span>
+</code></pre>
+<h3 id="payload">Payload</h3>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td><a href="#schemauser">user</a></td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» id</td>
+<td>string</td>
+<td>true</td>
+<td>Resource identifier</td>
+</tr>
+<tr>
+<td>» full_name</td>
+<td>string</td>
+<td>false</td>
+<td>User full name</td>
+</tr>
+<tr>
+<td>» username</td>
+<td>string</td>
+<td>true</td>
+<td>User handle</td>
+</tr>
+<tr>
+<td>signup</td>
+<td><a href="#schemasignup">signup</a></td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» method</td>
+<td>string</td>
+<td>true</td>
+<td>Signup method</td>
+</tr>
+<tr>
+<td>» datetime</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>Date and Time of the message</td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+This operation does not require authentication
+</aside>
+<h1 id="schemas">Schemas</h1>
+<h2 id="id">id</h2>
+<p><a name="schemaid"></a></p>
+<pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span> 
+</code></pre>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>false</td>
+<td>Resource identifier</td>
+</tr>
+</tbody>
+</table>
+<h2 id="username">username</h2>
+<p><a name="schemausername"></a></p>
+<pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span> 
+</code></pre>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>false</td>
+<td>User handle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="datetime">datetime</h2>
+<p><a name="schemadatetime"></a></p>
+<pre class="highlight tab tab-json"><code><span class="hljs-string">"2017-07-31T06:05:03Z"</span> 
+</code></pre>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datetime</td>
+<td>string(date-time)</td>
+<td>false</td>
+<td>Date and Time of the message</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mqttqosheader">MQTTQoSHeader</h2>
+<p><a name="schemamqttqosheader"></a></p>
+<pre class="highlight tab tab-json"><code><span class="hljs-number">1</span> 
+</code></pre>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>qos</td>
+<td>integer(int32)</td>
+<td>false</td>
+<td>Quality of Service</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mqttretainheader">MQTTRetainHeader</h2>
+<p><a name="schemamqttretainheader"></a></p>
+<pre class="highlight tab tab-json"><code><span class="hljs-literal">false</span> 
+</code></pre>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>retainFlag</td>
+<td>boolean</td>
+<td>false</td>
+<td>This flag determines if the message will be saved by the broker for the specified topic as last known good value. New clients that subscribe to that topic will receive the last retained message on that topic instantly after subscribing. More on retained messages and best practices in one of the next posts.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user">user</h2>
+<p><a name="schemauser"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>
+} 
+</code></pre>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>true</td>
+<td>Resource identifier</td>
+</tr>
+<tr>
+<td>full_name</td>
+<td>string</td>
+<td>false</td>
+<td>User full name</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>true</td>
+<td>User handle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usercreate">userCreate</h2>
+<p><a name="schemausercreate"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>
+} 
+</code></pre>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>full_name</td>
+<td>string</td>
+<td>false</td>
+<td>User full name</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>true</td>
+<td>User handle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="signup">signup</h2>
+<p><a name="schemasignup"></a></p>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">"method"</span>: <span class="hljs-string">"email"</span>,
+  <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T06:05:03Z"</span>
+} 
+</code></pre>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>true</td>
+<td>Signup method</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>string(date-time)</td>
+<td>true</td>
+<td>Date and Time of the message</td>
+</tr>
+</tbody>
+</table>
+<h4 id="enumerated-values">Enumerated Values</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td>email</td>
+</tr>
+<tr>
+<td>method</td>
+<td>facebook</td>
+</tr>
+<tr>
+<td>method</td>
+<td>twitter</td>
+</tr>
+<tr>
+<td>method</td>
+<td>github</td>
+</tr>
+<tr>
+<td>method</td>
+<td>google</td>
+</tr>
+</tbody>
+</table>
+
+        
+      </div>
+      <div class="dark-box">
+        
+          <div class="lang-selector">
+            
+              
+                <a href="#" data-language-name="javascript">JavaScript</a>
+              
+            
+              
+                <a href="#" data-language-name="javascript--nodejs">Node.JS</a>
+              
+            
+              
+                <a href="#" data-language-name="python">Python</a>
+              
+            
+              
+                <a href="#" data-language-name="ruby">Ruby</a>
+              
+            
+              
+                <a href="#" data-language-name="java">Java</a>
+              
+            
+              
+                <a href="#" data-language-name="go">Go</a>
+              
+            
+          </div>
+        
+      </div>
+    </div>
+  </body>
+</html>
