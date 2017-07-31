@@ -176,14 +176,35 @@ window.onpopstate = function() {
 <blockquote>
 <p>Scroll down for code samples, example headers and payloads. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
 </blockquote>
+<p>This is a simple example of an <em>AsyncAPI</em> document.</p>
 <p>Base URLs:</p>
 <ul>
-<li><a href="amqp://asyncapi.hitchhq.com/">amqp://asyncapi.hitchhq.com/</a></li>
-<li><a href="mqtt://asyncapi.hitchhq.com/">mqtt://asyncapi.hitchhq.com/</a></li>
+<li>
+<p><a href="mqtt://api.company.com:{port}/{app-id}">mqtt://api.company.com:{port}/{app-id}</a></p>
+<ul>
+<li>
+<p><strong>app-id</strong> - You can find your <code>app-id</code> in our control panel, under the auth tab. Default: demo</p>
+</li>
+<li>
+<p><strong>port</strong> -  Default: 5676</p>
+<ul>
+<li>
+<p>5676</p>
+</li>
+<li>
+<p>5677</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p>Base Topic: <strong>hitch</strong></p>
+<p><a href="You can specify the terms of service here. **It supports Markdown as well.**
+">Terms of service</a></p>
 <h1 id="user">user</h1>
 <h2 id="publish-hitch-accounts-1-0-action-user-signup">publish hitch.accounts.1.0.action.user.signup</h2>
+<p>Note: <strong>Deprecated</strong></p>
 <blockquote>
 <p>Example headers</p>
 </blockquote>
@@ -202,7 +223,7 @@ window.onpopstate = function() {
   },
   <span class="hljs-attr">"signup"</span>: {
     <span class="hljs-attr">"method"</span>: <span class="hljs-string">"email"</span>,
-    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T06:21:52Z"</span>
+    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T17:51:21Z"</span>
   }
 }
 </code></pre>
@@ -212,7 +233,7 @@ window.onpopstate = function() {
 <pre class="highlight tab tab-javascript--nodejs"><code>app.from.client.send({
   <span class="hljs-attr">topic</span>: <span class="hljs-string">'hitch.accounts.1.0.action.user.signup'</span>,
   <span class="hljs-attr">payload</span>: { <span class="hljs-attr">user</span>: { <span class="hljs-attr">full_name</span>: <span class="hljs-string">'string'</span>, <span class="hljs-attr">username</span>: <span class="hljs-string">'string'</span> },
-  <span class="hljs-attr">signup</span>: { <span class="hljs-attr">method</span>: <span class="hljs-string">'email'</span>, <span class="hljs-attr">datetime</span>: <span class="hljs-string">'2017-07-31T06:21:52Z'</span> } }
+  <span class="hljs-attr">signup</span>: { <span class="hljs-attr">method</span>: <span class="hljs-string">'email'</span>, <span class="hljs-attr">datetime</span>: <span class="hljs-string">'2017-07-31T17:51:21Z'</span> } }
 });
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-comment">//Coming soon...</span>
@@ -226,8 +247,7 @@ window.onpopstate = function() {
 <pre class="highlight tab tab-go"><code><span class="hljs-comment">//Coming soon...</span>
 </code></pre>
 <p><em>Action to sign a user up.</em></p>
-<p>Multiline description of what this action does.
-Here you have another line.</p>
+<p>Multiline description of what this action does. <strong>It allows Markdown.</strong></p>
 <h3 id="headers">Headers</h3>
 <h4 id="properties">Properties</h4>
 <table>
@@ -320,7 +340,7 @@ This operation does not require authentication
   },
   <span class="hljs-attr">"signup"</span>: {
     <span class="hljs-attr">"method"</span>: <span class="hljs-string">"email"</span>,
-    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T06:21:52Z"</span>
+    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T17:51:21Z"</span>
   }
 }
 </code></pre>
@@ -330,7 +350,7 @@ This operation does not require authentication
 <pre class="highlight tab tab-javascript--nodejs"><code>app.from.client.send({
   <span class="hljs-attr">topic</span>: <span class="hljs-string">'hitch.accounts.1.0.event.user.signup'</span>,
   <span class="hljs-attr">payload</span>: { <span class="hljs-attr">user</span>: { <span class="hljs-attr">id</span>: <span class="hljs-string">'string'</span>, <span class="hljs-attr">full_name</span>: <span class="hljs-string">'string'</span>, <span class="hljs-attr">username</span>: <span class="hljs-string">'string'</span> },
-  <span class="hljs-attr">signup</span>: { <span class="hljs-attr">method</span>: <span class="hljs-string">'email'</span>, <span class="hljs-attr">datetime</span>: <span class="hljs-string">'2017-07-31T06:21:52Z'</span> } }
+  <span class="hljs-attr">signup</span>: { <span class="hljs-attr">method</span>: <span class="hljs-string">'email'</span>, <span class="hljs-attr">datetime</span>: <span class="hljs-string">'2017-07-31T17:51:21Z'</span> } }
 });
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-comment">//Coming soon...</span>
@@ -451,7 +471,7 @@ This operation does not require authentication
 </table>
 <h2 id="datetime">datetime</h2>
 <p><a name="schemadatetime"></a></p>
-<pre class="highlight tab tab-json"><code><span class="hljs-string">"2017-07-31T06:21:52Z"</span> 
+<pre class="highlight tab tab-json"><code><span class="hljs-string">"2017-07-31T17:51:21Z"</span> 
 </code></pre>
 <h3 id="properties">Properties</h3>
 <table>
@@ -593,7 +613,7 @@ This operation does not require authentication
 <p><a name="schemasignup"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"method"</span>: <span class="hljs-string">"email"</span>,
-  <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T06:21:52Z"</span>
+  <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T17:51:21Z"</span>
 } 
 </code></pre>
 <h3 id="properties">Properties</h3>

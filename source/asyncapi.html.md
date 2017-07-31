@@ -18,19 +18,33 @@ highlight_theme: darkula
 
 > Scroll down for code samples, example headers and payloads. Select a language for code samples from the tabs above or the mobile navigation menu.
 
+This is a simple example of an _AsyncAPI_ document.
 
 Base URLs:
 
-* <a href="amqp://asyncapi.hitchhq.com/">amqp://asyncapi.hitchhq.com/</a>
-* <a href="mqtt://asyncapi.hitchhq.com/">mqtt://asyncapi.hitchhq.com/</a>
+* <a href="mqtt://api.company.com:{port}/{app-id}">mqtt://api.company.com:{port}/{app-id}</a>
+
+    * **app-id** - You can find your `app-id` in our control panel, under the auth tab. Default: demo
+
+    * **port** -  Default: 5676
+
+        * 5676
+
+        * 5677
+
+
 
 Base Topic: **hitch**
 
+<a href="You can specify the terms of service here. **It supports Markdown as well.**
+">Terms of service</a>
 
 
 # user
 
 ## publish hitch.accounts.1.0.action.user.signup
+
+Note: **Deprecated**
 
 > Example headers
 
@@ -50,7 +64,7 @@ Base Topic: **hitch**
   },
   "signup": {
     "method": "email",
-    "datetime": "2017-07-31T06:21:52Z"
+    "datetime": "2017-07-31T17:51:21Z"
   }
 }
 ```
@@ -60,7 +74,7 @@ Base Topic: **hitch**
 app.from.client.send({
   topic: 'hitch.accounts.1.0.action.user.signup',
   payload: { user: { full_name: 'string', username: 'string' },
-  signup: { method: 'email', datetime: '2017-07-31T06:21:52Z' } }
+  signup: { method: 'email', datetime: '2017-07-31T17:51:21Z' } }
 });
 ```
 
@@ -86,8 +100,7 @@ app.from.client.send({
 
 *Action to sign a user up.*
 
-Multiline description of what this action does.
-Here you have another line.
+Multiline description of what this action does. **It allows Markdown.**
 
 ### Headers
 
@@ -95,8 +108,8 @@ Here you have another line.
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- qos|integer(int32)|false|Quality of Service
- retainFlag|boolean|false|This flag determines if the message will be saved by the broker for the specified topic as last known good value. New clients that subscribe to that topic will receive the last retained message on that topic instantly after subscribing. More on retained messages and best practices in one of the next posts. 
+qos|integer(int32)|false|Quality of Service
+retainFlag|boolean|false|This flag determines if the message will be saved by the broker for the specified topic as last known good value. New clients that subscribe to that topic will receive the last retained message on that topic instantly after subscribing. More on retained messages and best practices in one of the next posts. 
 
 
 
@@ -106,10 +119,10 @@ Name|Type|Required|Description
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- user|[userCreate](#schemausercreate)|false|No description
+user|[userCreate](#schemausercreate)|false|No description
 » full_name|string|false|User full name
 » username|string|true|User handle
- signup|[signup](#schemasignup)|false|No description
+signup|[signup](#schemasignup)|false|No description
 » method|string|true|Signup method
 » datetime|string(date-time)|true|Date and Time of the message
 
@@ -134,7 +147,7 @@ This operation does not require authentication
   },
   "signup": {
     "method": "email",
-    "datetime": "2017-07-31T06:21:52Z"
+    "datetime": "2017-07-31T17:51:21Z"
   }
 }
 ```
@@ -144,7 +157,7 @@ This operation does not require authentication
 app.from.client.send({
   topic: 'hitch.accounts.1.0.event.user.signup',
   payload: { user: { id: 'string', full_name: 'string', username: 'string' },
-  signup: { method: 'email', datetime: '2017-07-31T06:21:52Z' } }
+  signup: { method: 'email', datetime: '2017-07-31T17:51:21Z' } }
 });
 ```
 
@@ -174,11 +187,11 @@ app.from.client.send({
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- user|[user](#schemauser)|false|No description
+user|[user](#schemauser)|false|No description
 » id|string|true|Resource identifier
 » full_name|string|false|User full name
 » username|string|true|User handle
- signup|[signup](#schemasignup)|false|No description
+signup|[signup](#schemasignup)|false|No description
 » method|string|true|Signup method
 » datetime|string(date-time)|true|Date and Time of the message
 
@@ -227,7 +240,7 @@ username|string|false|User handle
 <a name="schemadatetime"></a>
 
 ```json
-"2017-07-31T06:21:52Z" 
+"2017-07-31T17:51:21Z" 
 ```
 
 ### Properties
@@ -286,9 +299,9 @@ retainFlag|boolean|false|This flag determines if the message will be saved by th
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- id|string|true|Resource identifier
- full_name|string|false|User full name
- username|string|true|User handle
+id|string|true|Resource identifier
+full_name|string|false|User full name
+username|string|true|User handle
 
 
 
@@ -307,8 +320,8 @@ Name|Type|Required|Description
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- full_name|string|false|User full name
- username|string|true|User handle
+full_name|string|false|User full name
+username|string|true|User handle
 
 
 
@@ -319,7 +332,7 @@ Name|Type|Required|Description
 ```json
 {
   "method": "email",
-  "datetime": "2017-07-31T06:21:52Z"
+  "datetime": "2017-07-31T17:51:21Z"
 } 
 ```
 
@@ -327,19 +340,19 @@ Name|Type|Required|Description
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- method|string|true|Signup method
- datetime|string(date-time)|true|Date and Time of the message
+method|string|true|Signup method
+datetime|string(date-time)|true|Date and Time of the message
 
 
 #### Enumerated Values
 
 |Property|Value|
 |---|---|
- method|email|
- method|facebook|
- method|twitter|
- method|github|
- method|google|
+method|email|
+method|facebook|
+method|twitter|
+method|github|
+method|google|
 
 
 
