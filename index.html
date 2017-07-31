@@ -359,7 +359,8 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -623,7 +624,8 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.put <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.put <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -900,7 +902,8 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>,
+  <span class="hljs-symbol">params:</span> {
   <span class="hljs-string">'status'</span> =&gt; <span class="hljs-string">'array[string]'</span>
 }, <span class="hljs-symbol">headers:</span> headers
 
@@ -1056,70 +1059,70 @@ System.out.println(response.toString());
 </thead>
 <tbody>
 <tr>
-<td>id</td>
+<td>anonymous</td>
+<td>array</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» id</td>
 <td>integer(int64)</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>category</td>
+<td>» category</td>
 <td><a href="#schemacategory">Category</a></td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» id</td>
+<td>»» id</td>
 <td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»» name</td>
+<td>string</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
 <td>» name</td>
 <td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
 <td>true</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>photoUrls</td>
+<td>» photoUrls</td>
 <td>array</td>
 <td>true</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>tags</td>
+<td>» tags</td>
 <td>array</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» id</td>
+<td>»» id</td>
 <td>integer(int64)</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» name</td>
+<td>»» name</td>
 <td>string</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>status</td>
+<td>» status</td>
 <td>string</td>
 <td>false</td>
 <td>pet status in the store</td>
-</tr>
-<tr>
-<td>additionalProperties</td>
-<td>array</td>
-<td>false</td>
-<td>No description</td>
 </tr>
 </tbody>
 </table>
@@ -1183,7 +1186,8 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>,
+  <span class="hljs-symbol">params:</span> {
   <span class="hljs-string">'tags'</span> =&gt; <span class="hljs-string">'array[string]'</span>
 }, <span class="hljs-symbol">headers:</span> headers
 
@@ -1316,70 +1320,70 @@ System.out.println(response.toString());
 </thead>
 <tbody>
 <tr>
-<td>id</td>
+<td>anonymous</td>
+<td>array</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>» id</td>
 <td>integer(int64)</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>category</td>
+<td>» category</td>
 <td><a href="#schemacategory">Category</a></td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» id</td>
+<td>»» id</td>
 <td>integer(int64)</td>
+<td>false</td>
+<td>No description</td>
+</tr>
+<tr>
+<td>»» name</td>
+<td>string</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
 <td>» name</td>
 <td>string</td>
-<td>false</td>
-<td>No description</td>
-</tr>
-<tr>
-<td>name</td>
-<td>string</td>
 <td>true</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>photoUrls</td>
+<td>» photoUrls</td>
 <td>array</td>
 <td>true</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>tags</td>
+<td>» tags</td>
 <td>array</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» id</td>
+<td>»» id</td>
 <td>integer(int64)</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» name</td>
+<td>»» name</td>
 <td>string</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>status</td>
+<td>» status</td>
 <td>string</td>
 <td>false</td>
 <td>pet status in the store</td>
-</tr>
-<tr>
-<td>additionalProperties</td>
-<td>array</td>
-<td>false</td>
-<td>No description</td>
 </tr>
 </tbody>
 </table>
@@ -1443,7 +1447,8 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -1625,7 +1630,8 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/x-www-form-urlencoded'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -1785,7 +1791,8 @@ headers = {
   <span class="hljs-string">'api_key'</span> =&gt; <span class="hljs-string">'string'</span>
 }
 
-result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -1934,7 +1941,8 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -2091,7 +2099,8 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -2235,7 +2244,8 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/store/order'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -2275,7 +2285,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:10:07Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:55:13Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2376,7 +2386,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-31T06:10:07Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-31T06:55:13Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -2385,7 +2395,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:10:07Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:55:13Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2474,7 +2484,8 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -2536,7 +2547,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-31T06:10:07Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-07-31T06:55:13Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -2545,7 +2556,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:10:07Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:55:13Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2624,7 +2635,8 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orde
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 
-result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
+  <span class="hljs-symbol">params:</span> {
   }
 
 p JSON.parse(result)
@@ -2761,7 +2773,8 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -2964,7 +2977,8 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithArray'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -3121,7 +3135,8 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/user/createWithList'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -3268,7 +3283,8 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/login'</span>,
+  <span class="hljs-symbol">params:</span> {
   <span class="hljs-string">'username'</span> =&gt; <span class="hljs-string">'string'</span>,
 <span class="hljs-string">'password'</span> =&gt; <span class="hljs-string">'string(password)'</span>
 }, <span class="hljs-symbol">headers:</span> headers
@@ -3431,7 +3447,8 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</spa
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>,
+  <span class="hljs-symbol">params:</span> {
   }
 
 p JSON.parse(result)
@@ -3538,7 +3555,8 @@ headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>
 }
 
-result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -3706,7 +3724,8 @@ headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>
 }
 
-result = RestClient.put <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.put <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
+  <span class="hljs-symbol">params:</span> {
   }, <span class="hljs-symbol">headers:</span> headers
 
 p JSON.parse(result)
@@ -3905,7 +3924,8 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'<
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 
-result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-symbol">params:</span> {
+result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
+  <span class="hljs-symbol">params:</span> {
   }
 
 p JSON.parse(result)
@@ -3991,7 +4011,7 @@ This operation does not require authentication
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:10:07Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-07-31T06:55:13Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 } 

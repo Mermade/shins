@@ -122,7 +122,8 @@ headers = {
   'Content-Type' => 'application/json'
 }
 
-result = RestClient.post 'http://petstore.swagger.io/v2/pet', params: {
+result = RestClient.post 'http://petstore.swagger.io/v2/pet',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -303,7 +304,8 @@ headers = {
   'Content-Type' => 'application/json'
 }
 
-result = RestClient.put 'http://petstore.swagger.io/v2/pet', params: {
+result = RestClient.put 'http://petstore.swagger.io/v2/pet',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -487,7 +489,8 @@ headers = {
   'Accept' => 'application/xml'
 }
 
-result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByStatus', params: {
+result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByStatus',
+  params: {
   'status' => 'array[string]'
 }, headers: headers
 
@@ -598,17 +601,17 @@ Status Code **200**
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- id|integer(int64)|false|No description
- category|[Category](#schemacategory)|false|No description
+anonymous|array|false|No description
 » id|integer(int64)|false|No description
-» name|string|false|No description
- name|string|true|No description
- photoUrls|array|true|No description
- tags|array|false|No description
-» id|integer(int64)|false|No description
-» name|string|false|No description
- status|string|false|pet status in the store
-additionalProperties|array|false|No description
+» category|[Category](#schemacategory)|false|No description
+»» id|integer(int64)|false|No description
+»» name|string|false|No description
+» name|string|true|No description
+» photoUrls|array|true|No description
+» tags|array|false|No description
+»» id|integer(int64)|false|No description
+»» name|string|false|No description
+» status|string|false|pet status in the store
 
 
 
@@ -682,7 +685,8 @@ headers = {
   'Accept' => 'application/xml'
 }
 
-result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByTags', params: {
+result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByTags',
+  params: {
   'tags' => 'array[string]'
 }, headers: headers
 
@@ -785,17 +789,17 @@ Status Code **200**
 
 Name|Type|Required|Description
 ---|---|---|---|---|
- id|integer(int64)|false|No description
- category|[Category](#schemacategory)|false|No description
+anonymous|array|false|No description
 » id|integer(int64)|false|No description
-» name|string|false|No description
- name|string|true|No description
- photoUrls|array|true|No description
- tags|array|false|No description
-» id|integer(int64)|false|No description
-» name|string|false|No description
- status|string|false|pet status in the store
-additionalProperties|array|false|No description
+» category|[Category](#schemacategory)|false|No description
+»» id|integer(int64)|false|No description
+»» name|string|false|No description
+» name|string|true|No description
+» photoUrls|array|true|No description
+» tags|array|false|No description
+»» id|integer(int64)|false|No description
+»» name|string|false|No description
+» status|string|false|pet status in the store
 
 
 
@@ -869,7 +873,8 @@ headers = {
   'Accept' => 'application/xml'
 }
 
-result = RestClient.get 'http://petstore.swagger.io/v2/pet/{petId}', params: {
+result = RestClient.get 'http://petstore.swagger.io/v2/pet/{petId}',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -1033,7 +1038,8 @@ headers = {
   'Content-Type' => 'application/x-www-form-urlencoded'
 }
 
-result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}', params: {
+result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -1165,7 +1171,8 @@ headers = {
   'api_key' => 'string'
 }
 
-result = RestClient.delete 'http://petstore.swagger.io/v2/pet/{petId}', params: {
+result = RestClient.delete 'http://petstore.swagger.io/v2/pet/{petId}',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -1293,7 +1300,8 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params: {
+result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -1436,7 +1444,8 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'http://petstore.swagger.io/v2/store/inventory', params: {
+result = RestClient.get 'http://petstore.swagger.io/v2/store/inventory',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -1575,7 +1584,8 @@ headers = {
   'Accept' => 'application/xml'
 }
 
-result = RestClient.post 'http://petstore.swagger.io/v2/store/order', params: {
+result = RestClient.post 'http://petstore.swagger.io/v2/store/order',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -1622,7 +1632,7 @@ System.out.println(response.toString());
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-31T06:10:07Z",
+  "shipDate": "2017-07-31T06:55:13Z",
   "status": "placed",
   "complete": false
 }
@@ -1659,7 +1669,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-07-31T06:10:07Z</shipDate>
+  <shipDate>2017-07-31T06:55:13Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1669,7 +1679,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-31T06:10:07Z",
+  "shipDate": "2017-07-31T06:55:13Z",
   "status": "placed",
   "complete": false
 }
@@ -1750,7 +1760,8 @@ headers = {
   'Accept' => 'application/xml'
 }
 
-result = RestClient.get 'http://petstore.swagger.io/v2/store/order/{orderId}', params: {
+result = RestClient.get 'http://petstore.swagger.io/v2/store/order/{orderId}',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -1806,7 +1817,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-07-31T06:10:07Z</shipDate>
+  <shipDate>2017-07-31T06:55:13Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1816,7 +1827,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-31T06:10:07Z",
+  "shipDate": "2017-07-31T06:55:13Z",
   "status": "placed",
   "complete": false
 }
@@ -1882,7 +1893,8 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'http://petstore.swagger.io/v2/store/order/{orderId}', params: {
+result = RestClient.delete 'http://petstore.swagger.io/v2/store/order/{orderId}',
+  params: {
   }
 
 p JSON.parse(result)
@@ -2007,7 +2019,8 @@ headers = {
   'Content-Type' => 'application/json'
 }
 
-result = RestClient.post 'http://petstore.swagger.io/v2/user', params: {
+result = RestClient.post 'http://petstore.swagger.io/v2/user',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -2153,7 +2166,8 @@ headers = {
   'Content-Type' => 'application/json'
 }
 
-result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithArray', params: {
+result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithArray',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -2300,7 +2314,8 @@ headers = {
   'Content-Type' => 'application/json'
 }
 
-result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithList', params: {
+result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithList',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -2437,7 +2452,8 @@ headers = {
   'Accept' => 'application/xml'
 }
 
-result = RestClient.get 'http://petstore.swagger.io/v2/user/login', params: {
+result = RestClient.get 'http://petstore.swagger.io/v2/user/login',
+  params: {
   'username' => 'string',
 'password' => 'string(password)'
 }, headers: headers
@@ -2558,7 +2574,8 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.get 'http://petstore.swagger.io/v2/user/logout', params: {
+result = RestClient.get 'http://petstore.swagger.io/v2/user/logout',
+  params: {
   }
 
 p JSON.parse(result)
@@ -2669,7 +2686,8 @@ headers = {
   'Accept' => 'application/xml'
 }
 
-result = RestClient.get 'http://petstore.swagger.io/v2/user/{username}', params: {
+result = RestClient.get 'http://petstore.swagger.io/v2/user/{username}',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -2818,7 +2836,8 @@ headers = {
   'Content-Type' => 'application/json'
 }
 
-result = RestClient.put 'http://petstore.swagger.io/v2/user/{username}', params: {
+result = RestClient.put 'http://petstore.swagger.io/v2/user/{username}',
+  params: {
   }, headers: headers
 
 p JSON.parse(result)
@@ -2949,7 +2968,8 @@ require 'rest-client'
 require 'json'
 
 
-result = RestClient.delete 'http://petstore.swagger.io/v2/user/{username}', params: {
+result = RestClient.delete 'http://petstore.swagger.io/v2/user/{username}',
+  params: {
   }
 
 p JSON.parse(result)
@@ -3016,7 +3036,7 @@ This operation does not require authentication
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-07-31T06:10:07Z",
+  "shipDate": "2017-07-31T06:55:13Z",
   "status": "placed",
   "complete": false
 } 
