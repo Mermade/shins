@@ -21,6 +21,7 @@ function check(req,res,fpath) {
 		console.log('Rebuilding '+fpath);
 		fs.readFile(path.join(__dirname,'source',fpath+'.md'),'utf8',function(err,markdown){
 			if (markdown) {
+				// TODO at the moment there's no way to specify customcss etc
 				shins.render(markdown,{},function(err,html){
 					res.send(html);
 					fs.writeFile(path.join(__dirname,fpath),html,'utf8');
