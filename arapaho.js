@@ -16,7 +16,11 @@ app.engine('html', ejs.renderFile);
 function check(req,res,fpath) {
 	fpath = fpath.split('/').join('');
 	var srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
-	var dstStat = fs.statSync(path.join(__dirname,fpath));
+	var dstStat = {mtime:0};
+	try {
+		dstStat = fs.statSync(path.join(__dirname,fpath));
+	}
+	catch (ex) { }
 	if (srcStat.mtime>dstStat.mtime) {
 		console.log('Rebuilding '+fpath);
 		fs.readFile(path.join(__dirname,'source',fpath+'.md'),'utf8',function(err,markdown){
