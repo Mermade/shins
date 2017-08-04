@@ -1,3 +1,0 @@
-#!/bin/sh
-./sass source/stylesheets/print.css.scss > pub/css/print.css
-./sass source/stylesheets/screen.css.scss > pub/css/screen.css
