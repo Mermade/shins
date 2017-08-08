@@ -62,6 +62,12 @@ The `err` parameter is the result of the `ejs` rendering step.
 
 Setting `customCss` to `true` will include the `pub/css/screen_overrides.css`,`pub/css/print_overrides.css` and `pub/css/theme_override.css` files, in which you can override any of the default Slate theme, to save you from having to alter the main css files directly. This should make syncing up with future Shins / Slate releases easier.
 
+### Updating from Slate
+
+* Note: changes to Slate CSS, Javascript etc may break assumptions made in Shins. Use at your own risk.
+* The script `updateFromSlate` assumes you have Ruby Slate checked-out by the side of shins (i.e. in a sibling directory) and will copy .scss files, fonts, Javascript files etc.
+* The `buildstyle.js` program can be used to process the .scss files to their .css equivalents. It takes one optional parameter, the `outputStyle` used by `node-sass`. This can be either `nested`, `expanded`, `compact` or `compressed`. Default is `nested`.
+
 ### Notes
 
 * Windows is definitely supported

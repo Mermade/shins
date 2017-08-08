@@ -1,10 +1,15 @@
+#!/bin/env node
+
 var fs = require('fs');
 var sass = require('node-sass');
 var assetFunctions = require('node-sass-asset-functions');
 
+var outputStyle = process.argv.length > 2 ? process.argv[2] : 'nested';
+
 function sassRender(infile,outfile) {
 	sass.render({
 		file: infile,
+		outputStyle : outputStyle,
 		functions: assetFunctions({
 			http_fonts_path: '../../source/fonts'
 		})
