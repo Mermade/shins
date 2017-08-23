@@ -309,7 +309,7 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X post http://petstore.swagger.io/v2/pet \
+curl -X POST http://petstore.swagger.io/v2/pet \
   -H <span class="hljs-string">'Content-Type: application/json'</span>
 
 </code></pre>
@@ -589,7 +589,7 @@ oauth2 ( Scopes: write:pets read:pets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X put http://petstore.swagger.io/v2/pet \
+curl -X PUT http://petstore.swagger.io/v2/pet \
   -H <span class="hljs-string">'Content-Type: application/json'</span>
 
 </code></pre>
@@ -881,7 +881,7 @@ oauth2 ( Scopes: write:pets read:pets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X get http://petstore.swagger.io/v2/pet/findByStatus?status=... \
+curl -X GET http://petstore.swagger.io/v2/pet/findByStatus?status=... \
   -H <span class="hljs-string">'Accept: application/xml'</span>
 
 </code></pre>
@@ -1165,7 +1165,7 @@ oauth2 ( Scopes: write:pets read:pets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X get http://petstore.swagger.io/v2/pet/findByTags?tags=... \
+curl -X GET http://petstore.swagger.io/v2/pet/findByTags?tags=... \
   -H <span class="hljs-string">'Accept: application/xml'</span>
 
 </code></pre>
@@ -1426,7 +1426,7 @@ oauth2 ( Scopes: write:pets read:pets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X get http://petstore.swagger.io/v2/pet/{petId} \
+curl -X GET http://petstore.swagger.io/v2/pet/{petId} \
   -H <span class="hljs-string">'Accept: application/xml'</span>
 
 </code></pre>
@@ -1610,7 +1610,7 @@ apiKey
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X post http://petstore.swagger.io/v2/pet/{petId} \
+curl -X POST http://petstore.swagger.io/v2/pet/{petId} \
   -H <span class="hljs-string">'Content-Type: application/x-www-form-urlencoded'</span>
 
 </code></pre>
@@ -1773,7 +1773,7 @@ oauth2 ( Scopes: write:pets read:pets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X delete http://petstore.swagger.io/v2/pet/{petId} \
+curl -X DELETE http://petstore.swagger.io/v2/pet/{petId} \
   -H <span class="hljs-string">'api_key: string'</span>
 
 </code></pre>
@@ -1919,7 +1919,7 @@ oauth2 ( Scopes: write:pets read:pets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X post http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
+curl -X POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
   -H <span class="hljs-string">'Content-Type: application/octet-stream'</span> \
   -H <span class="hljs-string">'Accept: application/json'</span>
 
@@ -2081,7 +2081,7 @@ oauth2 ( Scopes: write:pets read:pets )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X get http://petstore.swagger.io/v2/store/inventory \
+curl -X GET http://petstore.swagger.io/v2/store/inventory \
   -H <span class="hljs-string">'Accept: application/json'</span>
 
 </code></pre>
@@ -2222,7 +2222,7 @@ apiKey
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X post http://petstore.swagger.io/v2/store/order \
+curl -X POST http://petstore.swagger.io/v2/store/order \
   -H <span class="hljs-string">'Content-Type: application/json'</span> \
   -H <span class="hljs-string">'Accept: application/xml'</span>
 
@@ -2254,7 +2254,7 @@ $.ajax({
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-14T15:16:56Z",
+  "shipDate": "2017-08-23T16:45:47Z",
   "status": "placed",
   "complete": false
 }'</span>;
@@ -2325,7 +2325,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-08-14T15:16:56Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-08-23T16:45:47Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2424,7 +2424,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-08-14T15:16:56Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-08-23T16:45:47Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -2433,7 +2433,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-08-14T15:16:56Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-08-23T16:45:47Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2471,7 +2471,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X get http://petstore.swagger.io/v2/store/order/{orderId} \
+curl -X GET http://petstore.swagger.io/v2/store/order/{orderId} \
   -H <span class="hljs-string">'Accept: application/xml'</span>
 
 </code></pre>
@@ -2585,7 +2585,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-08-14T15:16:56Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2017-08-23T16:45:47Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -2594,7 +2594,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-08-14T15:16:56Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-08-23T16:45:47Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2638,7 +2638,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X delete http://petstore.swagger.io/v2/store/order/{orderId}
+curl -X DELETE http://petstore.swagger.io/v2/store/order/{orderId}
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1
@@ -2761,7 +2761,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X post http://petstore.swagger.io/v2/user \
+curl -X POST http://petstore.swagger.io/v2/user \
   -H <span class="hljs-string">'Content-Type: application/json'</span>
 
 </code></pre>
@@ -2972,7 +2972,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X post http://petstore.swagger.io/v2/user/createWithArray \
+curl -X POST http://petstore.swagger.io/v2/user/createWithArray \
   -H <span class="hljs-string">'Content-Type: application/json'</span>
 
 </code></pre>
@@ -3121,7 +3121,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X post http://petstore.swagger.io/v2/user/createWithList \
+curl -X POST http://petstore.swagger.io/v2/user/createWithList \
   -H <span class="hljs-string">'Content-Type: application/json'</span>
 
 </code></pre>
@@ -3279,7 +3279,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X get http://petstore.swagger.io/v2/user/login?username=string&amp;password=pa%24%24word \
+curl -X GET http://petstore.swagger.io/v2/user/login?username=string&amp;password=pa%24%24word \
   -H <span class="hljs-string">'Accept: application/xml'</span>
 
 </code></pre>
@@ -3459,7 +3459,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X get http://petstore.swagger.io/v2/user/<span class="hljs-built_in">logout</span>
+curl -X GET http://petstore.swagger.io/v2/user/<span class="hljs-built_in">logout</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/logout</span> HTTP/1.1
@@ -3551,7 +3551,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X get http://petstore.swagger.io/v2/user/{username} \
+curl -X GET http://petstore.swagger.io/v2/user/{username} \
   -H <span class="hljs-string">'Accept: application/xml'</span>
 
 </code></pre>
@@ -3721,7 +3721,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X put http://petstore.swagger.io/v2/user/{username} \
+curl -X PUT http://petstore.swagger.io/v2/user/{username} \
   -H <span class="hljs-string">'Content-Type: application/json'</span>
 
 </code></pre>
@@ -3945,7 +3945,7 @@ This operation does not require authentication
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl -X delete http://petstore.swagger.io/v2/user/{username}
+curl -X DELETE http://petstore.swagger.io/v2/user/{username}
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1
@@ -4067,7 +4067,7 @@ This operation does not require authentication
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-08-14T15:16:56Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2017-08-23T16:45:47Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 } 

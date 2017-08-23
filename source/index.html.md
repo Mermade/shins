@@ -65,7 +65,7 @@ Everything about your Pets
 
 ```shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/pet \
+curl -X POST http://petstore.swagger.io/v2/pet \
   -H 'Content-Type: application/json'
 
 ```
@@ -261,7 +261,7 @@ oauth2 ( Scopes: write:pets read:pets )
 
 ```shell
 # You can also use wget
-curl -X put http://petstore.swagger.io/v2/pet \
+curl -X PUT http://petstore.swagger.io/v2/pet \
   -H 'Content-Type: application/json'
 
 ```
@@ -459,7 +459,7 @@ oauth2 ( Scopes: write:pets read:pets )
 
 ```shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/pet/findByStatus?status=... \
+curl -X GET http://petstore.swagger.io/v2/pet/findByStatus?status=... \
   -H 'Accept: application/xml'
 
 ```
@@ -655,7 +655,7 @@ oauth2 ( Scopes: write:pets read:pets )
 
 ```shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/pet/findByTags?tags=... \
+curl -X GET http://petstore.swagger.io/v2/pet/findByTags?tags=... \
   -H 'Accept: application/xml'
 
 ```
@@ -843,7 +843,7 @@ oauth2 ( Scopes: write:pets read:pets )
 
 ```shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/pet/{petId} \
+curl -X GET http://petstore.swagger.io/v2/pet/{petId} \
   -H 'Accept: application/xml'
 
 ```
@@ -1009,7 +1009,7 @@ apiKey
 
 ```shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/pet/{petId} \
+curl -X POST http://petstore.swagger.io/v2/pet/{petId} \
   -H 'Content-Type: application/x-www-form-urlencoded'
 
 ```
@@ -1144,7 +1144,7 @@ oauth2 ( Scopes: write:pets read:pets )
 
 ```shell
 # You can also use wget
-curl -X delete http://petstore.swagger.io/v2/pet/{petId} \
+curl -X DELETE http://petstore.swagger.io/v2/pet/{petId} \
   -H 'api_key: string'
 
 ```
@@ -1269,7 +1269,7 @@ oauth2 ( Scopes: write:pets read:pets )
 
 ```shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
+curl -X POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
   -H 'Content-Type: application/octet-stream' \
   -H 'Accept: application/json'
 
@@ -1417,7 +1417,7 @@ Access to Petstore orders
 
 ```shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/store/inventory \
+curl -X GET http://petstore.swagger.io/v2/store/inventory \
   -H 'Accept: application/json'
 
 ```
@@ -1553,7 +1553,7 @@ apiKey
 
 ```shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/store/order \
+curl -X POST http://petstore.swagger.io/v2/store/order \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/xml'
 
@@ -1591,7 +1591,7 @@ const inputBody = '{
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-14T15:16:56Z",
+  "shipDate": "2017-08-23T16:45:47Z",
   "status": "placed",
   "complete": false
 }';
@@ -1671,7 +1671,7 @@ System.out.println(response.toString());
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-14T15:16:56Z",
+  "shipDate": "2017-08-23T16:45:47Z",
   "status": "placed",
   "complete": false
 }
@@ -1705,7 +1705,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-08-14T15:16:56Z</shipDate>
+  <shipDate>2017-08-23T16:45:47Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1715,7 +1715,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-14T15:16:56Z",
+  "shipDate": "2017-08-23T16:45:47Z",
   "status": "placed",
   "complete": false
 }
@@ -1737,7 +1737,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/store/order/{orderId} \
+curl -X GET http://petstore.swagger.io/v2/store/order/{orderId} \
   -H 'Accept: application/xml'
 
 ```
@@ -1853,7 +1853,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-08-14T15:16:56Z</shipDate>
+  <shipDate>2017-08-23T16:45:47Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1863,7 +1863,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-14T15:16:56Z",
+  "shipDate": "2017-08-23T16:45:47Z",
   "status": "placed",
   "complete": false
 }
@@ -1886,7 +1886,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X delete http://petstore.swagger.io/v2/store/order/{orderId}
+curl -X DELETE http://petstore.swagger.io/v2/store/order/{orderId}
 
 ```
 
@@ -1997,7 +1997,7 @@ Operations about user
 
 ```shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/user \
+curl -X POST http://petstore.swagger.io/v2/user \
   -H 'Content-Type: application/json'
 
 ```
@@ -2151,7 +2151,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/user/createWithArray \
+curl -X POST http://petstore.swagger.io/v2/user/createWithArray \
   -H 'Content-Type: application/json'
 
 ```
@@ -2290,7 +2290,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X post http://petstore.swagger.io/v2/user/createWithList \
+curl -X POST http://petstore.swagger.io/v2/user/createWithList \
   -H 'Content-Type: application/json'
 
 ```
@@ -2438,7 +2438,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word \
+curl -X GET http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word \
   -H 'Accept: application/xml'
 
 ```
@@ -2576,7 +2576,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/user/logout
+curl -X GET http://petstore.swagger.io/v2/user/logout
 
 ```
 
@@ -2672,7 +2672,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X get http://petstore.swagger.io/v2/user/{username} \
+curl -X GET http://petstore.swagger.io/v2/user/{username} \
   -H 'Accept: application/xml'
 
 ```
@@ -2823,7 +2823,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X put http://petstore.swagger.io/v2/user/{username} \
+curl -X PUT http://petstore.swagger.io/v2/user/{username} \
   -H 'Content-Type: application/json'
 
 ```
@@ -2979,7 +2979,7 @@ This operation does not require authentication
 
 ```shell
 # You can also use wget
-curl -X delete http://petstore.swagger.io/v2/user/{username}
+curl -X DELETE http://petstore.swagger.io/v2/user/{username}
 
 ```
 
@@ -3090,7 +3090,7 @@ This operation does not require authentication
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-14T15:16:56Z",
+  "shipDate": "2017-08-23T16:45:47Z",
   "status": "placed",
   "complete": false
 } 
