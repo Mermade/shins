@@ -1591,7 +1591,7 @@ const inputBody = '{
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-01T09:38:55Z",
+  "shipDate": "2017-08-14T15:16:56Z",
   "status": "placed",
   "complete": false
 }';
@@ -1671,7 +1671,7 @@ System.out.println(response.toString());
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-01T09:38:55Z",
+  "shipDate": "2017-08-14T15:16:56Z",
   "status": "placed",
   "complete": false
 }
@@ -1705,7 +1705,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-08-01T09:38:55Z</shipDate>
+  <shipDate>2017-08-14T15:16:56Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1715,7 +1715,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-01T09:38:55Z",
+  "shipDate": "2017-08-14T15:16:56Z",
   "status": "placed",
   "complete": false
 }
@@ -1853,7 +1853,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-08-01T09:38:55Z</shipDate>
+  <shipDate>2017-08-14T15:16:56Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1863,7 +1863,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-01T09:38:55Z",
+  "shipDate": "2017-08-14T15:16:56Z",
   "status": "placed",
   "complete": false
 }
@@ -3090,7 +3090,7 @@ This operation does not require authentication
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-01T09:38:55Z",
+  "shipDate": "2017-08-14T15:16:56Z",
   "status": "placed",
   "complete": false
 } 
@@ -3099,7 +3099,7 @@ This operation does not require authentication
 ### Properties
 
 Name|Type|Required|Description
----|---|---|---|---|
+---|---|---|---|
 id|integer(int64)|false|No description
 petId|integer(int64)|false|No description
 quantity|integer(int32)|false|No description
@@ -3131,7 +3131,7 @@ status|delivered|
 ### Properties
 
 Name|Type|Required|Description
----|---|---|---|---|
+---|---|---|---|
 id|integer(int64)|false|No description
 name|string|false|No description
 
@@ -3157,7 +3157,7 @@ name|string|false|No description
 ### Properties
 
 Name|Type|Required|Description
----|---|---|---|---|
+---|---|---|---|
 id|integer(int64)|false|No description
 username|string|false|No description
 firstName|string|false|No description
@@ -3183,7 +3183,7 @@ userStatus|integer(int32)|false|User Status
 ### Properties
 
 Name|Type|Required|Description
----|---|---|---|---|
+---|---|---|---|
 id|integer(int64)|false|No description
 name|string|false|No description
 
@@ -3217,7 +3217,7 @@ name|string|false|No description
 ### Properties
 
 Name|Type|Required|Description
----|---|---|---|---|
+---|---|---|---|
 id|integer(int64)|false|No description
 category|[Category](#schemacategory)|false|No description
 » id|integer(int64)|false|No description
@@ -3254,7 +3254,7 @@ status|sold|
 ### Properties
 
 Name|Type|Required|Description
----|---|---|---|---|
+---|---|---|---|
 code|integer(int32)|false|No description
 type|string|false|No description
 message|string|false|No description
