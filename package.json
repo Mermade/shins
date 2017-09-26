@@ -33,7 +33,7 @@
     "cheerio": "^1.0.0-rc.2",
     "compression": "^1.6.2",
     "ejs": "^2.5.1",
-    "express": "^4.13.3",
+    "express": "^4.15.5",
     "highlightjs": "^9.10.0",
     "js-yaml": "latest",
     "markdown-it": "latest",

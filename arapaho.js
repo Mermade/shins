@@ -28,7 +28,7 @@ function check(req,res,fpath) {
 				// TODO at the moment there's no way to specify customcss etc
 				shins.render(markdown,{},function(err,html){
 					res.send(html);
-					fs.writeFile(path.join(__dirname,fpath),html,'utf8');
+					fs.writeFile(path.join(__dirname,fpath),html,'utf8',function(){});
 				});
 			}
 		});
