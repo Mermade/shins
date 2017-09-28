@@ -42,13 +42,13 @@ function javascript_include_tag(include) {
             var inc = includes[i];
             var elements = inc.split('"');
             if (elements[1]) {
-				if (elements[1] == 'text/javascript') {
-					scripts.push(path.join(__dirname, 'source/javascripts/all_nosearch.js'));
-					break;
-				}
-				else {
-                	scripts.push(path.join(__dirname, elements[1]));
-				}
+                if (elements[1] == 'text/javascript') {
+                    scripts.push(path.join(__dirname, 'source/javascripts/all_nosearch.js'));
+                    break;
+                }
+                else {
+                    scripts.push(path.join(__dirname, elements[1]));
+                }
             }
         }
         var bundle = uglify.minify(scripts);
@@ -95,7 +95,7 @@ function language_array(language_tabs) {
 }
 
 function postProcess(content) {
-	// adds id a la GitHub autolinks to automatically-generated headers
+    // adds id a la GitHub autolinks to automatically-generated headers
     content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (match, group1, group2) {
         return '<' + group1 + ' id="' + group2.toLowerCase().split(' ').join('-').split('/').join('-').split('.').join('-').split('(').join('-').split(')').join('-').split('[').join('-').split(']').join('-').split('?').join('-').split('&').join('-').split(';').join('-').split('{').join('-').split('}').join('-').split('=').join('-') + '">' + group2 + '</' + group1 + '>';
     });
@@ -128,34 +128,34 @@ function render(inputStr, options, callback) {
 
         var content = md.render(inputArr[2]);
         content = postProcess(content);
-		var $ = cheerio.load(content);
+        var $ = cheerio.load(content);
 
         var locals = {};
         locals.current_page = {};
         locals.current_page.data = header;
-		locals.page_content = content;
-		locals.toc_data = function(content) {
-			var result = [];
-			var h1;
-			$(':header').each(function(e){
-				var tag = $(this).get(0).tagName.toLowerCase();
-				var entry = {};
-				if (tag == 'h1') {
-					entry.id = $(this).attr('id');
-					entry.content = $(this).text();
-					entry.children = [];
-					h1 = entry;
-					result.push(entry);
-				}
-				if (tag == 'h2') {
-					var child = {};
-					child.id = $(this).attr('id');
-					child.content = $(this).text();
-					h1.children.push(child);
-				}
-			});
-			return result; //[{id:'test',content:'hello',children:[]}];
-		};
+        locals.page_content = content;
+        locals.toc_data = function(content) {
+            var result = [];
+            var h1;
+            $(':header').each(function(e){
+                var tag = $(this).get(0).tagName.toLowerCase();
+                var entry = {};
+                if (tag === 'h1') {
+                    entry.id = $(this).attr('id');
+                    entry.content = $(this).text();
+                    entry.children = [];
+                    h1 = entry;
+                    result.push(entry);
+                }
+                if (tag === 'h2') {
+                    var child = {};
+                    child.id = $(this).attr('id');
+                    child.content = $(this).text();
+                    h1.children.push(child);
+                }
+            });
+            return result; //[{id:'test',content:'hello',children:[]}];
+        };
         locals.partial = partial;
         locals.image_tag = function (image, altText, className) {
             return '<img src="source/images/' + image + '" class="' + className + '" alt="' + altText + '">';
