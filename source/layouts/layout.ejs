@@ -70,6 +70,15 @@ under the License.
                 <% for (var h2 of h1.children) { %>
                   <li>
                     <a href="#<%= h2.id %>" class="toc-h2 toc-link" data-title="<%= h1.content %>"><%= h2.content %></a>
+                    <% if (h2.children && (h2.children.length > 0)) { %>
+                      <ul class="toc-list-h3">
+                      <% for (var h3 of h2.children) { %>
+                      <li>
+                        <a href="#<%= h3.id %>" class="toc-h3 toc-link" data-title="<%= h2.content %>"><%= h3.content %></a>
+                      </li>
+                      <% } %>
+                    </ul>
+                    <% } %>
                   </li>
                 <% } %>
               </ul>

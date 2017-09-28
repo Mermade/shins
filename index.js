@@ -88,7 +88,7 @@ function language_array(language_tabs) {
             result.push(Object.keys(language_tabs[lang])[0]);
         }
         else {
-            result.push(language_tabs[lang])
+            result.push(language_tabs[lang]);
         }
     }
     return JSON.stringify(result).split('"').join('&quot;');
@@ -136,7 +136,8 @@ function render(inputStr, options, callback) {
         locals.page_content = content;
         locals.toc_data = function(content) {
             var result = [];
-            var h1;
+            var h1,h2,h3;
+            var headingLevel = header.headingLevel || 2;
             $(':header').each(function(e){
                 var tag = $(this).get(0).tagName.toLowerCase();
                 var entry = {};
@@ -148,10 +149,26 @@ function render(inputStr, options, callback) {
                     result.push(entry);
                 }
                 if (tag === 'h2') {
-                    var child = {};
+                    let child = {};
                     child.id = $(this).attr('id');
                     child.content = $(this).text();
+                    child.children = [];
+                    h2 = child;
                     h1.children.push(child);
+                }
+                if ((headingLevel >= 3) && (tag === 'h3')) {
+                    let child = {};
+                    child.id = $(this).attr('id');
+                    child.content = $(this).text();
+                    child.children = [];
+                    h3 = child;
+                    h2.children.push(child);
+                }
+                if ((headingLevel >= 4) && (tag === 'h4')) {
+                    let child = {};
+                    child.id = $(this).attr('id');
+                    child.content = $(this).text();
+                    h3.children.push(child);
                 }
             });
             return result; //[{id:'test',content:'hello',children:[]}];
