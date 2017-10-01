@@ -5,8 +5,8 @@ language_tabs:
   - http: HTTP
   - javascript: JavaScript
   - javascript--nodejs: Node.JS
-  - python: Python
   - ruby: Ruby
+  - python: Python
   - java: Java
 toc_footers:
   - >-
@@ -28,6 +28,7 @@ Base URLs:
 * <a href="http://petstore.swagger.io/v2">http://petstore.swagger.io/v2</a>
 
 
+
 <a href="http://swagger.io/terms/">Terms of service</a>
 Email: <a href="mailto:apiteam@swagger.io">Support</a> 
 License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
@@ -36,10 +37,13 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 
 
 
+
+
 - oAuth2 authentication. 
 
     - Flow: implicit
     - Authorization URL = [http://petstore.swagger.io/oauth/dialog](http://petstore.swagger.io/oauth/dialog)
+
 
 |Scope|Scope Description|
 |---|---|
@@ -49,8 +53,12 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 
 
 
+
+
 * API Key
     - Parameter Name: **api_key**, in: header. 
+
+
 
 
 
@@ -74,6 +82,7 @@ curl -X POST http://petstore.swagger.io/v2/pet \
 POST http://petstore.swagger.io/v2/pet HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
+
 
 ```
 
@@ -143,6 +152,7 @@ headers = {
 result = RestClient.post 'http://petstore.swagger.io/v2/pet',
   params: {
   }, headers: headers
+
 
 p JSON.parse(result)
 ```
@@ -236,6 +246,7 @@ body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store
 »» name|body|string|false|No description
 
 
+
 #### Enumerated Values
 
 |Parameter|Value|
@@ -243,6 +254,7 @@ body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store
 » status|available|
 » status|pending|
 » status|sold|
+
 
 ### Responses
 
@@ -254,6 +266,7 @@ Status|Meaning|Description|Schema
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## updatePet
 
@@ -270,6 +283,7 @@ curl -X PUT http://petstore.swagger.io/v2/pet \
 PUT http://petstore.swagger.io/v2/pet HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
+
 
 ```
 
@@ -339,6 +353,7 @@ headers = {
 result = RestClient.put 'http://petstore.swagger.io/v2/pet',
   params: {
   }, headers: headers
+
 
 p JSON.parse(result)
 ```
@@ -432,6 +447,7 @@ body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store
 »» name|body|string|false|No description
 
 
+
 #### Enumerated Values
 
 |Parameter|Value|
@@ -439,6 +455,7 @@ body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store
 » status|available|
 » status|pending|
 » status|sold|
+
 
 ### Responses
 
@@ -452,6 +469,7 @@ Status|Meaning|Description|Schema
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## findPetsByStatus
 
@@ -523,6 +541,7 @@ result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByStatus',
   'status' => 'array[string]'
 }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -570,6 +589,7 @@ Parameter|In|Type|Required|Description
 status|query|array[string]|true|Status values that need to be considered for filter
 
 
+
 #### Enumerated Values
 
 |Parameter|Value|
@@ -577,6 +597,7 @@ status|query|array[string]|true|Status values that need to be considered for fil
 status|available|
 status|pending|
 status|sold|
+
 
 > Example responses
 
@@ -644,10 +665,12 @@ anonymous|[[Pet](#schemapet)]|false|No description
 
 
 
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## findPetsByTags
 
@@ -719,6 +742,7 @@ result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByTags',
   'tags' => 'array[string]'
 }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -764,6 +788,7 @@ Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 tags|query|array[string]|true|Tags to filter by
+
 
 
 > Example responses
@@ -832,10 +857,12 @@ anonymous|[[Pet](#schemapet)]|false|No description
 
 
 
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## getPetById
 
@@ -906,6 +933,7 @@ result = RestClient.get 'http://petstore.swagger.io/v2/pet/{petId}',
   params: {
   }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -949,6 +977,7 @@ Returns a single pet
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 petId|path|integer(int64)|true|ID of pet to return
+
 
 
 > Example responses
@@ -1003,6 +1032,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 apiKey
 </aside>
 
+
 ## updatePetWithForm
 
 > Code samples
@@ -1018,6 +1048,7 @@ curl -X POST http://petstore.swagger.io/v2/pet/{petId} \
 POST http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/x-www-form-urlencoded
+
 
 ```
 
@@ -1074,6 +1105,7 @@ result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}',
   params: {
   }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -1127,6 +1159,7 @@ body|body|object|false|No description
 » status|body|string|false|Updated status of the pet
 
 
+
 ### Responses
 
 Status|Meaning|Description|Schema
@@ -1137,6 +1170,7 @@ Status|Meaning|Description|Schema
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## deletePet
 
@@ -1153,7 +1187,9 @@ curl -X DELETE http://petstore.swagger.io/v2/pet/{petId} \
 DELETE http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
 Host: petstore.swagger.io
 
+
 api_key: string
+
 
 ```
 
@@ -1207,6 +1243,7 @@ result = RestClient.delete 'http://petstore.swagger.io/v2/pet/{petId}',
   params: {
   }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -1251,6 +1288,7 @@ api_key|header|string|false|No description
 petId|path|integer(int64)|true|Pet id to delete
 
 
+
 ### Responses
 
 Status|Meaning|Description|Schema
@@ -1262,6 +1300,7 @@ Status|Meaning|Description|Schema
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 ## uploadFile
 
@@ -1336,6 +1375,7 @@ result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'
   params: {
   }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -1387,6 +1427,7 @@ petId|path|integer(int64)|true|ID of pet to update
 body|body|string(binary)|false|No description
 
 
+
 > Example responses
 
 ```json
@@ -1406,6 +1447,7 @@ Status|Meaning|Description|Schema
 To perform this operation, you must be authenticated by means of one of the following methods:
 oauth2 ( Scopes: write:pets read:pets )
 </aside>
+
 
 # store
 
@@ -1480,6 +1522,7 @@ result = RestClient.get 'http://petstore.swagger.io/v2/store/inventory',
   params: {
   }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -1542,10 +1585,12 @@ additionalProperties|object|false|No description
 
 
 
+
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 apiKey
 </aside>
+
 
 ## placeOrder
 
@@ -1591,7 +1636,7 @@ const inputBody = '{
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-23T16:45:47Z",
+  "shipDate": "2017-10-01T05:36:35Z",
   "status": "placed",
   "complete": false
 }';
@@ -1626,6 +1671,7 @@ headers = {
 result = RestClient.post 'http://petstore.swagger.io/v2/store/order',
   params: {
   }, headers: headers
+
 
 p JSON.parse(result)
 ```
@@ -1671,7 +1717,7 @@ System.out.println(response.toString());
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-23T16:45:47Z",
+  "shipDate": "2017-10-01T05:36:35Z",
   "status": "placed",
   "complete": false
 }
@@ -1689,6 +1735,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
 » complete|body|boolean|false|No description
 
 
+
 #### Enumerated Values
 
 |Parameter|Value|
@@ -1696,6 +1743,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
 » status|placed|
 » status|approved|
 » status|delivered|
+
 
 > Example responses
 
@@ -1705,7 +1753,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-08-23T16:45:47Z</shipDate>
+  <shipDate>2017-10-01T05:36:35Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1715,7 +1763,7 @@ body|body|[Order](#schemaorder)|true|order placed for purchasing the pet
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-23T16:45:47Z",
+  "shipDate": "2017-10-01T05:36:35Z",
   "status": "placed",
   "complete": false
 }
@@ -1800,6 +1848,7 @@ result = RestClient.get 'http://petstore.swagger.io/v2/store/order/{orderId}',
   params: {
   }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -1845,6 +1894,7 @@ Parameter|In|Type|Required|Description
 orderId|path|integer(int64)|true|ID of pet that needs to be fetched
 
 
+
 > Example responses
 
 ```xml
@@ -1853,7 +1903,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2017-08-23T16:45:47Z</shipDate>
+  <shipDate>2017-10-01T05:36:35Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -1863,7 +1913,7 @@ orderId|path|integer(int64)|true|ID of pet that needs to be fetched
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-23T16:45:47Z",
+  "shipDate": "2017-10-01T05:36:35Z",
   "status": "placed",
   "complete": false
 }
@@ -1895,6 +1945,7 @@ DELETE http://petstore.swagger.io/v2/store/order/{orderId} HTTP/1.1
 Host: petstore.swagger.io
 
 
+
 ```
 
 ```javascript
@@ -1902,6 +1953,7 @@ Host: petstore.swagger.io
 $.ajax({
   url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
   method: 'delete',
+
 
   success: function(data) {
     console.log(JSON.stringify(data));
@@ -1912,9 +1964,11 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
+
 fetch('http://petstore.swagger.io/v2/store/order/{orderId}',
 {
   method: 'DELETE'
+
 
 })
 .then(function(res) {
@@ -1927,6 +1981,7 @@ fetch('http://petstore.swagger.io/v2/store/order/{orderId}',
 ```ruby
 require 'rest-client'
 require 'json'
+
 
 
 result = RestClient.delete 'http://petstore.swagger.io/v2/store/order/{orderId}',
@@ -1975,6 +2030,7 @@ Parameter|In|Type|Required|Description
 orderId|path|integer(int64)|true|ID of the order that needs to be deleted
 
 
+
 ### Responses
 
 Status|Meaning|Description|Schema
@@ -2006,6 +2062,7 @@ curl -X POST http://petstore.swagger.io/v2/user \
 POST http://petstore.swagger.io/v2/user HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
+
 
 ```
 
@@ -2067,6 +2124,7 @@ headers = {
 result = RestClient.post 'http://petstore.swagger.io/v2/user',
   params: {
   }, headers: headers
+
 
 p JSON.parse(result)
 ```
@@ -2135,6 +2193,7 @@ body|body|[User](#schemauser)|true|Created user object
 » userStatus|body|integer(int32)|false|User Status
 
 
+
 ### Responses
 
 Status|Meaning|Description|Schema
@@ -2160,6 +2219,7 @@ curl -X POST http://petstore.swagger.io/v2/user/createWithArray \
 POST http://petstore.swagger.io/v2/user/createWithArray HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
+
 
 ```
 
@@ -2214,6 +2274,7 @@ headers = {
 result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithArray',
   params: {
   }, headers: headers
+
 
 p JSON.parse(result)
 ```
@@ -2274,6 +2335,7 @@ Parameter|In|Type|Required|Description
 body|body|[UserArray](#schema+userarray)|true|List of user object
 
 
+
 ### Responses
 
 Status|Meaning|Description|Schema
@@ -2299,6 +2361,7 @@ curl -X POST http://petstore.swagger.io/v2/user/createWithList \
 POST http://petstore.swagger.io/v2/user/createWithList HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
+
 
 ```
 
@@ -2363,6 +2426,7 @@ result = RestClient.post 'http://petstore.swagger.io/v2/user/createWithList',
   params: {
   }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -2420,6 +2484,7 @@ System.out.println(response.toString());
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 body|body|[UserArray](#schema+userarray)|true|List of user object
+
 
 
 ### Responses
@@ -2503,6 +2568,7 @@ result = RestClient.get 'http://petstore.swagger.io/v2/user/login',
 'password' => 'string(password)'
 }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -2547,6 +2613,7 @@ username|query|string|true|The user name for login
 password|query|string(password)|true|The password for login in clear text
 
 
+
 > Example responses
 
 ```json
@@ -2585,6 +2652,7 @@ GET http://petstore.swagger.io/v2/user/logout HTTP/1.1
 Host: petstore.swagger.io
 
 
+
 ```
 
 ```javascript
@@ -2592,6 +2660,7 @@ Host: petstore.swagger.io
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user/logout',
   method: 'get',
+
 
   success: function(data) {
     console.log(JSON.stringify(data));
@@ -2602,9 +2671,11 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
+
 fetch('http://petstore.swagger.io/v2/user/logout',
 {
   method: 'GET'
+
 
 })
 .then(function(res) {
@@ -2617,6 +2688,7 @@ fetch('http://petstore.swagger.io/v2/user/logout',
 ```ruby
 require 'rest-client'
 require 'json'
+
 
 
 result = RestClient.get 'http://petstore.swagger.io/v2/user/logout',
@@ -2735,6 +2807,7 @@ result = RestClient.get 'http://petstore.swagger.io/v2/user/{username}',
   params: {
   }, headers: headers
 
+
 p JSON.parse(result)
 ```
 
@@ -2776,6 +2849,7 @@ System.out.println(response.toString());
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 username|path|string|true|The name that needs to be fetched. Use user1 for testing. 
+
 
 
 > Example responses
@@ -2832,6 +2906,7 @@ curl -X PUT http://petstore.swagger.io/v2/user/{username} \
 PUT http://petstore.swagger.io/v2/user/{username} HTTP/1.1
 Host: petstore.swagger.io
 Content-Type: application/json
+
 
 ```
 
@@ -2893,6 +2968,7 @@ headers = {
 result = RestClient.put 'http://petstore.swagger.io/v2/user/{username}',
   params: {
   }, headers: headers
+
 
 p JSON.parse(result)
 ```
@@ -2962,6 +3038,7 @@ body|body|[User](#schemauser)|true|Updated user object
 » userStatus|body|integer(int32)|false|User Status
 
 
+
 ### Responses
 
 Status|Meaning|Description|Schema
@@ -2988,6 +3065,7 @@ DELETE http://petstore.swagger.io/v2/user/{username} HTTP/1.1
 Host: petstore.swagger.io
 
 
+
 ```
 
 ```javascript
@@ -2995,6 +3073,7 @@ Host: petstore.swagger.io
 $.ajax({
   url: 'http://petstore.swagger.io/v2/user/{username}',
   method: 'delete',
+
 
   success: function(data) {
     console.log(JSON.stringify(data));
@@ -3005,9 +3084,11 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
+
 fetch('http://petstore.swagger.io/v2/user/{username}',
 {
   method: 'DELETE'
+
 
 })
 .then(function(res) {
@@ -3020,6 +3101,7 @@ fetch('http://petstore.swagger.io/v2/user/{username}',
 ```ruby
 require 'rest-client'
 require 'json'
+
 
 
 result = RestClient.delete 'http://petstore.swagger.io/v2/user/{username}',
@@ -3068,6 +3150,7 @@ Parameter|In|Type|Required|Description
 username|path|string|true|The name that needs to be deleted
 
 
+
 ### Responses
 
 Status|Meaning|Description|Schema
@@ -3081,6 +3164,7 @@ This operation does not require authentication
 
 # Schemas
 
+
 ## Order
 
 <a name="schemaorder"></a>
@@ -3090,11 +3174,12 @@ This operation does not require authentication
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2017-08-23T16:45:47Z",
+  "shipDate": "2017-10-01T05:36:35Z",
   "status": "placed",
   "complete": false
 } 
 ```
+
 
 ### Properties
 
@@ -3108,6 +3193,7 @@ status|string|false|Order Status
 complete|boolean|false|No description
 
 
+
 #### Enumerated Values
 
 |Property|Value|
@@ -3115,6 +3201,7 @@ complete|boolean|false|No description
 status|placed|
 status|approved|
 status|delivered|
+
 
 
 ## Category
@@ -3128,12 +3215,14 @@ status|delivered|
 } 
 ```
 
+
 ### Properties
 
 Name|Type|Required|Description
 ---|---|---|---|
 id|integer(int64)|false|No description
 name|string|false|No description
+
 
 
 
@@ -3154,6 +3243,7 @@ name|string|false|No description
 } 
 ```
 
+
 ### Properties
 
 Name|Type|Required|Description
@@ -3169,6 +3259,7 @@ userStatus|integer(int32)|false|User Status
 
 
 
+
 ## Tag
 
 <a name="schematag"></a>
@@ -3180,12 +3271,14 @@ userStatus|integer(int32)|false|User Status
 } 
 ```
 
+
 ### Properties
 
 Name|Type|Required|Description
 ---|---|---|---|
 id|integer(int64)|false|No description
 name|string|false|No description
+
 
 
 
@@ -3214,6 +3307,7 @@ name|string|false|No description
 } 
 ```
 
+
 ### Properties
 
 Name|Type|Required|Description
@@ -3230,6 +3324,7 @@ tags|[[Tag](#schematag)]|false|No description
 » name|string|false|No description
 
 
+
 #### Enumerated Values
 
 |Property|Value|
@@ -3237,6 +3332,7 @@ tags|[[Tag](#schematag)]|false|No description
 status|available|
 status|pending|
 status|sold|
+
 
 
 ## ApiResponse
@@ -3251,6 +3347,7 @@ status|sold|
 } 
 ```
 
+
 ### Properties
 
 Name|Type|Required|Description
@@ -3258,6 +3355,8 @@ Name|Type|Required|Description
 code|integer(int32)|false|No description
 type|string|false|No description
 message|string|false|No description
+
+
 
 
 
