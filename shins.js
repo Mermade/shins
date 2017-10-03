@@ -14,6 +14,10 @@ if (process.argv.length > 2) {
         if (opt.startsWith('--')) {
             if (opt == '--minify') options.minify = true;
             if (opt == '--customcss') options.customCss = true;
+            if (opt == '--inline') {
+                options.minify = true;
+                options.inline = true;
+            }
         }
         else {
             inputName = opt;

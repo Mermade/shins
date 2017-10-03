@@ -52,8 +52,12 @@ function javascript_include_tag(include) {
             }
         }
         var bundle = uglify.minify(scripts);
-        fs.writeFileSync(path.join(__dirname, '/pub/js/shins.js'), bundle.code, 'utf8');
-        includeStr = fs.readFileSync(path.join(__dirname, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
+        if (globalOptions.inline) {
+            includeStr = '<script>'+bundle.code+'</script>';
+        } else {
+            fs.writeFileSync(path.join(__dirname, '/pub/js/shins.js'), bundle.code, 'utf8');
+            includeStr = fs.readFileSync(path.join(__dirname, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
+        }
     }
     return includeStr;
 }
@@ -63,23 +67,37 @@ function partial(include) {
     return md.render(includeStr);
 }
 
+function replaceAll(target, find, replace) {
+    return target.replace(new RegExp(find.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'), replace);
+}
+
 function stylesheet_link_tag(stylesheet, media) {
-    if (media == 'screen') {
-        var target = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
-        if (!fs.existsSync(target)) {
-            var source = path.join(hlpath, '/styles/' + stylesheet + '.css');
-            fs.writeFileSync(target, fs.readFileSync(source));
+    if (globalOptions.inline) {
+        var stylePath = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
+        if (!fs.existsSync(stylePath)) {
+            stylePath = path.join(hlpath, '/styles/' + stylesheet + '.css');
         }
-    }
-    var include = '<link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '.css">';
-    if (globalOptions.customCss) {
-        if ((stylesheet != 'print') && (stylesheet != 'screen')) {
-            stylesheet = 'theme';
+        var styleContent = fs.readFileSync(stylePath, "utf8");
+        styleContent = replaceAll(styleContent, "../../source", "source"); //fix font paths
+        return '<style media="'+media+'">'+styleContent+'</style>';
+    } else {
+        if (media == 'screen') {
+            var target = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
+            if (!fs.existsSync(target)) {
+                var source = path.join(hlpath, '/styles/' + stylesheet + '.css');
+                fs.writeFileSync(target, fs.readFileSync(source));
+            }
         }
-        include += '\n    <link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '_overrides.css">';
+        var include = '<link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '.css">';
+        if (globalOptions.customCss) {
+            if ((stylesheet != 'print') && (stylesheet != 'screen')) {
+                stylesheet = 'theme';
+            }
+            include += '\n    <link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '_overrides.css">';
+        }
+        return include;
     }
-    return include;
-};
+}
 
 function language_array(language_tabs) {
     var result = [];
@@ -175,7 +193,12 @@ function render(inputStr, options, callback) {
         };
         locals.partial = partial;
         locals.image_tag = function (image, altText, className) {
-            return '<img src="source/images/' + image + '" class="' + className + '" alt="' + altText + '">';
+            var imageSource = "source/images/" + image;
+            if(globalOptions.inline) {
+                var imgContent = fs.readFileSync(path.join(__dirname, imageSource));
+                imageSource = "data:image/png;base64,"+new Buffer(imgContent).toString('base64');
+            }
+            return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
         };
         locals.stylesheet_link_tag = stylesheet_link_tag;
         locals.javascript_include_tag = javascript_include_tag;
