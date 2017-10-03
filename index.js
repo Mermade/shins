@@ -126,6 +126,9 @@ function render(inputStr, options, callback) {
         callback = options;
         options = {};
     }
+    if(options.inline == true) {
+        options.minify = true;
+    }
     return maybe(callback, new Promise(function (resolve, reject) {
         globalOptions = options;
 
