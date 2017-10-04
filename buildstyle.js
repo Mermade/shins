@@ -13,7 +13,7 @@ function sassRender(infile,outfile) {
 		functions: assetFunctions({
 			http_fonts_path: '../../source/fonts'
 		})
-	}, function(err, result) { 
+	}, function(err, result) {
 		if (err) console.error(err)
 		else {
 			fs.writeFile(outfile,result.css.toString(),'utf8');
