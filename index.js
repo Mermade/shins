@@ -54,7 +54,8 @@ function javascript_include_tag(include) {
         var bundle = uglify.minify(scripts);
         if (globalOptions.inline) {
             includeStr = '<script>'+bundle.code+'</script>';
-        } else {
+        }
+        else {
             fs.writeFileSync(path.join(__dirname, '/pub/js/shins.js'), bundle.code, 'utf8');
             includeStr = fs.readFileSync(path.join(__dirname, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
         }
@@ -80,7 +81,8 @@ function stylesheet_link_tag(stylesheet, media) {
         var styleContent = fs.readFileSync(stylePath, "utf8");
         styleContent = replaceAll(styleContent, "../../source", "source"); //fix font paths
         return '<style media="'+media+'">'+styleContent+'</style>';
-    } else {
+    }
+    else {
         if (media == 'screen') {
             var target = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
             if (!fs.existsSync(target)) {
