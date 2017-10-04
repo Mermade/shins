@@ -21,7 +21,8 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 * `npm install`
 * `node shins.js` or 
     * `node shins.js --minify` or
-	* `node shins.js --customcss`
+	* `node shins.js --customcss` or
+	* `node shins.js --inline`
 * To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files will automatically be picked up and re-rendered
 * Add, commit and push
 * Then (in your fork) press this button
@@ -40,6 +41,7 @@ var shins = require('shins');
 var options = {};
 options.minify = false;
 options.customCss = false;
+options.inline = false;
 shins.render(markdownString, options, function(err, html) {
   // ...
 });
@@ -52,6 +54,7 @@ var shins = require('shins');
 var options = {};
 options.minify = false;
 options.customCss = false;
+options.inline = false;
 shins.render(markdownString, options)
 .then(html => {
   // ...
@@ -61,6 +64,8 @@ shins.render(markdownString, options)
 The `err` parameter is the result of the `ejs` rendering step.
 
 Setting `customCss` to `true` will include the `pub/css/screen_overrides.css`,`pub/css/print_overrides.css` and `pub/css/theme_override.css` files, in which you can override any of the default Slate theme, to save you from having to alter the main css files directly. This should make syncing up with future Shins / Slate releases easier.
+
+Setting `inline` to `true` will inline all page resources (except resources referenced via CSS, such as fonts) to output html. This way HTML can be used stand-alone, without needing any other resources. It will also set `minify` to `true`.
 
 ### Updating from Slate
 
