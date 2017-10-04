@@ -73,6 +73,10 @@ function replaceAll(target, find, replace) {
 }
 
 function stylesheet_link_tag(stylesheet, media) {
+    var override = stylesheet;
+    if ((stylesheet != 'print') && (stylesheet != 'screen')) {
+        override = 'theme';
+    }
     if (globalOptions.inline) {
         var stylePath = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
         if (!fs.existsSync(stylePath)) {
@@ -80,6 +84,12 @@ function stylesheet_link_tag(stylesheet, media) {
         }
         var styleContent = fs.readFileSync(stylePath, "utf8");
         styleContent = replaceAll(styleContent, "../../source", "source"); //fix font paths
+        if (globalOptions.customCss) {
+            var overrideFilename = path.join(__dirname, '/pub/css/' + override + '_overrides.css');
+            if (fs.existsSync(overrideFilename)) {
+                styleContent += '\n' + fs.readFileSync(overrideFilename, 'utf8');
+            }
+        }
         return '<style media="'+media+'">'+styleContent+'</style>';
     }
     else {
@@ -92,10 +102,7 @@ function stylesheet_link_tag(stylesheet, media) {
         }
         var include = '<link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '.css">';
         if (globalOptions.customCss) {
-            if ((stylesheet != 'print') && (stylesheet != 'screen')) {
-                stylesheet = 'theme';
-            }
-            include += '\n    <link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '_overrides.css">';
+            include += '\n    <link rel="stylesheet" media="' + media + '" href="pub/css/' + override + '_overrides.css">';
         }
         return include;
     }
