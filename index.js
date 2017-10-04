@@ -126,7 +126,7 @@ function render(inputStr, options, callback) {
         callback = options;
         options = {};
     }
-    if(options.inline == true) {
+    if (options.inline == true) {
         options.minify = true;
     }
     return maybe(callback, new Promise(function (resolve, reject) {
@@ -197,7 +197,7 @@ function render(inputStr, options, callback) {
         locals.partial = partial;
         locals.image_tag = function (image, altText, className) {
             var imageSource = "source/images/" + image;
-            if(globalOptions.inline) {
+            if (globalOptions.inline) {
                 var imgContent = fs.readFileSync(path.join(__dirname, imageSource));
                 imageSource = "data:image/png;base64,"+new Buffer(imgContent).toString('base64');
             }
