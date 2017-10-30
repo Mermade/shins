@@ -16,7 +16,9 @@ function sassRender(infile,outfile) {
 	}, function(err, result) {
 		if (err) console.error(err)
 		else {
-			fs.writeFile(outfile,result.css.toString(),'utf8');
+			fs.writeFile(outfile,result.css.toString(),'utf8',function(err){
+                if (err) console.warn(err.message);
+            });
    		}
 	});
 }
