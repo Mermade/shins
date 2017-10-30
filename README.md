@@ -19,7 +19,7 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 * Clone the fork
 * Edit source/index.html.md
 * `npm install`
-* `node shins.js` or 
+* `node shins.js` or
     * `node shins.js --minify` or
 	* `node shins.js --customcss` or
 	* `node shins.js --inline`
@@ -81,6 +81,7 @@ Setting `inline` to `true` will inline all page resources (except resources refe
 * Static TOC as per Slate v2.0
 * [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
 * For converting [OpenApi / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
+* If you need a CLI with more control over the options, why not try [make-shins](https://github.com/cazzer/make-shins)
 
 ### Shins in the wild
 
