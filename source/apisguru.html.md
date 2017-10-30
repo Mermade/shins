@@ -1,5 +1,5 @@
 ---
-title: SEMOASA documentation
+title: Semoasa documentation
 language_tabs:
   - json
   - yaml
@@ -14,13 +14,13 @@ highlight_theme: darkula
 
 > Scroll down for schema examples. Select a format for examples from the tabs above or the mobile navigation menu.
 
-This documentation was automatically generated from a v0.1.0 [SEMOASA](https://github.com/RepreZen/SEMOASA) file.
+This documentation was automatically generated from a v0.1.0 [Semoasa](https://github.com/RepreZen/SEMOASA) document.
+
+<abbr title="Specification Extension Metadata for OAS Annotations">Semoasa</abbr> is a machine-readable format for extensions to Swagger/OpenAPI 2.0 and 3.0 specifications.
 
 
-  
 
-  
-  
+
 # guru.apis
 
 
@@ -88,7 +88,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -100,7 +99,6 @@ The extension may only be used in the following objects:
 |Object|Description|
 |---|---|
 |<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#infoObject">InfoObject</a>|The object provides metadata about the API. The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.|
-
 
 
 
@@ -169,7 +167,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -181,7 +178,6 @@ The extension may only be used in the following objects:
 |Object|Description|
 |---|---|
 |<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#infoObject">InfoObject</a>|The object provides metadata about the API. The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.|
-
 
 
 
@@ -246,7 +242,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -258,7 +253,6 @@ The extension may only be used in the following objects:
 |Object|Description|
 |---|---|
 |<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#infoObject">InfoObject</a>|The object provides metadata about the API. The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.|
-
 
 
 
@@ -311,8 +305,7 @@ The extension may only be used in the following objects:
 
 |Object|Description|
 |---|---|
-|<a href="https://github.com/OAI/openapi-specification/tree/master/versions/2.0.md#swaggerObject">SwaggerObject</a>|undefined|
-
+|<a href="https://github.com/OAI/openapi-specification/tree/master/versions/2.0.md#swaggerObject">SwaggerObject</a>|Description not found|
 
 
 
@@ -334,8 +327,7 @@ The extension may only be used in the following objects:
 
 |Object|Description|
 |---|---|
-|<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#openAPIObject">OpenAPIObject</a>|undefined|
-
+|<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#openAPIObject">OpenAPIObject</a>|Description not found|
 
 
 
@@ -408,7 +400,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -420,7 +411,6 @@ The extension may only be used in the following objects:
 |Object|Description|
 |---|---|
 |<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#infoObject">InfoObject</a>|The object provides metadata about the API. The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.|
-
 
 
 
@@ -527,7 +517,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -539,7 +528,6 @@ The extension may only be used in the following objects:
 |Object|Description|
 |---|---|
 |<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#infoObject">InfoObject</a>|The object provides metadata about the API. The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.|
-
 
 
 
@@ -604,7 +592,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -616,7 +603,6 @@ The extension may only be used in the following objects:
 |Object|Description|
 |---|---|
 |<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#infoObject">InfoObject</a>|The object provides metadata about the API. The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.|
-
 
 
 
@@ -681,7 +667,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -693,7 +678,6 @@ The extension may only be used in the following objects:
 |Object|Description|
 |---|---|
 |<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#infoObject">InfoObject</a>|The object provides metadata about the API. The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.|
-
 
 
 
@@ -758,7 +742,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -770,7 +753,6 @@ The extension may only be used in the following objects:
 |Object|Description|
 |---|---|
 |<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#infoObject">InfoObject</a>|The object provides metadata about the API. The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.|
-
 
 
 
@@ -837,7 +819,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -849,7 +830,6 @@ The extension may only be used in the following objects:
 |Object|Description|
 |---|---|
 |<a href="https://github.com/OAI/openapi-specification/tree/master/versions/3.0.0.md#infoObject">InfoObject</a>|The object provides metadata about the API. The metadata can be used by the clients if needed, and can be presented in editing or documentation generation tools for convenience.|
-
 
 
 
@@ -914,7 +894,6 @@ The extension may only be used in the following objects:
 
 
 
-
 **In the OpenAPI specification v3.x, this extension can be used as follows:**
 
 
@@ -939,7 +918,6 @@ The extension may only be used in the following objects:
 
 
 
-  
 
-  
+
 

@@ -55,6 +55,8 @@ httpMethod: string
 
 
 
+
+
 *Specifies the integration of the method with the backend.*
 
 Specifies details of the backend integration used for this method.
