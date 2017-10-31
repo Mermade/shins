@@ -166,7 +166,7 @@ function render(inputStr, options, callback) {
         locals.page_content = content;
         locals.toc_data = function(content) {
             var result = [];
-            var h1,h2,h3;
+            var h1,h2,h3,h4,h5;
             var headingLevel = header.headingLevel || 2;
             $(':header').each(function(e){
                 var tag = $(this).get(0).tagName.toLowerCase();
@@ -198,7 +198,23 @@ function render(inputStr, options, callback) {
                     let child = {};
                     child.id = $(this).attr('id');
                     child.content = $(this).text();
+                    child.children = [];
+                    h4 = child;
                     h3.children.push(child);
+                }
+                if ((headingLevel >= 5) && (tag === 'h5')) {
+                    let child = {};
+                    child.id = $(this).attr('id');
+                    child.content = $(this).text();
+                    child.children = [];
+                    h5 = child;
+                    h4.children.push(child);
+                }
+                if ((headingLevel >= 6) && (tag === 'h6')) {
+                    let child = {};
+                    child.id = $(this).attr('id');
+                    child.content = $(this).text();
+                    h5.children.push(child);
                 }
             });
             return result; //[{id:'test',content:'hello',children:[]}];
