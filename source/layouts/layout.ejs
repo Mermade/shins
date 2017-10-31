@@ -32,6 +32,7 @@ under the License.
     <% } else { %>
       <%- javascript_include_tag("all_nosearch") %>
     <% } %>
+    <%- partial('head') %>
   </head>
 
   <body <% if (current_page.page_classes) {%>class="<%= current_page.page_classes %>" <% } %>data-languages="<%- language_array(current_page.data.language_tabs) %>">
