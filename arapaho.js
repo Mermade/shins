@@ -25,8 +25,17 @@ function check(req,res,fpath) {
 		console.log('Rebuilding '+fpath);
 		fs.readFile(path.join(__dirname,'source',fpath+'.md'),'utf8',function(err,markdown){
 			if (markdown) {
-				// TODO at the moment there's no way to specify customcss etc
-				shins.render(markdown,{},function(err,html){
+                let options = {};
+                if (req.query["customcss"]) {
+                    options.customCss = true;
+                }
+                if (req.query["inline"]) {
+                    options.inline = true;
+                }
+                if (req.query["minify"]) {
+                    options.minify = true;
+                }
+				shins.render(markdown,options,function(err,html){
 					res.send(html);
 					fs.writeFile(path.join(__dirname,fpath),html,'utf8',function(){});
 				});

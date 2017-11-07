@@ -38,3 +38,6 @@ div .highlight {
     padding-left: 65px;
     font-size: 8px;
 }
+.well {
+    background: rgba(0, 0, 0, 0.01);
+}
