@@ -14,17 +14,17 @@ app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
 function check(req,res,fpath) {
-	fpath = fpath.split('/').join('');
-	var srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
-	var dstStat = {mtime:0};
-	try {
-		dstStat = fs.statSync(path.join(__dirname,fpath));
-	}
-	catch (ex) { }
-	if (srcStat.mtime>dstStat.mtime) {
-		console.log('Rebuilding '+fpath);
-		fs.readFile(path.join(__dirname,'source',fpath+'.md'),'utf8',function(err,markdown){
-			if (markdown) {
+    fpath = fpath.split('/').join('');
+    var srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
+    var dstStat = {mtime:0};
+    try {
+        dstStat = fs.statSync(path.join(__dirname,fpath));
+    }
+    catch (ex) { }
+    if (srcStat.mtime>dstStat.mtime) {
+        console.log('Rebuilding '+fpath);
+        fs.readFile(path.join(__dirname,'source',fpath+'.md'),'utf8',function(err,markdown){
+            if (markdown) {
                 let options = {};
                 if (req.query["customcss"]) {
                     options.customCss = true;
@@ -35,23 +35,29 @@ function check(req,res,fpath) {
                 if (req.query["minify"]) {
                     options.minify = true;
                 }
-				shins.render(markdown,options,function(err,html){
-					res.send(html);
-					fs.writeFile(path.join(__dirname,fpath),html,'utf8',function(){});
-				});
-			}
-		});
-	}
-	else {
-		res.render(path.join(__dirname,fpath));
-	}
+                shins.render(markdown,options,function(err,html){
+                    if (err) {
+                        console.warn(err);
+                        res.send(err);
+                    }
+                    else {
+                        res.send(html);
+                        fs.writeFile(path.join(__dirname,fpath),html,'utf8',function(){});
+                    }
+                });
+            }
+        });
+    }
+    else {
+        res.render(path.join(__dirname,fpath));
+    }
 }
 
 app.get('/', function(req,res) {
-	check(req,res,'index.html');
+    check(req,res,'index.html');
 });
 app.get('*.html', function(req,res) {
-	check(req,res,req.path);
+    check(req,res,req.path);
 });
 app.use("/",  express.static(__dirname));
 

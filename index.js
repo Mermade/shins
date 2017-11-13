@@ -30,6 +30,7 @@ var yaml = require('js-yaml');
 var ejs = require('ejs');
 var uglify = require('uglify-js');
 var cheerio = require('cheerio');
+var sanitizeHtml = require('sanitize-html');
 
 var globalOptions = {};
 
@@ -129,6 +130,22 @@ function postProcess(content) {
     return content;
 }
 
+function clean(s) {
+    if (!s) return '';
+    let options = { allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'h1', 'h2', 'img' ]) };
+    s = s.split('\n>').join('\n$$');
+    let a = s.split('```');
+    for (let i=0;i<a.length;i++) {
+        if (!a[i].startsWith('xml')) {
+            a[i] = sanitizeHtml(a[i],options);
+        }
+    }
+    s = a.join('```');
+    s = s.split('&quot;').join('"');
+    s = s.split('\n$$').join('\n>');
+    return s;
+}
+
 function render(inputStr, options, callback) {
 
     if (typeof callback === 'undefined') { // for pre-v1.4.0 compatibility
@@ -156,7 +173,7 @@ function render(inputStr, options, callback) {
         hljs.registerLanguage('shell', function (hljs) { return sh; });
         hljs.registerLanguage('sh', function (hljs) { return sh; });
 
-        var content = md.render(inputArr[2]);
+        var content = md.render(clean(inputArr[2]));
         content = postProcess(content);
         var $ = cheerio.load(content);
 
@@ -184,7 +201,7 @@ function render(inputStr, options, callback) {
                     child.content = $(this).text();
                     child.children = [];
                     h2 = child;
-                    h1.children.push(child);
+                    if (h1) h1.children.push(child);
                 }
                 if ((headingLevel >= 3) && (tag === 'h3')) {
                     let child = {};
@@ -192,7 +209,7 @@ function render(inputStr, options, callback) {
                     child.content = $(this).text();
                     child.children = [];
                     h3 = child;
-                    h2.children.push(child);
+                    if (h2) h2.children.push(child);
                 }
                 if ((headingLevel >= 4) && (tag === 'h4')) {
                     let child = {};
@@ -200,7 +217,7 @@ function render(inputStr, options, callback) {
                     child.content = $(this).text();
                     child.children = [];
                     h4 = child;
-                    h3.children.push(child);
+                    if (h3) h3.children.push(child);
                 }
                 if ((headingLevel >= 5) && (tag === 'h5')) {
                     let child = {};
@@ -208,13 +225,13 @@ function render(inputStr, options, callback) {
                     child.content = $(this).text();
                     child.children = [];
                     h5 = child;
-                    h4.children.push(child);
+                    if (h4) h4.children.push(child);
                 }
                 if ((headingLevel >= 6) && (tag === 'h6')) {
                     let child = {};
                     child.id = $(this).attr('id');
                     child.content = $(this).text();
-                    h5.children.push(child);
+                    if (h5) h5.children.push(child);
                 }
             });
             return result; //[{id:'test',content:'hello',children:[]}];
