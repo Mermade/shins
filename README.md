@@ -22,7 +22,8 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 * `node shins.js` or
     * `node shins.js --minify` or
 	* `node shins.js --customcss` or
-	* `node shins.js --inline`
+	* `node shins.js --inline` or
+    * `node shins.js --unsafe`
 * To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files will automatically be picked up and re-rendered
 * Add, commit and push
 * Then (in your fork) press this button
@@ -42,6 +43,7 @@ var options = {};
 options.minify = false;
 options.customCss = false;
 options.inline = false;
+options.unsafe = false; // setting to true turns off markdown sanitisation
 shins.render(markdownString, options, function(err, html) {
   // ...
 });
@@ -55,6 +57,7 @@ var options = {};
 options.minify = false;
 options.customCss = false;
 options.inline = false;
+options.unsafe = false; // setting to true turns off markdown sanitisation
 shins.render(markdownString, options)
 .then(html => {
   // ...

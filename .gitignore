@@ -2,6 +2,7 @@
 compare.js
 doit.sh
 source/layouts/layout*.erb
+spectacle
 
 # Logs
 logs

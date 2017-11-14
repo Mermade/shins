@@ -15,6 +15,7 @@ if (process.argv.length > 2) {
             if (opt == '--minify') options.minify = true;
             if (opt == '--customcss') options.customCss = true;
             if (opt == '--inline') options.inline = true;
+            if (opt == '--unsafe') options.unsafe = true;
         }
         else {
             inputName = opt;

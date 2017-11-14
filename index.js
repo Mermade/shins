@@ -66,7 +66,7 @@ function javascript_include_tag(include) {
 
 function partial(include) {
     var includeStr = fs.readFileSync(path.join(__dirname, '/source/includes/_' + include + '.md'), 'utf8');
-    return postProcess(md.render(includeStr));
+    return postProcess(md.render(clean(includeStr)));
 }
 
 function replaceAll(target, find, replace) {
@@ -132,11 +132,13 @@ function postProcess(content) {
 
 function clean(s) {
     if (!s) return '';
-    let options = {
+    if (globalOptions.unsafe) return s;
+    let sanitizeOptions = {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'h1', 'h2', 'img', 'aside', 'article', 'details',
-            'summary', 'abbr', ]),
+            'summary', 'abbr', 'meta', 'link' ]),
         allowedAttributes: { a: [ 'href', 'name', 'target', 'class' ], img: [ 'src', 'alt', 'class' ] , aside: [ 'class' ],
-            abbr: [ 'title', 'class' ], details: [ 'open', 'class' ] }
+            abbr: [ 'title', 'class' ], details: [ 'open', 'class' ], div: [ 'class' ], meta: [ 'name', 'content' ],
+            link: [ 'rel', 'href', 'type', 'sizes' ] }
     };
     // replace things which look like tags which sanitizeHtml will eat
     s = s.split('\n>').join('\n$1$');
@@ -145,7 +147,7 @@ function clean(s) {
     let a = s.split('```');
     for (let i=0;i<a.length;i++) {
         if (!a[i].startsWith('xml')) {
-            a[i] = sanitizeHtml(a[i],options);
+            a[i] = sanitizeHtml(a[i],sanitizeOptions);
         }
     }
     s = a.join('```');
