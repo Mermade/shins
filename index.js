@@ -66,7 +66,7 @@ function javascript_include_tag(include) {
 
 function partial(include) {
     var includeStr = fs.readFileSync(path.join(__dirname, '/source/includes/_' + include + '.md'), 'utf8');
-    return md.render(includeStr);
+    return postProcess(md.render(includeStr));
 }
 
 function replaceAll(target, find, replace) {
@@ -175,13 +175,13 @@ function render(inputStr, options, callback) {
 
         var content = md.render(clean(inputArr[2]));
         content = postProcess(content);
-        var $ = cheerio.load(content);
 
         var locals = {};
         locals.current_page = {};
         locals.current_page.data = header;
         locals.page_content = content;
         locals.toc_data = function(content) {
+            var $ = cheerio.load(content);
             var result = [];
             var h1,h2,h3,h4,h5;
             var headingLevel = header.headingLevel || 2;
