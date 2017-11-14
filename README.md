@@ -82,6 +82,7 @@ Setting `inline` to `true` will inline all page resources (except resources refe
 * [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
 * For converting [OpenApi / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
 * If you need a CLI with more control over the options, why not try [make-shins](https://github.com/cazzer/make-shins)
+* Shins ships with an alternate theme by TradeGecko which is also under the Apache 2.0 license
 
 ### Shins in the wild
 
