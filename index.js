@@ -133,8 +133,10 @@ function postProcess(content) {
 function clean(s) {
     if (!s) return '';
     let options = {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'h1', 'h2', 'img', 'aside' ]),
-        allowedAttributes: { a: [ 'href', 'name', 'target' ], img: [ 'src' ] , aside: [ 'class' ] }
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'h1', 'h2', 'img', 'aside', 'article', 'details',
+            'summary', 'abbr', ]),
+        allowedAttributes: { a: [ 'href', 'name', 'target', 'class' ], img: [ 'src', 'alt', 'class' ] , aside: [ 'class' ],
+            abbr: [ 'title', 'class' ], details: [ 'open', 'class' ] }
     };
     // replace things which look like tags which sanitizeHtml will eat
     s = s.split('\n>').join('\n$1$');
