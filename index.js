@@ -132,8 +132,14 @@ function postProcess(content) {
 
 function clean(s) {
     if (!s) return '';
-    let options = { allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'h1', 'h2', 'img' ]) };
-    s = s.split('\n>').join('\n$$');
+    let options = {
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'h1', 'h2', 'img', 'aside' ]),
+        allowedAttributes: { a: [ 'href', 'name', 'target' ], img: [ 'src' ] , aside: [ 'class' ] }
+    };
+    // replace things which look like tags which sanitizeHtml will eat
+    s = s.split('\n>').join('\n$1$');
+    s = s.split('>=').join('$2$');
+    s = s.split('<=').join('$3$');
     let a = s.split('```');
     for (let i=0;i<a.length;i++) {
         if (!a[i].startsWith('xml')) {
@@ -141,8 +147,14 @@ function clean(s) {
         }
     }
     s = a.join('```');
+    // put back things which sanitizeHtml has mangled
     s = s.split('&quot;').join('"');
-    s = s.split('\n$$').join('\n>');
+    s = s.split('&amp;').join('&');
+    s = s.split('&gt;').join('>');
+    s = s.split('&lt;').join('<');
+    s = s.split('\n$1$').join('\n>');
+    s = s.split('$2$').join('>=');
+    s = s.split('$3$').join('<=');
     return s;
 }
 
