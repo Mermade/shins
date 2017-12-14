@@ -24,6 +24,7 @@ if (process.argv.length > 2) {
 }
 
 var inputStr = fs.readFileSync(inputName,'utf8');
+options.source = inputName;
 
 shins.render(inputStr,options,function(err,str){
     if (err) {

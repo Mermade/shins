@@ -23,7 +23,8 @@ function check(req,res,fpath) {
     catch (ex) { }
     if (srcStat.mtime>dstStat.mtime) {
         console.log('Rebuilding '+fpath);
-        fs.readFile(path.join(__dirname,'source',fpath+'.md'),'utf8',function(err,markdown){
+        let source = path.join(__dirname,'source',fpath+'.md');
+        fs.readFile(source,'utf8',function(err,markdown){
             if (markdown) {
                 let options = {};
                 if (req.query["customcss"]) {
@@ -35,6 +36,7 @@ function check(req,res,fpath) {
                 if (req.query["minify"]) {
                     options.minify = true;
                 }
+                options.source = source;
                 shins.render(markdown,options,function(err,html){
                     if (err) {
                         console.warn(err);

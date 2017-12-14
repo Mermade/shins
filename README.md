@@ -44,6 +44,7 @@ options.minify = false;
 options.customCss = false;
 options.inline = false;
 options.unsafe = false; // setting to true turns off markdown sanitisation
+//options.source = filename; // used to resolve relative paths for included files
 shins.render(markdownString, options, function(err, html) {
   // ...
 });
@@ -58,6 +59,7 @@ options.minify = false;
 options.customCss = false;
 options.inline = false;
 options.unsafe = false; // setting to true turns off markdown sanitisation
+//options.source = filename; // used to resolve relative paths for included files
 shins.render(markdownString, options)
 .then(html => {
   // ...
@@ -86,6 +88,8 @@ Setting `inline` to `true` will inline all page resources (except resources refe
 * For converting [OpenApi / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
 * If you need a CLI with more control over the options, why not try [make-shins](https://github.com/cazzer/make-shins)
 * Shins ships with an alternate theme by TradeGecko which is also under the Apache 2.0 license
+* Shins supports [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files) `include::filename[]` syntax as well as `!INCLUDE filename` from [markdown-pp](https://github.com/MikeRalphson/markdown-pp-js)
+* If you are using Node.js 4, please specify the `--harmony` flag
 
 ### Shins in the wild
 

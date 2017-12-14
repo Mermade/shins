@@ -122,6 +122,28 @@ function language_array(language_tabs) {
     return JSON.stringify(result).split('"').join('&quot;');
 }
 
+function preProcess(content,options) {
+    let lines = content.split('\r').join('').split('\n');
+    for (let l=0;l<lines.length;l++) {
+        let line = lines[l];
+        let filename = '';
+        if (line.startsWith('include::') && line.endsWith('[]')) { // asciidoc syntax
+            filename = line.split(':')[2].replace('[]','');
+        }
+        else if (line.startsWith('!INCLUDE ')) { // markdown-pp syntax
+            filename = line.replace('!INCLUDE ','');
+        }
+        if (filename) {
+            if (options.source) filename = path.resolve(path.dirname(options.source),filename);
+            let s = fs.readFileSync(filename,'utf8');
+            let include = s.split('\r').join('').split('\n');
+            lines.splice(l,1,...include);
+        }
+        else lines[l] = line;
+    }
+    return lines.join('\n');
+}
+
 function postProcess(content) {
     // adds id a la GitHub autolinks to automatically-generated headers
     content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (match, group1, group2) {
@@ -189,7 +211,10 @@ function render(inputStr, options, callback) {
         hljs.registerLanguage('shell', function (hljs) { return sh; });
         hljs.registerLanguage('sh', function (hljs) { return sh; });
 
-        var content = md.render(clean(inputArr[2]));
+        while (inputArr.length<3) inputArr.push('');
+
+        var content = preProcess(inputArr[2],options);
+        content = md.render(clean(content));
         content = postProcess(content);
 
         var locals = {};
