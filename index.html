@@ -334,7 +334,7 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 <p>Everything about your Pets</p>
 <p><a href="http://swagger.io">Find out more</a></p>
 <h2 id="addpet">addPet</h2>
-<p><a></a></p>
+<p><a id="opIdaddPet"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -500,7 +500,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Pet</span>&gt;</span>
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="addPet-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -521,7 +521,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="addPet-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -545,7 +545,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 petstore_auth ( Scopes: write:pets read:pets )
 </aside>
 <h2 id="updatepet">updatePet</h2>
-<p><a></a></p>
+<p><a id="opIdupdatePet"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -711,7 +711,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>available<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Pet</span>&gt;</span>
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="updatePet-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -732,7 +732,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="updatePet-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -768,7 +768,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 petstore_auth ( Scopes: write:pets read:pets )
 </aside>
 <h2 id="findpetsbystatus">findPetsByStatus</h2>
-<p><a></a></p>
+<p><a id="opIdfindPetsByStatus"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -885,7 +885,7 @@ System.out.println(response.toString());
 <p><code>GET /pet/findByStatus</code></p>
 <p><em>Finds Pets by status</em></p>
 <p>Multiple status values can be provided with comma separated strings</p>
-<h3 id="parameters">Parameters</h3>
+<h3 id="findPetsByStatus-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -967,7 +967,7 @@ System.out.println(response.toString());
   }
 ]
 </code></pre>
-<h3 id="responses">Responses</h3>
+<h3 id="findPetsByStatus-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -992,7 +992,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="response-schema">Response Schema</h3>
+<h3 id="findPetsByStatus-responseschema">Response Schema</h3>
 <p>Status Code <strong>200</strong></p>
 <table>
 <thead>
@@ -1077,7 +1077,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 petstore_auth ( Scopes: write:pets read:pets )
 </aside>
 <h2 id="findpetsbytags">findPetsByTags</h2>
-<p><a></a></p>
+<p><a id="opIdfindPetsByTags"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1194,7 +1194,7 @@ System.out.println(response.toString());
 <p><code>GET /pet/findByTags</code></p>
 <p><em>Finds Pets by tags</em></p>
 <p>Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.</p>
-<h3 id="parameters">Parameters</h3>
+<h3 id="findPetsByTags-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -1253,7 +1253,7 @@ System.out.println(response.toString());
   }
 ]
 </code></pre>
-<h3 id="responses">Responses</h3>
+<h3 id="findPetsByTags-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -1278,7 +1278,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="response-schema">Response Schema</h3>
+<h3 id="findPetsByTags-responseschema">Response Schema</h3>
 <p>Status Code <strong>200</strong></p>
 <table>
 <thead>
@@ -1363,7 +1363,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 petstore_auth ( Scopes: write:pets read:pets )
 </aside>
 <h2 id="getpetbyid">getPetById</h2>
-<p><a></a></p>
+<p><a id="opIdgetPetById"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1479,7 +1479,7 @@ System.out.println(response.toString());
 <p><code>GET /pet/{petId}</code></p>
 <p><em>Find pet by ID</em></p>
 <p>Returns a single pet</p>
-<h3 id="parameters">Parameters</h3>
+<h3 id="getPetById-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -1538,7 +1538,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"available"</span>
 }
 </code></pre>
-<h3 id="responses">Responses</h3>
+<h3 id="getPetById-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -1574,7 +1574,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 api_key
 </aside>
 <h2 id="updatepetwithform">updatePetWithForm</h2>
-<p><a></a></p>
+<p><a id="opIdupdatePetWithForm"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1696,7 +1696,7 @@ System.out.println(response.toString());
 
 
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="updatePetWithForm-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -1738,7 +1738,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="updatePetWithForm-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -1762,7 +1762,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 petstore_auth ( Scopes: write:pets read:pets )
 </aside>
 <h2 id="deletepet">deletePet</h2>
-<p><a></a></p>
+<p><a id="opIddeletePet"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -1877,7 +1877,7 @@ System.out.println(response.toString());
 </code></pre>
 <p><code>DELETE /pet/{petId}</code></p>
 <p><em>Deletes a pet</em></p>
-<h3 id="parameters">Parameters</h3>
+<h3 id="deletePet-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -1905,7 +1905,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="deletePet-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -1935,7 +1935,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 petstore_auth ( Scopes: write:pets read:pets )
 </aside>
 <h2 id="uploadfile">uploadFile</h2>
-<p><a></a></p>
+<p><a id="opIduploadFile"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -2063,7 +2063,7 @@ System.out.println(response.toString());
 
 
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="uploadFile-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -2114,7 +2114,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"message"</span>: <span class="hljs-string">"string"</span>
 }
 </code></pre>
-<h3 id="responses">Responses</h3>
+<h3 id="uploadFile-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -2140,7 +2140,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 <h1 id="Swagger-Petstore-store">store</h1>
 <p>Access to Petstore orders</p>
 <h2 id="getinventory">getInventory</h2>
-<p><a></a></p>
+<p><a id="opIdgetInventory"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -2264,7 +2264,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"property2"</span>: <span class="hljs-number">0</span>
 }
 </code></pre>
-<h3 id="responses">Responses</h3>
+<h3 id="getInventory-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -2283,7 +2283,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="response-schema">Response Schema</h3>
+<h3 id="getInventory-responseschema">Response Schema</h3>
 <p>Status Code <strong>200</strong></p>
 <table>
 <thead>
@@ -2308,7 +2308,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 api_key
 </aside>
 <h2 id="placeorder">placeOrder</h2>
-<p><a></a></p>
+<p><a id="opIdplaceOrder"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -2444,7 +2444,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="placeOrder-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -2487,7 +2487,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
 </code></pre>
-<h3 id="responses">Responses</h3>
+<h3 id="placeOrder-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -2516,7 +2516,7 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h2 id="getorderbyid">getOrderById</h2>
-<p><a></a></p>
+<p><a id="opIdgetOrderById"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -2632,7 +2632,7 @@ System.out.println(response.toString());
 <p><code>GET /store/order/{orderId}</code></p>
 <p><em>Find purchase order by ID</em></p>
 <p>For valid response try integer IDs with value &gt;= 1 and &lt;= 10. Other values will generated exceptions</p>
-<h3 id="parameters">Parameters</h3>
+<h3 id="getOrderById-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -2675,7 +2675,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
 </code></pre>
-<h3 id="responses">Responses</h3>
+<h3 id="getOrderById-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -2710,7 +2710,7 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h2 id="deleteorder">deleteOrder</h2>
-<p><a></a></p>
+<p><a id="opIddeleteOrder"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -2800,7 +2800,7 @@ System.out.println(response.toString());
 <p><code>DELETE /store/order/{orderId}</code></p>
 <p><em>Delete purchase order by ID</em></p>
 <p>For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors</p>
-<h3 id="parameters">Parameters</h3>
+<h3 id="deleteOrder-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -2821,7 +2821,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="deleteOrder-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -2853,7 +2853,7 @@ This operation does not require authentication
 <p>Operations about user</p>
 <p><a href="http://swagger.io">Find out more about our store</a></p>
 <h2 id="createuser">createUser</h2>
-<p><a></a></p>
+<p><a id="opIdcreateUser"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -2988,7 +2988,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
 }
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="createUser-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -3009,7 +3009,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="createUser-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -3032,7 +3032,7 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h2 id="createuserswitharrayinput">createUsersWithArrayInput</h2>
-<p><a></a></p>
+<p><a id="opIdcreateUsersWithArrayInput"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -3170,7 +3170,7 @@ System.out.println(response.toString());
   }
 ]
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="createUsersWithArrayInput-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -3191,7 +3191,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="createUsersWithArrayInput-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -3214,7 +3214,7 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h2 id="createuserswithlistinput">createUsersWithListInput</h2>
-<p><a></a></p>
+<p><a id="opIdcreateUsersWithListInput"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -3352,7 +3352,7 @@ System.out.println(response.toString());
   }
 ]
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="createUsersWithListInput-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -3373,7 +3373,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="createUsersWithListInput-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -3396,7 +3396,7 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h2 id="loginuser">loginUser</h2>
-<p><a></a></p>
+<p><a id="opIdloginUser"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -3511,7 +3511,7 @@ System.out.println(response.toString());
 </code></pre>
 <p><code>GET /user/login</code></p>
 <p><em>Logs user into the system</em></p>
-<h3 id="parameters">Parameters</h3>
+<h3 id="loginUser-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -3544,7 +3544,7 @@ System.out.println(response.toString());
 </blockquote>
 <pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span>
 </code></pre>
-<h3 id="responses">Responses</h3>
+<h3 id="loginUser-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -3601,7 +3601,7 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h2 id="logoutuser">logoutUser</h2>
-<p><a></a></p>
+<p><a id="opIdlogoutUser"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -3690,7 +3690,7 @@ System.out.println(response.toString());
 </code></pre>
 <p><code>GET /user/logout</code></p>
 <p><em>Logs out current logged in user session</em></p>
-<h3 id="responses">Responses</h3>
+<h3 id="logoutUser-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -3713,7 +3713,7 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h2 id="getuserbyname">getUserByName</h2>
-<p><a></a></p>
+<p><a id="opIdgetUserByName"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -3828,7 +3828,7 @@ System.out.println(response.toString());
 </code></pre>
 <p><code>GET /user/{username}</code></p>
 <p><em>Get user by user name</em></p>
-<h3 id="parameters">Parameters</h3>
+<h3 id="getUserByName-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -3875,7 +3875,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
 }
 </code></pre>
-<h3 id="responses">Responses</h3>
+<h3 id="getUserByName-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -3910,7 +3910,7 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h2 id="updateuser">updateUser</h2>
-<p><a></a></p>
+<p><a id="opIdupdateUser"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -4045,7 +4045,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"userStatus"</span>: <span class="hljs-number">0</span>
 }
 </code></pre>
-<h3 id="parameters">Parameters</h3>
+<h3 id="updateUser-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -4073,7 +4073,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="updateUser-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -4102,7 +4102,7 @@ System.out.println(response.toString());
 This operation does not require authentication
 </aside>
 <h2 id="deleteuser">deleteUser</h2>
-<p><a></a></p>
+<p><a id="opIddeleteUser"></a></p>
 <blockquote>
 <p>Code samples</p>
 </blockquote>
@@ -4192,7 +4192,7 @@ System.out.println(response.toString());
 <p><code>DELETE /user/{username}</code></p>
 <p><em>Delete user</em></p>
 <p>This can only be done by the logged in user.</p>
-<h3 id="parameters">Parameters</h3>
+<h3 id="deleteUser-parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -4213,7 +4213,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h3 id="responses">Responses</h3>
+<h3 id="deleteUser-responses">Responses</h3>
 <table>
 <thead>
 <tr>
@@ -4243,7 +4243,7 @@ This operation does not require authentication
 </aside>
 <h1 id="schemas">Schemas</h1>
 <h2 id="tocSorder">Order</h2>
-<p><a></a></p>
+<p><a id="schemaorder"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
@@ -4326,7 +4326,7 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocScategory">Category</h2>
-<p><a></a></p>
+<p><a id="schemacategory"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
@@ -4358,7 +4358,7 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocSuser">User</h2>
-<p><a></a></p>
+<p><a id="schemauser"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>,
@@ -4432,7 +4432,7 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocStag">Tag</h2>
-<p><a></a></p>
+<p><a id="schematag"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
@@ -4464,7 +4464,7 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocSpet">Pet</h2>
-<p><a></a></p>
+<p><a id="schemapet"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"category"</span>: {
@@ -4557,7 +4557,7 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocSapiresponse">ApiResponse</h2>
-<p><a></a></p>
+<p><a id="schemaapiresponse"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"code"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
