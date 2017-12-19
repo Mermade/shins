@@ -160,7 +160,8 @@ function clean(s) {
             'summary', 'abbr', 'meta', 'link' ]),
         allowedAttributes: { a: [ 'href', 'name', 'target', 'class' ], img: [ 'src', 'alt', 'class' ] , aside: [ 'class' ],
             abbr: [ 'title', 'class' ], details: [ 'open', 'class' ], div: [ 'class' ], meta: [ 'name', 'content' ],
-            link: [ 'rel', 'href', 'type', 'sizes' ] }
+            link: [ 'rel', 'href', 'type', 'sizes' ],
+            h1: [ 'id' ], h2: [ 'id' ], h3: [ 'id' ], h4: [ 'id' ], h5: [ 'id' ], h6: [ 'id' ]}
     };
     // replace things which look like tags which sanitizeHtml will eat
     s = s.split('\n>').join('\n$1$');
