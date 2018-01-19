@@ -1,6 +1,6 @@
 {
   "name": "shins",
-  "version": "2.1.1-4",
+  "version": "2.2.0",
   "description": "Shins Is Not Slate",
   "main": "index.js",
   "scripts": {
