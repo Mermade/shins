@@ -465,9 +465,10 @@ html, body {
     .toc-wrapper .lang-selector a {
       padding-top: 0.5em;
       padding-bottom: 0.5em; }
-  .toc-wrapper > img {
+  .toc-wrapper .logo {
     display: block;
-    max-width: 100%; }
+    max-width: 100%;
+    margin-bottom: 0px; }
   .toc-wrapper > .search {
     position: relative; }
     .toc-wrapper > .search input {
@@ -487,8 +488,6 @@ html, body {
       top: 17px;
       left: 15px;
       color: #fff; }
-  .toc-wrapper .logo {
-    margin-bottom: 0px; }
   .toc-wrapper .search-results {
     margin-top: 0;
     box-sizing: border-box;
