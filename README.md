@@ -96,3 +96,4 @@ Setting `inline` to `true` will inline all page resources (except resources refe
 Please feel free to add a link to your API documentation here
 
 * [APIs.guru OpenAPI specification extensions (Semoasa) documentation](https://mermade.github.io/shins/apisguru.html)
+* [Signal Biometrics Ox documentation](https://signalbiometrics.github.io/ox-docs/)
