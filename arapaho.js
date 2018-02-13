@@ -1,17 +1,24 @@
-var fs = require('fs');
-var path = require('path');
+'use strict';
+const fs = require('fs');
+const path = require('path');
 
-var express = require('express');
-var ejs = require('ejs');
-var compression = require('compression');
+const express = require('express');
+const ejs = require('ejs');
+const compression = require('compression');
 
-var shins = require('./index.js');
+const shins = require('./index.js');
 
-var app = express();
+let includesModified = false;
+
+let app = express();
 app.use(compression());
 
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
+
+fs.watch('source/includes', function(eventType, filename) {
+    includesModified = true;
+});
 
 function check(req,res,fpath) {
     fpath = fpath.split('/').join('');
@@ -21,7 +28,8 @@ function check(req,res,fpath) {
         dstStat = fs.statSync(path.join(__dirname,fpath));
     }
     catch (ex) { }
-    if (srcStat.mtime>dstStat.mtime) {
+    if (includesModified || (srcStat.mtime>dstStat.mtime)) {
+        includesModified = false;
         console.log('Rebuilding '+fpath);
         let source = path.join(__dirname,'source',fpath+'.md');
         fs.readFile(source,'utf8',function(err,markdown){
