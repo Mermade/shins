@@ -2,25 +2,16 @@
 
 'use strict';
 
-var fs = require('fs');
-var shins = require('./index.js');
+const fs = require('fs');
+const options = require('tiny-opts-parser')(process.argv);
+const shins = require('./index.js');
 
-var options = {};
+if (options.customcss) options.customCss = true; // backwards compatibility
+
 var inputName = './source/index.html.md';
 
-if (process.argv.length > 2) {
-    for (var i=2;i<process.argv.length;i++) {
-        var opt = process.argv[i];
-        if (opt.startsWith('--')) {
-            if (opt == '--minify') options.minify = true;
-            if (opt == '--customcss') options.customCss = true;
-            if (opt == '--inline') options.inline = true;
-            if (opt == '--unsafe') options.unsafe = true;
-        }
-        else {
-            inputName = opt;
-        }
-    }
+if (options._.length > 2) {
+    inputName = options._[2];
 }
 
 var inputStr = fs.readFileSync(inputName,'utf8');
@@ -35,3 +26,4 @@ shins.render(inputStr,options,function(err,str){
         fs.writeFileSync('./index.html',str,'utf8');
     }
 });
+

@@ -5,10 +5,13 @@ const path = require('path');
 const express = require('express');
 const ejs = require('ejs');
 const compression = require('compression');
+const args = require('tiny-opts-parser')(process.argv);
 
 const shins = require('./index.js');
 
 let includesModified = false;
+let lastGenTime = 0;
+if (args.p) args.preserve = true;
 
 let app = express();
 app.use(compression());
@@ -23,13 +26,16 @@ fs.watch('source/includes', function(eventType, filename) {
 function check(req,res,fpath) {
     fpath = fpath.split('/').join('');
     var srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
-    var dstStat = {mtime:0};
-    try {
-        dstStat = fs.statSync(path.join(__dirname,fpath));
+    var dstStat = {mtime:lastGenTime};
+    if (!args.preserve) {
+        try {
+            dstStat = fs.statSync(path.join(__dirname,fpath));
+        }
+        catch (ex) { }
     }
-    catch (ex) { }
     if (includesModified || (srcStat.mtime>dstStat.mtime)) {
         includesModified = false;
+        lastGenTime = new Date();
         console.log('Rebuilding '+fpath);
         let source = path.join(__dirname,'source',fpath+'.md');
         fs.readFile(source,'utf8',function(err,markdown){
@@ -52,7 +58,9 @@ function check(req,res,fpath) {
                     }
                     else {
                         res.send(html);
-                        fs.writeFile(path.join(__dirname,fpath),html,'utf8',function(){});
+                        if (!args.preserve) {
+                            fs.writeFile(path.join(__dirname,fpath),html,'utf8',function(){});
+                        }
                     }
                 });
             }
@@ -72,7 +80,7 @@ app.get('*.html', function(req,res) {
 app.use("/",  express.static(__dirname));
 
 var myport = process.env.PORT || 4567;
-if (process.argv.length>2) myport = process.argv[2];
+if (args._.length>2) myport = args._[2];
 
 var server = app.listen(myport, function () {
   var host = server.address().address;

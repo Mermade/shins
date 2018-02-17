@@ -24,7 +24,7 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 	* `node shins.js --customcss` or
 	* `node shins.js --inline` or
     * `node shins.js --unsafe`
-* To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files will automatically be picked up and re-rendered
+* To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered
 * Add, commit and push
 * Then (in your fork) press this button
 
@@ -86,9 +86,10 @@ Setting `inline` to `true` will inline all page resources (except resources refe
 * Static TOC as per Slate v2.0
 * [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
 * For converting [OpenApi / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
+* `arapaho` has a `--preserve` or `-p` option which will not overwrite your `.html` output file, but still re-render when necessary
 * If you need a CLI with more control over the options, why not try [make-shins](https://github.com/cazzer/make-shins)
 * Shins ships with an alternate theme by TradeGecko which is also under the Apache 2.0 license
-* Shins supports [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files) `include::filename[]` syntax as well as `!INCLUDE filename` from [markdown-pp](https://github.com/MikeRalphson/markdown-pp-js)
+* Shins additionally supports [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files) `include::filename[]` syntax as well as `!INCLUDE filename` from [markdown-pp](https://github.com/MikeRalphson/markdown-pp-js) - this is not supported by Slate
 * If you are using Node.js 4, please specify the `--harmony` flag
 
 ### Shins in the wild
