@@ -10,7 +10,7 @@ const args = require('tiny-opts-parser')(process.argv);
 const shins = require('./index.js');
 
 let includesModified = false;
-let lastGenTime = 0;
+let lastGenTime = {};
 if (args.p) args.preserve = true;
 
 let app = express();
@@ -23,10 +23,15 @@ fs.watch('source/includes', function(eventType, filename) {
     includesModified = true;
 });
 
+function getLastGenTime(fpath) {
+    if (lastGenTime[fpath]) return lastGenTime[fpath];
+    return 0;
+}
+
 function check(req,res,fpath) {
     fpath = fpath.split('/').join('');
     var srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
-    var dstStat = {mtime:lastGenTime};
+    var dstStat = {mtime:getLastGenTime(fpath)};
     if (!args.preserve) {
         try {
             dstStat = fs.statSync(path.join(__dirname,fpath));
@@ -35,7 +40,7 @@ function check(req,res,fpath) {
     }
     if (includesModified || (srcStat.mtime>dstStat.mtime)) {
         includesModified = false;
-        lastGenTime = new Date();
+        lastGenTime[fpath] = new Date();
         console.log('Rebuilding '+fpath);
         let source = path.join(__dirname,'source',fpath+'.md');
         fs.readFile(source,'utf8',function(err,markdown){
