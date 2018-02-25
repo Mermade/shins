@@ -35,6 +35,18 @@ Or, to deploy to GitHub Pages:
 * Change the setting on your fork so Github Pages are served from the root directory
 * Browse to `https://{yourname}.github.io/{repository-name}`
 
+To deploy to your own web-server:
+
+If you use the option `--minify` to shins, the only things you need to take to your web host is the generated `index.html` and the contents of the `pub` directory, which should be kept relative to it, so the structure is always:
+
+```
+{whatever}/index.html
+{whatever}/pub/css/
+{whatever}/pub/js/
+```
+
+If you use the `--inline` option to shins, then everything is bundled into the `index.html` file and no `pub` directory is required.
+
 ### API
 
 ```javascript
@@ -87,7 +99,6 @@ Setting `inline` to `true` will inline all page resources (except resources refe
 * [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
 * For converting [OpenApi / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
 * `arapaho` has a `--preserve` or `-p` option which will not overwrite your `.html` output file, but still re-render when necessary
-* If you need a CLI with more control over the options, why not try [make-shins](https://github.com/cazzer/make-shins)
 * Shins ships with an alternate theme by TradeGecko which is also under the Apache 2.0 license
 * Shins additionally supports [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files) `include::filename[]` syntax as well as `!INCLUDE filename` from [markdown-pp](https://github.com/MikeRalphson/markdown-pp-js) - this is not supported by Slate
 * If you are using Node.js 4, please specify the `--harmony` flag
