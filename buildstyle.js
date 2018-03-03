@@ -1,5 +1,7 @@
 #!/bin/env node
 
+'use strict';
+
 var fs = require('fs');
 var sass = require('node-sass');
 var assetFunctions = require('node-sass-asset-functions');
@@ -19,7 +21,7 @@ function sassRender(infile,outfile) {
 			fs.writeFile(outfile,result.css.toString(),'utf8',function(err){
                 if (err) console.warn(err.message);
             });
-   		}
+        }
 	});
 }
 

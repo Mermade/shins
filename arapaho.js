@@ -1,4 +1,5 @@
 'use strict';
+
 const fs = require('fs');
 const path = require('path');
 
@@ -46,13 +47,13 @@ function check(req,res,fpath) {
         fs.readFile(source,'utf8',function(err,markdown){
             if (markdown) {
                 let options = {};
-                if (req.query["customcss"]) {
+                if (req.query.customcss) {
                     options.customCss = true;
                 }
-                if (req.query["inline"]) {
+                if (req.query.inline) {
                     options.inline = true;
                 }
-                if (req.query["minify"]) {
+                if (req.query.minify) {
                     options.minify = true;
                 }
                 options.source = source;
