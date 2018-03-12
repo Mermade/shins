@@ -39,6 +39,7 @@
     "markdown-it": "latest",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-lazy-headers": "^0.1.3",
+    "opn": "^5.2.0",
     "sanitize-html": "^1.15.0",
     "tiny-opts-parser": "0.0.3",
     "uglify-js": "^2.7.4"

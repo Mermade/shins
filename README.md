@@ -24,7 +24,7 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 	* `node shins.js --customcss` or
 	* `node shins.js --inline` or
     * `node shins.js --unsafe`
-* To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered
+* To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered. If you use `--launch` or `-l` your default browser will be opened automatically
 * Add, commit and push
 * Then (in your fork) press this button
 
