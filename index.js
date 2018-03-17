@@ -294,7 +294,7 @@ function render(inputStr, options, callback) {
             if (globalOptions.inline) {
                 imageSource = "data:image/png;base64,"+new Buffer(imgContent).toString('base64');
             } else {
-                var logoPath = "source/images/custom_logo.png";
+                var logoPath = "source/images/custom_logo" + path.extname(imageSource);
                 fs.writeFileSync(path.join(__dirname, logoPath), imgContent);
                 imageSource = logoPath;
             }
