@@ -24,6 +24,7 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 	* `node shins.js --customcss` or
 	* `node shins.js --inline` or
     * `node shins.js --unsafe`
+* To add custom logo add `--logo` option with path to your logo image.
 * To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered. If you use `--launch` or `-l` your default browser will be opened automatically
 * Add, commit and push
 * Then (in your fork) press this button
@@ -72,6 +73,7 @@ options.customCss = false;
 options.inline = false;
 options.unsafe = false; // setting to true turns off markdown sanitisation
 //options.source = filename; // used to resolve relative paths for included files
+options.logo = './my-custom-logo.png'
 shins.render(markdownString, options)
 .then(html => {
   // ...
@@ -83,6 +85,8 @@ The `err` parameter is the result of the `ejs` rendering step.
 Setting `customCss` to `true` will include the `pub/css/screen_overrides.css`,`pub/css/print_overrides.css` and `pub/css/theme_override.css` files, in which you can override any of the default Slate theme, to save you from having to alter the main css files directly. This should make syncing up with future Shins / Slate releases easier.
 
 Setting `inline` to `true` will inline all page resources (except resources referenced via CSS, such as fonts) to output html. This way HTML can be used stand-alone, without needing any other resources. It will also set `minify` to `true`.
+
+Set `logo` path to add your custom logo as absolute path or path relative to process working directory. If `inline` option is on image will be inlined, else it will be copied to `source/images` directory and included via `scr`.
 
 ### Updating from Slate
 
