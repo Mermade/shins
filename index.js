@@ -287,6 +287,19 @@ function render(inputStr, options, callback) {
             }
             return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
         };
+        locals.logo_image_tag = function () {
+            if (!globalOptions.logo) return locals.image_tag('logo.png', 'Logo', 'logo');
+            var imageSource = path.join(process.cwd(), globalOptions.logo)
+            var imgContent = fs.readFileSync(imageSource);
+            if (globalOptions.inline) {
+                imageSource = "data:image/png;base64,"+new Buffer(imgContent).toString('base64');
+            } else {
+                var logoPath = "source/images/custom_logo.png";
+                fs.writeFileSync(logoPath, imgContent);
+                imageSource = logoPath;
+            }
+            return '<img src="'+imageSource+'" class="logo" alt="Logo">';
+        };
         locals.stylesheet_link_tag = stylesheet_link_tag;
         locals.javascript_include_tag = javascript_include_tag;
         locals.language_array = language_array;
