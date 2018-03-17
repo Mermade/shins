@@ -86,7 +86,7 @@ Setting `customCss` to `true` will include the `pub/css/screen_overrides.css`,`p
 
 Setting `inline` to `true` will inline all page resources (except resources referenced via CSS, such as fonts) to output html. This way HTML can be used stand-alone, without needing any other resources. It will also set `minify` to `true`.
 
-Set `logo` path to add your custom logo as absolute path or path relative to process working directory. If `inline` option is on image will be inlined, else it will be copied to `source/images` directory and included via `scr`.
+Set `logo` path to add your custom logo as absolute path or path relative to process working directory. If `inline` option is on image will be inlined, else it will be copied to `source/images` directory and included via `src` image attribute.
 
 ### Updating from Slate
 
