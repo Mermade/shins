@@ -289,13 +289,13 @@ function render(inputStr, options, callback) {
         };
         locals.logo_image_tag = function () {
             if (!globalOptions.logo) return locals.image_tag('logo.png', 'Logo', 'logo');
-            var imageSource = path.join(process.cwd(), globalOptions.logo)
+            var imageSource = path.resolve(process.cwd(), globalOptions.logo)
             var imgContent = fs.readFileSync(imageSource);
             if (globalOptions.inline) {
                 imageSource = "data:image/png;base64,"+new Buffer(imgContent).toString('base64');
             } else {
                 var logoPath = "source/images/custom_logo.png";
-                fs.writeFileSync(logoPath, imgContent);
+                fs.writeFileSync(path.join(__dirname, logoPath), imgContent);
                 imageSource = logoPath;
             }
             return '<img src="'+imageSource+'" class="logo" alt="Logo">';
