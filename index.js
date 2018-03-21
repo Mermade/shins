@@ -84,7 +84,8 @@ function stylesheet_link_tag(stylesheet, media) {
             stylePath = path.join(hlpath, '/styles/' + stylesheet + '.css');
         }
         var styleContent = fs.readFileSync(stylePath, "utf8");
-        styleContent = replaceAll(styleContent, "../../source", "source"); //fix font paths
+        styleContent = replaceAll(styleContent, '../../source/fonts/', globalOptions.fonturl||'https://raw.githubusercontent.com/Mermade/shins/master/source/fonts/');
+        styleContent = replaceAll(styleContent, '../../source/', 'source/');
         if (globalOptions.customCss) {
             var overrideFilename = path.join(__dirname, '/pub/css/' + override + '_overrides.css');
             if (fs.existsSync(overrideFilename)) {

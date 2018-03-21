@@ -46,7 +46,7 @@ If you use the option `--minify` to shins, the only things you need to take to y
 {whatever}/pub/js/
 ```
 
-If you use the `--inline` option to shins, then everything is bundled into the `index.html` file and no `pub` directory is required.
+If you use the `--inline` option to shins, then everything is bundled into the `index.html` file and no `pub` directory is required. Fonts are by default loaded from this github repository, but this can be overridden with the `--fonturl` option.
 
 ### API
 

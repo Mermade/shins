@@ -21,6 +21,7 @@ if (options.help) {
     console.log();
     console.log('-h,--help   show help and exit');
     console.log('--customcss include custom override css files');
+    console.log('--fonturl   url to fonts when --inline is set, defaults to github repo');
     console.log('--inline    inline css and javascript resources');
     console.log('--logo      specify path to custom logo file');
     console.log('--minify    minify output html');
