@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 'use strict';
 
 const fs = require('fs');
@@ -15,6 +17,12 @@ let includesModified = false;
 let lastGenTime = {};
 if (args.p) args.preserve = args.p;
 if (args.l) args.launch = args.l;
+if (args.h) args.help = args.h;
+
+if (args.help) {
+    console.log('Usage: node arapaho [port] [-l|--launch] [-p|--preserve]');
+    process.exit(0);
+}
 
 let app = express();
 app.use(compression());
