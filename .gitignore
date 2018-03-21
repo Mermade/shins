@@ -2,6 +2,7 @@
 compare.js
 doit.sh
 source/layouts/layout*.erb
+source/images/custom_logo.*
 spectacle
 dev/
 
