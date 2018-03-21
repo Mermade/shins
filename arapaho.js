@@ -98,5 +98,5 @@ var server = app.listen(myport, function () {
   if (args.launch) {
     console.log('Launching...');
     opn('http://'+(host === '::' ? 'localhost' : 'host') + ':' +port+'/');
-});
   }
+});
