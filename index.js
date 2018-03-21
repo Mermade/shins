@@ -283,9 +283,22 @@ function render(inputStr, options, callback) {
             var imageSource = "source/images/" + image;
             if (globalOptions.inline) {
                 var imgContent = fs.readFileSync(path.join(__dirname, imageSource));
-                imageSource = "data:image/png;base64,"+new Buffer(imgContent).toString('base64');
+                imageSource = "data:image/png;base64," + Buffer.from(imgContent).toString('base64');
             }
             return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
+        };
+        locals.logo_image_tag = function () {
+            if (!globalOptions.logo) return locals.image_tag('logo.png', 'Logo', 'logo');
+            var imageSource = path.resolve(process.cwd(), globalOptions.logo);
+            var imgContent = fs.readFileSync(imageSource);
+            if (globalOptions.inline) {
+                imageSource = "data:image/png;base64," + Buffer.from(imgContent).toString('base64');
+            } else {
+                var logoPath = "source/images/custom_logo" + path.extname(imageSource);
+                fs.writeFileSync(path.join(__dirname, logoPath), imgContent);
+                imageSource = logoPath;
+            }
+            return '<img src="' + imageSource + '" class="logo" alt="Logo">';
         };
         locals.stylesheet_link_tag = stylesheet_link_tag;
         locals.javascript_include_tag = javascript_include_tag;
