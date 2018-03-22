@@ -15,6 +15,7 @@ if (options._.length > 2) {
 }
 
 if (options.h) options.help = options.h;
+if (options.o) options.output = options.o;
 
 if (options.help) {
     console.log('Usage: node shins [options] [input-markdown-filename]');
@@ -25,6 +26,7 @@ if (options.help) {
     console.log('--inline    inline css and javascript resources');
     console.log('--logo      specify path to custom logo file');
     console.log('--minify    minify output html');
+    console.log('-o,--output specify output html file');
     console.log('--unsafe    do not sanitise input markdown');
     process.exit(0);
 }
@@ -38,7 +40,7 @@ shins.render(inputStr,options,function(err,str){
     }
     else {
         str = str.split('\r').join('');
-        fs.writeFileSync('./index.html',str,'utf8');
+        fs.writeFileSync(options.output||'./index.html',str,'utf8');
     }
 });
 
