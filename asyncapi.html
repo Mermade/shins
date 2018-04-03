@@ -1,5 +1,6 @@
 
 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,7 +25,7 @@
 <script src="source/javascripts/app/_toc.js"></script>
 <script type="text/javascript">
 $(function() {
-  loadToc($('#toc'), '.toc-link', '.toc-list-h2', 10);
+  loadToc($('#toc'), '.toc-link', '.toc-list-h2, .toc-list-h3, .toc-list-h4, .toc-list-h5, .toc-list-h6', 10);
   setupLanguages($('body').data('languages'));
   $('.content').imagesLoaded( function() {
     recacheHeights();
@@ -38,9 +39,11 @@ window.onpopstate = function() {
 </script>
 
     
+    <meta name="theme-color" content="#F3F7F9" />
+
   </head>
 
-  <body data-languages="[&quot;javascript--nodejs&quot;,&quot;javascript&quot;,&quot;python&quot;,&quot;ruby&quot;,&quot;java&quot;,&quot;go&quot;]">
+  <body data-languages="[&quot;javascript--nodejs&quot;,&quot;javascript&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;java&quot;,&quot;go&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -61,11 +64,11 @@ window.onpopstate = function() {
             
           
             
-              <a href="#" data-language-name="python">Python</a>
+              <a href="#" data-language-name="ruby">Ruby</a>
             
           
             
-              <a href="#" data-language-name="ruby">Ruby</a>
+              <a href="#" data-language-name="python">Python</a>
             
           
             
@@ -98,7 +101,16 @@ window.onpopstate = function() {
               <ul class="toc-list-h2">
                 
                   <li>
-                    <a href="#publish-hitch-accounts-1-0-action-user-signup" class="toc-h2 toc-link" data-title="user">publish hitch.accounts.1.0.action.user.signup</a>
+                    <a href="#accounts-1-0-action-user-signup" class="toc-h2 toc-link" data-title="accounts.1.0.action.user.signup">accounts.1.0.action.user.signup</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#publish" class="toc-h3 toc-link" data-title="publish">publish</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
               </ul>
@@ -111,7 +123,16 @@ window.onpopstate = function() {
               <ul class="toc-list-h2">
                 
                   <li>
-                    <a href="#subscribe-hitch-accounts-1-0-event-user-signup" class="toc-h2 toc-link" data-title="Default">subscribe hitch.accounts.1.0.event.user.signup</a>
+                    <a href="#accounts-1-0-event-user-signup" class="toc-h2 toc-link" data-title="accounts.1.0.event.user.signup">accounts.1.0.event.user.signup</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#subscribe" class="toc-h3 toc-link" data-title="subscribe">subscribe</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
               </ul>
@@ -124,35 +145,107 @@ window.onpopstate = function() {
               <ul class="toc-list-h2">
                 
                   <li>
-                    <a href="#id" class="toc-h2 toc-link" data-title="Schemas">id</a>
+                    <a href="#id" class="toc-h2 toc-link" data-title="id">id</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
                   <li>
-                    <a href="#username" class="toc-h2 toc-link" data-title="Schemas">username</a>
+                    <a href="#username" class="toc-h2 toc-link" data-title="username">username</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
                   <li>
-                    <a href="#datetime" class="toc-h2 toc-link" data-title="Schemas">datetime</a>
+                    <a href="#datetime" class="toc-h2 toc-link" data-title="datetime">datetime</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
                   <li>
-                    <a href="#mqttqosheader" class="toc-h2 toc-link" data-title="Schemas">MQTTQoSHeader</a>
+                    <a href="#mqttqosheader" class="toc-h2 toc-link" data-title="MQTTQoSHeader">MQTTQoSHeader</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
                   <li>
-                    <a href="#mqttretainheader" class="toc-h2 toc-link" data-title="Schemas">MQTTRetainHeader</a>
+                    <a href="#mqttretainheader" class="toc-h2 toc-link" data-title="MQTTRetainHeader">MQTTRetainHeader</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
                   <li>
-                    <a href="#user" class="toc-h2 toc-link" data-title="Schemas">user</a>
+                    <a href="#user" class="toc-h2 toc-link" data-title="user">user</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
                   <li>
-                    <a href="#usercreate" class="toc-h2 toc-link" data-title="Schemas">userCreate</a>
+                    <a href="#usercreate" class="toc-h2 toc-link" data-title="userCreate">userCreate</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
                   <li>
-                    <a href="#signup" class="toc-h2 toc-link" data-title="Schemas">signup</a>
+                    <a href="#signup" class="toc-h2 toc-link" data-title="signup">signup</a>
+                    
+                      <ul class="toc-list-h3">
+                      
+                      <li>
+                        <a href="#properties" class="toc-h3 toc-link" data-title="Properties">Properties</a>
+                      </li>
+                      
+                    </ul>
+                    
                   </li>
                 
               </ul>
@@ -180,7 +273,7 @@ window.onpopstate = function() {
 <p>Base URLs:</p>
 <ul>
 <li>
-<p><a href="mqtt://api.company.com:{port}/{app-id}">mqtt://api.company.com:{port}/{app-id}</a></p>
+<p><a>mqtt://api.company.com:{port}/{app-id}</a></p>
 <ul>
 <li>
 <p><strong>app-id</strong> - You can find your <code>app-id</code> in our control panel, under the auth tab. Default: demo</p>
@@ -188,27 +281,24 @@ window.onpopstate = function() {
 <li>
 <p><strong>port</strong> -  Default: 5676</p>
 <ul>
-<li>
-<p>5676</p>
-</li>
-<li>
-<p>5677</p>
-</li>
+<li>5676</li>
+<li>5677</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <p>Base Topic: <strong>hitch</strong></p>
-<p><a href="You can specify the terms of service here. **It supports Markdown as well.**
-">Terms of service</a></p>
+<p><a href="https://api.company.com/terms">Terms of service</a></p>
 <h1 id="user">user</h1>
-<h2 id="publish-hitch-accounts-1-0-action-user-signup">publish hitch.accounts.1.0.action.user.signup</h2>
+<h2 id="accounts-1-0-action-user-signup">accounts.1.0.action.user.signup</h2>
+<h3 id="publish">publish</h3>
 <p>Note: <strong>Deprecated</strong></p>
 <blockquote>
 <p>Example headers</p>
 </blockquote>
-<pre class="highlight tab tab-json"><code>{
+<pre class="highlight tab tab-json"><code>
+{
   <span class="hljs-attr">"qos"</span>: <span class="hljs-number">1</span>,
   <span class="hljs-attr">"retainFlag"</span>: <span class="hljs-literal">false</span>
 }
@@ -216,40 +306,74 @@ window.onpopstate = function() {
 <blockquote>
 <p>Example payload</p>
 </blockquote>
-<pre class="highlight tab tab-json"><code>{
+<pre class="highlight tab tab-json"><code>
+{
   <span class="hljs-attr">"user"</span>: {
     <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"string"</span>,
     <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>
   },
   <span class="hljs-attr">"signup"</span>: {
     <span class="hljs-attr">"method"</span>: <span class="hljs-string">"email"</span>,
-    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T17:51:21Z"</span>
+    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2018-04-03T07:32:55Z"</span>
   }
 }
 </code></pre>
 <blockquote>
-<p>Code samples</p>
+<p>Code Samples</p>
 </blockquote>
-<pre class="highlight tab tab-javascript--nodejs"><code>app.from.client.send({
-  <span class="hljs-attr">topic</span>: <span class="hljs-string">'hitch.accounts.1.0.action.user.signup'</span>,
-  <span class="hljs-attr">payload</span>: { <span class="hljs-attr">user</span>: { <span class="hljs-attr">full_name</span>: <span class="hljs-string">'string'</span>, <span class="hljs-attr">username</span>: <span class="hljs-string">'string'</span> },
-  <span class="hljs-attr">signup</span>: { <span class="hljs-attr">method</span>: <span class="hljs-string">'email'</span>, <span class="hljs-attr">datetime</span>: <span class="hljs-string">'2017-07-31T17:51:21Z'</span> } }
+<pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> hermes = <span class="hljs-built_in">require</span>(<span class="hljs-string">'hermesjs'</span>);
+<span class="hljs-keyword">const</span> app = hermes();
+
+app.from.client.send({
+  <span class="hljs-attr">topic</span>: <span class="hljs-string">'accounts.1.0.action.user.signup'</span>,
+  <span class="hljs-attr">payload</span>: {
+  <span class="hljs-string">"user"</span>: {
+    <span class="hljs-string">"full_name"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-string">"username"</span>: <span class="hljs-string">"string"</span>
+  },
+  <span class="hljs-string">"signup"</span>: {
+    <span class="hljs-string">"method"</span>: <span class="hljs-string">"email"</span>,
+    <span class="hljs-string">"datetime"</span>: <span class="hljs-string">"2018-04-03T07:32:55Z"</span>
+  }
+}
 });
+
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-comment">//Coming soon...</span>
+
 </code></pre>
 <pre class="highlight tab tab-ruby"><code><span class="hljs-comment"># Coming soon...</span>
+
 </code></pre>
 <pre class="highlight tab tab-python"><code>//Coming soon...
+
 </code></pre>
-<pre class="highlight tab tab-java"><code><span class="hljs-comment">//Coming soon...</span>
+<pre class="highlight tab tab-java"><code><span class="hljs-comment">/* asyncapi-java-tools */</span>
+<span class="hljs-keyword">try</span> (JmsServer client = builder.build()) {
+
+  client.accounts.1.0.action.user.signup()
+    .publish({
+  <span class="hljs-string">"user"</span>: {
+    <span class="hljs-string">"full_name"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-string">"username"</span>: <span class="hljs-string">"string"</span>
+  },
+  <span class="hljs-string">"signup"</span>: {
+    <span class="hljs-string">"method"</span>: <span class="hljs-string">"email"</span>,
+    <span class="hljs-string">"datetime"</span>: <span class="hljs-string">"2018-04-03T07:32:55Z"</span>
+  }
+})
+    .toCompletableFuture()
+    .get();
+}
+
 </code></pre>
 <pre class="highlight tab tab-go"><code><span class="hljs-comment">//Coming soon...</span>
+
 </code></pre>
 <p><em>Action to sign a user up.</em></p>
 <p>Multiline description of what this action does. <strong>It allows Markdown.</strong></p>
-<h3 id="headers">Headers</h3>
-<h4 id="properties">Properties</h4>
+<h4 id="headers">Headers</h4>
+<h5 id="properties">Properties</h5>
 <table>
 <thead>
 <tr>
@@ -262,7 +386,7 @@ window.onpopstate = function() {
 <tbody>
 <tr>
 <td>qos</td>
-<td>integer(int32)</td>
+<td>integer</td>
 <td>false</td>
 <td>Quality of Service</td>
 </tr>
@@ -274,8 +398,8 @@ window.onpopstate = function() {
 </tr>
 </tbody>
 </table>
-<h3 id="payload">Payload</h3>
-<h4 id="properties">Properties</h4>
+<h4 id="payload">Payload</h4>
+<h5 id="properties">Properties</h5>
 <table>
 <thead>
 <tr>
@@ -288,37 +412,37 @@ window.onpopstate = function() {
 <tbody>
 <tr>
 <td>user</td>
-<td><a href="#schemausercreate">userCreate</a></td>
+<td>object</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» full_name</td>
+<td>full_name</td>
 <td>string</td>
 <td>false</td>
 <td>User full name</td>
 </tr>
 <tr>
-<td>» username</td>
+<td>username</td>
 <td>string</td>
 <td>true</td>
 <td>User handle</td>
 </tr>
 <tr>
 <td>signup</td>
-<td><a href="#schemasignup">signup</a></td>
+<td>object</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» method</td>
+<td>method</td>
 <td>string</td>
 <td>true</td>
 <td>Signup method</td>
 </tr>
 <tr>
-<td>» datetime</td>
-<td>string(date-time)</td>
+<td>datetime</td>
+<td>string</td>
 <td>true</td>
 <td>Date and Time of the message</td>
 </tr>
@@ -328,11 +452,13 @@ window.onpopstate = function() {
 This operation does not require authentication
 </aside>
 <h1 id="default">Default</h1>
-<h2 id="subscribe-hitch-accounts-1-0-event-user-signup">subscribe hitch.accounts.1.0.event.user.signup</h2>
+<h2 id="accounts-1-0-event-user-signup">accounts.1.0.event.user.signup</h2>
+<h3 id="subscribe">subscribe</h3>
 <blockquote>
 <p>Example payload</p>
 </blockquote>
-<pre class="highlight tab tab-json"><code>{
+<pre class="highlight tab tab-json"><code>
+{
   <span class="hljs-attr">"user"</span>: {
     <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
     <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"string"</span>,
@@ -340,31 +466,66 @@ This operation does not require authentication
   },
   <span class="hljs-attr">"signup"</span>: {
     <span class="hljs-attr">"method"</span>: <span class="hljs-string">"email"</span>,
-    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T17:51:21Z"</span>
+    <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2018-04-03T07:32:55Z"</span>
   }
 }
 </code></pre>
 <blockquote>
-<p>Code samples</p>
+<p>Code Samples</p>
 </blockquote>
-<pre class="highlight tab tab-javascript--nodejs"><code>app.from.client.send({
-  <span class="hljs-attr">topic</span>: <span class="hljs-string">'hitch.accounts.1.0.event.user.signup'</span>,
-  <span class="hljs-attr">payload</span>: { <span class="hljs-attr">user</span>: { <span class="hljs-attr">id</span>: <span class="hljs-string">'string'</span>, <span class="hljs-attr">full_name</span>: <span class="hljs-string">'string'</span>, <span class="hljs-attr">username</span>: <span class="hljs-string">'string'</span> },
-  <span class="hljs-attr">signup</span>: { <span class="hljs-attr">method</span>: <span class="hljs-string">'email'</span>, <span class="hljs-attr">datetime</span>: <span class="hljs-string">'2017-07-31T17:51:21Z'</span> } }
+<pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> hermes = <span class="hljs-built_in">require</span>(<span class="hljs-string">'hermesjs'</span>);
+<span class="hljs-keyword">const</span> app = hermes();
+
+app.from.client.send({
+  <span class="hljs-attr">topic</span>: <span class="hljs-string">'accounts.1.0.event.user.signup'</span>,
+  <span class="hljs-attr">payload</span>: {
+  <span class="hljs-string">"user"</span>: {
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-string">"full_name"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-string">"username"</span>: <span class="hljs-string">"string"</span>
+  },
+  <span class="hljs-string">"signup"</span>: {
+    <span class="hljs-string">"method"</span>: <span class="hljs-string">"email"</span>,
+    <span class="hljs-string">"datetime"</span>: <span class="hljs-string">"2018-04-03T07:32:55Z"</span>
+  }
+}
 });
+
 </code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-comment">//Coming soon...</span>
+
 </code></pre>
 <pre class="highlight tab tab-ruby"><code><span class="hljs-comment"># Coming soon...</span>
+
 </code></pre>
 <pre class="highlight tab tab-python"><code>//Coming soon...
+
 </code></pre>
-<pre class="highlight tab tab-java"><code><span class="hljs-comment">//Coming soon...</span>
+<pre class="highlight tab tab-java"><code><span class="hljs-comment">/* asyncapi-java-tools */</span>
+<span class="hljs-keyword">try</span> (JmsServer client = builder.build()) {
+
+  client.accounts.1.0.event.user.signup()
+    .publish({
+  <span class="hljs-string">"user"</span>: {
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-string">"full_name"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-string">"username"</span>: <span class="hljs-string">"string"</span>
+  },
+  <span class="hljs-string">"signup"</span>: {
+    <span class="hljs-string">"method"</span>: <span class="hljs-string">"email"</span>,
+    <span class="hljs-string">"datetime"</span>: <span class="hljs-string">"2018-04-03T07:32:55Z"</span>
+  }
+})
+    .toCompletableFuture()
+    .get();
+}
+
 </code></pre>
 <pre class="highlight tab tab-go"><code><span class="hljs-comment">//Coming soon...</span>
+
 </code></pre>
-<h3 id="payload">Payload</h3>
-<h4 id="properties">Properties</h4>
+<h4 id="payload">Payload</h4>
+<h5 id="properties">Properties</h5>
 <table>
 <thead>
 <tr>
@@ -377,43 +538,43 @@ This operation does not require authentication
 <tbody>
 <tr>
 <td>user</td>
-<td><a href="#schemauser">user</a></td>
+<td>object</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» id</td>
+<td>id</td>
 <td>string</td>
 <td>true</td>
 <td>Resource identifier</td>
 </tr>
 <tr>
-<td>» full_name</td>
+<td>full_name</td>
 <td>string</td>
 <td>false</td>
 <td>User full name</td>
 </tr>
 <tr>
-<td>» username</td>
+<td>username</td>
 <td>string</td>
 <td>true</td>
 <td>User handle</td>
 </tr>
 <tr>
 <td>signup</td>
-<td><a href="#schemasignup">signup</a></td>
+<td>object</td>
 <td>false</td>
 <td>No description</td>
 </tr>
 <tr>
-<td>» method</td>
+<td>method</td>
 <td>string</td>
 <td>true</td>
 <td>Signup method</td>
 </tr>
 <tr>
-<td>» datetime</td>
-<td>string(date-time)</td>
+<td>datetime</td>
+<td>string</td>
 <td>true</td>
 <td>Date and Time of the message</td>
 </tr>
@@ -425,7 +586,7 @@ This operation does not require authentication
 <h1 id="schemas">Schemas</h1>
 <h2 id="id">id</h2>
 <p><a name="schemaid"></a></p>
-<pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span> 
+<pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span>
 </code></pre>
 <h3 id="properties">Properties</h3>
 <table>
@@ -440,7 +601,7 @@ This operation does not require authentication
 <tbody>
 <tr>
 <td>id</td>
-<td>string</td>
+<td><a href="#schemaid">id</a></td>
 <td>false</td>
 <td>Resource identifier</td>
 </tr>
@@ -448,7 +609,7 @@ This operation does not require authentication
 </table>
 <h2 id="username">username</h2>
 <p><a name="schemausername"></a></p>
-<pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span> 
+<pre class="highlight tab tab-json"><code><span class="hljs-string">"string"</span>
 </code></pre>
 <h3 id="properties">Properties</h3>
 <table>
@@ -463,7 +624,7 @@ This operation does not require authentication
 <tbody>
 <tr>
 <td>username</td>
-<td>string</td>
+<td><a href="#schemausername">username</a></td>
 <td>false</td>
 <td>User handle</td>
 </tr>
@@ -471,7 +632,7 @@ This operation does not require authentication
 </table>
 <h2 id="datetime">datetime</h2>
 <p><a name="schemadatetime"></a></p>
-<pre class="highlight tab tab-json"><code><span class="hljs-string">"2017-07-31T17:51:21Z"</span> 
+<pre class="highlight tab tab-json"><code><span class="hljs-string">"2018-04-03T07:32:55Z"</span>
 </code></pre>
 <h3 id="properties">Properties</h3>
 <table>
@@ -486,7 +647,7 @@ This operation does not require authentication
 <tbody>
 <tr>
 <td>datetime</td>
-<td>string(date-time)</td>
+<td><a href="#schemadatetime">datetime</a>(date-time)</td>
 <td>false</td>
 <td>Date and Time of the message</td>
 </tr>
@@ -494,7 +655,7 @@ This operation does not require authentication
 </table>
 <h2 id="mqttqosheader">MQTTQoSHeader</h2>
 <p><a name="schemamqttqosheader"></a></p>
-<pre class="highlight tab tab-json"><code><span class="hljs-number">1</span> 
+<pre class="highlight tab tab-json"><code><span class="hljs-number">1</span>
 </code></pre>
 <h3 id="properties">Properties</h3>
 <table>
@@ -509,15 +670,34 @@ This operation does not require authentication
 <tbody>
 <tr>
 <td>qos</td>
-<td>integer(int32)</td>
+<td><a href="#schemamqttqosheader">MQTTQoSHeader</a>(int32)</td>
 <td>false</td>
 <td>Quality of Service</td>
 </tr>
 </tbody>
 </table>
+<h4 id="enumerated-values">Enumerated Values</h4>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>qos</td>
+<td>0</td>
+</tr>
+<tr>
+<td>qos</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
 <h2 id="mqttretainheader">MQTTRetainHeader</h2>
 <p><a name="schemamqttretainheader"></a></p>
-<pre class="highlight tab tab-json"><code><span class="hljs-literal">false</span> 
+<pre class="highlight tab tab-json"><code><span class="hljs-literal">false</span>
 </code></pre>
 <h3 id="properties">Properties</h3>
 <table>
@@ -532,7 +712,7 @@ This operation does not require authentication
 <tbody>
 <tr>
 <td>retainFlag</td>
-<td>boolean</td>
+<td><a href="#schemamqttretainheader">MQTTRetainHeader</a></td>
 <td>false</td>
 <td>This flag determines if the message will be saved by the broker for the specified topic as last known good value. New clients that subscribe to that topic will receive the last retained message on that topic instantly after subscribing. More on retained messages and best practices in one of the next posts.</td>
 </tr>
@@ -544,7 +724,7 @@ This operation does not require authentication
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"string"</span>,
   <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"string"</span>,
   <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>
-} 
+}
 </code></pre>
 <h3 id="properties">Properties</h3>
 <table>
@@ -558,20 +738,20 @@ This operation does not require authentication
 </thead>
 <tbody>
 <tr>
-<td>id</td>
-<td>string</td>
+<td>» id</td>
+<td><a href="#schemaid">id</a></td>
 <td>true</td>
 <td>Resource identifier</td>
 </tr>
 <tr>
-<td>full_name</td>
+<td>» full_name</td>
 <td>string</td>
 <td>false</td>
 <td>User full name</td>
 </tr>
 <tr>
-<td>username</td>
-<td>string</td>
+<td>» username</td>
+<td><a href="#schemausername">username</a></td>
 <td>true</td>
 <td>User handle</td>
 </tr>
@@ -582,7 +762,7 @@ This operation does not require authentication
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"full_name"</span>: <span class="hljs-string">"string"</span>,
   <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>
-} 
+}
 </code></pre>
 <h3 id="properties">Properties</h3>
 <table>
@@ -596,14 +776,14 @@ This operation does not require authentication
 </thead>
 <tbody>
 <tr>
-<td>full_name</td>
+<td>» full_name</td>
 <td>string</td>
 <td>false</td>
 <td>User full name</td>
 </tr>
 <tr>
-<td>username</td>
-<td>string</td>
+<td>» username</td>
+<td><a href="#schemausername">username</a></td>
 <td>true</td>
 <td>User handle</td>
 </tr>
@@ -613,8 +793,8 @@ This operation does not require authentication
 <p><a name="schemasignup"></a></p>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"method"</span>: <span class="hljs-string">"email"</span>,
-  <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2017-07-31T17:51:21Z"</span>
-} 
+  <span class="hljs-attr">"datetime"</span>: <span class="hljs-string">"2018-04-03T07:32:55Z"</span>
+}
 </code></pre>
 <h3 id="properties">Properties</h3>
 <table>
@@ -628,14 +808,14 @@ This operation does not require authentication
 </thead>
 <tbody>
 <tr>
-<td>method</td>
+<td>» method</td>
 <td>string</td>
 <td>true</td>
 <td>Signup method</td>
 </tr>
 <tr>
-<td>datetime</td>
-<td>string(date-time)</td>
+<td>» datetime</td>
+<td><a href="#schemadatetime">datetime</a>(date-time)</td>
 <td>true</td>
 <td>Date and Time of the message</td>
 </tr>
@@ -673,7 +853,6 @@ This operation does not require authentication
 </tbody>
 </table>
 
-        
       </div>
       <div class="dark-box">
         
@@ -688,11 +867,11 @@ This operation does not require authentication
               
             
               
-                <a href="#" data-language-name="python">Python</a>
+                <a href="#" data-language-name="ruby">Ruby</a>
               
             
               
-                <a href="#" data-language-name="ruby">Ruby</a>
+                <a href="#" data-language-name="python">Python</a>
               
             
               
