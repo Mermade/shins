@@ -1,15 +1,16 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
-var util = require('util');
+const fs = require('fs');
+const path = require('path');
+const util = require('util');
 
-var maybe = require('call-me-maybe');
+const maybe = require('call-me-maybe');
 
 var hljs = require('highlightjs/highlight.pack.js');
 var hlpath = require.resolve('highlightjs/highlight.pack.js').replace('highlight.pack.js', '');
 
-var emoji = require('markdown-it-emoji');
+const emoji = require('markdown-it-emoji');
+const attrs = require('markdown-it-attrs');
 var md = require('markdown-it')({
     linkify: true, html: true,
     highlight: function (str, lang) {
@@ -26,13 +27,13 @@ var md = require('markdown-it')({
     }
 }).use(require('markdown-it-lazy-headers'));
 md.use(emoji);
-var yaml = require('js-yaml');
-var ejs = require('ejs');
-var uglify = require('uglify-js');
-var cheerio = require('cheerio');
-var sanitizeHtml = require('sanitize-html');
+const yaml = require('js-yaml');
+const ejs = require('ejs');
+const uglify = require('uglify-js');
+const cheerio = require('cheerio');
+const sanitizeHtml = require('sanitize-html');
 
-var globalOptions = {};
+let globalOptions = {};
 
 function javascript_include_tag(include) {
     var includeStr = fs.readFileSync(path.join(__dirname, '/source/javascripts/' + include + '.inc'), 'utf8');
@@ -187,6 +188,8 @@ function clean(s) {
 }
 
 function render(inputStr, options, callback) {
+
+    if (options.attr) md.use(attrs);
 
     if (typeof callback === 'undefined') { // for pre-v1.4.0 compatibility
         callback = options;

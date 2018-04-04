@@ -15,12 +15,14 @@ if (options._.length > 2) {
 }
 
 if (options.h) options.help = options.h;
+if (options.a) options.attr = options.a;
 if (options.o) options.output = options.o;
 
 if (options.help) {
     console.log('Usage: node shins [options] [input-markdown-filename]');
     console.log();
     console.log('-h,--help   show help and exit');
+    console.log('-a,--attr   allow css attributes in markdown');
     console.log('--customcss include custom override css files');
     console.log('--fonturl   url to fonts when --inline is set, defaults to github repo');
     console.log('--inline    inline css and javascript resources');

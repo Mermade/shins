@@ -66,6 +66,9 @@ function check(req,res,fpath) {
                 if (req.query.minify) {
                     options.minify = true;
                 }
+                if (req.query.attr) {
+                    options.attr = true;
+                }
                 options.source = source;
                 shins.render(markdown,options,function(err,html){
                     if (err) {
