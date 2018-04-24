@@ -39,7 +39,8 @@ window.onpopstate = function() {
 </script>
 
     
-    <meta name="theme-color" content="#F3F7F9" />
+    <!-- shins; content for the head element from source/includes/_head.md -->
+<meta name="theme-color" content="#F3F7F9">
 
   </head>
 
@@ -345,7 +346,7 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
 curl -X POST http://petstore.swagger.io/v2/pet \
   -H <span class="hljs-string">'Content-Type: application/json'</span> \
-  -H <span class="hljs-string">'Authorization: bearer {access-token}'</span>
+  -H <span class="hljs-string">'Authorization: Bearer {access-token}'</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1
@@ -355,7 +356,7 @@ curl -X POST http://petstore.swagger.io/v2/pet \
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -391,7 +392,7 @@ $.ajax({
 }'</span>;
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -413,7 +414,7 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
 
 headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
@@ -426,7 +427,7 @@ p JSON.parse(result)
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
   <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, params={
@@ -462,7 +463,7 @@ System.out.println(response.toString());
 
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">"Content-Type"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
-        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"bearer {access-token}"</span>},
+        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"Bearer {access-token}"</span>},
         
     }
 
@@ -568,7 +569,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
 curl -X PUT http://petstore.swagger.io/v2/pet \
   -H <span class="hljs-string">'Content-Type: application/json'</span> \
-  -H <span class="hljs-string">'Authorization: bearer {access-token}'</span>
+  -H <span class="hljs-string">'Authorization: Bearer {access-token}'</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">PUT</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet</span> HTTP/1.1
@@ -578,7 +579,7 @@ curl -X PUT http://petstore.swagger.io/v2/pet \
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -614,7 +615,7 @@ $.ajax({
 }'</span>;
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -636,7 +637,7 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
 
 headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 result = RestClient.put <span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>,
@@ -649,7 +650,7 @@ p JSON.parse(result)
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
   <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</span>, params={
@@ -685,7 +686,7 @@ System.out.println(response.toString());
 
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">"Content-Type"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
-        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"bearer {access-token}"</span>},
+        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"Bearer {access-token}"</span>},
         
     }
 
@@ -803,7 +804,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
 curl -X GET http://petstore.swagger.io/v2/pet/findByStatus?status=available \
   -H <span class="hljs-string">'Accept: application/xml'</span> \
-  -H <span class="hljs-string">'Authorization: bearer {access-token}'</span>
+  -H <span class="hljs-string">'Authorization: Bearer {access-token}'</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByStatus?status=available</span> HTTP/1.1
@@ -814,7 +815,7 @@ curl -X GET http://petstore.swagger.io/v2/pet/findByStatus?status=available \
 <span class="hljs-title"></span></span></code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -833,7 +834,7 @@ $.ajax({
 
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -855,7 +856,7 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus?
 
 headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
-  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>,
@@ -869,7 +870,7 @@ p JSON.parse(result)
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
   <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
-  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByStatus'</span>, params={
@@ -907,7 +908,7 @@ System.out.println(response.toString());
 
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/xml"</span>},
-        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"bearer {access-token}"</span>},
+        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"Bearer {access-token}"</span>},
         
     }
 
@@ -1146,7 +1147,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
 curl -X GET http://petstore.swagger.io/v2/pet/findByTags?tags=string \
   -H <span class="hljs-string">'Accept: application/xml'</span> \
-  -H <span class="hljs-string">'Authorization: bearer {access-token}'</span>
+  -H <span class="hljs-string">'Authorization: Bearer {access-token}'</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/findByTags?tags=string</span> HTTP/1.1
@@ -1157,7 +1158,7 @@ curl -X GET http://petstore.swagger.io/v2/pet/findByTags?tags=string \
 <span class="hljs-title"></span></span></code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -1176,7 +1177,7 @@ $.ajax({
 
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -1198,7 +1199,7 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags?ta
 
 headers = {
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
-  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>,
@@ -1212,7 +1213,7 @@ p JSON.parse(result)
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
   <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
-  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/findByTags'</span>, params={
@@ -1250,7 +1251,7 @@ System.out.println(response.toString());
 
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/xml"</span>},
-        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"bearer {access-token}"</span>},
+        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"Bearer {access-token}"</span>},
         
     }
 
@@ -1465,7 +1466,8 @@ petstore_auth ( Scopes: write:pets read:pets )
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
 curl -X GET http://petstore.swagger.io/v2/pet/{petId} \
-  -H <span class="hljs-string">'Accept: application/xml'</span>
+  -H <span class="hljs-string">'Accept: application/xml'</span> \
+  -H <span class="hljs-string">'api_key: API_KEY'</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1
@@ -1475,7 +1477,8 @@ curl -X GET http://petstore.swagger.io/v2/pet/{petId} \
 
 <span class="hljs-title"></span></span></code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'api_key'</span>:<span class="hljs-string">'API_KEY'</span>
 
 };
 
@@ -1493,7 +1496,8 @@ $.ajax({
 <pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
 
 <span class="hljs-keyword">const</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'api_key'</span>:<span class="hljs-string">'API_KEY'</span>
 
 };
 
@@ -1514,7 +1518,8 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</spa
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'api_key'</span> =&gt; <span class="hljs-string">'API_KEY'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
@@ -1526,7 +1531,8 @@ p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/xml'</span>,
+  <span class="hljs-string">'api_key'</span>: <span class="hljs-string">'API_KEY'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, params={
@@ -1562,6 +1568,7 @@ System.out.println(response.toString());
 
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/xml"</span>},
+        <span class="hljs-string">"api_key"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"API_KEY"</span>},
         
     }
 
@@ -1680,7 +1687,7 @@ api_key
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
 curl -X POST http://petstore.swagger.io/v2/pet/{petId} \
   -H <span class="hljs-string">'Content-Type: application/x-www-form-urlencoded'</span> \
-  -H <span class="hljs-string">'Authorization: bearer {access-token}'</span>
+  -H <span class="hljs-string">'Authorization: Bearer {access-token}'</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1
@@ -1690,7 +1697,7 @@ curl -X POST http://petstore.swagger.io/v2/pet/{petId} \
 <span class="undefined"></span></code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/x-www-form-urlencoded'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -1712,7 +1719,7 @@ $.ajax({
 }'</span>;
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'application/x-www-form-urlencoded'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -1734,7 +1741,7 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</spa
 
 headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/x-www-form-urlencoded'</span>,
-  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
@@ -1747,7 +1754,7 @@ p JSON.parse(result)
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
   <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/x-www-form-urlencoded'</span>,
-  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, params={
@@ -1783,7 +1790,7 @@ System.out.println(response.toString());
 
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">"Content-Type"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/x-www-form-urlencoded"</span>},
-        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"bearer {access-token}"</span>},
+        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"Bearer {access-token}"</span>},
         
     }
 
@@ -1879,7 +1886,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
 curl -X DELETE http://petstore.swagger.io/v2/pet/{petId} \
   -H <span class="hljs-string">'api_key: string'</span> \
-  -H <span class="hljs-string">'Authorization: bearer {access-token}'</span>
+  -H <span class="hljs-string">'Authorization: Bearer {access-token}'</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}</span> HTTP/1.1
@@ -1890,7 +1897,7 @@ curl -X DELETE http://petstore.swagger.io/v2/pet/{petId} \
 <span class="undefined"></span></span></code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
   <span class="hljs-string">'api_key'</span>:<span class="hljs-string">'string'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -1909,7 +1916,7 @@ $.ajax({
 
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'api_key'</span>:<span class="hljs-string">'string'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -1931,7 +1938,7 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</spa
 
 headers = {
   <span class="hljs-string">'api_key'</span> =&gt; <span class="hljs-string">'string'</span>,
-  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 result = RestClient.delete <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>,
@@ -1944,7 +1951,7 @@ p JSON.parse(result)
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
   <span class="hljs-string">'api_key'</span>: <span class="hljs-string">'string'</span>,
-  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}'</span>, params={
@@ -1980,7 +1987,7 @@ System.out.println(response.toString());
 
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">"api_key"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"string"</span>},
-        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"bearer {access-token}"</span>},
+        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"Bearer {access-token}"</span>},
         
     }
 
@@ -2062,7 +2069,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 curl -X POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
   -H <span class="hljs-string">'Content-Type: multipart/form-data'</span> \
   -H <span class="hljs-string">'Accept: application/json'</span> \
-  -H <span class="hljs-string">'Authorization: bearer {access-token}'</span>
+  -H <span class="hljs-string">'Authorization: Bearer {access-token}'</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">POST</span> <span class="hljs-string">http://petstore.swagger.io/v2/pet/{petId}/uploadImage</span> HTTP/1.1
@@ -2074,7 +2081,7 @@ curl -X POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'multipart/form-data'</span>,
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -2097,7 +2104,7 @@ $.ajax({
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Content-Type'</span>:<span class="hljs-string">'multipart/form-data'</span>,
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
 
 };
 
@@ -2120,7 +2127,7 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploa
 headers = {
   <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'multipart/form-data'</span>,
   <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 result = RestClient.post <span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>,
@@ -2134,7 +2141,7 @@ p JSON.parse(result)
 headers = {
   <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'multipart/form-data'</span>,
   <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>,
-  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'bearer {access-token}'</span>
+  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer {access-token}'</span>
 }
 
 r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{petId}/uploadImage'</span>, params={
@@ -2171,7 +2178,7 @@ System.out.println(response.toString());
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">"Content-Type"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"multipart/form-data"</span>},
         <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
-        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"bearer {access-token}"</span>},
+        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"Bearer {access-token}"</span>},
         
     }
 
@@ -2277,7 +2284,8 @@ petstore_auth ( Scopes: write:pets read:pets )
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
 curl -X GET http://petstore.swagger.io/v2/store/inventory \
-  -H <span class="hljs-string">'Accept: application/json'</span>
+  -H <span class="hljs-string">'Accept: application/json'</span> \
+  -H <span class="hljs-string">'api_key: API_KEY'</span>
 
 </code></pre>
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/store/inventory</span> HTTP/1.1
@@ -2287,7 +2295,8 @@ curl -X GET http://petstore.swagger.io/v2/store/inventory \
 
 <span class="undefined"></span></span></code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">var</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>,
+  <span class="hljs-string">'api_key'</span>:<span class="hljs-string">'API_KEY'</span>
 
 };
 
@@ -2305,7 +2314,8 @@ $.ajax({
 <pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">'node-fetch'</span>);
 
 <span class="hljs-keyword">const</span> headers = {
-  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>,
+  <span class="hljs-string">'api_key'</span>:<span class="hljs-string">'API_KEY'</span>
 
 };
 
@@ -2326,7 +2336,8 @@ fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'<
 <span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
 
 headers = {
-  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
+  <span class="hljs-string">'api_key'</span> =&gt; <span class="hljs-string">'API_KEY'</span>
 }
 
 result = RestClient.get <span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>,
@@ -2338,7 +2349,8 @@ p JSON.parse(result)
 </code></pre>
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 headers = {
-  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'application/json'</span>,
+  <span class="hljs-string">'api_key'</span>: <span class="hljs-string">'API_KEY'</span>
 }
 
 r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/inventory'</span>, params={
@@ -2374,6 +2386,7 @@ System.out.println(response.toString());
 
     headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
         <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"application/json"</span>},
+        <span class="hljs-string">"api_key"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"API_KEY"</span>},
         
     }
 
@@ -2480,7 +2493,7 @@ $.ajax({
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-03-27T11:34:36Z",
+  "shipDate": "2018-04-24T13:02:08Z",
   "status": "placed",
   "complete": false
 }'</span>;
@@ -2580,7 +2593,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2018-03-27T11:34:36Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2018-04-24T13:02:08Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2614,7 +2627,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2018-03-27T11:34:36Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2018-04-24T13:02:08Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -2623,7 +2636,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2018-03-27T11:34:36Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2018-04-24T13:02:08Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -2805,7 +2818,7 @@ System.out.println(response.toString());
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">quantity</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">quantity</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2018-03-27T11:34:36Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">shipDate</span>&gt;</span>2018-04-24T13:02:08Z<span class="hljs-tag">&lt;/<span class="hljs-name">shipDate</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span>placed<span class="hljs-tag">&lt;/<span class="hljs-name">status</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">complete</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">complete</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
@@ -2814,7 +2827,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2018-03-27T11:34:36Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2018-04-24T13:02:08Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -4433,7 +4446,7 @@ This operation does not require authentication
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"quantity"</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2018-03-27T11:34:36Z"</span>,
+  <span class="hljs-attr">"shipDate"</span>: <span class="hljs-string">"2018-04-24T13:02:08Z"</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"placed"</span>,
   <span class="hljs-attr">"complete"</span>: <span class="hljs-literal">false</span>
 }
@@ -4780,6 +4793,17 @@ This operation does not require authentication
 </tr>
 </tbody>
 </table>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "WebAPI",
+  "description": ":dog: :cat: :rabbit: This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+  "documentation": "https://mermade.github.io/shins/asyncapi.html",
+  "termsOfService": "http://swagger.io/terms/",
+  
+  "name": "Swagger Petstore"
+}
+</script>
 
       </div>
       <div class="dark-box">

@@ -65,7 +65,7 @@ Everything about your Pets
 # You can also use wget
 curl -X POST http://petstore.swagger.io/v2/pet \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: bearer {access-token}'
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -79,7 +79,7 @@ Content-Type: application/json
 ```javascript
 var headers = {
   'Content-Type':'application/json',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -117,7 +117,7 @@ const inputBody = '{
 }';
 const headers = {
   'Content-Type':'application/json',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -141,7 +141,7 @@ require 'json'
 
 headers = {
   'Content-Type' => 'application/json',
-  'Authorization' => 'bearer {access-token}'
+  'Authorization' => 'Bearer {access-token}'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/pet',
@@ -156,7 +156,7 @@ p JSON.parse(result)
 import requests
 headers = {
   'Content-Type': 'application/json',
-  'Authorization': 'bearer {access-token}'
+  'Authorization': 'Bearer {access-token}'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/pet', params={
@@ -196,7 +196,7 @@ func main() {
 
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
-        "Authorization": []string{"bearer {access-token}"},
+        "Authorization": []string{"Bearer {access-token}"},
         
     }
 
@@ -237,6 +237,7 @@ func main() {
   "status": "available"
 }
 ```
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <Pet>
@@ -282,7 +283,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 # You can also use wget
 curl -X PUT http://petstore.swagger.io/v2/pet \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: bearer {access-token}'
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -296,7 +297,7 @@ Content-Type: application/json
 ```javascript
 var headers = {
   'Content-Type':'application/json',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -334,7 +335,7 @@ const inputBody = '{
 }';
 const headers = {
   'Content-Type':'application/json',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -358,7 +359,7 @@ require 'json'
 
 headers = {
   'Content-Type' => 'application/json',
-  'Authorization' => 'bearer {access-token}'
+  'Authorization' => 'Bearer {access-token}'
 }
 
 result = RestClient.put 'http://petstore.swagger.io/v2/pet',
@@ -373,7 +374,7 @@ p JSON.parse(result)
 import requests
 headers = {
   'Content-Type': 'application/json',
-  'Authorization': 'bearer {access-token}'
+  'Authorization': 'Bearer {access-token}'
 }
 
 r = requests.put('http://petstore.swagger.io/v2/pet', params={
@@ -413,7 +414,7 @@ func main() {
 
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
-        "Authorization": []string{"bearer {access-token}"},
+        "Authorization": []string{"Bearer {access-token}"},
         
     }
 
@@ -454,6 +455,7 @@ func main() {
   "status": "available"
 }
 ```
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <Pet>
@@ -501,7 +503,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 # You can also use wget
 curl -X GET http://petstore.swagger.io/v2/pet/findByStatus?status=available \
   -H 'Accept: application/xml' \
-  -H 'Authorization: bearer {access-token}'
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -516,7 +518,7 @@ Accept: application/xml
 ```javascript
 var headers = {
   'Accept':'application/xml',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -537,7 +539,7 @@ const request = require('node-fetch');
 
 const headers = {
   'Accept':'application/xml',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -561,7 +563,7 @@ require 'json'
 
 headers = {
   'Accept' => 'application/xml',
-  'Authorization' => 'bearer {access-token}'
+  'Authorization' => 'Bearer {access-token}'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByStatus',
@@ -577,7 +579,7 @@ p JSON.parse(result)
 import requests
 headers = {
   'Accept': 'application/xml',
-  'Authorization': 'bearer {access-token}'
+  'Authorization': 'Bearer {access-token}'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/pet/findByStatus', params={
@@ -619,7 +621,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/xml"},
-        "Authorization": []string{"bearer {access-token}"},
+        "Authorization": []string{"Bearer {access-token}"},
         
     }
 
@@ -671,6 +673,7 @@ Multiple status values can be provided with comma separated strings
 </tags>
 <status>available</status>
 ```
+
 ```json
 [
   {
@@ -742,7 +745,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 # You can also use wget
 curl -X GET http://petstore.swagger.io/v2/pet/findByTags?tags=string \
   -H 'Accept: application/xml' \
-  -H 'Authorization: bearer {access-token}'
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -757,7 +760,7 @@ Accept: application/xml
 ```javascript
 var headers = {
   'Accept':'application/xml',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -778,7 +781,7 @@ const request = require('node-fetch');
 
 const headers = {
   'Accept':'application/xml',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -802,7 +805,7 @@ require 'json'
 
 headers = {
   'Accept' => 'application/xml',
-  'Authorization' => 'bearer {access-token}'
+  'Authorization' => 'Bearer {access-token}'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/pet/findByTags',
@@ -818,7 +821,7 @@ p JSON.parse(result)
 import requests
 headers = {
   'Accept': 'application/xml',
-  'Authorization': 'bearer {access-token}'
+  'Authorization': 'Bearer {access-token}'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/pet/findByTags', params={
@@ -860,7 +863,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/xml"},
-        "Authorization": []string{"bearer {access-token}"},
+        "Authorization": []string{"Bearer {access-token}"},
         
     }
 
@@ -904,6 +907,7 @@ Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 
 </tags>
 <status>available</status>
 ```
+
 ```json
 [
   {
@@ -974,7 +978,8 @@ petstore_auth ( Scopes: write:pets read:pets )
 ```shell
 # You can also use wget
 curl -X GET http://petstore.swagger.io/v2/pet/{petId} \
-  -H 'Accept: application/xml'
+  -H 'Accept: application/xml' \
+  -H 'api_key: API_KEY'
 
 ```
 
@@ -988,7 +993,8 @@ Accept: application/xml
 
 ```javascript
 var headers = {
-  'Accept':'application/xml'
+  'Accept':'application/xml',
+  'api_key':'API_KEY'
 
 };
 
@@ -1008,7 +1014,8 @@ $.ajax({
 const request = require('node-fetch');
 
 const headers = {
-  'Accept':'application/xml'
+  'Accept':'application/xml',
+  'api_key':'API_KEY'
 
 };
 
@@ -1031,7 +1038,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/xml'
+  'Accept' => 'application/xml',
+  'api_key' => 'API_KEY'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/pet/{petId}',
@@ -1045,7 +1053,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/xml'
+  'Accept': 'application/xml',
+  'api_key': 'API_KEY'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/pet/{petId}', params={
@@ -1085,6 +1094,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/xml"},
+        "api_key": []string{"API_KEY"},
         
     }
 
@@ -1130,6 +1140,7 @@ Returns a single pet
   <status>available</status>
 </Pet>
 ```
+
 ```json
 {
   "id": 0,
@@ -1174,7 +1185,7 @@ api_key
 # You can also use wget
 curl -X POST http://petstore.swagger.io/v2/pet/{petId} \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  -H 'Authorization: bearer {access-token}'
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -1188,7 +1199,7 @@ Content-Type: application/x-www-form-urlencoded
 ```javascript
 var headers = {
   'Content-Type':'application/x-www-form-urlencoded',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -1212,7 +1223,7 @@ const inputBody = '{
 }';
 const headers = {
   'Content-Type':'application/x-www-form-urlencoded',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -1236,7 +1247,7 @@ require 'json'
 
 headers = {
   'Content-Type' => 'application/x-www-form-urlencoded',
-  'Authorization' => 'bearer {access-token}'
+  'Authorization' => 'Bearer {access-token}'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}',
@@ -1251,7 +1262,7 @@ p JSON.parse(result)
 import requests
 headers = {
   'Content-Type': 'application/x-www-form-urlencoded',
-  'Authorization': 'bearer {access-token}'
+  'Authorization': 'Bearer {access-token}'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/pet/{petId}', params={
@@ -1291,7 +1302,7 @@ func main() {
 
     headers := map[string][]string{
         "Content-Type": []string{"application/x-www-form-urlencoded"},
-        "Authorization": []string{"bearer {access-token}"},
+        "Authorization": []string{"Bearer {access-token}"},
         
     }
 
@@ -1348,7 +1359,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 # You can also use wget
 curl -X DELETE http://petstore.swagger.io/v2/pet/{petId} \
   -H 'api_key: string' \
-  -H 'Authorization: bearer {access-token}'
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -1363,7 +1374,7 @@ api_key: string
 ```javascript
 var headers = {
   'api_key':'string',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -1384,7 +1395,7 @@ const request = require('node-fetch');
 
 const headers = {
   'api_key':'string',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -1408,7 +1419,7 @@ require 'json'
 
 headers = {
   'api_key' => 'string',
-  'Authorization' => 'bearer {access-token}'
+  'Authorization' => 'Bearer {access-token}'
 }
 
 result = RestClient.delete 'http://petstore.swagger.io/v2/pet/{petId}',
@@ -1423,7 +1434,7 @@ p JSON.parse(result)
 import requests
 headers = {
   'api_key': 'string',
-  'Authorization': 'bearer {access-token}'
+  'Authorization': 'Bearer {access-token}'
 }
 
 r = requests.delete('http://petstore.swagger.io/v2/pet/{petId}', params={
@@ -1463,7 +1474,7 @@ func main() {
 
     headers := map[string][]string{
         "api_key": []string{"string"},
-        "Authorization": []string{"bearer {access-token}"},
+        "Authorization": []string{"Bearer {access-token}"},
         
     }
 
@@ -1512,7 +1523,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 curl -X POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
-  -H 'Authorization: bearer {access-token}'
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -1528,7 +1539,7 @@ Accept: application/json
 var headers = {
   'Content-Type':'multipart/form-data',
   'Accept':'application/json',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -1553,7 +1564,7 @@ const inputBody = '{
 const headers = {
   'Content-Type':'multipart/form-data',
   'Accept':'application/json',
-  'Authorization':'bearer {access-token}'
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -1578,7 +1589,7 @@ require 'json'
 headers = {
   'Content-Type' => 'multipart/form-data',
   'Accept' => 'application/json',
-  'Authorization' => 'bearer {access-token}'
+  'Authorization' => 'Bearer {access-token}'
 }
 
 result = RestClient.post 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
@@ -1594,7 +1605,7 @@ import requests
 headers = {
   'Content-Type': 'multipart/form-data',
   'Accept': 'application/json',
-  'Authorization': 'bearer {access-token}'
+  'Authorization': 'Bearer {access-token}'
 }
 
 r = requests.post('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params={
@@ -1635,7 +1646,7 @@ func main() {
     headers := map[string][]string{
         "Content-Type": []string{"multipart/form-data"},
         "Accept": []string{"application/json"},
-        "Authorization": []string{"bearer {access-token}"},
+        "Authorization": []string{"Bearer {access-token}"},
         
     }
 
@@ -1705,7 +1716,8 @@ Access to Petstore orders
 ```shell
 # You can also use wget
 curl -X GET http://petstore.swagger.io/v2/store/inventory \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'api_key: API_KEY'
 
 ```
 
@@ -1719,7 +1731,8 @@ Accept: application/json
 
 ```javascript
 var headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'api_key':'API_KEY'
 
 };
 
@@ -1739,7 +1752,8 @@ $.ajax({
 const request = require('node-fetch');
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'api_key':'API_KEY'
 
 };
 
@@ -1762,7 +1776,8 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'api_key' => 'API_KEY'
 }
 
 result = RestClient.get 'http://petstore.swagger.io/v2/store/inventory',
@@ -1776,7 +1791,8 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'api_key': 'API_KEY'
 }
 
 r = requests.get('http://petstore.swagger.io/v2/store/inventory', params={
@@ -1816,6 +1832,7 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
+        "api_key": []string{"API_KEY"},
         
     }
 
@@ -1911,7 +1928,7 @@ const inputBody = '{
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-03-27T11:34:36Z",
+  "shipDate": "2018-04-24T13:02:08Z",
   "status": "placed",
   "complete": false
 }';
@@ -2022,7 +2039,7 @@ func main() {
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-03-27T11:34:36Z",
+  "shipDate": "2018-04-24T13:02:08Z",
   "status": "placed",
   "complete": false
 }
@@ -2042,17 +2059,18 @@ func main() {
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2018-03-27T11:34:36Z</shipDate>
+  <shipDate>2018-04-24T13:02:08Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
 ```
+
 ```json
 {
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-03-27T11:34:36Z",
+  "shipDate": "2018-04-24T13:02:08Z",
   "status": "placed",
   "complete": false
 }
@@ -2223,17 +2241,18 @@ For valid response try integer IDs with value >= 1 and <= 10. Other values will 
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2018-03-27T11:34:36Z</shipDate>
+  <shipDate>2018-04-24T13:02:08Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
 ```
+
 ```json
 {
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-03-27T11:34:36Z",
+  "shipDate": "2018-04-24T13:02:08Z",
   "status": "placed",
   "complete": false
 }
@@ -3381,6 +3400,7 @@ func main() {
   <userStatus>0</userStatus>
 </User>
 ```
+
 ```json
 {
   "id": 0,
@@ -3729,7 +3749,7 @@ This operation does not require authentication
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-03-27T11:34:36Z",
+  "shipDate": "2018-04-24T13:02:08Z",
   "status": "placed",
   "complete": false
 }
@@ -3883,4 +3903,16 @@ This operation does not require authentication
 |code|integer(int32)|false|No description|
 |type|string|false|No description|
 |message|string|false|No description|
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "WebAPI",
+  "description": ":dog: :cat: :rabbit: This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+  "documentation": "https://mermade.github.io/shins/asyncapi.html",
+  "termsOfService": "http://swagger.io/terms/",
+  
+  "name": "Swagger Petstore"
+}
+</script>
 
