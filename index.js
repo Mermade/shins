@@ -149,7 +149,7 @@ function preProcess(content,options) {
 function postProcess(content) {
     // adds id a la GitHub autolinks to automatically-generated headers
     content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (match, group1, group2) {
-        return '<' + group1 + ' id="' + group2.toLowerCase().split(' ').join('-').split('/').join('-').split('.').join('-').split('(').join('-').split(')').join('-').split('[').join('-').split(']').join('-').split('?').join('-').split('&').join('-').split(';').join('-').split('{').join('-').split('}').join('-').split('=').join('-') + '">' + group2 + '</' + group1 + '>';
+        return '<' + group1 + ' id="' + group2.toLowerCase().split(' ').join('-').split('/').join('-').split('.').join('-').split('(').join('-').split(')').join('-').split('[').join('-').split(']').join('-').split('?').join('-').split('&').join('-').split(';').join('-').split('{').join('-').split('}').join('-').split('=').join('-').split("'").join('-') + '">' + group2 + '</' + group1 + '>';
     });
     return content;
 }
