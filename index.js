@@ -76,7 +76,7 @@ function replaceAll(target, find, replace) {
 
 function stylesheet_link_tag(stylesheet, media) {
     var override = stylesheet;
-    if ((stylesheet != 'print') && (stylesheet != 'screen')) {
+    if ((stylesheet !== 'print') && (stylesheet !== 'screen')) {
         override = 'theme';
     }
     if (globalOptions.inline) {
@@ -88,9 +88,14 @@ function stylesheet_link_tag(stylesheet, media) {
         styleContent = replaceAll(styleContent, '../../source/fonts/', globalOptions.fonturl||'https://raw.githubusercontent.com/Mermade/shins/master/source/fonts/');
         styleContent = replaceAll(styleContent, '../../source/', 'source/');
         if (globalOptions.customCss) {
-            var overrideFilename = path.join(__dirname, '/pub/css/' + override + '_overrides.css');
+            let overrideFilename = path.join(__dirname, '/pub/css/' + override + '_overrides.css');
             if (fs.existsSync(overrideFilename)) {
                 styleContent += '\n' + fs.readFileSync(overrideFilename, 'utf8');
+            }
+        }
+        if (globalOptions.css) {
+            if (fs.existsSync(globalOptions.css)) {
+                styleContent += '\n' + fs.readFileSync(globalOptions.css, 'utf8');
             }
         }
         return '<style media="'+media+'">'+styleContent+'</style>';
@@ -106,6 +111,9 @@ function stylesheet_link_tag(stylesheet, media) {
         var include = '<link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '.css">';
         if (globalOptions.customCss) {
             include += '\n    <link rel="stylesheet" media="' + media + '" href="pub/css/' + override + '_overrides.css">';
+        }
+        if (globalOptions.css) {
+            include += '\n    <link rel="stylesheet" media="' + media + '" href="' + globalOptions.css + '">';
         }
         return include;
     }

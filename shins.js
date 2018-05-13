@@ -6,7 +6,7 @@ const fs = require('fs');
 const options = require('tiny-opts-parser')(process.argv);
 const shins = require('./index.js');
 
-if (options.customcss) options.customCss = true; // backwards compatibility
+if (options.customcss) options.customCss = options.customcss; // backwards compatibility
 
 var inputName = './source/index.html.md';
 
@@ -27,6 +27,7 @@ if (options.help) {
     console.log('--fonturl   url to fonts when --inline is set, defaults to github repo');
     console.log('--inline    inline css and javascript resources');
     console.log('--logo      specify path to custom logo file');
+    console.log('--css       specify path to additional css file')
     console.log('--minify    minify output html');
     console.log('-o,--output specify output html file');
     console.log('--unsafe    do not sanitise input markdown');
