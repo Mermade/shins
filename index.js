@@ -12,21 +12,62 @@ var hlpath = require.resolve('highlightjs/highlight.pack.js').replace('highlight
 const emoji = require('markdown-it-emoji');
 const attrs = require('markdown-it-attrs');
 var md = require('markdown-it')({
-    linkify: true, html: true,
-    highlight: function (str, lang) {
-        var slang = lang.split('--')[0]; // allows multiple language tabs for the same language
-        if (slang && hljs.getLanguage(slang)) {
-            try {
-                return '<pre class="highlight tab tab-' + lang + '"><code>' +
-                    hljs.highlight(slang, str, true).value +
-                    '</code></pre>';
-            } catch (__) { }
-        }
-
-        return '<pre class="highlight"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-    }
+    linkify: true, html: true
 }).use(require('markdown-it-lazy-headers'));
 md.use(emoji);
+md.use(function (md) {
+
+  function createTmpToken(token, classValue) {
+    var i = token.attrIndex('class');
+    var tmpAttrs = token.attrs ? token.attrs.slice() : [];
+
+    if (i < 0) {
+      tmpAttrs.push([ 'class', classValue ]);
+    } else {
+      tmpAttrs[i][1] += ' ' + classValue;
+    }
+
+    var tmpToken = {
+        attrs: tmpAttrs
+    };
+
+    return tmpToken;
+  }
+
+  function fence(tokens, idx, options, env, slf) {
+    var token = tokens[idx];
+    var info = token.info ? md.utils.unescapeAll(token.info).trim() : '';
+    var tmpToken;
+
+    if (info) {
+        var langName = info.split(/\s+/g)[0];
+        var slang = langName.split('--')[0]; // allows multiple language tabs for the same language
+        
+        if (slang && hljs.getLanguage(slang)) {
+            // try {
+                // Fake token just to render attributes
+                tmpToken = createTmpToken(token, 'highlight tab tab-' + langName);
+
+                var highlighted = hljs.highlight(slang, token.content, true).value;
+
+                return  '<pre><code' + slf.renderAttrs(tmpToken) + '>'
+                    + highlighted
+                    + '</code></pre>\n';
+            // } catch (__) { }
+        }
+    }
+
+    // Fake token just to render attributes
+    tmpToken = createTmpToken(token, 'highlight');
+
+    return  '<pre><code' + slf.renderAttrs(tmpToken) + '>'
+            + md.utils.escapeHtml(token.content)
+            + '</code></pre>\n';
+  }
+
+  md.renderer.rules['fence'] = fence;
+});
+
 const yaml = require('js-yaml');
 const ejs = require('ejs');
 const uglify = require('uglify-js');
