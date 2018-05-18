@@ -90,6 +90,19 @@ Setting `inline` to `true` will inline all page resources (except resources refe
 
 Set `logo` path to add your custom logo as absolute path or path relative to process working directory. If `inline` option is on image will be inlined, else it will be copied to `source/images` directory and included via `src` image attribute.
 
+### CLI usage via api2html (third-party)
+
+You can also use the [api2html](https://github.com/tobilg/api2html) CLI wrapper around Shins/Widdershins: 
+
+```bash
+$ # Install globally
+$ npm install api2html -g
+$ # Display the api2html help 
+$ api2html --help
+$ # Simple usage
+$ api2html -o api.html api.yml
+```
+
 ### Updating from Slate
 
 * Note: changes to Slate CSS, Javascript etc may break assumptions made in Shins. Use at your own risk.
