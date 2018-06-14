@@ -92,12 +92,12 @@ Set `logo` path to add your custom logo as absolute path or path relative to pro
 
 ### CLI usage via api2html (third-party)
 
-You can also use the [api2html](https://github.com/tobilg/api2html) CLI wrapper around Shins/Widdershins: 
+You can also use the [api2html](https://github.com/tobilg/api2html) CLI wrapper around Shins/Widdershins:
 
 ```bash
 $ # Install globally
 $ npm install api2html -g
-$ # Display the api2html help 
+$ # Display the api2html help
 $ api2html --help
 $ # Simple usage
 $ api2html -o api.html api.yml
@@ -120,7 +120,6 @@ $ api2html -o api.html api.yml
 * `arapaho` has a `--preserve` or `-p` option which will not overwrite your `.html` output file, but still re-render when necessary
 * Shins ships with an alternate theme by TradeGecko which is also under the Apache 2.0 license
 * Shins additionally supports [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files) `include::filename[]` syntax as well as `!INCLUDE filename` from [markdown-pp](https://github.com/MikeRalphson/markdown-pp-js) - this is not supported by Slate
-* If you are using Node.js 4, please specify the `--harmony` flag
 
 ### Shins in the wild
 
