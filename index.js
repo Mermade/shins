@@ -44,7 +44,7 @@ md.use(function (md) {
         var slang = langName.split('--')[0]; // allows multiple language tabs for the same language
         
         if (slang && hljs.getLanguage(slang)) {
-            // try {
+            try {
                 // Fake token just to render attributes
                 tmpToken = createTmpToken(token, 'highlight tab tab-' + langName);
 
@@ -53,7 +53,7 @@ md.use(function (md) {
                 return  '<pre><code' + slf.renderAttrs(tmpToken) + '>'
                     + highlighted
                     + '</code></pre>\n';
-            // } catch (__) { }
+            } catch (__) { }
         }
     }
 
