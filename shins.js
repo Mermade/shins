@@ -36,6 +36,7 @@ if (options.help) {
 
 var inputStr = fs.readFileSync(inputName,'utf8');
 options.source = inputName;
+options.cli = true;
 
 shins.render(inputStr,options,function(err,str){
     if (err) {

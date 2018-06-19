@@ -55,6 +55,7 @@ If you use the `--inline` option to shins, then everything is bundled into the `
 ```javascript
 var shins = require('shins');
 var options = {};
+options.cli = false; // if true, missing files will trigger an exit(1)
 options.minify = false;
 options.customCss = false;
 options.inline = false;
@@ -70,6 +71,7 @@ or, with Promises:
 ```javascript
 var shins = require('shins');
 var options = {};
+options.cli = false; // if true, missing files will trigger an exit(1)
 options.minify = false;
 options.customCss = false;
 options.inline = false;
@@ -92,7 +94,7 @@ Set `logo` path to add your custom logo as absolute path or path relative to pro
 
 ### CLI usage via api2html (third-party)
 
-You can also use the [api2html](https://github.com/tobilg/api2html) CLI wrapper around Shins/Widdershins:
+You can also use the third-party [api2html](https://github.com/tobilg/api2html) CLI wrapper around Shins/Widdershins:
 
 ```bash
 $ # Install globally
