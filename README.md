@@ -53,8 +53,8 @@ If you use the `--inline` option to shins, then everything is bundled into the `
 ### API
 
 ```javascript
-var shins = require('shins');
-var options = {};
+const shins = require('shins');
+let options = {};
 options.cli = false; // if true, missing files will trigger an exit(1)
 options.minify = false;
 options.customCss = false;
@@ -69,8 +69,8 @@ shins.render(markdownString, options, function(err, html) {
 or, with Promises:
 
 ```javascript
-var shins = require('shins');
-var options = {};
+const shins = require('shins');
+let options = {};
 options.cli = false; // if true, missing files will trigger an exit(1)
 options.minify = false;
 options.customCss = false;
