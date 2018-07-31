@@ -165,10 +165,19 @@ function preProcess(content,options) {
     return lines.join('\n');
 }
 
+function cleanId(id) {
+    return id.toLowerCase().replace(/\W/g, '-');
+}
+
 function postProcess(content) {
     // adds id a la GitHub autolinks to automatically-generated headers
-    content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (match, group1, group2) {
-        return '<' + group1 + ' id="' + group2.toLowerCase().split(' ').join('-').split('/').join('-').split('.').join('-').split('(').join('-').split(')').join('-').split('[').join('-').split(']').join('-').split('?').join('-').split('&').join('-').split(';').join('-').split('{').join('-').split('}').join('-').split('=').join('-').split("'").join('-') + '">' + group2 + '</' + group1 + '>';
+    content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (match, header, title) {
+        return '<' + header + ' id="' + cleanId(title) + '">' + title + '</' + header + '>';
+    });
+
+    // clean up the other ids as well
+    content = content.replace(/\<(h[123456]) id="(.*)"\>(.*)\<\/h[123456]\>/g, function (match, header, id, title) {
+        return '<' + header + ' id="' + cleanId(id) + '">' + title + '</' + header + '>';
     });
     return content;
 }
