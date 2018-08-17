@@ -218,6 +218,7 @@ function clean(s) {
 function render(inputStr, options, callback) {
 
     if (options.attr) md.use(attrs);
+    if (options.hasOwnProperty('no-links')) md.disable('linkify')
 
     if (typeof callback === 'undefined') { // for pre-v1.4.0 compatibility
         callback = options;

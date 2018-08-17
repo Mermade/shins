@@ -23,7 +23,8 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
     * `node shins.js --minify` or
 	* `node shins.js --customcss` or
 	* `node shins.js --inline` or
-    * `node shins.js --unsafe`
+    * `node shins.js --unsafe` or
+    * `node shins.js --no-links`
 * To add custom logo add `--logo` option with path to your logo image.
 * To specify a different output filename from the default `./index.html`, use the `--output` or `-o` option.
 * To allow css-style attributes in markdown, specify the `--attr` option.
@@ -60,6 +61,7 @@ options.minify = false;
 options.customCss = false;
 options.inline = false;
 options.unsafe = false; // setting to true turns off markdown sanitisation
+options['no-links'] = false; // if true, do not automatically convert links in text to anchor tags
 //options.source = filename; // used to resolve relative paths for included files
 shins.render(markdownString, options, function(err, html) {
   // ...
@@ -76,6 +78,7 @@ options.minify = false;
 options.customCss = false;
 options.inline = false;
 options.unsafe = false; // setting to true turns off markdown sanitisation
+options['no-links'] = false; // if true, do not automatically convert links in text to anchor tags
 //options.source = filename; // used to resolve relative paths for included files
 options.logo = './my-custom-logo.png'
 shins.render(markdownString, options)
