@@ -31,6 +31,7 @@ if (options.help) {
     console.log('--minify    minify output html');
     console.log('-o,--output specify output html file');
     console.log('--unsafe    do not sanitise input markdown');
+    console.log('--no-links  do not automatically convert links in text to anchor tags');
     process.exit(0);
 }
 
