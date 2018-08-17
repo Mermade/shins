@@ -121,7 +121,7 @@ $ api2html -o api.html api.yml
 * Multiple language tabs per language are supported
 * Static TOC as per Slate v2.0
 * [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
-* For converting [OpenApi / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
+* For converting [OpenAPI / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
 * `arapaho` has a `--preserve` or `-p` option which will not overwrite your `.html` output file, but still re-render when necessary
 * Shins ships with an alternate theme by TradeGecko which is also under the Apache 2.0 license
 * Shins additionally supports [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files) `include::filename[]` syntax as well as `!INCLUDE filename` from [markdown-pp](https://github.com/MikeRalphson/markdown-pp-js) - this is not supported by Slate
