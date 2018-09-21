@@ -331,7 +331,11 @@ function render(inputStr, options, callback) {
                 fs.writeFileSync(path.join(__dirname, logoPath), imgContent);
                 imageSource = logoPath;
             }
-            return '<img src="' + imageSource + '" class="logo" alt="Logo">';
+            var html = '<img src="' + imageSource + '" class="logo" alt="Logo">';
+            if (globalOptions['logo-url']) {
+                html = '<a href="' + md.utils.escapeHtml(globalOptions['logo-url']) + '">' + html + '</a>';
+            }
+            return html;
         };
         locals.stylesheet_link_tag = stylesheet_link_tag;
         locals.javascript_include_tag = javascript_include_tag;

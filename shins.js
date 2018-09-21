@@ -27,6 +27,7 @@ if (options.help) {
     console.log('--fonturl   url to fonts when --inline is set, defaults to github repo');
     console.log('--inline    inline css and javascript resources');
     console.log('--logo      specify path to custom logo file');
+    console.log('--logo-url  url to link to from logo image');
     console.log('--css       specify path to additional css file')
     console.log('--minify    minify output html');
     console.log('-o,--output specify output html file');

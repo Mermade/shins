@@ -26,6 +26,7 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
     * `node shins.js --unsafe` or
     * `node shins.js --no-links`
 * To add custom logo add `--logo` option with path to your logo image.
+* To make the logo image link to a webpage, add `--logo-url` option with URL to link to.
 * To specify a different output filename from the default `./index.html`, use the `--output` or `-o` option.
 * To allow css-style attributes in markdown, specify the `--attr` option.
 * To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered. If you use `--launch` or `-l` your default browser will be opened automatically
@@ -80,7 +81,8 @@ options.inline = false;
 options.unsafe = false; // setting to true turns off markdown sanitisation
 options['no-links'] = false; // if true, do not automatically convert links in text to anchor tags
 //options.source = filename; // used to resolve relative paths for included files
-options.logo = './my-custom-logo.png'
+options.logo = './my-custom-logo.png';
+options['logo-url'] = 'https://www.example.com';
 shins.render(markdownString, options)
 .then(html => {
   // ...
@@ -94,6 +96,8 @@ Setting `customCss` to `true` will include the `pub/css/screen_overrides.css`,`p
 Setting `inline` to `true` will inline all page resources (except resources referenced via CSS, such as fonts) to output html. This way HTML can be used stand-alone, without needing any other resources. It will also set `minify` to `true`.
 
 Set `logo` path to add your custom logo as absolute path or path relative to process working directory. If `inline` option is on image will be inlined, else it will be copied to `source/images` directory and included via `src` image attribute.
+
+Set `logo-url` if you want the logo image to link to a webpage.
 
 ### CLI usage via api2html (third-party)
 
