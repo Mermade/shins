@@ -121,7 +121,7 @@ $ api2html -o api.html api.yml
 ### Notes
 
 * Windows is definitely supported
-* Syntax highlighting in 176 [languages](https://highlightjs.org/static/demo/) and 79 [themes](https://highlightjs.org/static/demo/) (you can specify the highlighter theme to use by setting `highlighter_theme` in your slate markdown header)
+* Syntax highlighting in 176 [languages](https://highlightjs.org/static/demo/) and 79 [themes](https://highlightjs.org/static/demo/) (you can specify the highlighter theme to use by setting `highlight_theme` in your slate markdown header)
 * Multiple language tabs per language are supported
 * Static TOC as per Slate v2.0
 * [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
