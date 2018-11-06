@@ -127,7 +127,7 @@ $ api2html -o api.html api.yml
 * [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
 * For converting [OpenAPI / Swagger](https://github.com/OAI/OpenAPI-Specification) or [AsyncAPI](https://github.com/asyncapi/asyncapi) definitions to Shins or Slate, see [widdershins](http://github.com/mermade/widdershins)
 * `arapaho` has a `--preserve` or `-p` option which will not overwrite your `.html` output file, but still re-render when necessary
-* Shins ships with an alternate theme by TradeGecko which is also under the Apache 2.0 license
+* Shins ships with an alternate theme by [TradeGecko](https://github.com/tradegecko) which is also under the Apache 2.0 license, `pub/css/tradegecko.min.css' can be included with the `--customcss` option
 * Shins additionally supports [AsciiDoc](http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#include-files) `include::filename[]` syntax as well as `!INCLUDE filename` from [markdown-pp](https://github.com/MikeRalphson/markdown-pp-js) - this is not supported by Slate
 
 ### Shins in the wild
