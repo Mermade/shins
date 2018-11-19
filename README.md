@@ -26,6 +26,7 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
     * `node shins.js --unsafe` or
     * `node shins.js --no-links`
 * To add custom logo add `--logo` option with path to your logo image.
+* To use a different layout template (default `source/layouts/layout.ejs` use the `--layout` option.
 * To make the logo image link to a webpage, add `--logo-url` option with URL to link to.
 * To specify a different output filename from the default `./index.html`, use the `--output` or `-o` option.
 * To allow css-style attributes in markdown, specify the `--attr` option.

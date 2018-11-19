@@ -350,7 +350,7 @@ function render(inputStr, options, callback) {
 
         var ejsOptions = {};
         ejsOptions.debug = false;
-        ejs.renderFile(path.join(__dirname, '/source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
+        ejs.renderFile(path.join(__dirname, options.layout || '/source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
             if (err) reject(err)
             else resolve(str);
         });

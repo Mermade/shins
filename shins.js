@@ -14,8 +14,9 @@ if (options._.length > 2) {
     inputName = options._[2];
 }
 
-if (options.h) options.help = options.h;
-if (options.a) options.attr = options.a;
+if (options.h) options.help   = options.h;
+if (options.a) options.attr   = options.a;
+if (options.l) options.layout = options.l;
 if (options.o) options.output = options.o;
 
 if (options.help) {
@@ -26,6 +27,7 @@ if (options.help) {
     console.log('--customcss include custom override css files');
     console.log('--fonturl   url to fonts when --inline is set, defaults to github repo');
     console.log('--inline    inline css and javascript resources');
+    console.log('-l,--layout specify path to template file in .ejs format')
     console.log('--logo      specify path to custom logo file');
     console.log('--logo-url  url to link to from logo image');
     console.log('--css       specify path to additional css file')
