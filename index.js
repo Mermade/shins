@@ -77,7 +77,14 @@ function javascript_include_tag(include) {
 }
 
 function partial(include) {
-    var includeStr = safeReadFileSync(path.join(__dirname, '/source/includes/_' + include + '.md'), 'utf8');
+    var includePath = "";
+    if (include.indexOf("/") === 0) {
+        includePath = path.join(__dirname, include + '.md');
+    }
+    else {
+        includePath = path.join(__dirname, '/source/includes/_' + include + '.md');
+    }
+    var includeStr = safeReadFileSync(includePath, 'utf8');
     return postProcess(md.render(clean(includeStr)));
 }
 
