@@ -222,6 +222,30 @@ function clean(s) {
     return s;
 }
 
+function getBase64ImageSource(imageSource, imgContent) {
+    if(!imageSource || !imgContent) return "";
+
+    var mimeType = getMimeType(imageSource);
+    return "data:" + mimeType + ";base64," + Buffer.from(imgContent).toString('base64');
+}
+
+function getMimeType(imageSource) {
+    var extension = path.extname(imageSource).toLowerCase();
+    switch(extension) {
+        case ".svg":
+            return "image/svg+xml";
+        case ".webp":
+            return "image/webp";
+        case ".jpg":
+        case ".jpeg":
+            return "image/jpeg";
+        case ".gif":
+            return "image/gif";
+        default:
+            return "image/png";
+    }
+}
+
 function render(inputStr, options, callback) {
 
     if (options.attr) md.use(attrs);
@@ -323,7 +347,7 @@ function render(inputStr, options, callback) {
             var imageSource = "source/images/" + image;
             if (globalOptions.inline) {
                 var imgContent = safeReadFileSync(path.join(__dirname, imageSource));
-                imageSource = "data:image/png;base64," + Buffer.from(imgContent).toString('base64');
+                imageSource = getBase64ImageSource(imageSource, imgContent);
             }
             return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
         };
@@ -332,7 +356,7 @@ function render(inputStr, options, callback) {
             var imageSource = path.resolve(process.cwd(), globalOptions.logo);
             var imgContent = safeReadFileSync(imageSource);
             if (globalOptions.inline) {
-                imageSource = "data:image/png;base64," + Buffer.from(imgContent).toString('base64');
+                imageSource = getBase64ImageSource(imageSource, imgContent);
             } else {
                 var logoPath = "source/images/custom_logo" + path.extname(imageSource);
                 fs.writeFileSync(path.join(__dirname, logoPath), imgContent);
