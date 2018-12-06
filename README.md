@@ -72,7 +72,7 @@ cp node_modules/shins/source/ . -R
 
 ```
 mkdir docs
-npx shins --o docs/index.html source/index.html.md 
+npx shins --o docs/index.html --srcdir $(pwd)/source source/index.html.md 
 ```
 
 *_NOTES_*:
@@ -100,7 +100,6 @@ npx shins --o docs/index.html source/index.html.md
     -o,--output specify output html file
     --unsafe    do not sanitise input markdown
     --no-links  do not automatically convert links in text to anchor tags
-    --outdir    output directory.  If specified, source/pub files needed will be copied here if they do not exist
     --srcdir    source directory.  default: node_modules/shins/source
     --pubdir    pub directory.  default: node_modules/shins/pub
     --overwrite Overwrite any files in output directory
