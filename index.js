@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
+const sh = require('shelljs');
 
 const maybe = require('call-me-maybe');
 
@@ -46,8 +47,36 @@ function safeReadFileSync(filename,encoding) {
     return '';
 }
 
+function safeCopyFileSync(srcfile, outfile, encoding = 'utf8') {
+    let outdir = path.dirname(outfile);
+    if (!fs.existsSync(outdir)) {
+        console.log(`Creating ${outdir}`);
+        sh.mkdir("-p", outdir);
+    }
+    if (srcfile.indexOf("*") > -1) {
+        if (!fs.existsSync(outfile)) {
+            console.log(`Creating ${outfile}`);
+            sh.mkdir("-p", outfile);
+        }
+        console.log(`Copying ${srcfile} to ${outfile}`);
+        sh.cp("-u", srcfile, outfile);
+    } else if (!fs.existsSync(outfile) || globalOptions.overwrite) {
+        console.log(`Copying ${srcfile} to ${outfile}`);
+        sh.cp(srcfile, outfile);
+    }
+}
+
+function safeWriteFileSync(outfile, content, encoding = 'utf8') {
+    let outdir = path.dirname(outfile);
+    if (!fs.existsSync(outdir)) {
+        console.log(`Creating ${outdir}`);
+        sh.mkdir("-p", outdir);
+    }
+    fs.writeFileSync(outfile, content, encoding);
+}
+
 function javascript_include_tag(include) {
-    var includeStr = safeReadFileSync(path.join(__dirname, '/source/javascripts/' + include + '.inc'), 'utf8');
+    var includeStr = safeReadFileSync(path.join(globalOptions.srcdir, '/javascripts/' + include + '.inc'), 'utf8');
     if (globalOptions.minify) {
         var scripts = [];
         var includes = includeStr.split('\r').join().split('\n');
@@ -56,11 +85,11 @@ function javascript_include_tag(include) {
             var elements = inc.split('"');
             if (elements[1]) {
                 if (elements[1] == 'text/javascript') {
-                    scripts.push(path.join(__dirname, 'source/javascripts/all_nosearch.js'));
+                    scripts.push(path.join(globalOptions.srcdir, '/javascripts/all_nosearch.js'));
                     break;
                 }
                 else {
-                    scripts.push(path.join(__dirname, elements[1]));
+                    scripts.push(path.join(globalOptions.topdir, elements[1]));
                 }
             }
         }
@@ -69,9 +98,12 @@ function javascript_include_tag(include) {
             includeStr = '<script>'+bundle.code+'</script>';
         }
         else {
-            fs.writeFileSync(path.join(__dirname, '/pub/js/shins.js'), bundle.code, 'utf8');
-            includeStr = safeReadFileSync(path.join(__dirname, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
+            safeWriteFileSync(path.join(globalOptions.outdir, 'pub/js/shins.js'), bundle.code, 'utf8');
+            includeStr = safeReadFileSync(path.join(globalOptions.srcdir, '/javascripts/' + include + '.bundle.inc'), 'utf8');
         }
+    } else {
+        safeCopyFileSync(path.join(globalOptions.srcdir, 'javascripts/app/*'), path.join(globalOptions.outdir, 'source/javascripts/app/'));
+        safeCopyFileSync(path.join(globalOptions.srcdir, 'javascripts/lib/*'), path.join(globalOptions.outdir, 'source/javascripts/lib/'));
     }
     return includeStr;
 }
@@ -79,10 +111,10 @@ function javascript_include_tag(include) {
 function partial(include) {
     var includePath = "";
     if (include.indexOf("/") === 0) {
-        includePath = path.join(__dirname, include + '.md');
+        includePath = path.join(globalOptions.srcdir, include + '.md');
     }
     else {
-        includePath = path.join(__dirname, '/source/includes/_' + include + '.md');
+        includePath = path.join(globalOptions.srcdir, '/includes/_' + include + '.md');
     }
     var includeStr = safeReadFileSync(includePath, 'utf8');
     return postProcess(md.render(clean(includeStr)));
@@ -98,7 +130,7 @@ function stylesheet_link_tag(stylesheet, media) {
         override = 'theme';
     }
     if (globalOptions.inline) {
-        var stylePath = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
+        var stylePath = path.join(globalOptions.pubdir, '/css/' + stylesheet + '.css');
         if (!fs.existsSync(stylePath)) {
             stylePath = path.join(hlpath, '/styles/' + stylesheet + '.css');
         }
@@ -106,7 +138,7 @@ function stylesheet_link_tag(stylesheet, media) {
         styleContent = replaceAll(styleContent, '../../source/fonts/', globalOptions.fonturl||'https://raw.githubusercontent.com/Mermade/shins/master/source/fonts/');
         styleContent = replaceAll(styleContent, '../../source/', 'source/');
         if (globalOptions.customCss) {
-            let overrideFilename = path.join(__dirname, '/pub/css/' + override + '_overrides.css');
+            let overrideFilename = path.join(globalOptions.pubdir, '/css/' + override + '_overrides.css');
             if (fs.existsSync(overrideFilename)) {
                 styleContent += '\n' + safeReadFileSync(overrideFilename, 'utf8');
             }
@@ -120,14 +152,17 @@ function stylesheet_link_tag(stylesheet, media) {
     }
     else {
         if (media == 'screen') {
-            var target = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
+            var target = path.join(globalOptions.pubdir, '/css/' + stylesheet + '.css');
             if (!fs.existsSync(target)) {
                 var source = path.join(hlpath, '/styles/' + stylesheet + '.css');
                 fs.writeFileSync(target, safeReadFileSync(source));
             }
         }
+        safeCopyFileSync(path.join(globalOptions.srcdir, 'fonts/*'), path.join(globalOptions.outdir, 'source/fonts/'));
+        safeCopyFileSync(path.join(globalOptions.pubdir, 'css/' + stylesheet + '.css'), path.join(globalOptions.outdir, 'pub/css/' + stylesheet + '.css'));
         var include = '<link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '.css">';
         if (globalOptions.customCss) {
+            safeCopyFileSync(path.join(globalOptions.pubdir, 'css/' + override + '_overrides.css'), path.join(globalOptions.outdir, 'pub/css/' + override + '_overrides.css'));
             include += '\n    <link rel="stylesheet" media="' + media + '" href="pub/css/' + override + '_overrides.css">';
         }
         if (globalOptions.css) {
@@ -322,8 +357,10 @@ function render(inputStr, options, callback) {
         locals.image_tag = function (image, altText, className) {
             var imageSource = "source/images/" + image;
             if (globalOptions.inline) {
-                var imgContent = safeReadFileSync(path.join(__dirname, imageSource));
+                var imgContent = safeReadFileSync(path.join(globalOptions.topdir, imageSource));
                 imageSource = "data:image/png;base64," + Buffer.from(imgContent).toString('base64');
+            } else {
+                safeCopyFileSync(path.join(globalOptions.topdir, imageSource), path.join(globalOptions.outdir, imageSource));
             }
             return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
         };
@@ -334,8 +371,8 @@ function render(inputStr, options, callback) {
             if (globalOptions.inline) {
                 imageSource = "data:image/png;base64," + Buffer.from(imgContent).toString('base64');
             } else {
-                var logoPath = "source/images/custom_logo" + path.extname(imageSource);
-                fs.writeFileSync(path.join(__dirname, logoPath), imgContent);
+                var logoPath = "images/custom_logo" + path.extname(imageSource);
+                fs.writeFileSync(path.join(globalOptions.srcdir, logoPath), imgContent);
                 imageSource = logoPath;
             }
             var html = '<img src="' + imageSource + '" class="logo" alt="Logo">';
@@ -350,7 +387,11 @@ function render(inputStr, options, callback) {
 
         var ejsOptions = {};
         ejsOptions.debug = false;
-        ejs.renderFile(path.join(__dirname, options.layout || '/source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
+        let layoutFile = options.layout;        // Support absolute path for layout.ejs
+        if (!fs.existsSync(layoutFile)) {
+            layoutFile = path.join(globalOptions.srcdir, options.layout || '/layouts/layout.ejs');
+        }
+        ejs.renderFile(layoutFile, locals, ejsOptions, function (err, str) {
             if (err) reject(err)
             else resolve(str);
         });
@@ -359,6 +400,6 @@ function render(inputStr, options, callback) {
 
 module.exports = {
     render: render,
-    srcDir: function () { return __dirname; }
+    srcDir: function () { return globalOptions.srcdir; }
 };
 

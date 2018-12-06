@@ -15,6 +15,8 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 
 ### Usage
 
+#### Cloning
+
 * Fork the repository
 * Clone the fork
 * Edit source/index.html.md
@@ -52,6 +54,57 @@ If you use the option `--minify` to shins, the only things you need to take to y
 ```
 
 If you use the `--inline` option to shins, then everything is bundled into the `index.html` file and no `pub` directory is required. Fonts are by default loaded from this github repository, but this can be overridden with the `--fonturl` option.
+
+#### Embedding
+
+* In a blank directory, start a project:
+* Install `shins` as a dependency in your project
+* Copy the `source` directory into 
+
+```
+npm init
+npm i --save-dev shins
+cp node_modules/shins/source/ . -R
+```
+
+* Modify your markdown in `source/`
+* Build your documentation
+
+```
+mkdir docs
+npx shins --o docs/index.html source/index.html.md 
+```
+
+*_NOTES_*:
+
+* Included javascript/css/font files are copied into the output directory (taken from the `-o` directory), provided you are not using `--inline`
+* These files may be modified in the output directory safely (they are only copied if they do not exist).  To overwrite, use the `--overwrite` flag
+* If you would like to modify the files in the `pub/` directory, you have 2 options:
+  1. Copy the directory into the current directory, such as `cp node_modules/shins/pub . -R` -- useful if you are building with the `--inline` flag
+  2. Update the files in the output directory after the first build
+
+### Command Line Arguments
+
+    Usage: node shins [options] [input-markdown-filename]
+
+    -h,--help   show help and exit
+    -a,--attr   allow css attributes in markdown
+    --customcss include custom override css files
+    --fonturl   url to fonts when --inline is set, defaults to github repo
+    --inline    inline css and javascript resources
+    -l,--layout specify path to template file in .ejs format
+    --logo      specify path to custom logo file
+    --logo-url  url to link to from logo image
+    --css       specify path to additional css file
+    --minify    minify output html
+    -o,--output specify output html file
+    --unsafe    do not sanitise input markdown
+    --no-links  do not automatically convert links in text to anchor tags
+    --outdir    output directory.  If specified, source/pub files needed will be copied here if they do not exist
+    --srcdir    source directory.  default: node_modules/shins/source
+    --pubdir    pub directory.  default: node_modules/shins/pub
+    --overwrite Overwrite any files in output directory
+
 
 ### API
 

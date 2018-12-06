@@ -3,6 +3,7 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const options = require('tiny-opts-parser')(process.argv);
 const shins = require('./index.js');
 
@@ -18,6 +19,15 @@ if (options.h) options.help   = options.h;
 if (options.a) options.attr   = options.a;
 if (options.l) options.layout = options.l;
 if (options.o) options.output = options.o;
+
+const dirname = path.dirname(__filename);
+options.outdir = path.dirname(options.output || dirname);
+
+options.srcdir = options.srcdir || path.join(dirname, 'source');
+options.pubdir = options.pubdir || path.join(dirname, 'pub');
+options.overwrite = !!options.overwrite;
+
+options.topdir = path.dirname(options.srcdir);
 
 if (options.help) {
     console.log('Usage: node shins [options] [input-markdown-filename]');
@@ -35,6 +45,9 @@ if (options.help) {
     console.log('-o,--output specify output html file');
     console.log('--unsafe    do not sanitise input markdown');
     console.log('--no-links  do not automatically convert links in text to anchor tags');
+    console.log('--srcdir    source directory.  default: ' + options.srcdir);
+    console.log('--pubdir    pub directory.  default: ' + options.pubdir);
+    console.log('--overwrite Overwrite any files in output directory');
     process.exit(0);
 }
 
