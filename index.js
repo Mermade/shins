@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
-const sh = require('shelljs');
+const jetpack = require('fs-jetpack');
 
 const maybe = require('call-me-maybe');
 
@@ -41,36 +41,33 @@ function safeReadFileSync(filename,encoding) {
         return fs.readFileSync(filename,encoding);
     }
     catch (ex) {
-        console.error(`shins: included file ${filename} not found`);
+        if (globalOptions.debug) console.error(`shins: included file ${filename} not found`);
         if (globalOptions.cli) process.exit(1);
     }
     return '';
 }
 
-function safeCopyFileSync(srcfile, outfile, encoding = 'utf8') {
+function safeCopyFileSync(srcFileOrDir, outfile, encoding = 'utf8') {
     let outdir = path.dirname(outfile);
     if (!fs.existsSync(outdir)) {
-        console.log(`Creating ${outdir}`);
-        sh.mkdir("-p", outdir);
+        if (globalOptions.debug) console.log(`Creating ${outdir}`);
+        jetpack.dir(outdir);
     }
-    if (srcfile.indexOf("*") > -1) {
-        if (!fs.existsSync(outfile)) {
-            console.log(`Creating ${outfile}`);
-            sh.mkdir("-p", outfile);
+    if (globalOptions.debug) console.log(`Copying ${srcFileOrDir} to ${outfile}`);
+    jetpack.copy(srcFileOrDir, outfile, {
+        overwrite: (src, dest) => {
+            let overwrite = ((src.modifyTime > dest.modifyTime) || globalOptions.overwrite);
+            if (globalOptions.debug) console.log(`${overwrite ? '...Overwriting' : '...NOT Overwriting'} ${dest.name}`);
+            return overwrite;
         }
-        console.log(`Copying ${srcfile} to ${outfile}`);
-        sh.cp("-u", srcfile, outfile);
-    } else if (!fs.existsSync(outfile) || globalOptions.overwrite) {
-        console.log(`Copying ${srcfile} to ${outfile}`);
-        sh.cp(srcfile, outfile);
-    }
+    });
 }
 
 function safeWriteFileSync(outfile, content, encoding = 'utf8') {
     let outdir = path.dirname(outfile);
     if (!fs.existsSync(outdir)) {
-        console.log(`Creating ${outdir}`);
-        sh.mkdir("-p", outdir);
+        if (globalOptions.debug) console.log(`Creating ${outdir}`);
+        jetpack.dir(outdir);
     }
     fs.writeFileSync(outfile, content, encoding);
 }
@@ -102,8 +99,8 @@ function javascript_include_tag(include) {
             includeStr = safeReadFileSync(path.join(globalOptions.srcdir, '/javascripts/' + include + '.bundle.inc'), 'utf8');
         }
     } else {
-        safeCopyFileSync(path.join(globalOptions.srcdir, 'javascripts/app/*'), path.join(globalOptions.outdir, 'source/javascripts/app/'));
-        safeCopyFileSync(path.join(globalOptions.srcdir, 'javascripts/lib/*'), path.join(globalOptions.outdir, 'source/javascripts/lib/'));
+        safeCopyFileSync(path.join(globalOptions.srcdir, 'javascripts/app/'), path.join(globalOptions.outdir, 'source/javascripts/app/'));
+        safeCopyFileSync(path.join(globalOptions.srcdir, 'javascripts/lib/'), path.join(globalOptions.outdir, 'source/javascripts/lib/'));
     }
     return includeStr;
 }
@@ -130,6 +127,7 @@ function stylesheet_link_tag(stylesheet, media) {
         override = 'theme';
     }
     if (globalOptions.inline) {
+        var suffix = '';
         var stylePath = path.join(globalOptions.pubdir, '/css/' + stylesheet + '.css');
         if (!fs.existsSync(stylePath)) {
             stylePath = path.join(hlpath, '/styles/' + stylesheet + '.css');
@@ -146,9 +144,11 @@ function stylesheet_link_tag(stylesheet, media) {
         if (globalOptions.css) {
             if (fs.existsSync(globalOptions.css)) {
                 styleContent += '\n' + safeReadFileSync(globalOptions.css, 'utf8');
+            } else if (globalOptions.css.startsWith('http')) {
+                suffix = '\n    <link rel="stylesheet" media="' + media + '" href="' + globalOptions.css + '">';
             }
         }
-        return '<style media="'+media+'">'+styleContent+'</style>';
+        return '<style media="'+media+'">'+styleContent+'</style>' + suffix;
     }
     else {
         if (media == 'screen') {
@@ -158,7 +158,7 @@ function stylesheet_link_tag(stylesheet, media) {
                 fs.writeFileSync(target, safeReadFileSync(source));
             }
         }
-        safeCopyFileSync(path.join(globalOptions.srcdir, 'fonts/*'), path.join(globalOptions.outdir, 'source/fonts/'));
+        safeCopyFileSync(path.join(globalOptions.srcdir, 'fonts/'), path.join(globalOptions.outdir, 'source/fonts/'));
         safeCopyFileSync(path.join(globalOptions.pubdir, 'css/' + stylesheet + '.css'), path.join(globalOptions.outdir, 'pub/css/' + stylesheet + '.css'));
         var include = '<link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '.css">';
         if (globalOptions.customCss) {
@@ -167,6 +167,9 @@ function stylesheet_link_tag(stylesheet, media) {
         }
         if (globalOptions.css) {
             include += '\n    <link rel="stylesheet" media="' + media + '" href="' + globalOptions.css + '">';
+            if (fs.existsSync(path.join(globalOptions.topdir, globalOptions.css))) {
+                safeCopyFileSync(path.join(globalOptions.topdir, globalOptions.css), path.join(globalOptions.outdir, globalOptions.css))
+            }
         }
         return include;
     }
@@ -258,7 +261,6 @@ function clean(s) {
 }
 
 function render(inputStr, options, callback) {
-
     if (options.attr) md.use(attrs);
     if (options.hasOwnProperty('no-links')) md.disable('linkify')
 
@@ -365,17 +367,18 @@ function render(inputStr, options, callback) {
             return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
         };
         locals.logo_image_tag = function () {
-            if (!globalOptions.logo) return locals.image_tag('logo.png', 'Logo', 'logo');
+            if (!globalOptions.logo) return locals.image_tag('logo.png', 'Logo', 'logo.png');
             var imageSource = path.resolve(process.cwd(), globalOptions.logo);
+            var imageName = path.basename(globalOptions.logo);
             var imgContent = safeReadFileSync(imageSource);
             if (globalOptions.inline) {
                 imageSource = "data:image/png;base64," + Buffer.from(imgContent).toString('base64');
             } else {
                 var logoPath = "images/custom_logo" + path.extname(imageSource);
-                fs.writeFileSync(path.join(globalOptions.srcdir, logoPath), imgContent);
+                safeWriteFileSync(path.join(globalOptions.outdir, logoPath), imgContent);
                 imageSource = logoPath;
             }
-            var html = '<img src="' + imageSource + '" class="logo" alt="Logo">';
+            var html = '<img src="' + imageSource + '" class="logo" alt="' + imageName + '">';
             if (globalOptions['logo-url']) {
                 html = '<a href="' + md.utils.escapeHtml(globalOptions['logo-url']) + '">' + html + '</a>';
             }
@@ -398,8 +401,31 @@ function render(inputStr, options, callback) {
     }));
 }
 
+// Moved here to allow testing of options
+function processOptions(options) {
+    if (options.customcss) options.customCss = options.customcss; // backwards compatibility
+
+    if (options.h) options.help   = options.h;
+    if (options.a) options.attr   = options.a;
+    if (options.l) options.layout = options.l;
+    if (options.o) options.output = options.o;
+
+    const dirname = path.dirname(__filename);
+    options.outdir = path.dirname(options.output || dirname);
+
+    options.srcdir = options.srcdir || path.join(dirname, 'source');
+    options.pubdir = options.pubdir || path.join(dirname, 'pub');
+    options.overwrite = !!options.overwrite;
+    options.debug = !!options.debug;
+
+    options.topdir = path.dirname(options.srcdir);
+    if (globalOptions.debug) console.debug(options);
+    return options;
+}
+
 module.exports = {
     render: render,
+    processOptions: processOptions,
     srcDir: function () { return globalOptions.srcdir; }
 };
 

@@ -7,27 +7,9 @@ const path = require('path');
 const options = require('tiny-opts-parser')(process.argv);
 const shins = require('./index.js');
 
-if (options.customcss) options.customCss = options.customcss; // backwards compatibility
-
-var inputName = './source/index.html.md';
-
-if (options._.length > 2) {
-    inputName = options._[2];
-}
-
-if (options.h) options.help   = options.h;
-if (options.a) options.attr   = options.a;
-if (options.l) options.layout = options.l;
-if (options.o) options.output = options.o;
-
-const dirname = path.dirname(__filename);
-options.outdir = path.dirname(options.output || dirname);
-
-options.srcdir = options.srcdir || path.join(dirname, 'source');
-options.pubdir = options.pubdir || path.join(dirname, 'pub');
-options.overwrite = !!options.overwrite;
-
-options.topdir = path.dirname(options.srcdir);
+var inputName = (options._.length > 2) ? options._[2] : './source/index.html.md';
+options.source = inputName;
+options.cli = true;
 
 if (options.help) {
     console.log('Usage: node shins [options] [input-markdown-filename]');
@@ -48,12 +30,13 @@ if (options.help) {
     console.log('--srcdir    source directory.  default: ' + options.srcdir);
     console.log('--pubdir    pub directory.  default: ' + options.pubdir);
     console.log('--overwrite Overwrite any files in output directory');
+    console.log('--debug     display console debug output');
     process.exit(0);
 }
 
+shins.processOptions(options);
+
 var inputStr = fs.readFileSync(inputName,'utf8');
-options.source = inputName;
-options.cli = true;
 
 shins.render(inputStr,options,function(err,str){
     if (err) {

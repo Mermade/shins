@@ -55,11 +55,11 @@ If you use the option `--minify` to shins, the only things you need to take to y
 
 If you use the `--inline` option to shins, then everything is bundled into the `index.html` file and no `pub` directory is required. Fonts are by default loaded from this github repository, but this can be overridden with the `--fonturl` option.
 
-#### Embedding
+#### Embedding Shins in your documentation project
 
 * In a blank directory, start a project:
 * Install `shins` as a dependency in your project
-* Copy the `source` directory into 
+* Copy the `source` directory into your project directory
 
 ```
 npm init
@@ -103,6 +103,7 @@ npx shins --o docs/index.html --srcdir $(pwd)/source source/index.html.md
     --srcdir    source directory.  default: node_modules/shins/source
     --pubdir    pub directory.  default: node_modules/shins/pub
     --overwrite Overwrite any files in output directory
+    --debug     display console debug output
 
 
 ### API
