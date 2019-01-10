@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const util = require('util');
 
 const maybe = require('call-me-maybe');
 
@@ -152,8 +151,11 @@ function language_array(language_tabs) {
 
 function preProcess(content,options) {
     let lines = content.split('\r').join('').split('\n');
+    const comments = [];
+    comments.push('<!-- Renderer: Shins v'+globalOptions.shins.version+' -->');
     for (let l=0;l<lines.length;l++) {
         let line = lines[l];
+        if (line.indexOf('<!--') >= 0) comments.push(line);
         let filename = '';
         if (line.startsWith('include::') && line.endsWith('[]')) { // asciidoc syntax
             filename = line.split(':')[2].replace('[]','');
@@ -169,6 +171,7 @@ function preProcess(content,options) {
         }
         else lines[l] = line;
     }
+    globalOptions.comments = comments;
     return lines.join('\n');
 }
 
@@ -186,6 +189,7 @@ function postProcess(content) {
     content = content.replace(/\<(h[123456]) id="(.*)"\>(.*)\<\/h[123456]\>/g, function (match, header, id, title) {
         return '<' + header + ' id="' + cleanId(id) + '">' + title + '</' + header + '>';
     });
+    content = content + globalOptions.comments.join('\n');
     return content;
 }
 
@@ -260,6 +264,7 @@ function render(inputStr, options, callback) {
     }
     return maybe(callback, new Promise(function (resolve, reject) {
         globalOptions = options;
+        globalOptions.shins = require('./package.json');
 
         inputStr = inputStr.split('\r\n').join('\n');
         var inputArr = ('\n' + inputStr).split('\n---\n');
