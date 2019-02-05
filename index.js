@@ -76,12 +76,14 @@ function javascript_include_tag(include) {
 }
 
 function partial(include) {
-    var includePath = "";
-    if (include.indexOf("/") === 0) {
+    var includePath = '';
+    if (include.indexOf('/') === 0) {
         includePath = path.join(__dirname, include + '.md');
     }
     else {
-        includePath = path.join(__dirname, '/source/includes/_' + include + '.md');
+        let components = include.split('/');
+        components[components.length-1] = '_'+components[components.length-1]+'.md';
+        includePath = path.join(__dirname, '/source/includes/'+components.join('/'));
     }
     var includeStr = safeReadFileSync(includePath, 'utf8');
     return postProcess(md.render(clean(includeStr)));
