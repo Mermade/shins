@@ -46,7 +46,7 @@ function safeReadFileSync(filename,encoding) {
 }
 
 function javascript_include_tag(include) {
-    var includeStr = safeReadFileSync(path.join(__dirname, '/source/javascripts/' + include + '.inc'), 'utf8');
+    var includeStr = safeReadFileSync(path.join(globalOptions.root, '/source/javascripts/' + include + '.inc'), 'utf8');
     if (globalOptions.minify) {
         var scripts = [];
         var includes = includeStr.split('\r').join().split('\n');
@@ -55,11 +55,11 @@ function javascript_include_tag(include) {
             var elements = inc.split('"');
             if (elements[1]) {
                 if (elements[1] == 'text/javascript') {
-                    scripts.push(path.join(__dirname, 'source/javascripts/all_nosearch.js'));
+                    scripts.push(path.join(globalOptions.root, 'source/javascripts/all_nosearch.js'));
                     break;
                 }
                 else {
-                    scripts.push(path.join(__dirname, elements[1]));
+                    scripts.push(path.join(globalOptions.root, elements[1]));
                 }
             }
         }
@@ -68,8 +68,8 @@ function javascript_include_tag(include) {
             includeStr = '<script>'+bundle.code+'</script>';
         }
         else {
-            fs.writeFileSync(path.join(__dirname, '/pub/js/shins.js'), bundle.code, 'utf8');
-            includeStr = safeReadFileSync(path.join(__dirname, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
+            fs.writeFileSync(path.join(globalOptions.root, '/pub/js/shins.js'), bundle.code, 'utf8');
+            includeStr = safeReadFileSync(path.join(globalOptions.root, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
         }
     }
     return includeStr;
@@ -78,12 +78,12 @@ function javascript_include_tag(include) {
 function partial(include) {
     var includePath = '';
     if (include.indexOf('/') === 0) {
-        includePath = path.join(__dirname, include + '.md');
+        includePath = path.join(globalOptions.root, include + '.md');
     }
     else {
         let components = include.split('/');
         components[components.length-1] = '_'+components[components.length-1]+'.md';
-        includePath = path.join(__dirname, '/source/includes/'+components.join('/'));
+        includePath = path.join(globalOptions.root, '/source/includes/'+components.join('/'));
     }
     var includeStr = safeReadFileSync(includePath, 'utf8');
     return postProcess(md.render(clean(includeStr)));
@@ -99,7 +99,7 @@ function stylesheet_link_tag(stylesheet, media) {
         override = 'theme';
     }
     if (globalOptions.inline) {
-        var stylePath = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
+        var stylePath = path.join(globalOptions.root, '/pub/css/' + stylesheet + '.css');
         if (!fs.existsSync(stylePath)) {
             stylePath = path.join(hlpath, '/styles/' + stylesheet + '.css');
         }
@@ -107,7 +107,7 @@ function stylesheet_link_tag(stylesheet, media) {
         styleContent = replaceAll(styleContent, '../../source/fonts/', globalOptions.fonturl||'https://raw.githubusercontent.com/Mermade/shins/master/source/fonts/');
         styleContent = replaceAll(styleContent, '../../source/', 'source/');
         if (globalOptions.customCss) {
-            let overrideFilename = path.join(__dirname, '/pub/css/' + override + '_overrides.css');
+            let overrideFilename = path.join(globalOptions.root, '/pub/css/' + override + '_overrides.css');
             if (fs.existsSync(overrideFilename)) {
                 styleContent += '\n' + safeReadFileSync(overrideFilename, 'utf8');
             }
@@ -121,7 +121,7 @@ function stylesheet_link_tag(stylesheet, media) {
     }
     else {
         if (media == 'screen') {
-            var target = path.join(__dirname, '/pub/css/' + stylesheet + '.css');
+            var target = path.join(globalOptions.root, '/pub/css/' + stylesheet + '.css');
             if (!fs.existsSync(target)) {
                 var source = path.join(hlpath, '/styles/' + stylesheet + '.css');
                 fs.writeFileSync(target, safeReadFileSync(source));
@@ -265,6 +265,9 @@ function render(inputStr, options, callback) {
     if (options.inline == true) {
         options.minify = true;
     }
+    if (typeof options.root === 'undefined') {
+        options.root = __dirname;
+    }
     return maybe(callback, new Promise(function (resolve, reject) {
         globalOptions = options;
         globalOptions.shins = require('./package.json');
@@ -354,7 +357,7 @@ function render(inputStr, options, callback) {
         locals.image_tag = function (image, altText, className) {
             var imageSource = "source/images/" + image;
             if (globalOptions.inline) {
-                var imgContent = safeReadFileSync(path.join(__dirname, imageSource));
+                var imgContent = safeReadFileSync(path.join(globalOptions.root, imageSource));
                 imageSource = getBase64ImageSource(imageSource, imgContent);
             }
             return '<img src="'+imageSource+'" class="' + className + '" alt="' + altText + '">';
@@ -367,7 +370,7 @@ function render(inputStr, options, callback) {
                 imageSource = getBase64ImageSource(imageSource, imgContent);
             } else {
                 var logoPath = "source/images/custom_logo" + path.extname(imageSource);
-                fs.writeFileSync(path.join(__dirname, logoPath), imgContent);
+                fs.writeFileSync(path.join(globalOptions.root, logoPath), imgContent);
                 imageSource = logoPath;
             }
             var html = '<img src="' + imageSource + '" class="logo" alt="Logo">';
@@ -382,7 +385,7 @@ function render(inputStr, options, callback) {
 
         var ejsOptions = {};
         ejsOptions.debug = false;
-        ejs.renderFile(path.join(__dirname, options.layout || '/source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
+        ejs.renderFile(path.join(globalOptions.root, options.layout || '/source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
             if (err) reject(err)
             else resolve(str);
         });
@@ -391,6 +394,6 @@ function render(inputStr, options, callback) {
 
 module.exports = {
     render: render,
-    srcDir: function () { return __dirname; }
+    srcDir: function () { return globalOptions.root; }
 };
 
