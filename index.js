@@ -317,6 +317,11 @@ function render(inputStr, options, callback) {
                     child.id = $(this).attr('id');
                     child.content = $(this).text();
                     child.children = [];
+                    
+                    // Find next "<code>" block and pull out the type
+                    let route = $($(this).nextUntil ("h2", "p").find ("code")[0]).text ();
+                    child.type = (route || "").split (" ")[0];
+
                     h2 = child;
                     if (h1) h1.children.push(child);
                 }
@@ -351,7 +356,7 @@ function render(inputStr, options, callback) {
                     if (h5) h5.children.push(child);
                 }
             });
-            return result; //[{id:'test',content:'hello',children:[]}];
+            return result; //[{id:'test',content:'hello',type:'GET',children:[]}];
         };
         locals.partial = partial;
         locals.image_tag = function (image, altText, className) {
