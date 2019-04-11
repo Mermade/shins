@@ -26,7 +26,7 @@ var md = require('markdown-it')({
     }
 }).use(require('markdown-it-lazy-headers'));
 md.use(emoji);
-const yaml = require('js-yaml');
+const yaml = require('yaml');
 const ejs = require('ejs');
 const uglify = require('uglify-js');
 const cheerio = require('cheerio');
@@ -278,7 +278,7 @@ function render(inputStr, options, callback) {
             inputArr = ('\n' + inputStr).split('\n--- \n');
         }
         var headerStr = inputArr[1];
-        var header = yaml.safeLoad(headerStr);
+        var header = yaml.parse(headerStr);
 
         /* non-matching languages between Ruby Rouge and highlight.js at 2016/07/10 are
         ['ceylon','common_lisp','conf','cowscript','erb','factor','io','json-doc','liquid','literate_coffeescript','literate_haskell','llvm','make',
