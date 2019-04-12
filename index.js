@@ -320,7 +320,18 @@ function render(inputStr, options, callback) {
                     
                     // Find next "<code>" block and pull out the type
                     let route = $($(this).nextUntil ("h2", "p").find ("code")[0]).text ();
-                    child.type = (route || "").split (" ")[0];
+					child.type = (route || "").split (" ")[0] || "";
+					switch (child.type.toLowerCase ()) {
+						case "get":
+						case "post":
+						case "delete":
+						case "put":
+						case "patch":
+							break;
+						default:
+							child.type = "";
+							break;
+					}
 
                     h2 = child;
                     if (h1) h1.children.push(child);
