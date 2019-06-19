@@ -307,7 +307,8 @@ function render(inputStr, options, callback) {
                 var entry = {};
                 if (tag === 'h1') {
                     entry.id = $(this).attr('id');
-                    entry.content = $(this).text();
+                    entry.title = $(this).text();
+                    entry.content = $(this).html();
                     entry.children = [];
                     h1 = entry;
                     result.push(entry);
@@ -315,7 +316,8 @@ function render(inputStr, options, callback) {
                 if (tag === 'h2') {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     child.children = [];
                     h2 = child;
                     if (h1) h1.children.push(child);
@@ -323,7 +325,8 @@ function render(inputStr, options, callback) {
                 if ((headingLevel >= 3) && (tag === 'h3')) {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     child.children = [];
                     h3 = child;
                     if (h2) h2.children.push(child);
@@ -331,7 +334,8 @@ function render(inputStr, options, callback) {
                 if ((headingLevel >= 4) && (tag === 'h4')) {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     child.children = [];
                     h4 = child;
                     if (h3) h3.children.push(child);
@@ -339,7 +343,8 @@ function render(inputStr, options, callback) {
                 if ((headingLevel >= 5) && (tag === 'h5')) {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     child.children = [];
                     h5 = child;
                     if (h4) h4.children.push(child);
@@ -347,7 +352,8 @@ function render(inputStr, options, callback) {
                 if ((headingLevel >= 6) && (tag === 'h6')) {
                     let child = {};
                     child.id = $(this).attr('id');
-                    child.content = $(this).text();
+                    entry.title = $(this).text();
+                    child.content = $(this).html();
                     if (h5) h5.children.push(child);
                 }
             });
