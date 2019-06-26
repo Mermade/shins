@@ -30,7 +30,7 @@ app.use(compression());
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
-fs.watch('source/includes', function(eventType, filename) {
+fs.watch('source/includes', { recursive: true }, function(eventType, filename) {
     includesModified = true;
 });
 
