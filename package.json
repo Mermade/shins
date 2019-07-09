@@ -4,7 +4,9 @@
   "description": "Shins Is Not Slate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "bin": {
     "shins": "./shins.js"
@@ -43,11 +45,13 @@
     "sanitize-html": "^1.15.0",
     "tiny-opts-parser": "0.0.3",
     "uglify-js": "^2.7.4",
-    "yaml": "^1.5.0"
+    "yaml": "^1.5.0",
+    "snyk": "^1.192.4"
   },
   "devDependencies": {
     "ejs-lint": "^0.2.0",
     "node-sass": "^4.11.0",
     "node-sass-asset-functions": "^0.1.0"
-  }
+  },
+  "snyk": true
 }
