@@ -2,11 +2,16 @@
 
 'use strict';
 
-var fs = require('fs');
-var sass = require('node-sass');
-var assetFunctions = require('node-sass-asset-functions');
+const fs = require('fs');
+const path = require('path');
+const sass = require('node-sass');
+const assetFunctions = require('node-sass-asset-functions');
+const options = require('tiny-opts-parser')(process.argv);
 
-var outputStyle = process.argv.length > 2 ? process.argv[2] : 'nested';
+const outputStyle = options._.length > 2 ? options._[2] : 'nested';
+
+if (options.r) options.root = options.r;
+if (!options.root) options.root = '.';
 
 function sassRender(infile,outfile) {
 	sass.render({
@@ -25,5 +30,5 @@ function sassRender(infile,outfile) {
 	});
 }
 
-sassRender('./source/stylesheets/screen.css.scss','./pub/css/screen.css');
-sassRender('./source/stylesheets/print.css.scss','./pub/css/print.css');
+sassRender(path.join(options.root,'source/stylesheets/screen.css.scss'),path.join(options.root,'pub/css/screen.css'));
+sassRender(path.join(options.root,'source/stylesheets/print.css.scss'),path.join(options.root,'pub/css/print.css'));
