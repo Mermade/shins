@@ -30,9 +30,11 @@ app.use(compression());
 app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
-fs.watch('source/includes', function(eventType, filename) {
-    includesModified = true;
-});
+if (fs.existsSync('source/includes')) {
+    fs.watch('source/includes', function(eventType, filename) {
+        includesModified = true;
+    });
+}
 
 function getLastGenTime(fpath) {
     if (lastGenTime[fpath]) return lastGenTime[fpath];
