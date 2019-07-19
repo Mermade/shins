@@ -4,7 +4,9 @@
   "description": "Shins Is Not Slate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "npx eslint *.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update": "node shins --unsafe"
   },
   "bin": {
     "shins": "./shins.js"
