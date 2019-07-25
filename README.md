@@ -101,19 +101,6 @@ Set `logo` path to add your custom logo as absolute path or path relative to pro
 
 Set `logo-url` if you want the logo image to link to a webpage.
 
-### CLI usage via api2html (third-party)
-
-You can also use the third-party [api2html](https://github.com/tobilg/api2html) CLI wrapper around Shins/Widdershins:
-
-```bash
-$ # Install globally
-$ npm install api2html -g
-$ # Display the api2html help
-$ api2html --help
-$ # Simple usage
-$ api2html -o api.html api.yml
-```
-
 ### Updating from Slate
 
 * Note: changes to Slate CSS, Javascript etc may break assumptions made in Shins. Use at your own risk.
