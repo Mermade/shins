@@ -391,7 +391,13 @@ function render(inputStr, options, callback) {
 
         var ejsOptions = {};
         ejsOptions.debug = false;
-        ejs.renderFile(path.join(globalOptions.root, options.layout || '/source/layouts/layout.ejs'), locals, ejsOptions, function (err, str) {
+        var layout = path.join(globalOptions.root, '/source/layouts/layout.ejs');
+        if (options.layout) {
+          layout = ( options.layout.startsWith('/') || options.layout.startsWith('./') )
+                   ? options.layout
+                   : path.join(globalOptions.root, options.layout);
+        }
+        ejs.renderFile(layout, locals, ejsOptions, function (err, str) {
             if (err) reject(err)
             else resolve(str);
         });
