@@ -10,6 +10,7 @@ const ejs = require('ejs');
 const compression = require('compression');
 const args = require('tiny-opts-parser')(process.argv);
 const opn = require('opn');
+const chokidar = require('chokidar');
 
 const shins = require('./index.js');
 
@@ -31,7 +32,7 @@ app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
 if (fs.existsSync('source/includes')) {
-    fs.watch('source/includes', function(eventType, filename) {
+    chokidar.watch('source/includes', {}).on('all',function(eventType, filename) {
         includesModified = true;
     });
 }
