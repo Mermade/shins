@@ -128,11 +128,11 @@ function stylesheet_link_tag(stylesheet, media) {
             }
         }
         var include = '<link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '.css">';
+        if (globalOptions.css && stylesheet === 'screen') {
+            include += '\n    <link rel="stylesheet" media="' + media + '" href="' + globalOptions.css + '">';
+        }
         if (globalOptions.customCss) {
             include += '\n    <link rel="stylesheet" media="' + media + '" href="pub/css/' + override + '_overrides.css">';
-        }
-        if (globalOptions.css) {
-            include += '\n    <link rel="stylesheet" media="' + media + '" href="' + globalOptions.css + '">';
         }
         return include;
     }
