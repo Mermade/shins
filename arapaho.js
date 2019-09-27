@@ -21,7 +21,7 @@ if (args.l) args.launch = args.l;
 if (args.h) args.help = args.h;
 
 if (args.help) {
-    console.log('Usage: node arapaho [port] [-l|--launch] [-p|--preserve]');
+    console.log('Usage: node arapaho [port] [-l|--launch] [-p|--preserve] [shins-options]');
     process.exit(0);
 }
 
@@ -59,7 +59,7 @@ function check(req,res,fpath) {
         let source = path.join(__dirname,'source',fpath+'.md');
         fs.readFile(source,'utf8',function(err,markdown){
             if (markdown) {
-                let options = {};
+                let options = Object.assign({},args);
                 if (req.query.customcss) {
                     options.customCss = true;
                 }

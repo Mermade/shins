@@ -31,7 +31,7 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 * To specify a different output filename from the default `./index.html`, use the `--output` or `-o` option.
 * To allow css-style attributes in markdown, specify the `--attr` option.
 * You can specify another location for the `source` and `pub` directories using the `--root` option.
-* To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered. If you use `--launch` or `-l` your default browser will be opened automatically
+* To check locally: `node arapaho` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered. If you use `--launch` or `-l` your default browser will be opened automatically. You can also pass `shins` options on the `arapaho` command-line.
 * Add, commit and push
 * Then (in your fork) press this button
 
