@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "npx eslint *.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update": "node shins --unsafe"
+    "update": "node shins --unsafe",
+    "build": "node shins",
+    "start": "node arapaho -l"
   },
   "bin": {
     "shins": "./shins.js"
