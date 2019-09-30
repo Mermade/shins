@@ -48,7 +48,7 @@
     "sanitize-html": "^1.15.0",
     "tiny-opts-parser": "0.0.3",
     "uglify-js": "^2.7.4",
-    "yaml": "^1.5.0"
+    "yaml": "^1.7.0"
   },
   "devDependencies": {
     "ejs-lint": "^0.2.0",
