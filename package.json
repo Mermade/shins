@@ -40,7 +40,7 @@
     "ejs": "^2.5.1",
     "express": "^4.15.5",
     "highlightjs": "^9.10.0",
-    "markdown-it": "latest",
+    "markdown-it": "10.0.0",
     "markdown-it-attrs": "^1.2.1",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-lazy-headers": "^0.1.3",
