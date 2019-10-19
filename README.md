@@ -127,3 +127,5 @@ Please feel free to add a link to your API documentation here
 * [Signal Biometrics Ox documentation](https://signalbiometrics.github.io/ox-docs/)
 * [LeApp daemon API](https://leapp-to.github.io/shins/index.html)
 * [Shutterstock API](https://api-reference.shutterstock.com/)
+* [Shotstack Video Editing API](https://shotstack.io/docs/api/index.html)
+
