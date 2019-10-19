@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "ejs-lint": "^0.2.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "node-sass-asset-functions": "^0.1.0"
   }
 }
