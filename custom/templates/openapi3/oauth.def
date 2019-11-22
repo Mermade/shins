@@ -1,0 +1,71 @@
+
+<h2 class="icon key gray mb-3" id="algo-plus">Oauth2</h2>
+
+{{~ sd :k}}
+{{=k.description || ''}}
+{{~ ["implicit", "authorizationCode"] :flowType}}
+{{? k.flows[flowType] }}
+<table>
+<tbody>
+<tr>
+<td>
+<strong>Flow type:</strong>
+</td>
+<td>
+{{=flowType}}
+</td>
+</tr>
+{{ for (var ft in k.flows[flowType]) { }}
+{{ var tpValues = k.flows[flowType][ft]; }}
+{{? typeof tpValues !== 'object'}}
+<tr>
+<td>
+<strong>{{=ft}}:</strong>
+</td>
+<td>
+{{=tpValues}}
+</td>
+</tr>
+{{?}}
+{{? typeof tpValues === 'object' && tpValues !== null}}
+<td colspan="2" style='background-color: trasparent'>
+<table class="transparent">
+<thead>
+<tr>
+<th>
+<strong>
+{{=ft}}
+</strong>
+</th>
+<th>
+<strong>
+Description
+</strong>
+</th>
+</tr>
+</thead>
+<tbody>
+{{ for (var scopeName in tpValues) { }}
+{{ var scopeValue = tpValues[scopeName]; }}
+<tr>
+<td>
+<strong>
+{{=scopeName}}
+</strong>
+</td>
+<td>
+{{=scopeValue}}
+</td>
+</tr>
+{{ } /* of scopeName */ }}
+<tbody>
+</table>
+</td>
+</tr>
+{{?}}
+{{ } /* of ft */ }}
+<tbody>
+</table>
+{{~}}
+{{?}}
+{{~}}

@@ -1,0 +1,29 @@
+.content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        &.icon {
+            &::before {
+                font-family: "FontAwesome", serif;
+                font-size: 80%;
+                margin-right: 0.5em;
+            }
+            &.key {
+                &::before {
+                    content: "\f084";
+                }
+            }
+            &.gray {
+                &::before {
+                    color: #8fbcd4;
+                }
+            }
+        }
+        &.no-border {
+            border: none;
+        }
+    }
+}

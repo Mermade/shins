@@ -1,0 +1,27 @@
+
+<h2 class="icon key gray mb-3" id="algo">Api Key</h2>
+
+{{~ sd :k}}
+Parameter Name: <span class="tags gray">{{=k.name}}</span>, in: <span class="tags purple">{{=k.in}}</span>. {{=k.description || ''}}
+
+<table>
+<tbody>
+<tr>
+<td>
+<strong>Security scheme type:</strong>
+</td>
+<td>
+{{=k.type}}
+</td>
+</tr>
+<tr>
+<td>
+<strong>parameter {{=k['in']}} name:</strong>
+</td>
+<td>
+{{=k.name}}
+</td>
+</tr>
+<tbody>
+</table>
+{{~}}

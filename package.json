@@ -1,58 +1,70 @@
 {
-  "name": "shins",
-  "version": "2.3.2-6",
-  "description": "Shins Is Not Slate",
-  "main": "index.js",
-  "scripts": {
-    "lint": "npx eslint *.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "update": "node shins --unsafe",
-    "build": "node shins",
-    "start": "node arapaho -l"
-  },
-  "bin": {
-    "shins": "./shins.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mermade/shins.git"
-  },
-  "keywords": [
-    "shins",
-    "slate",
-    "swagger",
-    "openapi",
-    "api",
-    "documentation",
-    "docs"
-  ],
-  "author": "Mike Ralphson",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/Mermade/shins/issues"
-  },
-  "homepage": "https://github.com/Mermade/shins#readme",
-  "dependencies": {
-    "call-me-maybe": "^1.0.1",
-    "cheerio": "^1.0.0-rc.2",
-    "chokidar": "^3.0.2",
-    "compression": "^1.6.2",
-    "ejs": "^2.5.1",
-    "express": "^4.15.5",
-    "highlightjs": "^9.10.0",
-    "markdown-it": "latest",
-    "markdown-it-attrs": "^1.2.1",
-    "markdown-it-emoji": "^1.4.0",
-    "markdown-it-lazy-headers": "^0.1.3",
-    "opn": "^5.2.0",
-    "sanitize-html": "^1.15.0",
-    "tiny-opts-parser": "0.0.3",
-    "uglify-js": "^2.7.4",
-    "yaml": "^1.7.0"
-  },
-  "devDependencies": {
-    "ejs-lint": "^0.2.0",
-    "node-sass": "^4.12.0",
-    "node-sass-asset-functions": "^0.1.0"
-  }
+    "name": "shins",
+    "version": "2.3.2-6",
+    "description": "Shins Is Not Slate",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "update": "node shins --unsafe",
+        "build": "npm run build-markdown && node shins",
+        "start": "node arapaho -l",
+        "build-markdown": "widdershins  --environment options.json --summary api.yaml -o ./source/index.html.md",
+        "rebuild-css": "node buildstyleCustom.js",
+        "rebuild-css-normal": "node buildstyle.js",
+        "build-documentation": "yarn run build-markdown && yarn run rebuild-css",
+        "lint": "eslint \"**/*.+(js|jsx|json|yml|yamil|css|sass|less|ts|tsx|mdx|graphql|vue)\"",
+        "format": "prettier -- --write",
+        "prettier": "prettier  \"**/*.+(js|jsx|json|yml|yamil|css|sass|less|ts|tsx|md|mdx|graphql|vue)\"",
+        "validate": "npm run lint && npm run prettier -- --list-different"
+    },
+    "bin": {
+        "shins": "./shins.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mermade/shins.git"
+    },
+    "keywords": [
+        "shins",
+        "slate",
+        "swagger",
+        "openapi",
+        "api",
+        "documentation",
+        "docs"
+    ],
+    "author": "Mike Ralphson",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/Mermade/shins/issues"
+    },
+    "homepage": "https://github.com/Mermade/shins#readme",
+    "dependencies": {
+        "call-me-maybe": "^1.0.1",
+        "cheerio": "^1.0.0-rc.2",
+        "chokidar": "^3.0.2",
+        "compression": "^1.6.2",
+        "ejs": "^2.5.1",
+        "express": "^4.15.5",
+        "highlightjs": "^9.10.0",
+        "markdown-it": "latest",
+        "markdown-it-attrs": "^1.2.1",
+        "markdown-it-emoji": "^1.4.0",
+        "markdown-it-lazy-headers": "^0.1.3",
+        "opn": "^5.2.0",
+        "sanitize-html": "^1.15.0",
+        "tiny-opts-parser": "0.0.3",
+        "uglify-js": "^2.7.4",
+        "yaml": "^1.7.0"
+    },
+    "devDependencies": {
+        "ejs-lint": "^0.2.0",
+        "eslint": "^6.6.0",
+        "eslint-config-prettier": "^6.7.0",
+        "eslint-plugin-json": "^2.0.1",
+        "node-sass": "^4.12.0",
+        "node-sass-asset-functions": "^0.1.0",
+        "prettier": "^1.19.1",
+        "widdershins": "^3.6.7"
+    }
 }

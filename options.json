@@ -1,0 +1,16 @@
+{
+  "language_tabs": [{ "go": "Go" }, { "http": "HTTP" }, { "javascript": "JavaScript" }, { "javascript--nodejs": "Node.JS" }, { "python": "Python" }, { "ruby": "Ruby" }],
+  "verbose": true,
+  "user_templates": "./custom/templates/openapi3",
+    "expandBody": true,
+  "tagGroups": [
+    {
+      "title": "Companies",
+      "tags": ["companies"]
+    },
+    {
+      "title": "Billing",
+      "tags": ["invoice-create", "invoice-close", "invoice-delete"]
+    }
+  ]
+}

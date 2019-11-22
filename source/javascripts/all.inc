@@ -6,6 +6,7 @@
 <script src="source/javascripts/app/_lang.js"></script>
 <script src="source/javascripts/app/_search.js"></script>
 <script src="source/javascripts/app/_toc.js"></script>
+<script src="source/javascripts/app/tables.js"></script>
 <script type="text/javascript">
 $(function() {
   loadToc($('#toc'), '.toc-link', '.toc-list-h2, .toc-list-h3, .toc-list-h4, .toc-list-h5, .toc-list-h6', 10);
@@ -13,6 +14,7 @@ $(function() {
   $('.content').imagesLoaded( function() {
     recacheHeights();
     refreshToc();
+    window.component.start()
   });
 });
 

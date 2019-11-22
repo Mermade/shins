@@ -1,0 +1,11 @@
+{
+    "extends": ["prettier", "eslint:recommended", "plugin:json/recommended"],
+    "env": {
+        "browser": true,
+        "node": true,
+        "jquery": true
+    },
+    "rules": {
+        "strict": "off"
+    }
+}

@@ -16,6 +16,7 @@ under the License.
 <% var language_tabs = current_page.data.language_tabs || []; %>
 <% if (current_page.data.includes) { for (var include in current_page.data.includes) { %>
   <% page_content += partial(current_page.data.includes[include]) %>
+    <%- partial(current_page.data.includes[include]) %>
 <% } %>
 <!doctype html>
 <html lang="en">
@@ -27,6 +28,8 @@ under the License.
 
     <style>
     </style>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/05a47c7e6e.js" crossorigin="anonymous"></script>
     <%- stylesheet_link_tag('screen','screen') %>
     <%- stylesheet_link_tag('print','print') %>
     <%- stylesheet_link_tag(current_page.data.highlight_theme||'darkula','screen') %>
@@ -46,7 +49,9 @@ under the License.
       </span>
     </a>
     <div class="toc-wrapper">
-      <%- logo_image_tag() %>
+        <div class="logo-wrapper">
+            <%- logo_image_tag() %>
+        </div>
       <% if (language_tabs.length>0) {%>
         <div class="lang-selector">
           <% for (var lang in language_tabs) { %>
@@ -60,7 +65,7 @@ under the License.
       <% } %>
       <% if (current_page.data.search) { %>
         <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
+          <input type="text" class="search" id="input-search" placeholder="Search...">
         </div>
         <ul class="search-results"></ul>
       <% } %>
@@ -73,7 +78,13 @@ under the License.
               <ul class="toc-list-h2">
                 <% for (var h2 of h1.children) { %>
                   <li>
-                    <a href="#<%= h2.id %>" class="toc-h2 toc-link" data-title="<%= h2.title %>"><%- h2.content %></a>
+                      <a href="#<%= h2.id %>" class="toc-h2 toc-link" data-title="<%= h2.content %>">
+                          <% if (h2.badge) { %>
+                              <em class="badge <%= h2.badge %>"><%= h2.badge %></em> <%- h2.content %>
+                          <% }  else { %>
+                              <%= h2.content %>
+                          <% } %>
+                      </a>
                     <% if (h2.children && (h2.children.length > 0)) { %>
                       <ul class="toc-list-h3">
                       <% for (var h3 of h2.children) { %>

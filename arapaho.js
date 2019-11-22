@@ -32,7 +32,7 @@ app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
 if (fs.existsSync('source/includes')) {
-    chokidar.watch('source/includes', {}).on('all',function(eventType, filename) {
+    chokidar.watch('source/includes', {}).on('all',function() {
         includesModified = true;
     });
 }
@@ -72,6 +72,7 @@ function check(req,res,fpath) {
                 if (req.query.attr) {
                     options.attr = true;
                 }
+                options.unsafe = true;
                 options.source = source;
                 shins.render(markdown,options,function(err,html){
                     if (err) {

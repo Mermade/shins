@@ -9,7 +9,7 @@ const shins = require('./index.js');
 
 if (options.customcss) options.customCss = options.customcss; // backwards compatibility
 
-var inputName = './source/index.html.md';
+let inputName = './source/index.html.md';
 
 if (options._.length > 2) {
     inputName = options._[2];
@@ -41,10 +41,11 @@ if (options.help) {
     process.exit(0);
 }
 
-var inputStr = fs.readFileSync(inputName,'utf8');
+const inputStr = fs.readFileSync(inputName,'utf8');
 options.source = inputName;
 options.cli = true;
-
+options.unsafe = true;
+options.copyfi = true;
 shins.render(inputStr,options,function(err,str){
     if (err) {
        console.log(err);
