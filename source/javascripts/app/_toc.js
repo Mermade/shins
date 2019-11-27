@@ -2,7 +2,7 @@
 //= require ../lib/_imagesloaded.min
 (function() {
     "use strict";
-    
+
     let loaded = false;
 
     function debounce(func, waitTime) {
@@ -49,7 +49,7 @@
                 // at bottom of page, so just select last header by making currentTop very large
                 // this fixes the problem where the last header won't ever show as active if its content
                 // is shorter than the window height
-                currentTop = pageHeight + 1000;
+                currentTop = pageHeight + 200;
             }
 
             let best = null;
@@ -62,7 +62,6 @@
                     best = name;
                 }
             }
-
             // Catch the initial load case
             if (currentTop === scrollOffset && !loaded) {
                 best = window.location.hash;
