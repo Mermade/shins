@@ -21,6 +21,14 @@ paths:
                 - payment
             security:
                 - ApiKeyAuth: []
+            parameters:
+                - description: Cadena de caracteres usado para identificar al usuario asignado. Formato de correo electronico
+                  in: path
+                  name: assigned_user
+                  required: true
+                  schema:
+                      type: string
+                      format: email
             responses:
                 "200":
                     description: Respuesta del servidor con el listado de transacciones
@@ -69,7 +77,7 @@ components:
                     description: Monto de la transacción
                     type: number
                 assigned_user:
-                    description: Cadena de caracteres usado para identificar al usuario asignado. Formato de correo electronmico
+                    description: Cadena de caracteres usado para identificar al usuario asignado. Formato de correo electronico
                     type: string
                     format: email
                 reference:
