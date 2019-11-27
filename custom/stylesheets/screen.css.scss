@@ -417,6 +417,12 @@ a {
     & > h4,
     & > h5,
     & > h6,
+    & > .h1,
+    & > .h2,
+    & > .h3,
+    & > .h4,
+    & > .h5,
+    & > .h6,
     & > p,
     & > table,
     & > ul,
@@ -443,7 +449,7 @@ a {
         clear: both;
     }
 
-    h1 {
+    h1, .h1 {
         @extend %header-font;
         font-size: 25px;
         padding-top: 0.5em;
@@ -455,7 +461,7 @@ a {
         background-color: #fdfdfd;
     }
 
-    h1 {
+    h1, .h1 {
         border-top: none;
         border-bottom: 1px solid #eeeeee;
         background-color: #ffffff;
@@ -472,7 +478,7 @@ a {
         margin-top: 0;
     }
 
-    h2 {
+    h2, .h2 {
         @extend %header-font;
         font-size: 19px;
         margin-top: 4em;
@@ -486,7 +492,7 @@ a {
             rgba(#fff, 0)
         );
     }
-    h2 {
+    h2, .h2  {
         border-top: 01px solid #eee;
         padding-bottom: 0.2em;
         background-image: linear-gradient(
