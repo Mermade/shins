@@ -14,12 +14,12 @@
 {{ data.utils.getParameters(data); }}
 
 {{? data.options.codeSamples || data.operation["x-code-samples"] }}
-> Code samples
+> Ejemplos de Código
 
 {{= data.utils.getCodeSamples(data) }}
 {{?}}
 
-`{{= data.methodUpper}} {{=data.method.path}}`
+<span class="badge {{= data.method.verb}}">{{= data.methodUpper}}</span> {{=data.method.path}}
 
 {{? data.operation.summary && !data.options.tocSummary}}*{{= data.operation.summary }}*{{?}}
 

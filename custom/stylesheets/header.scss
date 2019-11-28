@@ -1,0 +1,88 @@
+@import "variables";
+
+.top-header {
+    height: $header-top-height - 12px;
+    width: calc(100% - 60px);
+    display: flex;
+    background: #222;
+    position: fixed;
+    z-index: 20;
+    padding: 6px 30px;
+    overflow: visible;
+    justify-content: space-between;
+    align-items: center;
+
+    div.logo {
+        width: auto;
+        img {
+            height: $header-top-height - 12px;
+        }
+    }
+    .top-toolbar {
+        width: 250px;
+        height: 28px;
+        & > .search {
+            position: relative;
+
+            input {
+                background-color: $nav-active-bg;
+                margin: 0;
+                border: none;
+                padding: 6px 0 6px 27px;
+                box-sizing: border-box;
+                width: 100%;
+                outline: none;
+                color: $nav-text;
+                border-radius: 5px; /* ios has a default border radius */
+            }
+
+            &:before {
+                position: absolute;
+                top: 8px;
+                left: 8px;
+                color: $nav-text;
+                @extend %icon-search;
+            }
+        }
+
+        .search-results {
+            margin-top: 20px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            height: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition-property: height, margin;
+            transition-duration: 180ms;
+            transition-timing-function: ease-in-out;
+            background: $nav-subitem-bg;
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            &.visible {
+                height: auto;
+                margin-bottom: 1em;
+            }
+
+            li {
+                /* margin: 1em $nav-padding; */
+                line-height: 1;
+                padding: 0;
+                border: none;
+                &:hover {
+                    background-color: $nav-active-bg;
+                }
+            }
+
+            a {
+                color: $nav-text;
+                text-decoration: none;
+                padding: 10px 10px 10px 15px;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

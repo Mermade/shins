@@ -3,7 +3,6 @@ let schema = Object.assign({}, data);
 let transformedSchema = [];
 for (let key in schema) {
    if (schema.hasOwnProperty(key)) {
-      if (key === 'scope678678') console.log(schema[key]);
       transformedSchema.push(Object.assign(schema[key], {name: key}));
    }
 }
@@ -23,6 +22,9 @@ return transformedSchema;
 <svg class="arrow " version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0">
 <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
 </svg>
+{{?}}
+{{? p.required }}
+<div class="required"> required </div>
 {{?}}
 </td>
 <td class="prop-description">
@@ -93,7 +95,7 @@ return transformedSchema;
 <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
 </svg>
 {{?}}
-{{? p.required }}
+{{? p.required || (Array.isArray(data.requiredParams) && data.requiredParams.indexOf(p.name) > -1)}}
 <div class="required"> required </div>
 {{?}}
 </td>
@@ -102,6 +104,12 @@ return transformedSchema;
 <div>
 <span class="gray-text">{{=p.schema ? p.schema.type : p.type}}</span>
 </div>
+{{? p.format || ( p.schema  && p.schema.format ) }}
+<div>
+format:
+<span class="tags gray">{{=p.schema ? p.schema.format : p.format}}</span>
+</div>
+{{?}}
 <div>
 <div class="description">
 <p>{{=p.shortDesc || p.description}}</p>
@@ -110,7 +118,7 @@ return transformedSchema;
 </div>
 </td>
 </tr>
-{{? data.method.path === '/calendars/{calendarId}/acl' && (p.originalType === 'object' || p.type === 'object') }}
+{{?  (p.originalType === 'object' || p.type === 'object')}}
 {{var schemaTransformerData = schemaTransformer(p.schema && p.schema.properties ? p.schema.properties : p.properties);}}
 {{#def.sublevel:schemaTransformerData}}
 {{?}}

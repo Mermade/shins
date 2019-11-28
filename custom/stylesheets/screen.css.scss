@@ -6,6 +6,13 @@
 @import "tables";
 @import "extended";
 @import "helpers";
+@import "header";
+
+
+@mixin icon-search {
+    @include icon-search;
+}
+
 // @import 'rtl'; // uncomment to switch to RTL format
 
 /*
@@ -57,6 +64,47 @@ a {
     width: 20px;
 }
 
+#toc {
+    li {
+        &:hover {
+            background-color: $nav-active-bg;
+        }
+    }
+}
+
+
+.badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-family: Verdana, sans-serif;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-right: 6px;
+    margin-top: 2px;
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: 6px 4px;
+    padding: 0 5px;
+    &.get {
+        background-color: rgb(107, 189, 91);
+    }
+    &.post {
+        background-color: rgb(36, 143, 178);
+    }
+    &.put {
+        background-color: rgb(36, 143, 178);
+    }
+    &.patch {
+        background-color: rgb(155, 112, 139);
+    }
+    &.delete {
+        background-color: rgb(226, 122, 122);
+    }
+}
+
 .toc-wrapper {
     transition: left 0.3s ease-in-out;
 
@@ -64,11 +112,11 @@ a {
     overflow-x: hidden;
     position: fixed;
     z-index: 30;
-    top: 0;
+    top: $header-top-height;
     left: 0;
     bottom: 0;
     width: $nav-width;
-    background-color: rgb(250, 250, 250); //$nav-bg;
+    background-color: $nav-bg;
     font-size: 13px;
     font-weight: bold;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
@@ -84,7 +132,7 @@ a {
 
     // This is the logo at the top of the ToC
     .logo-wrapper {
-        background-color: #fff;
+        background-color: $nav-bg;
         padding: 10px 0;
         .logo {
             display: block;
@@ -93,72 +141,16 @@ a {
         }
     }
 
+    .toc-list-h1 {
+        background-color: $nav-menu-bg;
+    }
+
     & > .search {
-        position: relative;
-
-        input {
-            // background: $nav-bg;
-            background-color: transparent;
-            // order-width: 0 0 1px 0;
-            // border-color: $search-box-border-color;
-            border-bottom: 1px solid rgb(225, 225, 225);
-            border-top-style: initial;
-            border-right-style: initial;
-            border-left-style: initial;
-            border-top-color: initial;
-            border-right-color: initial;
-            border-left-color: initial;
-            padding: 6px 0 6px 20px;
-            box-sizing: border-box;
-            margin: $nav-v-padding $nav-padding;
-            width: $nav-width - ($nav-padding * 2);
-            outline: none;
-            /* color: $nav-text; */
-            color: #241c15;
-            border-radius: 0; /* ios has a default border radius */
-        }
-
-        &:before {
-            position: absolute;
-            top: 17px;
-            left: $nav-padding;
-            // color: $nav-text;
-            color: #241c15;
-            @extend %icon-search;
-        }
+        display: none;
     }
 
     .search-results {
-        margin-top: 0;
-        box-sizing: border-box;
-        height: 0;
-        overflow-y: auto;
-        overflow-x: hidden;
-        transition-property: height, margin;
-        transition-duration: 180ms;
-        transition-timing-function: ease-in-out;
-        /* background: $nav-subitem-bg; */
-        background: #0288d1;
-        &.visible {
-            height: 30%;
-            margin-bottom: 1em;
-        }
-
-        li {
-            /* margin: 1em $nav-padding; */
-            line-height: 1;
-            padding: 5px 15px;
-            border: none;
-        }
-
-        a {
-            color: $nav-text;
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+        display: none;
     }
 
     // The Table of Contents is composed of multiple nested
@@ -183,11 +175,8 @@ a {
 
     // This is the currently selected ToC entry
     .toc-link.active {
-        /* background-color: $nav-active-bg;
-    color: $nav-active-text; */
-        color: rgb(252, 75, 0);
-        background-color: rgb(237, 237, 237);
-        font-weight: bold;
+        background-color: $nav-active-bg;
+        color: $nav-active-text;
     }
 
     // this is parent links of the currently selected ToC entry
@@ -198,58 +187,25 @@ a {
 
     .toc-list-h2 {
         display: none;
-        /* background-color: $nav-subitem-bg; */
-        background-color: #f7f7f7;
-        font-weight: 500;
+        background-color: $nav-subitem-bg;
         .badge {
             width: 32px;
-        }
-    }
-
-    .badge {
-        display: inline-block;
-        height: 13px;
-        line-height: 13px;
-        font-size: 7px;
-        font-family: Verdana, sans-serif;
-        color: white;
-        text-transform: uppercase;
-        text-align: center;
-        font-weight: bold;
-        vertical-align: middle;
-        margin-right: 6px;
-        margin-top: 2px;
-        border-radius: 3px;
-        background-repeat: no-repeat;
-        background-position: 6px 4px;
-        padding: 0 5px;
-        &.get {
-            background-color: rgb(107, 189, 91);
-        }
-        &.post {
-            background-color: rgb(36, 143, 178);
-        }
-        &.put {
-            background-color: rgb(36, 143, 178);
-        }
-        &.patch {
-            background-color: rgb(155, 112, 139);
-        }
-        &.delete {
-            background-color: rgb(226, 122, 122);
+            height: 13px;
+            line-height: 13px;
+            font-size: 7px;
         }
     }
 
     .toc-h2 {
         // padding-left: $nav-padding + $nav-indent;
         font-size: 12px;
-        padding: 5px 0 5px $nav-padding + $nav-indent;
+        padding: 10px 0 10px $nav-padding + $nav-indent;
     }
 
     .toc-footer {
         padding: 1em 0;
         margin-top: 1em;
-        border-top: 1px dashed $nav-footer-border-color;
+        /* border-top: 1px dashed $nav-footer-border-color; */
 
         li,
         a {
@@ -272,19 +228,30 @@ a {
 .toc-link,
 .toc-footer li {
     // padding: 0 $nav-padding 0 $nav-padding;
-    padding: 5px 0 5px $nav-padding;
+    padding: 10px 0 10px $nav-padding;
     display: block;
-    overflow-x: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    // overflow-x: hidden;
+    // white-space: nowrap;
+    // text-overflow: ellipsis;
     text-decoration: none;
-    /* color: $nav-text; */
-    color: #241c15;
+    color: $nav-text;
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 130ms;
-    font-weight: normal;
+    text-transform: uppercase;
     font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.toc-link {
+    span {
+        display: inline-block;
+        vertical-align: top;
+    }
+    em.badge + span {
+        width: calc(100% - 50px);
+    }
 }
 
 // button to show navigation on mobile devices
@@ -334,7 +301,7 @@ a {
     z-index: 10;
     background-color: $main-bg;
     min-height: 100%;
-
+    top: $header-top-height;
     padding-bottom: 1px; // prevent margin overflow
 
     // The dark box is what gives the code samples their dark background.
@@ -449,7 +416,8 @@ a {
         clear: both;
     }
 
-    h1, .h1 {
+    h1,
+    .h1 {
         @extend %header-font;
         font-size: 25px;
         padding-top: 0.5em;
@@ -461,7 +429,8 @@ a {
         background-color: #fdfdfd;
     }
 
-    h1, .h1 {
+    h1,
+    .h1 {
         border-top: none;
         border-bottom: 1px solid #eeeeee;
         background-color: #ffffff;
@@ -478,7 +447,8 @@ a {
         margin-top: 0;
     }
 
-    h2, .h2 {
+    h2,
+    .h2 {
         @extend %header-font;
         font-size: 19px;
         margin-top: 4em;
@@ -492,7 +462,8 @@ a {
             rgba(#fff, 0)
         );
     }
-    h2, .h2  {
+    h2,
+    .h2 {
         border-top: 01px solid #eee;
         padding-bottom: 0.2em;
         background-image: linear-gradient(
@@ -829,9 +800,68 @@ a {
 }
 
 @media (max-width: $phone-width) {
-    .dark-box {
-        display: none;
+    @import "icon-font";
+    .toc-wrapper {
+        & > .search {
+            position: relative;
+
+            input {
+                // background: $nav-bg;
+                background-color: $nav-active-bg;
+                // order-width: 0 0 1px 0;
+                // border-color: $search-box-border-color;
+                border: none;
+                padding: 6px 0 6px 27px;
+                box-sizing: border-box;
+                margin: $nav-v-padding $nav-padding;
+                width: $nav-width - ($nav-padding * 2);
+                outline: none;
+                color: $nav-text;
+                border-radius: 5px; /* ios has a default border radius */
+            }
+
+            &:before {
+                position: absolute;
+                top: 17px;
+                left: 22px;
+                color: $nav-text;
+                @include icon-search;
+            }
+        }
     }
+    .search-results {
+        margin-top: 0;
+        box-sizing: border-box;
+        height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        transition-property: height, margin;
+        transition-duration: 180ms;
+        transition-timing-function: ease-in-out;
+        background: $nav-subitem-bg;
+        &.visible {
+            height: 30%;
+            margin-bottom: 1em;
+        }
+
+        li {
+            /* margin: 1em $nav-padding; */
+            line-height: 1;
+            padding: 5px 15px;
+            border: none;
+        }
+
+        a {
+            color: $nav-text;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+
 
     %left-col {
         margin-right: 0;

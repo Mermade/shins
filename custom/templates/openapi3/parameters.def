@@ -1,4 +1,4 @@
-<span class="no-format">
+<div class="no-format">
 <h3 id="{{=data.operationUniqueSlug}}-parameters">Parameters</h3>
 {{ data.security = data.operation.security ? data.operation.security : data.api.security; }}
 {{? data.security && data.security.length }}
@@ -10,23 +10,23 @@
 {{=data.utils.getAuthenticationStr(data) }}
 </div>
 </div>{{?}}
-{{ data.paramsTitle = 'Path Parameters'; }}
+{{ data.paramsTitle = 'Path Parameters:'; }}
 {{ data.filteredParams = Array.isArray(data.parameters) ? data.parameters.filter(function(p) { return p.in === 'path'; }) : []; }}
 {{#def.special_table}}
-{{ data.paramsTitle = 'Query Parameters'; }}
+{{ data.paramsTitle = 'Query Parameters:'; }}
 {{ data.filteredParams = Array.isArray(data.parameters) ? data.parameters.filter(function(p) { return p.in === 'query'; }) : []; }}
 {{#def.special_table}}
-{{ data.paramsTitle = 'REQUEST BODY SCHEMA'; }}
+{{ data.paramsTitle = 'REQUEST BODY SCHEMA:'; }}
 {{ data.filteredParams = Array.isArray(data.parameters) ? data.parameters.filter(function(p) { return p.in === 'body' && p.name === 'body'; }) : []; }}
 {{? !data.filteredParams[0] }}
 {{#def.special_table}}
 {{?? data.filteredParams[0] }}
+{{ data.requiredParams = data.filteredParams[0].schema && data.filteredParams[0].schema.required ? data.filteredParams[0].schema.required : data.filteredParams[0].required}}
 {{ data.filteredParams = data.filteredParams[0].schema && data.filteredParams[0].schema.properties ? data.filteredParams[0].schema.properties : data.filteredParams[0].properties}}
-{{console.log(data.filteredParams);}}
 {{#def.special_table}}
 {{?}}
 
-</span>
+</div>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|

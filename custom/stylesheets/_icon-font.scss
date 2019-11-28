@@ -20,19 +20,34 @@
     line-height: 1;
 }
 
+@mixin icon {
+    font-family: "slate", sans-serif;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
 %icon-exclamation-sign {
-    @extend %icon;
+    @include icon;
     content: "\e600";
 }
 %icon-info-sign {
-    @extend %icon;
+    @include icon;
     content: "\e602";
 }
 %icon-ok-sign {
-    @extend %icon;
+    @include icon;
     content: "\e606";
 }
 %icon-search {
-    @extend %icon;
+    @include icon;
+    content: "\e607";
+}
+
+@mixin icon-search {
+    @include icon;
     content: "\e607";
 }

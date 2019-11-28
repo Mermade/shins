@@ -21,12 +21,13 @@ under the License.
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #f3f7f9 !default;
+$nav-bg: #0A0A0A !default;
+$nav-menu-bg: #0A0A0A !default;
 $examples-bg: #012032 !default;
 $code-bg: rgba(0, 0, 0, 0.7) !default;
 $code-annotation-bg: #191d1f !default;
 $nav-subitem-bg: #1e2224 !default;
-$nav-active-bg: #0f75d4 !default;
+$nav-active-bg: #2C2C2C !default;
 $nav-active-parent-bg: #1e2224 !default; // parent links of the current section
 $lang-select-border: #000 !default;
 $lang-select-bg: #1e2224 !default;
@@ -42,7 +43,7 @@ $search-notice-bg: #c97a7e !default;
 ////////////////////
 $main-text: #455a64 !default; // main content text color
 $nav-text: #fff !default;
-$nav-active-text: #fff !default;
+$nav-active-text: #F54B03 !default;
 $nav-active-parent-text: #fff !default; // parent links of the current section
 $lang-select-text: #fff !default; // color of unselected language tab text
 $lang-select-active-text: #fff !default; // color of selected language tab text
@@ -87,6 +88,8 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 ////////////////////
 $nav-footer-border-color: #666 !default;
 $search-box-border-color: #666 !default;
+
+$header-top-height: 60px;
 
 ////////////////////////////////////////////////////////////////////////////////
 // INTERNAL

@@ -42,14 +42,27 @@ under the License.
   </head>
 
   <body <% if (current_page.page_classes) {%>class="<%= current_page.page_classes %>" <% } %>data-languages="<%- language_array(current_page.data.language_tabs) %>">
-    <a href="#" id="nav-button">
+  <div class="top-header">
+      <div class="logo">
+          <%- logo_image_tag() %>
+      </div>
+      <div class="top-toolbar">
+          <% if (current_page.data.search) { %>
+              <div class="search">
+                  <input type="text" class="search" id="input-search" placeholder="Search...">
+              </div>
+              <ul class="search-results"></ul>
+          <% } %>
+      </div>
+  </div>
+  <a href="#" id="nav-button">
       <span>
         NAV
         <%- image_tag('navbar.png','Navigation') %>
       </span>
     </a>
     <div class="toc-wrapper">
-        <div class="logo-wrapper">
+        <div class="logo-wrapper" style="display: none">
             <%- logo_image_tag() %>
         </div>
       <% if (language_tabs.length>0) {%>
@@ -69,7 +82,7 @@ under the License.
         </div>
         <ul class="search-results"></ul>
       <% } %>
-      <div id="toc" class="toc-list-h1">
+      <div id="toc" class="toc-list-h1 mt-3">
 	  	<ul class="toc-list-h1">
         <% for (var h1 of toc_data(page_content)) { %>
           <li>
@@ -80,9 +93,9 @@ under the License.
                   <li>
                       <a href="#<%= h2.id %>" class="toc-h2 toc-link" data-title="<%= h2.content %>">
                           <% if (h2.badge) { %>
-                              <em class="badge <%= h2.badge %>"><%= h2.badge %></em> <%- h2.content %>
+                              <em class="badge <%= h2.badge %>"><%= h2.badge %></em><span class="full"><%- h2.content %></span>
                           <% }  else { %>
-                              <%= h2.content %>
+                              <span><%= h2.content %></span>
                           <% } %>
                       </a>
                     <% if (h2.children && (h2.children.length > 0)) { %>

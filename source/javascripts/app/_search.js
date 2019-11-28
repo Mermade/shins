@@ -77,17 +77,22 @@
                     searchResults.append(
                         "<li><a href='#" +
                             result.ref +
-                            "'>" +
+                            "' class='toc-link'>" +
                             $(elem).text() +
                             "</a></li>"
                     );
                 });
+                var link = searchResults.find('a');
+                link.click(function() {
+                    unhighlight();
+                    searchResults.removeClass("visible");
+                });
                 highlight.call(searchInput);
             } else {
                 searchResults.html("<li></li>");
-                $(".search-results li").text(
+               /* $(".search-results li").text(
                     'No Results Found for "' + searchInput.value + '"'
-                );
+                );*/
             }
         } else {
             unhighlight();
