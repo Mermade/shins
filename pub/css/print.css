@@ -398,22 +398,34 @@ under the License.
   font-weight: normal;
   font-style: normal; }
 
-.content aside.warning:before, .content aside.notice:before, .content aside.success:before {
+.content aside.warning:before {
   font-family: "slate", sans-serif;
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1; }
-
-.content aside.warning:before {
+  line-height: 1;
   content: "\e600"; }
 
 .content aside.notice:before {
+  font-family: "slate", sans-serif;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
   content: "\e602"; }
 
 .content aside.success:before {
+  font-family: "slate", sans-serif;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
   content: "\e606"; }
 
 /*

@@ -14,7 +14,7 @@
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-{{~ data.responses :r}}|{{=r.status}}|{{=r.meaning}}|{{=r.description || 'none'}}|{{=r.schema}}|
+{{~ data.responses :r}}|{{=r.status}}|{{=r.meaning}}|{{=r.description || 'none'}}|{{=r.schema}}pp|{{console.log(r.content['application/json'].schema.properties.transactions, '----------------------');}}
 {{~}}
 
 {{ data.responseSchemas = false; }}

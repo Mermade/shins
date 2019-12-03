@@ -8,7 +8,6 @@
 @import "helpers";
 @import "header";
 
-
 @mixin icon-search {
     @include icon-search;
 }
@@ -71,7 +70,6 @@ a {
         }
     }
 }
-
 
 .badge {
     display: inline-block;
@@ -175,7 +173,7 @@ a {
 
     // This is the currently selected ToC entry
     .toc-link.active {
-        background-color: $nav-active-bg;
+        background-color: #383838; //$nav-active-bg;
         color: $nav-active-text;
     }
 
@@ -312,7 +310,7 @@ a {
     .dark-box {
         width: $examples-width;
         // background-color: $examples-bg;
-        background-color: rgb(0, 66, 101);
+        background-color: $lang-select-active-bg;
         position: absolute;
         right: 0;
         top: 0;
@@ -327,8 +325,7 @@ a {
 }
 
 .lang-selector {
-    // background-color: $lang-select-bg;
-    background-color: #014265;
+    background-color: $lang-select-bg;
     width: 100%;
     font-weight: bold;
     a {
@@ -337,7 +334,7 @@ a {
         color: $lang-select-text;
         text-decoration: none;
         padding: 0 10px;
-        line-height: 30px;
+        line-height: 28px;
         outline: 0;
 
         &:active,
@@ -348,6 +345,7 @@ a {
         }
 
         &.active {
+            border-top: 2px solid $orange-clip;
             background-color: $lang-select-active-bg;
             color: $lang-select-active-text;
         }
@@ -403,7 +401,13 @@ a {
 
         @extend %left-col;
     }
-
+    & > table {
+        display: table;
+        margin: 0 30px 1em 30px;
+        max-width: calc(55% - 60px);
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
     & > ul,
     & > ol {
         padding-left: $main-padding + 15px;
@@ -510,6 +514,22 @@ a {
     table {
         margin-bottom: 1em;
         overflow: auto;
+        tr:first-child th:first-child {
+            border-top-left-radius: 5px;
+        }
+        tr:first-child th:last-child {
+            border-top-right-radius: 5px;
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 5px;
+        }
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 5px;
+        }
+        /* tr:last-child td:last-child, tr:last-child th:last-child {
+            border-bottom-right-radius: 10px;
+        } */
         th,
         td {
             text-align: left;
@@ -521,17 +541,26 @@ a {
         }
 
         th {
-            padding: 5px 10px;
-            border-bottom: 1px solid #ccc;
+            padding: 6px 12px;
+            // border-bottom: 1px solid #ccc;
             vertical-align: bottom;
+            background-color: lighten($orange-clip, 5%);
+            color: white;
         }
 
         td {
-            padding: 10px;
-        }
-
-        tr:last-child {
-            border-bottom: 1px solid #ccc;
+            padding: 6px 12px;
+            a {
+                color: #0489d2;
+                font-weight: 600;
+                text-decoration: none;
+                &:before {
+                    font-family: "FontAwesome", serif;
+                    font-size: 80%;
+                    margin-right: 0.5em;
+                    content: "\f064";
+                }
+            }
         }
 
         tr:nth-child(odd) > td {
@@ -585,6 +614,28 @@ a {
         border-radius: 3px;
         @extend %break-words;
         @extend %code-font;
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-name,
+        .hljs-attr {
+            color: $orange-clip;
+        }
+        .hljs-symbol,
+        .hljs-attribute {
+            color: #0489d2;
+        }
+        .hljs-string,
+        .hljs-type,
+        .hljs-built_in,
+        .hljs-builtin-name,
+        .hljs-selector-id,
+        .hljs-selector-attr,
+        .hljs-selector-pseudo,
+        .hljs-addition,
+        .hljs-variable,
+        .hljs-template-variable {
+            color: #f9c715;
+        }
     }
 
     pre > code {
@@ -635,13 +686,13 @@ a {
         background: linear-gradient(to top left, #f7e633 0%, #f1d32f 100%);
     }
     .title {
-        color: rgba(38, 50, 56, 0.5);
+        color: rgba(38, 50, 56, 0.8);
         font-weight: normal;
         text-transform: uppercase;
         font-size: 1em;
         line-height: 20px;
         display: block;
-        border-bottom: 1px solid rgba(38, 50, 56, 0.3);
+        border-bottom: 1px solid rgba(38, 50, 56, 0.8);
         padding: 0;
     }
     .props {
@@ -710,12 +761,15 @@ a {
     pre {
         @extend %code-font;
         padding: 2em $main-padding;
+        margin: 2%;
+        max-width: 41%;
+        border-radius: 5px;
     }
 
     blockquote {
         & > p {
-            // background-color: $code-annotation-bg;
-            background-color: $lang-select-active-bg;
+            background-color: $nav-bg;
+            // background-color: $lang-select-active-bg;
             padding: $code-annotation-padding 2em;
             color: #eee;
         }
@@ -728,10 +782,11 @@ a {
         font-size: 0.9rem;
         line-height: 1.6;
         max-width: none;
-        background: #f9f9f9;
+        background: #f5f4f4;
         border-left-width: 4px;
         border-left-style: solid;
         padding: 1rem 1.5rem;
+        border-radius: 5px;
         &::before {
             font-family: "FontAwesome", serif;
             content: "\f013";
@@ -860,8 +915,6 @@ a {
             }
         }
     }
-
-
 
     %left-col {
         margin-right: 0;

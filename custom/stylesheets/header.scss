@@ -25,7 +25,7 @@
             position: relative;
 
             input {
-                background-color: $nav-active-bg;
+                background-color: #383838;
                 margin: 0;
                 border: none;
                 padding: 6px 0 6px 27px;
@@ -59,6 +59,11 @@
             list-style: none;
             padding: 0;
             width: 100%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.32), 0 1px 2px rgba(0,0,0,0.44);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            &:hover {
+                box-shadow: 0 14px 28px rgba(0,0,0,0.35), 0 10px 10px rgba(0,0,0,0.32);
+            }
             &.visible {
                 height: auto;
                 margin-bottom: 1em;
