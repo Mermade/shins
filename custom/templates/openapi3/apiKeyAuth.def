@@ -2,7 +2,7 @@
 <h2 class="icon key gray mb-3" id="apikey">Api Key</h2>
 
 {{~ sd :k}}
-Parameter Name: <span class="tags gray">{{=k.name}}</span>, in: <span class="tags purple">{{=k.in}}</span>. {{=k.description || ''}}
+Nombre del Parámetro: <span class="tags gray">{{=k.name}}</span>, en: <span class="tags purple">{{=k.in}}</span>. {{=k.description || ''}}
 
 <table>
 <tbody>

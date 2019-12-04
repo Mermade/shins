@@ -1,52 +1,190 @@
-table.special {
-    font-family: Roboto, sans-serif;
-    &.prop-table {
-        border-collapse: separate;
-        font-size: 14px;
-        border-radius: 3px;
-        border-spacing: 0;
-        display: table;
-        width: 100%;
-    }
 
-    p {
-        margin: 0;
-    }
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: auto;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
 
-    tr {
-        td {
-            padding: inherit;
-        }
-        &[data-name] {
-            cursor: pointer;
+.active,
+.accordion:hover {
+    background-color: lighten($success, 30);
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin-bottom: 10px;
+}
+
+.responses {
+    font-size: 1em;
+    margin-bottom: 4px;
+    line-height: 1.5em;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    vertical-align: middle;
+    &.success {
+        color: $success-contrast;
+        background-color: $success;
+        .arrow {
+            fill: $success-contrast;
         }
     }
+    &.error {
+        color: $error-contrast;
+        background-color: $error;
+        .arrow {
+            fill: $error-contrast;
+        }
+    }
+    &.warning {
+        color: $warning-contrast;
+        background-color: $warning;
+        .arrow {
+            fill: $warning-contrast;
+        }
+    }
+    &.active {
+        .arrow {
+            transform: rotateZ(0deg);
+        }
+    }
+    .arrow {
+        height: 1.5em;
+        width: 1.5em;
+        fill: white;
+        vertical-align: middle;
+        transition: transform 0.2s ease-out 0s;
+        transform: rotateZ(-90deg);
+    }
+}
 
-    tr {
-        box-sizing: border-box;
-        position: relative;
-        vertical-align: top;
-        line-height: 20px;
-        font-size: 0.929em;
-        font-family: Courier, monospace;
-        border-left: 1px solid rgb(164, 164, 198);
-        padding: 10px 10px 10px 0;
-        &:first-of-type > .tree {
-            background-image: linear-gradient(
-                transparent 0%,
-                transparent 22px,
-                rgb(164, 164, 198) 22px,
-                rgb(164, 164, 198) 100%
-            );
+.content {
+    table.special {
+        font-family: Roboto, sans-serif;
+        &.prop-table {
+            border-collapse: separate;
+            font-size: 14px;
+            border-radius: 3px;
+            border-spacing: 0;
+            display: table;
+            width: 100%;
         }
-        &:first-of-type > .tree,
-        &:last-of-type > .tree {
-            border-left-width: 0;
-            background-size: 1px 100%;
-            background-position: left top;
-            background-repeat: no-repeat;
+        tr td:first-child,
+        table tr td:first-child,
+        tr td {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
-        &:last-of-type > .tree {
+
+        p {
+            margin: 0;
+        }
+
+        tr {
+            td {
+                padding: inherit;
+            }
+            &[data-name] {
+                cursor: pointer;
+            }
+        }
+
+        tr {
+            box-sizing: border-box;
+            position: relative;
+            vertical-align: top;
+            line-height: 20px;
+            font-size: 0.929em;
+            font-family: Courier, monospace;
+            border-left: 1px solid rgb(164, 164, 198);
+            padding: 10px 10px 10px 0;
+            &:first-of-type > .tree {
+                background-image: linear-gradient(
+                    transparent 0%,
+                    transparent 22px,
+                    rgb(164, 164, 198) 22px,
+                    rgb(164, 164, 198) 100%
+                );
+            }
+            &:first-of-type > .tree,
+            &:last-of-type > .tree {
+                border-left-width: 0;
+                background-size: 1px 100%;
+                background-position: left top;
+                background-repeat: no-repeat;
+            }
+            &:last-of-type > .tree {
+                background-image: linear-gradient(
+                    rgb(164, 164, 198) 0%,
+                    rgb(164, 164, 198) 22px,
+                    transparent 22px,
+                    transparent 100%
+                );
+            }
+        }
+
+        .tree {
+            box-sizing: border-box;
+            position: relative;
+            vertical-align: top;
+            line-height: 20px;
+            white-space: nowrap;
+            font-size: 0.929em;
+            font-family: Courier, monospace;
+            border-left: 1px solid rgb(164, 164, 198);
+            padding: 10px 10px 10px 0;
+        }
+
+        .arrow {
+            height: 1.1em;
+            width: 1.1em;
+        }
+
+        .prop-tree-extended {
+            box-sizing: border-box;
+            position: relative;
+            border-left: 1px solid rgb(164, 164, 198);
+            padding: 0;
+
+            > div {
+                margin: 1em 0 1em 1em;
+                background: rgb(250, 250, 250);
+                padding: 1em;
+                table {
+                    border-collapse: separate;
+                    font-size: 14px;
+                    width: 100%;
+                    border-radius: 3px;
+                    border-spacing: 0;
+                }
+            }
+        }
+
+        .prop-tree-middle {
+            box-sizing: border-box;
+            position: relative;
+            vertical-align: top;
+            line-height: 20px;
+            white-space: nowrap;
+            font-size: 0.929em;
+            font-family: Courier, monospace;
+            border-left: 1px solid rgb(164, 164, 198);
+            padding: 10px 10px 10px 0;
+        }
+
+        tr.last > .prop-tree-middle {
             background-image: linear-gradient(
                 rgb(164, 164, 198) 0%,
                 rgb(164, 164, 198) 22px,
@@ -54,126 +192,68 @@ table.special {
                 transparent 100%
             );
         }
-    }
 
-    .tree {
-        box-sizing: border-box;
-        position: relative;
-        vertical-align: top;
-        line-height: 20px;
-        white-space: nowrap;
-        font-size: 0.929em;
-        font-family: Courier, monospace;
-        border-left: 1px solid rgb(164, 164, 198);
-        padding: 10px 10px 10px 0;
-    }
-
-    .arrow {
-        height: 1.1em;
-        width: 1.1em;
-    }
-
-    .prop-tree-extended {
-        box-sizing: border-box;
-        position: relative;
-        border-left: 1px solid rgb(164, 164, 198);
-        padding: 0;
-
-        > div {
-            margin: 1em 0 1em 1em;
-            background: rgb(250, 250, 250);
-            padding: 1em;
-            table {
-                border-collapse: separate;
-                font-size: 14px;
-                width: 100%;
-                border-radius: 3px;
-                border-spacing: 0;
+        tr:first-of-type > .prop-tree-middle,
+        tr.last > .prop-tree-middle {
+            border-left-width: 0;
+            background-size: 1px 100%;
+            background-position: left top;
+            background-repeat: no-repeat;
+        }
+        .arrow {
+            vertical-align: middle;
+            transition: transform 0.2s ease-out 0s;
+            transform: rotateZ(-90deg);
+            &.open {
+                transform: rotateZ(0deg);
             }
         }
-    }
 
-    .prop-tree-middle {
-        box-sizing: border-box;
-        position: relative;
-        vertical-align: top;
-        line-height: 20px;
-        white-space: nowrap;
-        font-size: 0.929em;
-        font-family: Courier, monospace;
-        border-left: 1px solid rgb(164, 164, 198);
-        padding: 10px 10px 10px 0;
-    }
-
-    tr.last > .prop-tree-middle {
-        background-image: linear-gradient(
-            rgb(164, 164, 198) 0%,
-            rgb(164, 164, 198) 22px,
-            transparent 22px,
-            transparent 100%
-        );
-    }
-
-    tr:first-of-type > .prop-tree-middle,
-    tr.last > .prop-tree-middle {
-        border-left-width: 0;
-        background-size: 1px 100%;
-        background-position: left top;
-        background-repeat: no-repeat;
-    }
-    .arrow {
-        vertical-align: middle;
-        transition: transform 0.2s ease-out 0s;
-        transform: rotateZ(-90deg);
-        &.open {
-            transform: rotateZ(0deg);
+        tr:first-of-type > .propTreeFirst {
+            background-image: linear-gradient(
+                transparent 0%,
+                transparent 22px,
+                rgb(164, 164, 198) 22px,
+                rgb(164, 164, 198) 100%
+            );
         }
-    }
 
-    tr:first-of-type > .propTreeFirst {
-        background-image: linear-gradient(
-            transparent 0%,
-            transparent 22px,
-            rgb(164, 164, 198) 22px,
-            rgb(164, 164, 198) 100%
-        );
-    }
+        tr:first-of-type > .propTreeFirst,
+        tr.last > .propTreeFirst {
+            border-left-width: 0;
+            background-size: 1px 100%;
+            background-position: left top;
+            background-repeat: no-repeat;
+        }
 
-    tr:first-of-type > .propTreeFirst,
-    tr.last > .propTreeFirst {
-        border-left-width: 0;
-        background-size: 1px 100%;
-        background-position: left top;
-        background-repeat: no-repeat;
-    }
+        .prop-description {
+            width: 75%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgb(159, 180, 190);
+            padding: 10px 0;
+        }
 
-    .prop-description {
-        width: 75%;
-        box-sizing: border-box;
-        border-bottom: 1px solid rgb(159, 180, 190);
-        padding: 10px 0;
-    }
+        .gray-text {
+            vertical-align: middle;
+            font-size: 13px;
+            line-height: 20px;
+            color: rgb(128, 128, 128);
+        }
 
-    .gray-text {
-        vertical-align: middle;
-        font-size: 13px;
-        line-height: 20px;
-        color: rgb(128, 128, 128);
-    }
+        .description {
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+            line-height: 1.5em;
+        }
 
-    .description {
-        font-family: Roboto, sans-serif;
-        font-weight: 400;
-        line-height: 1.5em;
-    }
-
-    .required {
-        vertical-align: middle;
-        color: rgb(229, 57, 53);
-        font-size: 0.9em;
-        font-weight: normal;
-        margin-left: 20px;
-        line-height: 1;
+        .required {
+            vertical-align: middle;
+            color: rgb(229, 57, 53);
+            font-size: 0.9em;
+            font-weight: normal;
+            margin-left: 20px;
+            line-height: 1;
+        }
     }
 }
 

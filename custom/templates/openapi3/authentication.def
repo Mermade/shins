@@ -1,5 +1,4 @@
-<aside class="warning">
+<div class="docs-note pink icon-shield ">
 To perform this operation, you must be authenticated by means of one of the following methods:
 {{= data.utils.getAuthenticationStr(data) }}
-</aside>
-
+</div>

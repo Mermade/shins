@@ -1,4 +1,3 @@
-
 window.component = (function() {
     const data = {
         dictionary: {},
@@ -22,8 +21,13 @@ window.component = (function() {
             $next
                 .find("div")
                 .first()
-                .toggle(300, function() {
-                    $next.toggle(200);
+                .toggle(100, function() {
+                    $next.toggle(100, function() {
+                        if ($next.hasClass("open")) {
+                            var panel = $next.parents(".panel");
+                            panel.css("max-height", "fit-content");
+                        }
+                    });
                 });
         }
     };
@@ -31,7 +35,7 @@ window.component = (function() {
     that.changeProp = function($el, attrName, attrVal) {
         if (!attrName) return null;
         if (!$el) return null;
-        if (typeof attrVal === 'undefined') return null;
+        if (typeof attrVal === "undefined") return null;
         $el.attr("data-" + attrName, attrVal);
         data.dictionary[$el.attr("id")][attrName] = attrVal;
         that.changeEvent($el, attrName);
@@ -58,6 +62,21 @@ window.component = (function() {
     };
 
     function start() {
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                console.log(panel.style.maxHeight);
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
         $("tr[data-name]").each(function(i, el) {
             that.registerElement(el);
         });
