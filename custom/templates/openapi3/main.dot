@@ -85,11 +85,17 @@ Estos Son los diferentes ambientes definidos en la API:
 {{? block===blocks[0] }}
 ### Properties
 {{?}}
-
+{{? false }}
 {{? block.rows.length}}|Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|{{?}}
 {{~ block.rows :p}}|{{=p.displayName}}|{{=p.safeType}}|{{=p.required}}|{{=p.restrictions||'none'}}|{{=p.description||'none'}}|
 {{~}}
+{{?}}
+{{data.filteredParams = block.rows;}}
+{{ data.paramsTitle = 'Schema:'; }}
+<div class="no-format">
+{{#def.special_table}}
+</div>
 {{~}}
 {{? (blocks[0].rows.length === 0) && (blocks.length === 1) }}
 *None*

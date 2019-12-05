@@ -63,7 +63,7 @@ a {
 
 .badge {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-family: Verdana, sans-serif;
     color: white;
     text-transform: uppercase;
@@ -180,9 +180,10 @@ a {
         background-color: $nav-subitem-bg;
         .badge {
             width: 32px;
-            height: 13px;
-            line-height: 13px;
-            font-size: 7px;
+            height: 14px;
+            line-height: 14px;
+            font-size: 9px;
+            font-style: normal;
         }
     }
 
@@ -862,6 +863,33 @@ a {
 
 @media (max-width: $phone-width) {
     @import "icon-font";
+    .content {
+        .docs-note {
+            margin: 0 10px;
+        }
+        > table {
+            max-width: 100%;
+        }
+        /* > table {
+            max-width: 100%;
+            display: block;
+            margin: 0;
+            padding: 0 10px;
+        } */
+        pre {
+            max-width: inherit;
+        }
+        pre, blockquote {
+            background-color: black;
+        }
+        .no-format {
+            margin-right: inherit;
+            padding: 0 10px;
+        }
+    }
+    .dark-box {
+        display: none;
+    }
     .toc-wrapper {
         & > .search {
             position: relative;
