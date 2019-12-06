@@ -1,0 +1,895 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "API",
+    "description": "TODO: Add Description",
+    "contact": {}
+  },
+  "host": "example.com",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/access-token": {
+      "post": {
+        "description": "Generates an access token that will automatically become invalid after 30 minutes.",
+        "summary": "Create access token",
+        "tags": [
+          "Access Token"
+        ],
+        "operationId": "Createaccesstoken",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "API Key for your Atomic account"
+          },
+          {
+            "name": "x-api-secret",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "API Secret for your Atomic account"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateaccesstokenRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Createaccesstokenresponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "publicToken": "6e93549e-3571-4f57-b0f7-77b7cb0b5e48",
+                  "token": "c00f869e-0fce-4d32-9277-a68658578ba2"
+                }
+              }
+            },
+            "headers": {
+              "content-type": {
+                "type": "string",
+                "default": "application/json; charset=utf-8"
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/task": {
+      "post": {
+        "description": "Queues a `Task` object to be completed.",
+        "summary": "Create task",
+        "tags": [
+          "Task"
+        ],
+        "operationId": "Createtask",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-public-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "The `publicToken` issued from a request to create an `AccessToken`."
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreatetaskRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Createtaskresponse"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "data": {
+                  "id": "5d3b23b155f500465c895f60",
+                  "status": "queued"
+                }
+              }
+            },
+            "headers": {
+              "Content-Length": {
+                "type": "string",
+                "default": "60"
+              },
+              "Date": {
+                "type": "string",
+                "default": "Fri, 26 Jul 2019 16:00:49 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/company/search": {
+      "get": {
+        "description": "Searches for a `Company` using a text `query`. Searches can also be narrowed by passing in a specific `product`.",
+        "summary": "Search companies",
+        "tags": [
+          "Company"
+        ],
+        "operationId": "Searchcompanies",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Filters companies by name. Uses fuzzy matching to narrow results, and for use in an autocomplete search experience."
+          },
+          {
+            "name": "product",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Filters companies by a specific product. Possible values include `product`, and `balance`."
+          },
+          {
+            "name": "x-public-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "The `publicToken` issued from a request to create an `AccessToken`."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Companysearchresponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "_id": "5d38f1e8512bbf71fb776015",
+                    "name": "Microsoft",
+                    "connector": {
+                      "_id": "5d38f182512bbf0c06776013",
+                      "availableProducts": [
+                        "deposit"
+                      ]
+                    },
+                    "branding": {
+                      "logo": "https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573_Microsoft_logo.svg",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ]
+              }
+            },
+            "headers": {
+              "vary": {
+                "type": "string",
+                "default": "Origin,origin"
+              },
+              "x-public-token": {
+                "type": "string",
+                "default": "345ec71e-47c4-41da-965a-50df38971d39"
+              },
+              "public-token-expiration": {
+                "type": "string",
+                "default": "Wed Aug 07 2019 05:46:38 GMT+0000 (UTC)"
+              },
+              "content-type": {
+                "type": "string",
+                "default": "application/json; charset=utf-8"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/company/{companyId}": {
+      "get": {
+        "description": "Retrieves details on a `Company` object using it's `_id`.",
+        "summary": "Get company details",
+        "tags": [
+          "Company"
+        ],
+        "operationId": "Getcompanydetails",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "x-public-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "The `publicToken` issued from a request to create an `AccessToken`."
+          },
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Companydetailresponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "_id": "5d38f1e8512bbf71fb776015",
+                  "name": "Microsoft",
+                  "connector": {
+                    "_id": "5d38f182512bbf0c06776013"
+                  },
+                  "branding": {
+                    "logo": "https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573_Microsoft_logo.svg",
+                    "color": "#FFFFFF"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "x-public-token": {
+                "type": "string",
+                "default": "345ec71e-47c4-41da-965a-50df38971d39"
+              },
+              "public-token-expiration": {
+                "type": "string",
+                "default": "Wed Aug 07 2019 05:50:02 GMT+0000 (UTC)"
+              },
+              "content-type": {
+                "type": "string",
+                "default": "application/json; charset=utf-8"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CreateaccesstokenRequest": {
+      "title": "CreateaccesstokenRequest",
+      "example": {
+        "identifier": "YOUR_INTERNAL_GUID",
+        "phone": "8016554444",
+        "email": "jdoe@example.org",
+        "names": [
+          {
+            "firstName": "Jane",
+            "lastName": "Doe"
+          }
+        ],
+        "addresses": [
+          {
+            "line1": "123 Atomic Ave.",
+            "line2": "Apt. #1",
+            "city": "Salt Lake City",
+            "state": "UT",
+            "zipcode": "84044",
+            "country": "US"
+          }
+        ],
+        "accounts": [
+          {
+            "accountNumber": "220000000",
+            "routingNumber": "110000000",
+            "type": "checking",
+            "title": "Premier Plus Checking"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "names": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Name"
+          }
+        },
+        "addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Account"
+          }
+        }
+      },
+      "required": [
+        "identifier",
+        "phone",
+        "email",
+        "names",
+        "addresses",
+        "accounts"
+      ]
+    },
+    "Name": {
+      "title": "Name",
+      "example": {
+        "firstName": "Jane",
+        "lastName": "Doe"
+      },
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName"
+      ]
+    },
+    "Address": {
+      "title": "Address",
+      "example": {
+        "line1": "123 Atomic Ave.",
+        "line2": "Apt. #1",
+        "city": "Salt Lake City",
+        "state": "UT",
+        "zipcode": "84044",
+        "country": "US"
+      },
+      "type": "object",
+      "properties": {
+        "line1": {
+          "type": "string"
+        },
+        "line2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "zipcode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "line1",
+        "line2",
+        "city",
+        "state",
+        "zipcode",
+        "country"
+      ]
+    },
+    "Account": {
+      "title": "Account",
+      "example": {
+        "accountNumber": "220000000",
+        "routingNumber": "110000000",
+        "type": "checking",
+        "title": "Premier Plus Checking"
+      },
+      "type": "object",
+      "properties": {
+        "accountNumber": {
+          "type": "string"
+        },
+        "routingNumber": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "accountNumber",
+        "routingNumber",
+        "type",
+        "title"
+      ]
+    },
+    "Createaccesstokenresponse": {
+      "title": "Createaccesstokenresponse",
+      "example": {
+        "data": {
+          "publicToken": "6e93549e-3571-4f57-b0f7-77b7cb0b5e48",
+          "token": "c00f869e-0fce-4d32-9277-a68658578ba2"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "Data": {
+      "title": "Data",
+      "example": {
+        "publicToken": "6e93549e-3571-4f57-b0f7-77b7cb0b5e48",
+        "token": "c00f869e-0fce-4d32-9277-a68658578ba2"
+      },
+      "type": "object",
+      "properties": {
+        "publicToken": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "publicToken",
+        "token"
+      ]
+    },
+    "CreatetaskRequest": {
+      "title": "CreatetaskRequest",
+      "example": {
+        "product": "xdeposit",
+        "company": "5d77f9e1070856f3828945c6",
+        "inputs": {
+          "username": "test-good",
+          "password": "test"
+        },
+        "settings": {
+          "xbalance": {
+            "amount": "500",
+            "accountNumber": "220000000"
+          },
+          "xdeposit": {
+            "title": "Test title",
+            "accountNumber": "220000000",
+            "routingNumber": "110000000",
+            "accountType": "checking"
+          }
+        }
+      },
+      "type": "object",
+      "properties": {
+        "product": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "inputs": {
+          "$ref": "#/definitions/Inputs"
+        },
+        "settings": {
+          "$ref": "#/definitions/Settings"
+        }
+      },
+      "required": [
+        "product",
+        "company",
+        "inputs",
+        "settings"
+      ]
+    },
+    "Inputs": {
+      "title": "Inputs",
+      "example": {
+        "username": "test-good",
+        "password": "test"
+      },
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ]
+    },
+    "Settings": {
+      "title": "Settings",
+      "example": {
+        "xbalance": {
+          "amount": "500",
+          "accountNumber": "220000000"
+        },
+        "xdeposit": {
+          "title": "Test title",
+          "accountNumber": "220000000",
+          "routingNumber": "110000000",
+          "accountType": "checking"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "xbalance": {
+          "$ref": "#/definitions/Xbalance"
+        },
+        "xdeposit": {
+          "$ref": "#/definitions/Xdeposit"
+        }
+      },
+      "required": [
+        "xbalance",
+        "xdeposit"
+      ]
+    },
+    "Xbalance": {
+      "title": "Xbalance",
+      "example": {
+        "amount": "500",
+        "accountNumber": "220000000"
+      },
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "accountNumber": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount",
+        "accountNumber"
+      ]
+    },
+    "Xdeposit": {
+      "title": "Xdeposit",
+      "example": {
+        "title": "Test title",
+        "accountNumber": "220000000",
+        "routingNumber": "110000000",
+        "accountType": "checking"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "accountNumber": {
+          "type": "string"
+        },
+        "routingNumber": {
+          "type": "string"
+        },
+        "accountType": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "accountNumber",
+        "routingNumber",
+        "accountType"
+      ]
+    },
+    "Createtaskresponse": {
+      "title": "Createtaskresponse",
+      "example": {
+        "data": {
+          "id": "5d3b23b155f500465c895f60",
+          "status": "queued"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Data1"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "Data1": {
+      "title": "Data1",
+      "example": {
+        "id": "5d3b23b155f500465c895f60",
+        "status": "queued"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "status"
+      ]
+    },
+    "Companysearchresponse": {
+      "title": "Companysearchresponse",
+      "example": {
+        "data": [
+          {
+            "_id": "5d38f1e8512bbf71fb776015",
+            "name": "Microsoft",
+            "connector": {
+              "_id": "5d38f182512bbf0c06776013",
+              "availableProducts": [
+                "deposit"
+              ]
+            },
+            "branding": {
+              "logo": "https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573_Microsoft_logo.svg",
+              "color": "#FFFFFF"
+            }
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Data2"
+          }
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "Data2": {
+      "title": "Data2",
+      "example": {
+        "_id": "5d38f1e8512bbf71fb776015",
+        "name": "Microsoft",
+        "connector": {
+          "_id": "5d38f182512bbf0c06776013",
+          "availableProducts": [
+            "deposit"
+          ]
+        },
+        "branding": {
+          "logo": "https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573_Microsoft_logo.svg",
+          "color": "#FFFFFF"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "connector": {
+          "$ref": "#/definitions/Connector"
+        },
+        "branding": {
+          "$ref": "#/definitions/Branding"
+        }
+      },
+      "required": [
+        "_id",
+        "name",
+        "connector",
+        "branding"
+      ]
+    },
+    "Connector": {
+      "title": "Connector",
+      "example": {
+        "_id": "5d38f182512bbf0c06776013",
+        "availableProducts": [
+          "deposit"
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "availableProducts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "_id",
+        "availableProducts"
+      ]
+    },
+    "Branding": {
+      "title": "Branding",
+      "example": {
+        "logo": "https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573_Microsoft_logo.svg",
+        "color": "#FFFFFF"
+      },
+      "type": "object",
+      "properties": {
+        "logo": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "logo",
+        "color"
+      ]
+    },
+    "Companydetailresponse": {
+      "title": "Companydetailresponse",
+      "example": {
+        "data": {
+          "_id": "5d38f1e8512bbf71fb776015",
+          "name": "Microsoft",
+          "connector": {
+            "_id": "5d38f182512bbf0c06776013"
+          },
+          "branding": {
+            "logo": "https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573_Microsoft_logo.svg",
+            "color": "#FFFFFF"
+          }
+        }
+      },
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Data3"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "Data3": {
+      "title": "Data3",
+      "example": {
+        "_id": "5d38f1e8512bbf71fb776015",
+        "name": "Microsoft",
+        "connector": {
+          "_id": "5d38f182512bbf0c06776013"
+        },
+        "branding": {
+          "logo": "https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573_Microsoft_logo.svg",
+          "color": "#FFFFFF"
+        }
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "connector": {
+          "$ref": "#/definitions/Connector1"
+        },
+        "branding": {
+          "$ref": "#/definitions/Branding"
+        }
+      },
+      "required": [
+        "_id",
+        "name",
+        "connector",
+        "branding"
+      ]
+    },
+    "Connector1": {
+      "title": "Connector1",
+      "example": {
+        "_id": "5d38f182512bbf0c06776013"
+      },
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Access Token",
+      "description": "`AccessToken` objects grant access to Atomic's API resources for a specific user."
+    },
+    {
+      "name": "Task",
+      "description": "To request that an action is performed, a `Task` object is created that contains instructions on what is to be completed."
+    },
+    {
+      "name": "Company",
+      "description": "`Company` objects allow you to perform an action with a company on behalf of your users. For example, you may update direct deposit account information for a user, the `Company` being the user's employer. The API allows you to seach for and retrieve companies.\n"
+    }
+  ]
+}

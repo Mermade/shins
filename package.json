@@ -48,6 +48,7 @@
     "sanitize-html": "^1.15.0",
     "tiny-opts-parser": "0.0.3",
     "uglify-js": "^2.7.4",
+    "widdershins": "^3.6.7",
     "yaml": "^1.7.0"
   },
   "devDependencies": {

@@ -1,0 +1,207 @@
+---
+title: Swagger Petstore v1.0.0
+language_tabs:
+    - shell: Shell
+    - http: HTTP
+    #   - javascript: JavaScript
+    - javascript--nodejs: Node.JS
+    - ruby: Ruby
+    - python: Python
+    - java: Java
+    - go: Go
+toc_footers:
+    - >-
+        <a href="https://mermade.github.io/shins/asyncapi.html">See AsyncAPI
+        example</a>
+includes: []
+search: true
+highlight_theme: darkula
+headingLevel: 2
+---
+
+# Overview
+
+## Introduction
+
+> Production Base URL
+
+```
+https://api.atomicfi.com/v1
+```
+
+> Sandbox Base URL
+
+```
+https://api-sandbox.atomicfi.com/v1
+```
+
+### Welcome to Atomic's developer documentation! You'll find resources to help you integrate with [Transact](#), our web app that handles the heavy-lifting of integration, as well as a number of [REST](en.wikipedia.org/wiki/Representational_State_Transfer)ful API endpoints.
+
+To get going quickly, we recommend using an API collaboration tool called [Postman](https://www.getpostman.com). You can use the button below to import our collection of endpoints. Be sure to set your `apiUrl`, `apiKey`, and `apiSecret` [environment variables](https://learning.getpostman.com/docs/postman/environments-and-globals/manage-environments/).
+
+<div class="postman-run-button"
+data-postman-action="collection/import"
+data-postman-var-1="4d830a56bc79a690a118"></div>
+<script type="text/javascript">
+  (function (p,o,s,t,m,a,n) {
+    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+      (n = o.createElement("script")),
+      (n.id = s+t), (n.async = 1), (n.src = m), n
+    ));
+  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>
+
+## Authentication
+
+Atomic uses a combination of API keys and access tokens to authenticate requests.
+
+You can retrieve and manage your API keys in the [Atomic Dashboard](https://dashboard.atomicfi.com/).
+
+> Your API keys carry many privileges, so be sure to keep them secure! Do not share your secret API keys in publicly accessible areas such as GitHub, client-side code, etc.
+
+## Errors
+
+Our API returns standard HTTP success or error status codes. For errors, we will also include extra information about what went wrong encoded in the response as JSON. The various HTTP status codes we might return are listed below.
+
+| Code | Title                 | Description                     |
+| ---- | --------------------- | ------------------------------- |
+| 200  | OK                    | The request was successful.     |
+| 400  | Bad Request           | The request was unacceptable.   |
+| 401  | Unauthorized          | Missing or invalid credentials. |
+| 404  | Not Found             | The resource does not exist.    |
+| 422  | Validation error      | A validation error occurred.    |
+| 50X  | Internal Server Error | An error occurred with our API. |
+
+# xBalance
+
+### Atomic's xBalance product facilitates the transfer of debt balances between financial institutions.
+
+## Integration Options
+
+### Transact
+
+[Transact](#) allows the user to easily choose the source of their balance transfer, while the destination is pre-configured during [Access Token](#) creation.
+
+TODO: Insert screenshot here
+
+### Atomic Dashboard
+
+The [Atomic Dashboard](https://dashboard.atomicfi.com/) may be used to initiate a balance transfer, as well as monitor it's progress as it travels through various states of processing.
+
+(TODO: Insert screenshot here)
+
+### API
+
+Atomic's API may be used to initiate a balance transfer by first creating an [Access Token](#), and subsequently generating a [Task](#). The status of the task may be monitored through [webhooks](#) and the [Atomic Dashboard](https://dashboard.atomicfi.com/).
+
+# xDeposit
+
+### Atomic's xDeposit product facilitates the switching of the bank account(s) to which a user's direct deposit is credited.
+
+## Integration Options
+
+### Transact
+
+Due to the complexity and security around user's authenticating with their payroll accounts, Atomic requires that the xDeposit product be faciliated through [Transact](#).
+
+# Transact UI
+
+### Atomic Transact is a UI designed to securely handle interactions with our products, while performing the heavy-lifting of integration.
+
+## Integration
+
+> Initalize Transact
+
+```javascript
+<script src="https://cdn.atomicfi.com/transact.js"></script>;
+
+const startTransact = () => {
+    Atomic.transact({
+        // Replace with the server-side generated `publicToken`
+        publicToken: "PUBLIC_TOKEN",
+        // Optionally receive webhook events to a URL of your choice
+        webhookUrl: "https://example.url",
+        onFinish: function(data) {
+            // Called when the user finishes the transaction
+            // We recommend saving the `data` object which could be useful for support purposes
+        },
+        onClose: function() {
+            // Called when the user exits Transact prematurely
+        }
+    });
+};
+
+// `startTransact` would typically be user-initiated, such as a button click or tap
+startTransact();
+```
+
+An [Access Token](#) is required to initialize Transact, and is generated server-side using your API key, and the `publicToken` from the response is returned to your client-side code.
+
+### Mobile & Web
+
+Transact can be initialized by including our JavaScript library into your page, and then calling the `Atomic.start` method.
+
+Within the context of a mobile app, we recommend loading Transact into a web view (for example, `WKWebView` on iOS) by building a simple self-hosted wrapper page. In the future, we'll be launching SDKs to make this easier. See this [example iOS app](#) for more information.
+
+### SMS
+
+To invite a user to use Transact over SMS, follow the instructions as described in the [Access Token](#) section.
+
+# Webhooks
+
+### You can configure webhook endpoints via the [Atomic Dashboard](https://dashboard.atomicfi.com/) or during the [initialization of Transact]().
+
+Atomic will issue a `POST` request to the designated endpoin(s) with updates to [Tasks](#) as they're processed.
+
+## Event Object
+
+> Sample
+
+```json
+{
+    "_id": "579b695decea110719b1874d",
+    "created": "2019-11-20T16:51:12Z",
+    "type": "task-status-updated",
+    "data": {
+        "previousStatus": "processing",
+        "status": "completed"
+    }
+}
+```
+
+| Attribute | Description                              |
+| --------- | ---------------------------------------- |
+| `_id`     | GUID of the event, for reference.        |
+| `created` | The date and time of the event creation. |
+| `type`    | The [event type](#).                     |
+| `data`    | Payload of data describing the event.    |
+
+## Event Types
+
+> Task Status Update
+
+```json
+{
+    "_id": "579b695decea110719b1874d",
+    "created": "2019-11-20T16:51:12Z",
+    "type": "task-status-updated",
+    "data": {
+        "previousStatus": "processing",
+        "status": "completed"
+    }
+}
+```
+
+### task-status-updated
+
+The status of a task was changed. Possible statuses include:
+
+| Status       | Description                      |
+| ------------ | -------------------------------- |
+| `queued`     | The task is awaiting processing. |
+| `processing` | The task has started processing. |
+| `failed`     | The task failed to process.      |
+| `completed`  | The task completed successfully. |
+
+# API Reference

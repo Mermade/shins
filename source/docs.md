@@ -1,21 +1,3 @@
----
-title: Atomic Developer Documentation
-language_tabs:
-    - shell: cURL
-    - javascript--nodejs: Node.JS
-    - ruby: Ruby
-    - python: Python
-    - go: Go
-# toc_footers:
-#     - >-
-#         <a href="https://mermade.github.io/shins/asyncapi.html">See AsyncAPI
-#         example</a>
-includes: []
-search: true
-highlight_theme: darkula
-headingLevel: 2
----
-
 # Overview
 
 ## Introduction

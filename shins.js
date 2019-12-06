@@ -14,7 +14,8 @@ var inputName = './source/index.html.md';
 if (options._.length > 2) {
     inputName = options._[2];
 }
-
+options.unsafe = true
+options.inline = true
 if (options.h) options.help   = options.h;
 if (options.a) options.attr   = options.a;
 if (options.l) options.layout = options.l;
