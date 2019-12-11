@@ -179,7 +179,7 @@ a {
         display: none;
         background-color: $nav-subitem-bg;
         .badge {
-            width: 32px;
+            width: 38px;
             height: 14px;
             line-height: 14px;
             font-size: 9px;
@@ -241,7 +241,7 @@ a {
         vertical-align: top;
     }
     em.badge + span {
-        width: calc(100% - 50px);
+        width: calc(100% - 54px);
     }
 }
 
