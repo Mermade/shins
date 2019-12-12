@@ -76,11 +76,13 @@ Our API returns standard HTTP success or error status codes. For errors, we will
 
 # Products
 
+![alt text](/source/images/atomic-products.png "Products Preview")
+
 ## xBalance
 
 ### Atomic's xBalance product facilitates the transfer of debt balances between financial institutions.
 
-### Integration options
+### Deployment options
 
 #### Transact SDK
 
@@ -94,15 +96,30 @@ The [Atomic Dashboard](https://dashboard.atomicfi.com/) may be used to initiate 
 
 Atomic's API may be used to initiate a balance transfer by first creating an [Access Token](#create-access-token), and subsequently generating a [Task](#create-task). The status of the task may be monitored through [webhooks](#webhooks) and the [Atomic Dashboard](https://dashboard.atomicfi.com/).
 
+### Testing
+
+When testing xBalance, you may use `4111111111111111` as the origin account number. This will mimic a transfer.
+
 ## xDeposit
 
 ### Atomic's xDeposit product facilitates the switching of the bank account(s) to which a user's direct deposit is credited.
 
-As a security measure when users are authenticating with their payroll account, Atomic requires that the xDeposit product be faciliated through [Transact](#transact-sdk).
+When users are authenticating with their payroll account, Atomic requires that the xDeposit product be facilitated through [Transact](#transact-sdk).
+
+### Testing
+
+To aid in testing various user experiences, you may use any of these pre-determined "test" credentials for employer authentication. Any password will work, as long as the username is found in this list. When answering MFA questions, any answer will be accepted. If the authentication requires an email, simply append `@test.com` to the end of the chosen username.
+
+| Username            | Test Case                                                  |
+| ------------------- | ---------------------------------------------------------- |
+| `test-good`         | Successful authentication.                                 |
+| `test-bad`          | Unsuccessful authentication.                               |
+| `test-code-mfa`     | Authentication that includes a device code based MFA flow. |
+| `test-question-mfa` | Authentication that includes a question-based MFA flow.    |
 
 # Transact SDK
 
-![alt text](/source/images/xbalance-devices.png "Logo Title Text 1")
+![alt text](/source/images/xbalance-devices.png "Transact Preview")
 
 ### Atomic Transact SDK is a UI designed to securely handle interactions with our products, while performing the heavy-lifting of integration.
 
@@ -119,6 +136,8 @@ const startTransact = () => {
     Atomic.transact({
         // Replace with the server-side generated `publicToken`
         publicToken: "PUBLIC_TOKEN",
+        // Could be either 'xbalance' or 'xdeposit'
+        product: "xbalance",
         // Optionally receive webhook events to a URL of your choice
         webhookUrl: "https://example.url",
         onFinish: function(data) {
@@ -152,6 +171,7 @@ To invite a user to use [Transact](#transact-sdk) over SMS, follow the instructi
 | Attribute                       | Description                                                                                                  |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `publicToken` <h6>required</h6> | The public token return during [AccessToken](#create-access-token) creation.                                 |
+| `product` <h6>required</h6>     | The [product](#products) to initiate, either `xbalance` or `xdeposit`                                        |
 | `webhookUrl`                    | Optionally, a webhook URL can be configured during initialization.                                           |
 | `onFinish`                      | A function that is called when the user finishes the transaction. The function will receive a `data` object. |
 | `onClose`                       | Called when the user exits Transact prematurely.                                                             |
@@ -482,7 +502,7 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 | --------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
 | `accountNumber` <h6>required</h6> | string | Account number.                                                                                                           |
 | `routingNumber`                   | string | When account the account is bank account, this is the ABA routing number.                                                 |
-| `type`                            | string | Type of account. Possible values inlcude `card`, `checking`, or `savings`                                                 |
+| `type`                            | string | Type of account. Possible values include `card`, `checking`, or `savings`                                                 |
 | `title`                           | string | A friendly name for the account that could be shown to the user.                                                          |
 | `transferLimit`                   | string | A balance transfer limit (in dollars) that may be optionally imposed when executing an [xBalance](#xbalance) transaction. |
 
