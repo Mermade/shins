@@ -115,6 +115,8 @@ Estos Son los diferentes ambientes definidos en la API:
 
 {{?}}
 
+{{#def.faq}}
+
 {{#def.footer}}
 
 {{? data.options.discovery}}

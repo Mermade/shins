@@ -28,7 +28,7 @@
 {{= data.utils.getResponseExamples(data) }}
 {{?}}
 
-<h3 id="{{=data.operationUniqueSlug}}-responses">Responses</h3>
+<h3 id="{{=data.operationUniqueSlug}}-responses">Respuestas</h3>
 {{? false }}
 |Status|Meaning|Description|Schema|
 |---|---|---|---|

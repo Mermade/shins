@@ -1,5 +1,5 @@
 .accordion {
-    background-color: #eee;
+    background-color: transparent;
     color: #444;
     cursor: pointer;
     padding: 18px;
@@ -13,7 +13,7 @@
 
 .active,
 .accordion:hover {
-    background-color: lighten($success, 30);
+    background-color: #eee;
 }
 
 .panel {
@@ -25,7 +25,7 @@
     margin-bottom: 10px;
 }
 
-.responses {
+.responses, .accordion {
     font-size: 1em;
     margin-bottom: 4px;
     line-height: 1.5em;
