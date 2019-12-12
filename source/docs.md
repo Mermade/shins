@@ -470,6 +470,8 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 
 #### Name
 
+> Name example
+
 ```json
 {
     "firstName": "Jane",
@@ -485,6 +487,8 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 | `lastName`  | string | Last name of account holder.  |
 
 #### Address
+
+> Address example
 
 ```json
 {

@@ -2371,7 +2371,7 @@ print(response.text)
     <span class="hljs-attr">"accountNumber"</span>: <span class="hljs-string">"4111111111111111"</span>,
     <span class="hljs-attr">"title"</span>: <span class="hljs-string">"ABC Bank Platinum Card"</span>,
     <span class="hljs-attr">"type"</span>: <span class="hljs-string">"card"</span>,
-    <span class="hljs-attr">"limit"</span>: <span class="hljs-string">"50000"</span>
+    <span class="hljs-attr">"transferLimit"</span>: <span class="hljs-string">"50000"</span>
 }
 </code></pre>
 <h5 id="properties">Properties</h5>
@@ -2405,13 +2405,16 @@ print(response.text)
 <td>A friendly name for the account that could be shown to the user.</td>
 </tr>
 <tr>
-<td><code>limit</code></td>
+<td><code>transferLimit</code></td>
 <td>string</td>
 <td>A balance transfer limit (in dollars) that may be optionally imposed when executing an <a href="#xbalance">xBalance</a> transaction.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="name">Name</h4>
+<blockquote>
+<p>Name example</p>
+</blockquote>
 <pre class="highlight tab tab-json"><code>{
     <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Jane"</span>,
     <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Doe"</span>
@@ -2440,6 +2443,9 @@ print(response.text)
 </tbody>
 </table>
 <h4 id="address">Address</h4>
+<blockquote>
+<p>Address example</p>
+</blockquote>
 <pre class="highlight tab tab-json"><code>{
     <span class="hljs-attr">"line1"</span>: <span class="hljs-string">"123 Atomic Ave."</span>,
     <span class="hljs-attr">"line2"</span>: <span class="hljs-string">"Apt. #1"</span>,
@@ -2709,7 +2715,7 @@ print(response.text)
 <tr>
 <td><code>settings.xbalance.amount</code> <h6 id="required">required</h6></td>
 <td>string</td>
-<td>A USD amount to be transferred from the origin <code>company</code>. May be limited by the <code>limit</code> set during <code>Access Token</code>'s account creation.</td>
+<td>A USD amount to be transferred from the origin <code>company</code>. May be limited by the <code>transferLimit</code> set during <code>Access Token</code>'s account creation.</td>
 </tr>
 <tr>
 <td><code>settings.xbalance.accountNumber</code> <h6 id="required">required</h6></td>
@@ -2717,9 +2723,9 @@ print(response.text)
 <td>The origin <code>company</code>'s account number.</td>
 </tr>
 <tr>
-<td><code>settings.xbalance.destinationAccountNumber</code></td>
+<td><code>settings.destinationUserAccountId</code></td>
 <td>string</td>
-<td>Optionally choose the destination account if there are multiple eligible accounts added during <code>Access token</code> creation. Defaults to the first eligible account.</td>
+<td>The ID of an optionally chosen destination account if there are multiple eligible accounts added during <code>Access token</code> creation. Defaults to the first eligible account if not passed.</td>
 </tr>
 </tbody>
 </table>

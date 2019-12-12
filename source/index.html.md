@@ -472,7 +472,7 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
     "accountNumber": "4111111111111111",
     "title": "ABC Bank Platinum Card",
     "type": "card",
-    "limit": "50000"
+    "transferLimit": "50000"
 }
 ```
 
@@ -484,9 +484,11 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 | `routingNumber`                   | string | When account the account is bank account, this is the ABA routing number.                                                 |
 | `type`                            | string | Type of account. Possible values inlcude `card`, `checking`, or `savings`                                                 |
 | `title`                           | string | A friendly name for the account that could be shown to the user.                                                          |
-| `limit`                           | string | A balance transfer limit (in dollars) that may be optionally imposed when executing an [xBalance](#xbalance) transaction. |
+| `transferLimit`                   | string | A balance transfer limit (in dollars) that may be optionally imposed when executing an [xBalance](#xbalance) transaction. |
 
 #### Name
+
+> Name example
 
 ```json
 {
@@ -503,6 +505,8 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 | `lastName`  | string | Last name of account holder.  |
 
 #### Address
+
+> Address example
 
 ```json
 {
@@ -712,13 +716,13 @@ To request that an [xBalance](#xbalance) transaction is performed, a `Task` obje
 
 ### Request properties
 
-| Name                                                | Type   | Description                                                                                                                                                     |
-| --------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `product` <h6>required</h6>                         | string | Must be set to `xbalance`.                                                                                                                                      |
-| `company` <h6>required</h6>                         | string | The `_id` of a [Company](#company-object) object. This will be used as the origin of the balance transfer.                                                      |
-| `settings.xbalance.amount` <h6>required</h6>        | string | A USD amount to be transferred from the origin `company`. May be limited by the `limit` set during `Access Token`'s account creation.                           |
-| `settings.xbalance.accountNumber` <h6>required</h6> | string | The origin `company`'s account number.                                                                                                                          |
-| `settings.xbalance.destinationAccountNumber`        | string | Optionally choose the destination account if there are multiple eligible accounts added during `Access token` creation. Defaults to the first eligible account. |
+| Name                                                | Type   | Description                                                                                                                                                                            |
+| --------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `product` <h6>required</h6>                         | string | Must be set to `xbalance`.                                                                                                                                                             |
+| `company` <h6>required</h6>                         | string | The `_id` of a [Company](#company-object) object. This will be used as the origin of the balance transfer.                                                                             |
+| `settings.xbalance.amount` <h6>required</h6>        | string | A USD amount to be transferred from the origin `company`. May be limited by the `transferLimit` set during `Access Token`'s account creation.                                          |
+| `settings.xbalance.accountNumber` <h6>required</h6> | string | The origin `company`'s account number.                                                                                                                                                 |
+| `settings.destinationUserAccountId`                 | string | The ID of an optionally chosen destination account if there are multiple eligible accounts added during `Access token` creation. Defaults to the first eligible account if not passed. |
 
 ### Response
 
