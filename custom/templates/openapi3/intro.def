@@ -89,7 +89,7 @@ Al finalizar el proceso de pago en la terminal Clip, se cambia el estado de la t
 </li>
 </ol>
 <p class="pt-5">
-<img src="/pub/images/api-flow1.png" alt="Flow Diagram" />
+<img src="/source/images/FlowDiagramAPI.png" alt="Diagrama de Flujo de API Punto de Venta" />
 </p>
 <h2 id="ConfigurarDispositivo">Configurar el dispositivo para mostrar las transacciones.</h2>
 <p>Para completar el proceso de pago en la terminal Clip es necesario mostrar en el dispositivo las transacciones con estatus Pendiente iniciadas en el punto de venta.</p>
