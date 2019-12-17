@@ -1,4 +1,4 @@
 <div class="docs-note pink icon-shield ">
-To perform this operation, you must be authenticated by means of one of the following methods:
+Para realizar esta operación, debes autenticarte por el siguiente método:
 {{= data.utils.getAuthenticationStr(data) }}
 </div>

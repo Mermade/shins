@@ -1,7 +1,12 @@
+<h1 id="intro">POS API de Clip (v 1.0)</h1>
+<p>Contacto: <a href="mailto:devsupport@payclip.com">devsupport@payclip.com</a>.</p>
+<br>
+
 {{#def.intro}}
+{{#def.security}}
 <h1 id="{{=data.title_prefix}}">{{=data.api.info && data.api.info.title}} {{=data.version}}</h1>
 
-> Scroll down for {{? data.header.language_tabs.length}}code samples, {{?}}example requests and responses.{{? data.header.language_tabs.length}} Select a language for code samples from the tabs above or the mobile navigation menu.{{?}}
+> Desplácese hacia abajo para ver {{? data.header.language_tabs.length}}ejemplos de código, {{?}}de llamadas y de respuestas.{{? data.header.language_tabs.length}} Selecciona un lenguaje de programación de las pestañas en la parte superior o del menú de navegación móvil.{{?}}
 
 {{? data.api.info && data.api.info.description}}{{=data.api.info.description}}{{?}}
 
