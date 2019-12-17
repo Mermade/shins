@@ -2,18 +2,40 @@ openapi: "3.0.0"
 info:
     version: 1.0.0
     title: POS Api
-    description: La API de punto de venta permite a las aplicaciones móviles abrir la aplicación Clip para procesar pagos de una persona usando el lector de Clip. Los desarrolladores pueden usar la API de punto de venta para crear soluciones personalizadas de punto de venta o cualquier otra aplicación que requiera pagos, sin preocuparse por el cumplimiento de PCI. Por el momento la API de punto de venta está disponible para el dispositivo Clip Pro.
+    description: |
+        La API de Clip de Punto de Venta (POS API, en inglés, Point of Sale) permite a las aplicaciones de punto de venta de terceros abrir la aplicación Clip para procesar pagos de una persona usando el dispositivo terminal de Clip. 
+        Los desarrolladores pueden usar la POS API para crear soluciones personalizadas de punto de venta o cualquier otra aplicación que requiera pagos, sin preocuparse por el cumplimiento de las normativas de la Industria de Pagos con Tarjeta PCI. Por el momento la POS API está disponible para el dispositivo Clip Pro.
     license:
         name: MIT
+    contact:
+      email: devsupport@payclip.com
 servers:
     - url: https://testapi-gw.payclip.com
-      description: Esta es la direccion del servicio en produccion
+      description: Esta es la direccion del servicio en producción.
     - url: https://sandbox.payclip.com
-      description: Esta es la direccion del servicio para testing (Sandbox)
+      description: Esta es la direccion del servicio para pruebas (Sandbox).
 security:
     - ApiKeyAuth: [] # use the same name as under securitySchemes
 paths:
     /paymentrequest:
+        post:
+            summary: Registrar una transacción
+            operationId: Payment Request
+            requestBody:
+                $ref: "#/components/requestBodies/RegisterTransaccion"
+            tags:
+                - payment
+            security:
+                - ApiKeyAuth: []
+            responses:
+                "200":
+                    description: Respuesta del servidor al momento de crear una transaccion
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/200TransactionOk"
+                "401":
+                    $ref: "#/components/responses/Unauthorized"
         get:
             summary: Obtiene un listado de transacciones
             operationId: Obtener Transacciones
@@ -38,32 +60,14 @@ paths:
                                 $ref: "#/components/schemas/TransactionList"
                 "401":
                     $ref: "#/components/responses/Unauthorized"
-        post:
-            summary: Registrar una transacción
-            operationId: Payment Request
-            requestBody:
-                $ref: "#/components/requestBodies/RegisterTransaccion"
-            tags:
-                - payment
-            security:
-                - ApiKeyAuth: []
-            responses:
-                "200":
-                    description: Respuesta del servidor al momento de crear una transaccion
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/200TransactionOk"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
-
+        
 components:
     securitySchemes:
         ApiKeyAuth: # arbitrary name for the security scheme
             type: apiKey
             in: header # can be "header", "query" or "cookie"
             name: x-api-key # name of the header, query parameter or cookie
-            description: llave provista por clip necesaria para poder autenticarse y con ello realizar llamadas al api.
+            description: Llave provista por Clip necesaria para poder autenticarse y con ello realizar llamadas a la POS API.
     requestBodies:
         RegisterTransaccion:
             content:

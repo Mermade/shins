@@ -1,13 +1,29 @@
-<h1 id="intro">Introducción a la API de Clip Punto de Venta</h1>
+<h1>Primeros Pasos</h1>
+<h2 id="intro">Introducción a la API de Clip Punto de Venta</h2>
 <p>
 La API de Clip de Punto de Venta (POS API, en inglés, Point of Sale) permite a las aplicaciones de punto de venta de terceros abrir la aplicación Clip para procesar pagos de una persona usando el dispositivo terminal de Clip. 
 </p>
 <p>
-Los desarrolladores pueden usar la POS API para crear soluciones personalizadas de punto de venta o cualquier otra aplicación que requiera pagos, sin preocuparse por el cumplimiento de las normativas de la Industria de Pagos con Tarjeta PCI. Por el momento la POS API está disponible para el dispositivo Clip Pro.
+Las tarifas de procesamiento para transacciones iniciadas con la API Punto de Venta son idénticas a las <a href="https://clip.mx/costos-y-comisiones/">tarifas para transacciones</a> iniciadas directamente desde la aplicación Clip.
 </p>
-<div class="h2 mt-0 pb-3">Requisitos y limitaciones</div>
+<h2>¿Qué puedo hacer con la API Punto de Venta de Clip?</h2>
 <p>
-La POS API de Clip requiere:
+Los desarrolladores pueden usar la API Punto de Venta para crear soluciones personalizadas de punto de venta o cualquier otra aplicación que requiera pagos, sin preocuparse por el cumplimiento de las normativas de la Industria de Pagos con Tarjeta PCI. Por el momento la API Punto de Venta está disponible para el dispositivo Clip Pro.
+</p>
+<p>
+Las acciones disponibles con la API Punto de Venta de Clip son:
+</p>
+<ul>
+<li>
+Registrar una transacción en la terminal Clip a través del punto de venta de un tercero.
+</li>
+<li>
+Obtener una lista de transacciones pendientes para poder finalizarlas con la terminal Clip.
+</li>
+</ul>
+<div class="h2 mt-0 pb-3">¿Qué necesito antes de empezar?</div>
+<p>
+Para poder desarrollar con la API Punto de Venta de Clip se requiere:
 </p>
 <ul>
 <li>
@@ -16,13 +32,25 @@ Un <a href="https://clip.mx/productos-clip/clip-pro/">dispositivo Clip Pro</a> c
 <li>
 Una <a href="https://dashboard.clip.mx/sign_up">cuenta Clip</a> activa (para aceptar pagos con tarjeta).
 </li>
+<li>
+Un token de <a href="intro.def#Autenticación">autenticación</a>.
+</li>
+<li>
+<a href="#ConfigurarDispositivo">Configurar el dispositivo</a> Clip Pro para desplegar las transacciones pendientes.
+</li>
 </ul>
+<h2>Elementos de la API Punto de Venta de Clip</h2>
 <p>
-Las tarifas de procesamiento para transacciones iniciadas con la API de punto de venta son idénticas a las <a href="https://clip.mx/costos-y-comisiones/">tarifas para transacciones</a> iniciadas directamente desde la aplicación Clip.
+La API Punto de Venta de Clip se comunica a través de llamadas y respuestas en formato JSON. Con las llamadas y respuestas de la API Punto de Venta se puede interactuar con los siguientes elementos:
 </p>
-<div class="h2 pb-3">Flujo de procesos de la POS API</div>
+<ul>
+<li>
+<strong>Transactions:</strong> Una transacción contiene detalles de un proceso de pago iniciado en el Punto de Venta del comerciante y que se termina en la terminal Clip. Una transacción puede tener el estatus de <strong>pendiente</strong> o <strong>pagado</strong>.
+</li>
+</ul>
+<div class="h2 pb-3">Flujo de procesos de la API Punto de Venta</div>
 <p>
-Esta sección describe el flujo de interacciones entre el punto de venta, la POS API y la terminal Clip Pro.
+Esta sección describe el flujo de interacciones entre el punto de venta, la API de Clip y la terminal Clip Pro.
 </p>
 <p>
 Definiciones:</p>
@@ -38,20 +66,20 @@ Terminal Clip: Dispositivo Clip Pro con el cual se realiza la transacción con l
 </li>
 </ul>
 <p>
-El flujo de procesos de la API POS es el siguiente: 
+El flujo de procesos de la API Punto de Venta es el siguiente: 
 </p>
 <ol>
 <li>
 El usuario realiza el proceso de pago mediante el punto de venta.
 </li>
 <li>
-El punto de venta se comunica a través del método <strong>HTTP POST</strong> con la <strong>POS API</strong> de Clip.
+El punto de venta se comunica a través del método <strong>HTTP POST</strong> con la <strong>API Punto de Venta</strong> de Clip.
 </li>
 <li>
-La <strong>POS API</strong> de Clip responde al punto de venta con un código de transacción (Ver tabla de respuestas).
+La <strong>API Punto de Venta</strong> de Clip responde al punto de venta con un código de transacción (Ver tabla de respuestas).
 </li>
 <li>
-El punto de venta solicita con el método <strong>HTTP GET</strong>, la información para procesar la transacción en la terminal Clip a la <strong>POS API</strong> de Clip.
+El punto de venta solicita con el método <strong>HTTP GET</strong>, la información para procesar la transacción en la terminal Clip a la <strong>API Punto de Venta</strong> de Clip.
 </li>
 <li>
 La terminal Clip agrega la transacción a la lista de pendientes con el estado <strong>Pendiente</strong>. La terminal está lista para realizar el proceso de pago.
@@ -63,8 +91,9 @@ Al finalizar el proceso de pago en la terminal Clip, se cambia el estado de la t
 <p class="pt-5">
 <img src="/pub/images/api-flow1.png" alt="Flow Diagram" />
 </p>
-<h2>Configurar el dispositivo para mostrar las transacciones.</h2>
-<p>Para configurar el dispositivo terminal Clip, deberás seguir estos pasos:</p>
+<h2 id="ConfigurarDispositivo">Configurar el dispositivo para mostrar las transacciones.</h2>
+<p>Para completar el proceso de pago en la terminal Clip es necesario mostrar en el dispositivo las transacciones con estatus Pendiente iniciadas en el punto de venta.</p>
+<p>Para configurar el dispositivo Clip Pro, realiza los siguientes pasos:</p>
 <ol>
 <li>
 Ir al menú de configuración dentro de tu app Clip (símbolo de engranaje).
@@ -76,5 +105,8 @@ Ir a la sección de Seguridad.
 Activar la opción “Transacciones B2B”.
 </li>
 <li>
-Regresar al menú principal.</li>
+Regresar al menú principal.
+</li>
 </ol>
+<p>Una vez completados estos 4 pasos, podrás ver las transacciones pendientes en tu dispositivo Clip Pro como se muestra en la siguiente imagen.</p>
+<img src="/source/images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
