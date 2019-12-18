@@ -1,7 +1,5 @@
 <h1 id="intro">POS API de Clip (v 1.0)</h1>
 <p>Contacto: <a href="mailto:devsupport@payclip.com">devsupport@payclip.com</a>.</p>
-<br>
-
 {{#def.intro}}
 {{#def.security}}
 <h1 id="{{=data.title_prefix}}">{{=data.api.info && data.api.info.title}} {{=data.version}}</h1>
@@ -25,7 +23,6 @@ Estos Son los diferentes ambientes definidos en la API:
 {{? data.api.info && data.api.info.license}}{{? data.api.info.license.url}}License: <a href="{{=data.api.info.license.url}}">{{=data.api.info.license.name}}</a>{{??}} License: {{=data.api.info.license.name}}{{?}}{{?}}
 </div>
 {{? data.api.components && data.api.components.securitySchemes }}
-{{#def.security}}
 {{?}}
 
 {{ for (var r in data.resources) { }}

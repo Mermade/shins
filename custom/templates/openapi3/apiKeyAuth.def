@@ -1,22 +1,13 @@
-
 <h2 class="icon key gray mb-3" id="apikey">Api Key</h2>
-
-<h2>¿Cómo obtener mi token de autenticación?</h2>
+<div class="h2 mt-0 pb-3">¿Cómo obtener mi token de autenticación?</div>
 <p>Para obtener un token de autenticación sigue estos pasos:</p>
 <ol>
     <li>Insertar proceso de obtención del Token</li>
 </ol>
-<h2>¿Cómo utilizar mi token de autenticación?</h2>
+<div class="h2 mt-0 pb-3">¿Cómo utilizar mi token de autenticación?</div>
 <p>El token de autenticación se envía como un parámetro de encabezado o “Header” de la llamada a la API.</p>
 {{~ sd :k}}
-El siguiente bloque de código muestra un ejemplo de una llamada CURL a la POS API de Clip. El nombre del parámetro es: <span class="tags gray">{{=k.name}}</span>, y se ubica en los parámetros de: <span class="tags purple">{{=k.in}}</span>. <!-- {{=k.description || ''}} --> 
-<code>curl -X POST \<br>
-    https:// [sandbox.payclip.com]/paymentrequest/ \<br>
-    -H ‘Accept: application/vnd.com.payclip.v1+json’ \<br>
-    -H ‘Content-Type: application/json; charset=UTF-8’ \<br>
-    -H ‘Host: [sandbox.payclip.com]’ \<br>
-    <strong>-H ‘x-api-key: [x-api-key token]’ \</strong>
-   </code><br>
+El siguiente bloque de código muestra un ejemplo de una llamada CURL a la POS API de Clip. El nombre del parámetro es: <span class="tags gray">{{=k.name}}</span>, y se ubica en los parámetros de: <span class="tags purple">{{=k.in}}</span>
 <table>
 <tbody>
 <tr>

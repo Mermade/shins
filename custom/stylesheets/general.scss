@@ -832,6 +832,22 @@ a {
     }
 }
 
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    img {
+        margin: 5px;
+        max-width: 200px;
+        transition: all 0.5s;
+        border: 1px solid #cacaca;
+    }
+    img:hover {
+        transform: scale(1.1);
+        border: 1px solid $orange-clip;
+    }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // RESPONSIVE DESIGN
 ////////////////////////////////////////////////////////////////////////////////
