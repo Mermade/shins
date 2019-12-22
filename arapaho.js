@@ -111,6 +111,11 @@ var server = app.listen(myport, function () {
   console.log('Arapaho server listening at http://%s:%s', host, port);
   if (args.launch) {
     console.log('Launching...');
-    opn('http://'+(host === '::' ? 'localhost' : 'host') + ':' +port+'/');
+
+    var url = 'http://'+(host === '::' ? 'localhost' : 'host') + ':' +port+'/'
+    opn(url).catch(function (ex) {
+        console.error(`Unable to open URL '${url}'`);
+        console.error(ex);
+    })
   }
 });
