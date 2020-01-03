@@ -86,7 +86,7 @@ Al finalizar el proceso de pago en la terminal Clip, se cambia el estado de la t
 </li>
 </ol>
 <p class="pt-5">
-<img src="/pub/images/FlowDiagramAPI.png" alt="Diagrama de Flujo de API Punto de Venta" />
+<img src="images/FlowDiagramAPI.png" alt="Diagrama de Flujo de API Punto de Venta" />
 </p>
 <h2 id="configurar-dispositivo">Configurar el dispositivo para mostrar las transacciones</h2>
 <p>Para completar el proceso de pago en la terminal Clip es necesario mostrar en el dispositivo las transacciones con estatus Pendiente iniciadas en el punto de venta.</p>
@@ -107,9 +107,9 @@ Regresar al menú principal.
 </ol>
 <p>Una vez completados estos 4 pasos, podrás ver las transacciones pendientes en tu dispositivo Clip Pro como se muestra en la siguiente imagen.</p>
 <p class="image-grid">
-<img src="/pub/images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
-<img src="/pub/images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
-<img src="/pub/images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
-<img src="/pub/images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
-<img src="/pub/images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
+<img src="images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
+<img src="images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
+<img src="images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
+<img src="images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
+<img src="images/TransaccionesPendientes.png" alt="Transacciones Pendientes">
 </p>
