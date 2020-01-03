@@ -20,7 +20,7 @@
         "rebuild-css": "node buildstyleCustom.js",
         "build-pos-api-markdown": "npm run build-markdown",
         "build-pos-api-pre-documentation": "npm run build-pos-api-markdown && npm run rebuild-css",
-        "create-deploy-files": "npm run clean & npm run build-markdown && npm run rebuild-css && node shins"
+        "create-deploy-files": "npm run clean & npm run build-markdown && npm run rebuild-css && node shins -o ./pub/index.html"
     },
     "bin": {
         "shins": "./shins.js"

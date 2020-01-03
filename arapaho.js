@@ -44,8 +44,8 @@ function getLastGenTime(fpath) {
 
 function check(req,res,fpath) {
     fpath = fpath.split('/').join('');
-    var srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
-    var dstStat = {mtime:getLastGenTime(fpath)};
+    let srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
+    let dstStat = {mtime: getLastGenTime(fpath)};
     if (!args.preserve) {
         try {
             dstStat = fs.statSync(path.join(__dirname,fpath));
@@ -80,7 +80,10 @@ function check(req,res,fpath) {
                         res.send(err);
                     }
                     else {
-                        res.send(html);
+                        let newHtml = html.replace(/"js/g, "\"pub/js");
+                        newHtml = newHtml.replace(/"css/g, "\"pub/css");
+                        newHtml = newHtml.replace(/"images/g, "\"pub/images");
+                        res.send(newHtml);
                         if (!args.preserve) {
                             fs.writeFile(path.join(__dirname,fpath),html,'utf8',function(){});
                         }
@@ -102,16 +105,16 @@ app.get('*.html', function(req,res) {
 });
 app.use("/",  express.static(__dirname));
 
-var myport = process.env.PORT || 4567;
+let myport = process.env.PORT || 4567;
 if (args._.length>2) myport = args._[2];
 
-var server = app.listen(myport, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+const server = app.listen(myport, function () {
+    const host = server.address().address;
+    const port = server.address().port;
 
-  console.log('Arapaho server listening at http://%s:%s', host, port);
-  if (args.launch) {
-    console.log('Launching...');
-    opn('http://'+(host === '::' ? 'localhost' : 'host') + ':' +port+'/');
-  }
+    console.log('Arapaho server listening at http://%s:%s', host, port);
+    if (args.launch) {
+        console.log('Launching...');
+        opn('http://' + (host === '::' ? 'localhost' : 'host') + ':' + port + '/');
+    }
 });

@@ -1,1 +1,1 @@
-<script src="pub/js/shins.js"></script>
+<script src="js/shins.js"></script>

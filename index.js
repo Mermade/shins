@@ -125,11 +125,11 @@ function javascript_include_tag(include) {
                 }
             }
         }
-        let tmp = ''
+        let tmp = '';
         scripts.forEach((from) => {
-            const pathTo = 'pub/js/'
-            const to = path.join(globalOptions.root, pathTo + from.split('/').slice(-1)[0])
-            tmp += '<script src="' + pathTo + from.split('/').slice(-1)[0]  + '"></script>' + '\n'
+            const pathTo = 'pub/js/';
+            const to = path.join(globalOptions.root, pathTo + from.split('/').slice(-1)[0]);
+            tmp += '<script src="js/' + from.split('/').slice(-1)[0]  + '"></script>' + '\n';
             fs.createReadStream(from).pipe(fs.createWriteStream(to));
         })
         includeStr = tmp + includeStr;
@@ -219,7 +219,7 @@ function stylesheet_link_tag(stylesheet, media) {
         let include =
             '<link rel="stylesheet" media="' +
             media +
-            '" href="pub/css/' +
+            '" href="css/' +
             stylesheet +
             '.css">';
         if (globalOptions.css && stylesheet === "screen") {
@@ -234,7 +234,7 @@ function stylesheet_link_tag(stylesheet, media) {
             include +=
                 '\n    <link rel="stylesheet" media="' +
                 media +
-                '" href="pub/css/' +
+                '" href="css/' +
                 override +
                 '_overrides.css">';
         }
@@ -557,7 +557,7 @@ function render(inputStr, options, callback) {
             };
             locals.partial = partial;
             locals.image_tag = function(image, altText, className) {
-                let imageSource = "pub/images/" + image;
+                let imageSource = "images/" + image;
                 if (globalOptions.inline) {
                     const imgContent = safeReadFileSync(
                         path.join(globalOptions.root, imageSource)
