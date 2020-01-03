@@ -1,2 +1,8 @@
-<div class="h2 mt-0 pb-3">Proceso de Pago</div>
+<h1 id="primeros-pasos">Proceso de Pago</h1>
+
 <!--Esta sección incluye el proceso de pago y el proceso de configuración de notificación postback --> 
+<div class="h2 mt-0 pb-3">Proceso de Pago</div>
+
+<div class="h2 mt-0 pb-3">Notificaciones Postback</div>
+
+<p>Configuración de las notificaciones de pago por postback</p>
