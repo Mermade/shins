@@ -18,7 +18,7 @@ function sassRender(infile,outfile) {
 		file: infile,
 		outputStyle : outputStyle,
 		functions: assetFunctions({
-			http_fonts_path: 'fonts'
+			http_fonts_path: '../fonts'
 		})
 	}, function(err, result) {
 		if (err) {
