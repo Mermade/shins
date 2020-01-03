@@ -6,6 +6,10 @@ source/images/custom_logo.*
 spectacle
 dev/
 testroot/
+pub/
+source/index.html.md
+index.html
+.DS_Store
 
 # Logs
 logs

@@ -3,19 +3,24 @@
     "version": "2.3.2-6",
     "description": "Shins Is Not Slate",
     "main": "index.js",
+    "config": {
+        "posapi": {
+            "options": "./options/posApi.json",
+            "apidef": "api.yaml",
+            "markdownoutput": "./source/index.html.md"
+        },
+        "otro": {
+            "algo": "funcionooo!!!"
+        }
+    },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "update": "node shins --unsafe",
-        "build": "npm run build-markdown && node shins",
+        "clean": "node source/javascripts/clean.js",
         "start": "node arapaho -l",
-        "build-markdown": "widdershins  --environment options.json --summary api.yaml -o ./source/index.html.md",
+        "build-markdown": "widdershins  --environment $npm_package_config_posapi_options --summary $npm_package_config_posapi_apidef -o $npm_package_config_posapi_markdownoutput",
         "rebuild-css": "node buildstyleCustom.js",
-        "rebuild-css-normal": "node buildstyle.js",
-        "build-documentation": "yarn run build-markdown && yarn run rebuild-css",
-        "lint": "eslint \"**/*.+(js|jsx|json|yml|yamil|css|sass|less|ts|tsx|mdx|graphql|vue)\"",
-        "format": "prettier -- --write",
-        "prettier": "prettier  \"**/*.+(js|jsx|json|yml|yamil|css|sass|less|ts|tsx|md|mdx|graphql|vue)\"",
-        "validate": "npm run lint && npm run prettier -- --list-different"
+        "build-pos-api-markdown": "npm run build-markdown",
+        "build-pos-api-pre-documentation": "npm run build-pos-api-markdown && npm run rebuild-css",
+        "create-deploy-files": "npm run clean & npm run build-markdown && npm run rebuild-css && node shins"
     },
     "bin": {
         "shins": "./shins.js"
@@ -51,6 +56,8 @@
         "markdown-it-attrs": "^1.2.1",
         "markdown-it-emoji": "^1.4.0",
         "markdown-it-lazy-headers": "^0.1.3",
+        "mkdirp": "^0.5.1",
+        "ncp": "^2.0.0",
         "opn": "^5.2.0",
         "sanitize-html": "^1.15.0",
         "tiny-opts-parser": "0.0.3",
