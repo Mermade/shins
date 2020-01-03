@@ -1,6 +1,6 @@
 {{ data.faq = [
 {
-    q: '¿Puedo usar la  API de Clip test Punto de Venta para aceptar pagos?',
+    q: '¿Puedo usar la  API de Clip Punto de Venta para aceptar pagos?',
     a: 'Sí, los desarrolladores en México pueden usar la API de Clip Punto de Venta para aceptar pagos en persona. La API de Clip Punto de Venta le otorga un enlace el cual accede al servidor de Clip desde una aplicación Android para procesar pagos en persona con un lector de Clip.',
 },
 {
