@@ -18,10 +18,12 @@ function sassRender(infile,outfile) {
 		file: infile,
 		outputStyle : outputStyle,
 		functions: assetFunctions({
-			http_fonts_path: '../../pub/fonts'
+			http_fonts_path: 'fonts'
 		})
 	}, function(err, result) {
-		if (err) console.error(err)
+		if (err) {
+            console.error(err)
+        }
 		else {
 			fs.writeFile(outfile,result.css.toString(),'utf8',function(err){
                 if (err) console.warn(err.message);
