@@ -27,7 +27,7 @@
 </p>
 <ul>
 <li>Crear un URL del endpoint que recibe la notificación.</li>
-<li>Configurar las notificaciones de Postback en el dashboard de la <a href="https://dashboard.clip.mx/users/sign_in">cuenta Clip.</li>
+<li>Configurar las notificaciones de Postback en el dashboard de la <a href="https://dashboard.clip.mx/users/sign_in">cuenta Clip.</a></li>
 </ul>
 <p>Configuración de las notificaciones de pago por postback</p>
 <p>Para configurar las notificaciones de Postback, realiza lo siguiente:</p>
