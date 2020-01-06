@@ -4,6 +4,7 @@ info:
     title: POS Api
     description: |
         La API de Clip de Punto de Venta (POS API, en inglés, Point of Sale) permite a las aplicaciones de punto de venta de terceros abrir la aplicación Clip para procesar pagos de una persona usando el dispositivo terminal de Clip. 
+        
         Los desarrolladores pueden usar la POS API para crear soluciones personalizadas de punto de venta o cualquier otra aplicación que requiera pagos, sin preocuparse por el cumplimiento de las normativas de la Industria de Pagos con Tarjeta PCI. Por el momento la POS API está disponible para el dispositivo Clip Pro.
     license:
         name: MIT
@@ -29,37 +30,13 @@ paths:
                 - ApiKeyAuth: []
             responses:
                 "200":
-                    description: Respuesta del servidor al momento de crear una transaccion
+                    description: Respuesta del servidor al momento de crear una transacción.
                     content:
                         application/json:
                             schema:
-                                $ref: "#/components/schemas/200TransactionOk"
+                              $ref: "#/components/schemas/200TransactionOk"
                 "401":
-                    $ref: "#/components/responses/Unauthorized"
-        get:
-            summary: Obtiene un listado de transacciones
-            operationId: Obtener Transacciones
-            tags:
-                - payment
-            security:
-                - ApiKeyAuth: []
-            parameters:
-                - description: Cadena de caracteres usado para identificar al usuario asignado. Formato de correo electronico
-                  in: path
-                  name: assigned_user
-                  required: true
-                  schema:
-                      type: string
-                      format: email
-            responses:
-                "200":
-                    description: Respuesta del servidor con el listado de transacciones
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/TransactionList"
-                "401":
-                    $ref: "#/components/responses/Unauthorized"
+                  $ref: "#/components/responses/Unauthorized"
         
 components:
     securitySchemes:
@@ -81,7 +58,7 @@ components:
                     description: Monto de la transacción
                     type: number
                 assigned_user:
-                    description: Cadena de caracteres usado para identificar al usuario asignado. Formato de correo electronico
+                    description: Cadena de caracteres usado para identificar al usuario asignado. Formato de correo electrónico.
                     type: string
                     format: email
                 reference:
@@ -101,77 +78,6 @@ components:
                 - amount
                 - reference
                 - message
-        DateTime:
-            properties:
-                epochSecond:
-                    type: integer
-                nano:
-                    type: integer
-        Transactions:
-            properties:
-                paymentRequestId:
-                    description: Identificador del pago
-                    type: string
-                    format: uuid
-                transactionId:
-                    description: Identificador de la transaccion
-                    type: string
-                    format: uuid
-                merchantId:
-                    description: Identificador del Merchant de Clip
-                    type: string
-                    format: uuid
-                merchantToken:
-                    description: Token del Merchant
-                    type: string
-                    format: uuid
-                paymentRequestCode:
-                    description: Codigo
-                    type: string
-                amount:
-                    description: Monto de la transaccion
-                    type: number
-                currency:
-                    description: Moneda usada en la transaccion
-                    type: string
-                merchantInvoiceId:
-                    type: string
-                    example: cobro-septiembre17
-                statusCode:
-                    description: Estado de la transaccion
-                    type: integer
-                statusMsg:
-                    description: Descripcion del codigo del estado de la trasaccion
-                    type: string
-                expiresAt:
-                    $ref: "#/components/schemas/DateTime"
-                assignedUserId:
-                    type: string
-                    description: usuario asignado a la transaccion
-                message:
-                    description: Texto que aparecerá como referencia en la sección de cobros pendientes.
-                    type: string
-                    example: pago pendiente
-                consumerEmail:
-                    description: correo electronico
-                    type: string
-                    format: email
-                createdByUserId:
-                    description: id del usuario que creo la trasaccion
-                    type: string
-                    format: uuid
-                closedAt:
-                    $ref: "#/components/schemas/DateTime"
-                createdAt:
-                    $ref: "#/components/schemas/DateTime"
-                updatedAt:
-                    $ref: "#/components/schemas/DateTime"
-        TransactionList:
-            properties:
-                transactions:
-                    items:
-                        $ref: "#/components/schemas/Transactions"
-                    type: array
 
         200TransactionOk:
             type: object
@@ -180,17 +86,13 @@ components:
                     enum: [100, 101]
                     type: integer
                     description: >
-                        Codigo de respuesta:
-                         * `100` - Transaccion exitosa
+                        Código de respuesta:
+                         * `100` - Transacción exitosa
                          * `101` - Referencia ya existe
                 description:
                     type: string
-                    description: Descripcion del codigo de error
+                    description: Descripción del código de error.
                     example: Transaction Device Saved Success
-                message:
-                    type: string
-                    description: Mensaje del servidor
-                    example: Reference Already Exists
         Error:
             type: object
             required:
@@ -198,11 +100,11 @@ components:
             properties:
                 message:
                     type: string
-                    description: Mensaje descriptivo del error
+                    description: Mensaje descriptivo del error.
                     example: Unauthorized
     responses:
         Unauthorized:
-            description: Usuario no autorizado
+            description: Usuario no autorizado.
             content:
                 application/json:
                     schema:
