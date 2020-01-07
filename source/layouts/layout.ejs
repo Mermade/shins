@@ -15,12 +15,12 @@ under the License.
 %>
 <% var language_tabs = current_page.data.language_tabs || []; %>
 <% if (current_page.data.includes) { for (var include in current_page.data.includes) { %>
-  <% page_content += partial(current_page.data.includes[include]) %>
+    <% page_content += partial(current_page.data.includes[include]) %>
     <%- partial(current_page.data.includes[include]) %>
 <% } %>
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -28,119 +28,119 @@ under the License.
 
     <style>
     </style>
-      <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=latin-ext" rel="stylesheet">
-      <script src="https://kit.fontawesome.com/05a47c7e6e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/05a47c7e6e.js" crossorigin="anonymous"></script>
     <%- stylesheet_link_tag('screen','screen') %>
     <%- stylesheet_link_tag('print','print') %>
     <%- stylesheet_link_tag(current_page.data.highlight_theme||'darkula','screen') %>
     <% if (current_page.data.search) {%>
-      <%- javascript_include_tag("all") %>
+        <%- javascript_include_tag("all") %>
     <% } else { %>
-      <%- javascript_include_tag("all_nosearch") %>
+        <%- javascript_include_tag("all_nosearch") %>
     <% } %>
     <%- partial('head') %>
-  </head>
+</head>
 
-  <body <% if (current_page.page_classes) {%>class="<%= current_page.page_classes %>" <% } %>data-languages="<%- language_array(current_page.data.language_tabs) %>">
-  <div class="top-header">
-      <div class="logo">
-          <%- logo_image_tag() %>
-      </div>
-      <div class="top-toolbar">
-          <% if (current_page.data.search) { %>
-              <div class="search">
-                  <input type="text" class="search" id="input-search" placeholder="Search...">
-              </div>
-              <ul class="search-results"></ul>
-          <% } %>
-      </div>
-  </div>
-  <a href="#" id="nav-button">
+<body <% if (current_page.page_classes) {%>class="<%= current_page.page_classes %>" <% } %>data-languages="<%- language_array(current_page.data.language_tabs) %>">
+<div class="top-header">
+    <div class="logo">
+        <%- logo_image_tag() %>
+    </div>
+    <div class="top-toolbar">
+        <% if (current_page.data.search) { %>
+            <div class="search">
+                <input type="text" class="search" id="input-search" placeholder="Search...">
+            </div>
+            <ul class="search-results"></ul>
+        <% } %>
+    </div>
+</div>
+<a href="#" id="nav-button">
       <span>
         NAV
         <%- image_tag('navbar.png','Navigation') %>
       </span>
-    </a>
-    <div class="toc-wrapper">
-        <div class="logo-wrapper" style="display: none">
-            <%- logo_image_tag() %>
-        </div>
-      <% if (language_tabs.length>0) {%>
+</a>
+<div class="toc-wrapper">
+    <div class="logo-wrapper" style="display: none">
+        <%- logo_image_tag() %>
+    </div>
+    <% if (language_tabs.length>0) {%>
         <div class="lang-selector">
-          <% for (var lang in language_tabs) { %>
-            <% if (typeof language_tabs[lang] === 'object') { %>
-              <a href="#" data-language-name="<%= Object.keys(language_tabs[lang])[0] %>"><%= language_tabs[lang][Object.keys(language_tabs[lang])[0]] %></a>
-            <% } else { %>
-              <a href="#" data-language-name="<%= language_tabs[lang] %>"><%= language_tabs[lang] %></a>
+            <% for (var lang in language_tabs) { %>
+                <% if (typeof language_tabs[lang] === 'object') { %>
+                    <a href="#" data-language-name="<%= Object.keys(language_tabs[lang])[0] %>"><%= language_tabs[lang][Object.keys(language_tabs[lang])[0]] %></a>
+                <% } else { %>
+                    <a href="#" data-language-name="<%= language_tabs[lang] %>"><%= language_tabs[lang] %></a>
+                <% } %>
             <% } %>
-          <% } %>
         </div>
-      <% } %>
-      <% if (current_page.data.search) { %>
+    <% } %>
+    <% if (current_page.data.search) { %>
         <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search...">
+            <input type="text" class="search" id="input-search" placeholder="Search...">
         </div>
         <ul class="search-results"></ul>
-      <% } %>
-      <div id="toc" class="toc-list-h1 mt-3">
-	  	<ul class="toc-list-h1">
-        <% for (var h1 of toc_data(page_content)) { %>
-          <li>
-            <a href="#<%= h1.id %>" class="toc-h1 toc-link" data-title="<%= h1.title %>"><%- h1.content %></a>
-            <% if (h1.children && (h1.children.length > 0)) { %>
-              <ul class="toc-list-h2">
-                <% for (var h2 of h1.children) { %>
-                  <li>
-                      <a href="#<%= h2.id %>" class="toc-h2 toc-link" data-title="<%= h2.content %>">
-                          <% if (h2.badge) { %>
-                              <em class="badge <%= h2.badge %>"><%= h2.badge %></em><span class="full"><%- h2.content %></span>
-                          <% }  else { %>
-                              <span><%= h2.content %></span>
-                          <% } %>
-                      </a>
-                    <% if (h2.children && (h2.children.length > 0)) { %>
-                      <ul class="toc-list-h3">
-                      <% for (var h3 of h2.children) { %>
-                      <li>
-                        <a href="#<%= h3.id %>" class="toc-h3 toc-link" data-title="<%= h3.title %>"><%- h3.content %></a>
-                      </li>
-                      <% } %>
-                    </ul>
+    <% } %>
+    <div id="toc" class="toc-list-h1 mt-3">
+        <ul class="toc-list-h1">
+            <% for (var h1 of toc_data(page_content)) { %>
+                <li>
+                    <a href="#<%= h1.id %>" class="toc-h1 toc-link" data-title="<%= h1.title %>"><%- h1.content %></a>
+                    <% if (h1.children && (h1.children.length > 0)) { %>
+                        <ul class="toc-list-h2">
+                            <% for (var h2 of h1.children) { %>
+                                <li>
+                                    <a href="#<%= h2.id %>" class="toc-h2 toc-link" data-title="<%= h2.content %>">
+                                        <% if (h2.badge) { %>
+                                            <em class="badge <%= h2.badge %>"><%= h2.badge %></em><span class="full"><%- h2.content %></span>
+                                        <% }  else { %>
+                                            <span><%= h2.content %></span>
+                                        <% } %>
+                                    </a>
+                                    <% if (h2.children && (h2.children.length > 0)) { %>
+                                        <ul class="toc-list-h3">
+                                            <% for (var h3 of h2.children) { %>
+                                                <li>
+                                                    <a href="#<%= h3.id %>" class="toc-h3 toc-link" data-title="<%= h3.title %>"><%- h3.content %></a>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                    <% } %>
+                                </li>
+                            <% } %>
+                        </ul>
                     <% } %>
-                  </li>
-                <% } %>
-              </ul>
+                </li>
             <% } %>
-          </li>
-        <% } %>
-		</ul>
-      </div>
-      <% if (current_page.data.toc_footers) { %>
-        <ul class="toc-footer">
-          <% for (var footer in current_page.data.toc_footers) { %>
-            <li><%- current_page.data.toc_footers[footer] %></li>
-          <% } %>
         </ul>
-      <% } %>
     </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <%- page_content %>
-      </div>
-      <div class="dark-box">
-        <% if (language_tabs) %>
-          <div class="lang-selector">
-            <% for (var lang in language_tabs) { %>
-              <% if (typeof language_tabs[lang] === 'object') { %>
-                <a href="#" data-language-name="<%= Object.keys(language_tabs[lang])[0] %>"><%= language_tabs[lang][Object.keys(language_tabs[lang])[0]]  %></a>
-              <% } else { %>
-                <a href="#" data-language-name="<%= language_tabs[lang] %>"><%= language_tabs[lang] %></a>
-              <% } %>
+    <% if (current_page.data.toc_footers) { %>
+        <ul class="toc-footer">
+            <% for (var footer in current_page.data.toc_footers) { %>
+                <li><%- current_page.data.toc_footers[footer] %></li>
             <% } %>
-          </div>
-        <% } %>
-      </div>
+        </ul>
+    <% } %>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <%- page_content %>
     </div>
-  </body>
+    <div class="dark-box">
+        <% if (language_tabs) %>
+        <div class="lang-selector">
+            <% for (var lang in language_tabs) { %>
+                <% if (typeof language_tabs[lang] === 'object') { %>
+                    <a href="#" data-language-name="<%= Object.keys(language_tabs[lang])[0] %>"><%= language_tabs[lang][Object.keys(language_tabs[lang])[0]]  %></a>
+                <% } else { %>
+                    <a href="#" data-language-name="<%= language_tabs[lang] %>"><%= language_tabs[lang] %></a>
+                <% } %>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+</div>
+</body>
 </html>
