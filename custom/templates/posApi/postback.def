@@ -16,7 +16,8 @@
         <br>La terminal procesa el pago y presenta una pantalla para firma.</li>
     <li>Solicita al cliente que ingrese su firma en la pantalla de la terminal Clip.</li>
     <li>Presiona <strong>Continuar</strong> para finalizar el proceso.</li>
-    <li>Opcionalmente, envía un eVoucher a un correo electrónico o número telefónico. De lo contrario, selecciona <strong>No Gracias</strong> para salir.</li>
+    <li>Opcionalmente, envía un eVoucher a un correo electrónico o número telefónico. De lo contrario, selecciona <strong>No Gracias</strong> para salir.
+    <br>La transacción ahora se encuentra en la pestaña de <strong>Pagadas</strong>.</li>
 </ol>
 
 <div class="h2 mt-0 pb-3">Notificaciones Postback</div>
@@ -57,7 +58,7 @@
     "term": "",
     "tip": "0.00",
     "transaction_id": "27104de9-d783-459c-8bb9-61e8ec9754c6"
-    "user_id": "[USER-EMAIL] "
+    "user_id": "[USER-EMAIL]"
 }      
     </code>
 </pre>
