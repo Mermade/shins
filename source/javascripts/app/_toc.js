@@ -4,6 +4,7 @@
     "use strict";
 
     let loaded = false;
+    let loadedWithClick = false;
 
     function debounce(func, waitTime) {
         let timeout = false;
@@ -37,7 +38,7 @@
             $toc.find(tocLinkSelector).each(function() {
                 const targetId = $(this).attr("href");
                 if (targetId[0] === "#") {
-                    headerHeights[targetId] = $(targetId).offset().top;
+                    headerHeights[targetId] = $(targetId).offset().top - 60;
                 }
             });
         }
@@ -67,6 +68,12 @@
                 best = window.location.hash;
                 loaded = true;
             }
+            // <!-- this code fixes the menu click issue reported by Joaquin: https://payclip.atlassian.net/browse/B2BP-227
+            if (!loadedWithClick) {
+                $(document).scrollTop(headerHeights[best]);
+                loadedWithClick = true;
+            }
+            // --!>
 
             const $best = $toc.find("[href='" + best + "']").first();
             if (!$best.hasClass("active")) {
@@ -113,6 +120,7 @@
 
             // reload immediately after scrolling on toc click
             $toc.find(tocLinkSelector).click(function() {
+                loadedWithClick = false;
                 setTimeout(function() {
                     refreshToc();
                 }, 0);
