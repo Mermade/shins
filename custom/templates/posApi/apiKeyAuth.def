@@ -2,7 +2,9 @@
 <div class="h2 mt-0 pb-3">¿Cómo obtener mi token de autenticación?</div>
 <p>Para obtener un token de autenticación sigue estos pasos:</p>
 <ol>
-    <li>Insertar proceso de obtención del Token</li>
+    <li>Enviar un correo a <a href="mailto:devsupport@payclip.com">devsupport@payclip.com</a>.
+    <br>Un agente de Clip iniciará el proceso de creación del token y lo proporcionará al solicitante.</li>
+    <li>Utilizar el token generado conforme a los requerimientos especificados en la documentación.</li>
 </ol>
 <div class="h2 mt-0 pb-3">¿Cómo utilizar mi token de autenticación?</div>
 <p>El token de autenticación se envía como un parámetro de encabezado o “Header” de la llamada a la API.</p>
