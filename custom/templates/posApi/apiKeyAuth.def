@@ -7,10 +7,7 @@
     <li>Utilizar el token generado conforme a los requerimientos especificados en la documentación.</li>
 </ol>
 <div class="h2 mt-0 pb-3">¿Cómo utilizar mi token de autenticación?</div>
-<p>El token de autenticación se envía como un parámetro de encabezado o “Header” de la llamada a la API.</p>
-{{~ sd :k}}
-
-```CURL
+```curl
 curl -X POST \
  https:// [sandbox.payclip.com]/paymentrequest/ \
  -H ‘Accept: application/vnd.com.payclip.v1+json’ \
@@ -18,7 +15,8 @@ curl -X POST \
  -H ‘Host: [sandbox.payclip.com]’ \
  -H ‘x-api-key: [x-api-key token]’ \
 ```
-
+<p>El token de autenticación se envía como un parámetro de encabezado o “Header” de la llamada a la API.</p>
+{{~ sd :k}}
 El siguiente bloque de código muestra un ejemplo de una llamada CURL a la POS API de Clip. El nombre del parámetro es: <span class="tags gray">{{=k.name}}</span>, y se ubica en los parámetros de: <span class="tags purple">{{=k.in}}</span>
 <table>
 <tbody>
