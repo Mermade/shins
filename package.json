@@ -20,11 +20,9 @@
         "start": "node arapaho -l",
         "rebuild-css": "node buildstyleCustom.js",
         "build-markdown-settlement-api": "widdershins  --environment $npm_package_config_settlementapi_options --summary $npm_package_config_settlementapi_apidef -o $npm_package_config_settlementapi_markdownoutput",
-        "build-pos-api-markdown-settlement-api": "npm run build-markdown-settlement-api",
         "build-pos-api-pre-documentation-settlement-api": "npm run build-settlement-api-markdown && npm run rebuild-css",
         "create-deploy-files-settlement-api": "npm run clean & npm run build-markdown-settlement-api && npm run rebuild-css && node shins -o ./pub/index.html",
         "build-markdown-pos-api": "widdershins  --environment $npm_package_config_posapi_options --summary $npm_package_config_posapi_apidef -o $npm_package_config_posapi_markdownoutput",
-        "build-pos-api-markdown-pos-api": "npm run build-markdown-pos-api",
         "build-pos-api-pre-documentation-pos-api": "npm run build-pos-api-markdown && npm run rebuild-css",
         "create-deploy-files-pos-api": "npm run clean & npm run build-markdown-pos-api && npm run rebuild-css && node shins -o ./pub/index.html"
     },
