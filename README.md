@@ -60,6 +60,13 @@ sections as needed. For example:
 ## Deployment
 
 The deployment of the API portal is automated. 
+Deployment status:
+
+for Settlement Api:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a20889e9-9dc7-4638-be89-fef2893bee97/deploy-status)](https://app.netlify.com/sites/settlement-api/deploys)
+
+for Pos Api:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/86dc714e-8227-42fe-aa40-121b3e749457/deploy-status)](https://app.netlify.com/sites/pos-api/deploys)
 
 [⇧ back to top](#table-of-contents)
 
