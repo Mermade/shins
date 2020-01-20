@@ -1,0 +1,24 @@
+{
+    "language_tabs": [
+        { "go": "Go" },
+        { "http": "HTTP" },
+        { "javascript": "JavaScript" },
+        { "javascript--nodejs": "Node.JS" },
+        { "python": "Python" },
+        { "ruby": "Ruby" }
+    ],
+    "theme": "monokai-sublime",
+    "verbose": true,
+    "user_templates": "./custom/templates/settlementApi",
+    "expandBody": true,
+    "tagGroups": [
+        {
+            "title": "Companies",
+            "tags": ["companies"]
+        },
+        {
+            "title": "Billing",
+            "tags": ["invoice-create", "invoice-close", "invoice-delete"]
+        }
+    ]
+}

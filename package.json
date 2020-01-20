@@ -9,18 +9,24 @@
             "apidef": "api.yaml",
             "markdownoutput": "./source/index.html.md"
         },
-        "otro": {
-            "algo": "funcionooo!!!"
+        "settlementapi": {
+            "options": "./options/settlementApi.json",
+            "apidef": "settlementApi.yaml",
+            "markdownoutput": "./source/index.html.md"
         }
     },
     "scripts": {
         "clean": "node source/javascripts/clean.js",
         "start": "node arapaho -l",
-        "build-markdown": "widdershins  --environment $npm_package_config_posapi_options --summary $npm_package_config_posapi_apidef -o $npm_package_config_posapi_markdownoutput",
         "rebuild-css": "node buildstyleCustom.js",
-        "build-pos-api-markdown": "npm run build-markdown",
-        "build-pos-api-pre-documentation": "npm run build-pos-api-markdown && npm run rebuild-css",
-        "create-deploy-files": "npm run clean & npm run build-markdown && npm run rebuild-css && node shins -o ./pub/index.html"
+        "build-markdown-settlement-api": "widdershins  --environment $npm_package_config_settlementapi_options --summary $npm_package_config_settlementapi_apidef -o $npm_package_config_settlementapi_markdownoutput",
+        "build-pos-api-markdown-settlement-api": "npm run build-markdown-settlement-api",
+        "build-pos-api-pre-documentation-settlement-api": "npm run build-settlement-api-markdown && npm run rebuild-css",
+        "create-deploy-files-settlement-api": "npm run clean & npm run build-markdown-settlement-api && npm run rebuild-css && node shins -o ./pub/index.html",
+        "build-markdown-pos-api": "widdershins  --environment $npm_package_config_posapi_options --summary $npm_package_config_posapi_apidef -o $npm_package_config_posapi_markdownoutput",
+        "build-pos-api-markdown-pos-api": "npm run build-markdown-pos-api",
+        "build-pos-api-pre-documentation-pos-api": "npm run build-pos-api-markdown && npm run rebuild-css",
+        "create-deploy-files-pos-api": "npm run clean & npm run build-markdown-pos-api && npm run rebuild-css && node shins -o ./pub/index.html"
     },
     "bin": {
         "shins": "./shins.js"
