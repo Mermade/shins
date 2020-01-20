@@ -1,0 +1,57 @@
+{{ data.faq = [
+{
+    q: '¿Puedo usar la  API de Clip Punto de Venta para aceptar pagos?',
+    a: 'Sí, los desarrolladores en México pueden usar la API de Clip Punto de Venta para aceptar pagos en persona. La API de Clip Punto de Venta le otorga un enlace el cual accede al servidor de Clip desde una aplicación Android para procesar pagos en persona con un lector de Clip.',
+},
+{
+    q: '¿Qué procesos son compatibles con la API de Clip Punto de Venta?',
+    a: 'La API POS de Clip proporciona soporte para procesar pagos en persona con la aplicación Clip desde una aplicación web o nativa de Android.'
+},
+{
+    q: '¿Las APIs de Clip están disponibles fuera de México?',
+    a: 'Actualmente, las APIs de Clip están disponibles sólo para desarrolladores en México.'
+},
+{
+    q: '¿Cómo puedo recibir respuestas a preguntas de implementación técnica?',
+    a: 'Revise las preguntas etiquetadas como <a href="https://stackoverflow.com/questions/tagged/clip-api">Clip-API</a> en Stack Overflow para solucionar problemas comunes. Si no aplica ninguna de las preguntas existentes a su problema, envíe una nueva.'
+},
+{
+    q: '¿Cómo puedo proporcionar comentarios o solicitudes de características para la API de Clip Punto de Venta?',
+    a: 'Póngase en contacto con nuestra área de soporte para desarrolladores enviando sus comentarios o solicitud a <a href="mailto:devsupport@payclip.com">devsupport@payclip.com</a>.'
+},
+{
+    q: '¿Qué versiones de la aplicación Clip son compatibles con la API de Clip Punto de Venta?',
+    a: 'En Android, la API de Clip Punto de Venta se admite en la última versión oficial de la aplicación Clip y posteriores.'
+},
+{
+    q: '¿Puedo comunicarme con el lector Clip directamente desde mi propia aplicación en lugar de cambiar a la aplicación Clip?',
+    a: 'Por el momento no. Por razones de seguridad, solo las aplicaciones de Clip pueden comunicarse directamente con el hardware de Clip.'
+},
+{
+  q: '¿Qué tarifas de procesamiento se aplican a las transacciones realizadas a través de la API de Clip Punto de Venta?',
+  a: 'Las tarifas por transacciones iniciadas con la API de Clip Punto de Venta son idénticas a las <a href="https://clip.mx/costos-y-comisiones/">tarifas por transacciones</a> iniciadas directamente desde la aplicación Clip.'
+},
+{
+   q: '¿Hay un sandbox disponible para probar transacciones de la API de Clip Punto de Venta?',
+   a: 'Por el momento no. Estamos en proceso de desarrollar un ambiente de pruebas para la API de Clip Punto de Venta, sin embargo se pueden procesar pagos pequeños con tarjeta (tan bajos como $1.00), y luego emitir reembolsos desde la aplicación Clip.'
+ }
+]; }}
+{{##def.questions:props:
+<div class=" accordion">
+<svg class="arrow " version="1.1" viewBox="0 0 24 24" x="0"	xmlns="http://www.w3.org/2000/svg" y="0">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+</svg>
+<strong>{{=props.q}}</strong>
+</div>
+<div class="panel">
+<p class="mb-4">
+{{=props.a}}
+</p>
+</div>
+#}}
+<h1 id="preguntas">Preguntas Frecuentes</h1>
+<div class="no-format">
+{{~ data.faq :question }}
+{{#def.questions:question}}
+{{~}}
+</div>

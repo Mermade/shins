@@ -1,0 +1,129 @@
+{{ var linkInfo = (markdownLink) => {
+    if (!linkInfo) return false;
+    var info = {};
+    var startLinkText = markdownLink.indexOf('[');
+    var endLinkText = markdownLink.indexOf(']');
+    var startLinkRoute = markdownLink.indexOf('(');
+    var endLinkRoute = markdownLink.indexOf(')');
+    if(startLinkText >=0 && endLinkText >= 0) info.text = markdownLink.substring(startLinkText + 1, endLinkText);
+    if(startLinkRoute >=0 && endLinkRoute >= 0) info.route = markdownLink.substring(startLinkRoute + 1, endLinkRoute);
+    return info;
+};
+}}
+{{ var rClass = (code) => {
+    if (code >= 200 && code <= 299) return 'success';
+    if (code >= 500) return 'error';
+    return 'warning';
+};
+}}
+{{ data.responses = data.utils.getResponses(data); }}
+{{ data.responseSchemas = false; }}
+{{~ data.responses :response }}
+{{ if (response.content) data.responseSchemas = true; }}
+{{~}}
+
+{{? data.responseSchemas }}
+> Respuestas de Ejemplo
+
+{{= data.utils.getResponseExamples(data) }}
+{{?}}
+
+<h3 id="{{=data.operationUniqueSlug}}-responses">Respuestas</h3>
+{{? false }}
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+{{~ data.responses :r}}|{{=r.status}}|{{=r.meaning}}|{{=r.description || 'none'}}|{{=r.schema}}|
+{{~}}
+{{?}}
+{{~ data.responses :r}}
+<div class="no-format">
+<div class="responses accordion {{=rClass(r.status)}}">
+<svg class="arrow " version="1.1" viewBox="0 0 24 24" x="0"	xmlns="http://www.w3.org/2000/svg" y="0">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+</svg>{{ function getResponseSchema(data) {
+          let schema = false;
+          if (data.content && data.content['application/json'] && data.content['application/json'].schema && data.content['application/json'].schema.properties) {
+              schema = data.content['application/json'].schema.properties
+          }
+          if (data.content && data.content['application/json'] && data.content['application/json'].schema && data.content['application/json'].schema.type === 'array') {
+              schema = data.content['application/json'].schema.items.properties
+          }
+
+          return schema;
+      } }}
+<i class="fas fa-check-circle"></i><strong> {{=r.status || ''}} </strong><span>{{=r.description}}</span>
+</div> {{ var responseSchema = getResponseSchema(r); }}
+<div class="panel">{{ data.filteredParams = responseSchema !== false ?  responseSchema : []; data.paramsTitle = 'Response Schema';}}
+{{? r.schema === 'None' }}
+No Schema
+{{??}}
+{{#def.special_table}}
+{{?}}
+</div>
+</div>
+{{~}}
+
+{{ data.responseSchemas = false; }}
+{{~ data.responses :response }}
+{{ if (response.content && !response.$ref && !data.utils.isPrimitive(response.type)) data.responseSchemas = true; }}
+{{~}}
+{{? ( data.responseSchemas && false ) }}
+<h3 id="{{=data.operationUniqueSlug}}-responseschema">Response Schema</h3>
+{{~ data.responses :response}}
+{{? response.content && !response.$ref && !data.utils.isPrimitive(response.type)}}
+{{ var responseKey = Object.keys(response.content)[0]; }}
+{{ var responseSchema = response.content[responseKey].schema; }}
+{{ var enums = []; }}
+{{ var blocks = data.utils.schemaToArray(responseSchema,0,{trim:true,join:true},data); }}
+{{ for (var block of blocks) {
+     for (var p of block.rows) {
+       if (p.schema && p.schema.enum) {
+         for (var e of p.schema.enum) {
+           enums.push({name:p.name,value:e});
+         }
+       }
+     }
+   }
+}}
+
+{{? blocks[0].rows.length || blocks[0].title }}
+Status Code **{{=response.status}}**
+
+{{~ blocks :block}}
+{{? block.title }}*{{=block.title}}*
+{{?}}
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+{{~block.rows :p}}|{{=p.displayName}}|{{=p.safeType}}|{{=p.required}}|{{=p.restrictions||'none'}}|{{=p.description||'none'}}|
+{{~}}
+{{~}}
+{{?}}
+
+{{? enums.length > 0 }}
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+{{~ enums :e}}|{{=e.name}}|{{=data.utils.toPrimitive(e.value)}}|
+{{~}}
+
+{{?}}
+
+{{ data.response = response; }}
+{{#def.links}}
+
+{{?}}
+{{~}}
+{{?}}
+
+{{ data.responseHeaders = data.utils.getResponseHeaders(data); }}
+{{? data.responseHeaders.length }}
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+{{~ data.responseHeaders :h}}|{{=h.status}}|{{=h.header}}|{{=h.type}}|{{=h.format||''}}|{{=h.description||'none'}}|
+{{~}}
+
+{{?}}

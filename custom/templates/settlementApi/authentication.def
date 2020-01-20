@@ -1,0 +1,4 @@
+<div class="docs-note pink icon-shield ">
+Para realizar esta operación, debes autenticarte por el siguiente método:
+{{= data.utils.getAuthenticationStr(data) }}
+</div>

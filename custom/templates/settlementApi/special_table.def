@@ -1,0 +1,114 @@
+{{ function schemaTransformer(data) {
+let schema = Object.assign({}, data);
+let transformedSchema = [];
+for (let key in schema) {
+   if (schema.hasOwnProperty(key)) {
+      transformedSchema.push(Object.assign(schema[key], {name: key}));
+   }
+}
+return transformedSchema;
+}
+
+function getDataFromTreeLevel(data) {
+    if (data.schema && data.schema.properties) {
+        return data.schema.properties;
+    }
+    if (data.type === 'array') {
+        return data.items.properties;
+    }
+    if (data.type === 'object') {
+        return data.properties;
+    }
+    return data.properties || false;
+}
+
+function html(props) {
+    let template = `<tr>
+                      <td colspan="2" class="prop-tree-extended">
+                      <div>
+                      <table>
+                      <tbody>`;
+    for (let x = 0; x < props.length; x++) {
+        const p = props[x];
+        let validType = p.originalType === 'object' || p.type === 'object' || p.originalType === 'array' || p.type === 'array';
+        let subTemplate01 = validType ? `<svg class="arrow " version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0">
+                                           <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                           </svg>` : '';
+        let subTemplate02 = p.required ? '<div class="required"> required </div>' : '';
+
+        template += `<tr ${validType ? `data-name="${p.name + Math.floor(Math.random() * 9999)}"` : ''}>
+                      <td class="tree">
+                      <span class="field-node"></span>${p.name}
+                      ${subTemplate01}
+                      ${subTemplate02}
+                      </td>
+                      <td class="prop-description">
+                      <div>
+                      <div>
+                      <span class="gray-text">${p.type}</span>
+                      </div>
+                      <div>
+                      <div class="description">
+                      <p>${p.description}</p>
+                      </div>
+                      </div>
+                      </div>
+                      </td>
+                      </tr>`;
+        if ((p.type === 'object' || p.type === 'array' )) {
+            const nextLevel = schemaTransformer(getDataFromTreeLevel(p));
+            template += html(nextLevel);
+        }
+    }
+    template += `</tbody>
+                 </table>
+                 </div>
+                 </td>
+                 </tr>`;
+    return template.trim().replace(/\t/g, '');
+} }}
+{{var schemaBase = Array.isArray(data.filteredParams) ? data.filteredParams : schemaTransformer(data.filteredParams);}}
+{{? schemaBase.length > 0}}<span class="title my-4">{{= data.paramsTitle }}</span>
+<table class="prop-table special transparent">
+<tbody>
+{{~ schemaBase :p}}  {{var validType = p.originalType === 'object' || p.type === 'object' || p.originalType === 'array' || p.type === 'array';}}
+<tr {{? validType === true }} data-name="{{=p.name + Math.floor(Math.random() * 9999)}}"{{?}} >
+<td class="tree">
+<span class="field-node"></span>{{=p.name}}
+{{? validType === true }}
+<svg class="arrow " version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0">
+<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+</svg>
+{{?}}
+{{? p.required || (Array.isArray(data.requiredParams) && data.requiredParams.indexOf(p.name) > -1)}}
+<div class="required"> required </div>
+{{?}}
+</td>
+<td class="prop-description">
+<div>
+<div>
+<span class="gray-text">{{=p.schema ? p.schema.type : p.type}}</span>
+</div>
+{{? p.format || ( p.schema  && p.schema.format ) }}
+<div>
+format:
+<span class="tags gray">{{=p.schema ? p.schema.format : p.format}}</span>
+</div>
+{{?}}
+<div>
+<div class="description">
+<p>{{=p.shortDesc || p.description || p.name}}</p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+{{?  validType === true}}
+{{if (p.items)  p.schema = { properties: p.items.properties};}}
+{{var schemaTransformerData = schemaTransformer(p.schema && p.schema.properties ? p.schema.properties : p.properties );}}
+{{= html(schemaTransformerData) }}
+{{?}}
+{{~}}
+</tbody>
+</table>{{?}}
+

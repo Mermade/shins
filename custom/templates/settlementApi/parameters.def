@@ -1,0 +1,71 @@
+<div class="no-format">
+<h3 id="{{=data.operationUniqueSlug}}-parameters">Parameters</h3>
+{{ data.security = data.operation.security ? data.operation.security : data.api.security; }}
+{{? data.security && data.security.length }}
+<div class="props mb-3">
+<div class="col1">
+<span class="title">Autentications:</span>
+</div>
+<div class="col2">
+{{=data.utils.getAuthenticationStr(data) }}
+</div>
+</div>{{?}}
+{{ data.paramsTitle = 'Path Parameters:'; }}
+{{ data.filteredParams = Array.isArray(data.parameters) ? data.parameters.filter(function(p) { return p.in === 'path'; }) : []; }}
+{{#def.special_table}}
+{{ data.paramsTitle = 'Query Parameters:'; }}
+{{ data.filteredParams = Array.isArray(data.parameters) ? data.parameters.filter(function(p) { return p.in === 'query'; }) : []; }}
+{{#def.special_table}}
+{{ data.paramsTitle = 'REQUEST BODY SCHEMA:'; }}
+{{ data.filteredParams = Array.isArray(data.parameters) ? data.parameters.filter(function(p) { return p.in === 'body' && p.name === 'body'; }) : []; }}
+{{? !data.filteredParams[0] }}
+{{#def.special_table}}
+{{?? data.filteredParams[0] }}
+{{ data.requiredParams = data.filteredParams[0].schema && data.filteredParams[0].schema.required ? data.filteredParams[0].schema.required : data.filteredParams[0].required}}
+{{ data.filteredParams = data.filteredParams[0].schema && data.filteredParams[0].schema.properties ? data.filteredParams[0].schema.properties : data.filteredParams[0].properties}}
+{{#def.special_table}}
+{{?}}
+
+</div>
+{{? false}}
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+{{~ data.parameters :p}}|{{=p.name}}|{{=p.in}}|{{=p.safeType}}|{{=p.required}}|{{=p.shortDesc || 'none'}}|
+{{~}}
+{{?}}
+{{~ data.parameters :p}}
+{{? p.schema}}
+
+{{?}}
+{{~}}
+{{? data.longDescs }}
+#### Detailed descriptions
+{{~ data.parameters :p}}{{? p.shortDesc !== p.description}}
+**{{=p.name}}**: {{=p.description}}{{?}}
+{{~}}
+{{?}}
+
+{{~ data.parameters :p}}
+
+{{? p.schema && p.schema.enum }}
+{{~ p.schema.enum :e}}
+{{ var entry = {}; entry.name = p.name; entry.value = e; data.enums.push(entry); }}
+{{~}}
+{{?}}
+
+{{? p.schema && p.schema.items && p.schema.items.enum }}
+{{~ p.schema.items.enum :e}}
+{{ var entry = {}; entry.name = p.name; entry.value = e; data.enums.push(entry); }}
+{{~}}
+{{?}}
+
+{{~}}
+
+{{? data.enums && data.enums.length }}
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+{{~ data.enums :e}}|{{=e.name}}|{{=data.utils.toPrimitive(e.value)}}|
+{{~}}
+{{?}}
