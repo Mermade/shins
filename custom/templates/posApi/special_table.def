@@ -7,81 +7,66 @@ for (let key in schema) {
    }
 }
 return transformedSchema;
+}
+
+function getDataFromTreeLevel(data) {
+    if (data.schema && data.schema.properties) {
+        return data.schema.properties;
+    }
+    if (data.type === 'array') {
+        return data.items.properties;
+    }
+    if (data.type === 'object') {
+        return data.properties;
+    }
+    return data.properties || false;
+}
+
+function html(props) {
+    let template = `<tr>
+                      <td colspan="2" class="prop-tree-extended">
+                      <div>
+                      <table>
+                      <tbody>`;
+    for (let x = 0; x < props.length; x++) {
+        const p = props[x];
+        let validType = p.originalType === 'object' || p.type === 'object' || p.originalType === 'array' || p.type === 'array';
+        let subTemplate01 = validType ? `<svg class="arrow " version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0">
+                                           <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                           </svg>` : '';
+        let subTemplate02 = p.required ? '<div class="required"> required </div>' : '';
+
+        template += `<tr ${validType ? `data-name="${p.name + Math.floor(Math.random() * 9999)}"` : ''}>
+                      <td class="tree">
+                      <span class="field-node"></span>${p.name}
+                      ${subTemplate01}
+                      ${subTemplate02}
+                      </td>
+                      <td class="prop-description">
+                      <div>
+                      <div>
+                      <span class="gray-text">${p.type}</span>
+                      </div>
+                      <div>
+                      <div class="description">
+                      <p>${p.description}</p>
+                      </div>
+                      </div>
+                      </div>
+                      </td>
+                      </tr>`;
+        if ((p.type === 'object' || p.type === 'array' )) {
+            const nextLevel = schemaTransformer(getDataFromTreeLevel(p));
+            template += html(nextLevel);
+        }
+    }
+    template += `</tbody>
+                 </table>
+                 </div>
+                 </td>
+                 </tr>`;
+    return template.trim().replace(/\t/g, '');
 } }}
-{{##def.sublevel:props:
-<tr>
-<td colspan="2" class="prop-tree-extended">
-<div>
-<table>
-<tbody>
-{{~ props :p }}
-<tr {{? p.type === 'object' }} data-name="{{=p.name + Math.floor(Math.random() * 9999)}}"{{?}} >
-<td class="tree">
-<span class="field-node"></span>{{=p.name}}
-{{? p.type === 'object' }}
-<svg class="arrow " version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0">
-<polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-</svg>
-{{?}}
-{{? p.required }}
-<div class="required"> required </div>
-{{?}}
-</td>
-<td class="prop-description">
-<div>
-<div>
-<span class="gray-text">{{=p.type}}</span>
-</div>
-<div>
-<div class="description">
-<p>{{=p.description}}</p>
-</div>
-</div>
-</div>
-</td>
-</tr>
-{{? p.type === 'object' }}
-{{var schemaTransformerDataL2 = schemaTransformer(p.schema && p.schema.properties ? p.schema.properties : p.properties);}}
-{{#def.sublevel2:schemaTransformerDataL2}}
-{{?}}
-{{~}}
-</tbody>
-</table>
-</div>
-</td>
-</tr>
-#}}
-{{##def.sublevel2:props:
-<tr>
-<td colspan="2" class="prop-tree-extended">
-<div>
-<table>
-<tbody>
-{{~ props :q }}
-<tr>
-<td class="tree">
-<span class="field-node"></span>{{=q.name}}
-</td>
-<td class="prop-description">
-<div>
-<div>
-<span class="gray-text">{{=q.type}}</span>
-</div>
-<div>
-<div class="description">
-<p>{{=q.description}}</p>
-</div>
-</div>
-</div>
-</td>
-</tr>
-{{~}}
-</tbody>
-</table>
-</div>
-</td>
-</tr>
-#}}
 {{var schemaBase = Array.isArray(data.filteredParams) ? data.filteredParams : schemaTransformer(data.filteredParams);}}
 {{? schemaBase.length > 0}}<span class="title my-4">{{= data.paramsTitle }}</span>
 <table class="prop-table special transparent">
@@ -99,7 +84,7 @@ return transformedSchema;
 <div class="required"> required </div>
 {{?}}
 </td>
-<td class=" prop-description">
+<td class="prop-description">
 <div>
 <div>
 <span class="gray-text">{{=p.schema ? p.schema.type : p.type}}</span>
@@ -120,8 +105,8 @@ format:
 </tr>
 {{?  validType === true}}
 {{if (p.items)  p.schema = { properties: p.items.properties};}}
-{{var schemaTransformerData = schemaTransformer(p.schema && p.schema.properties ? p.schema.properties : p.properties);}}
-{{#def.sublevel:schemaTransformerData}}
+{{var schemaTransformerData = schemaTransformer(p.schema && p.schema.properties ? p.schema.properties : p.properties );}}
+{{= html(schemaTransformerData) }}
 {{?}}
 {{~}}
 </tbody>

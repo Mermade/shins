@@ -40,11 +40,25 @@
 <div class="responses accordion {{=rClass(r.status)}}">
 <svg class="arrow " version="1.1" viewBox="0 0 24 24" x="0"	xmlns="http://www.w3.org/2000/svg" y="0">
 <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-</svg>
-<i class="fas fa-check-circle"></i><strong> {{=r.status}} </strong><span> {{=linkInfo(r.meaning).text}} {{=r.description}}</span>
-</div> {{ var paramsExist = r.content && r.content['application/json'] && r.content['application/json'].schema && r.content['application/json'].schema.properties; }}
-<div class="panel">{{ data.filteredParams = paramsExist ?  r.content['application/json'].schema.properties : []; data.paramsTitle = 'Response Schema';}}
+</svg>{{ function getResponseSchema(data) {
+          let schema = false;
+          if (data.content && data.content['application/json'] && data.content['application/json'].schema && data.content['application/json'].schema.properties) {
+              schema = data.content['application/json'].schema.properties
+          }
+          if (data.content && data.content['application/json'] && data.content['application/json'].schema && data.content['application/json'].schema.type === 'array') {
+              schema = data.content['application/json'].schema.items.properties
+          }
+
+          return schema;
+      } }}
+<i class="fas fa-check-circle"></i><strong> {{=r.status || ''}} </strong><span>{{=r.description}}</span>
+</div> {{ var responseSchema = getResponseSchema(r); }}
+<div class="panel">{{ data.filteredParams = responseSchema !== false ?  responseSchema : []; data.paramsTitle = 'Response Schema';}}
+{{? r.schema === 'None' }}
+No Schema
+{{??}}
 {{#def.special_table}}
+{{?}}
 </div>
 </div>
 {{~}}
@@ -53,7 +67,7 @@
 {{~ data.responses :response }}
 {{ if (response.content && !response.$ref && !data.utils.isPrimitive(response.type)) data.responseSchemas = true; }}
 {{~}}
-{{? data.responseSchemas }}
+{{? ( data.responseSchemas && false ) }}
 <h3 id="{{=data.operationUniqueSlug}}-responseschema">Response Schema</h3>
 {{~ data.responses :response}}
 {{? response.content && !response.$ref && !data.utils.isPrimitive(response.type)}}

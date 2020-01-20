@@ -93,7 +93,7 @@ Estos Son los diferentes ambientes definidos en la API:
 {{~ block.rows :p}}|{{=p.displayName}}|{{=p.safeType}}|{{=p.required}}|{{=p.restrictions||'none'}}|{{=p.description||'none'}}|
 {{~}}
 {{?}}
-{{data.filteredParams = block.rows;}}
+{{data.filteredParams = schema.properties;}}
 {{ data.paramsTitle = 'Schema:'; }}
 <div class="no-format">
 {{#def.special_table}}
@@ -103,7 +103,7 @@ Estos Son los diferentes ambientes definidos en la API:
 *None*
 {{?}}
 
-{{? enums.length > 0 }}
+{{? enums.length > 1000 }}
 #### Enumerated Values
 
 |Property|Value|

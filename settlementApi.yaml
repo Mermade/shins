@@ -1,0 +1,303 @@
+openapi: 3.0.0
+info:
+    title: Settlement API
+    description: >-
+        Settlement API esta diseñado para obtener la información referente a los depósitos realizados en un rango de hasta 90 días. De la misma manera y con la información de los depósitos consultados se puede obtener el detalle de sus transacciones.
+    contact:
+        name: Soporte a documentación de la API
+        email: joaquin.romo@clipdashboard.com
+    license:
+        name: Apache 2.0
+        url: http://www.apache.org/licenses/LICENSE-2.0.html
+    version: 1.0.0
+servers:
+    - description: URL de la Settlement API de Clip
+      url: https://api.clip.mx/v1/
+    # Added by API Auto Mocking Plugin
+    - description: SwaggerHub API Auto Mocking
+      url: https://virtserver.swaggerhub.com/TW_Wizeline/CLIP_SettlementAPI/1.0.0
+tags:
+    - name: Settlements
+      description: El recurso **settlements** permite obtener reportes de los depósitos realizados en un periodo determinado.
+paths:
+    /settlements:
+        get:
+            tags:
+                - Settlements
+            summary: Detalle de depósitos por periodo.
+            description: >-
+                Genera la información de depósitos realizados en el periodo definido en los parámetros. El periodo no puede ser mayor a tres meses de antiguedad (90 días).
+            operationId: settlements
+            parameters:
+                - name: api-key
+                  in: header
+                  description: Confidential key.
+                  required: true
+                  style: simple
+                  explode: false
+                  schema:
+                      type: string
+                - name: from
+                  in: query
+                  description: Fecha de inicio del reporte ej. 2019-10-14 (AAAA-MM-DD)
+                  required: true
+                  style: form
+                  explode: true
+                  schema:
+                      type: string
+                      format: date
+                      example: "2019-10-14"
+                - name: to
+                  in: query
+                  description: >-
+                      Fecha de fin del reporte ej. 2019-11-14 (AAAA-MM-DD). Nota: La fecha de fin no puede ser mayor a 90 días posteriores a la fecha de inicio en el parámetro  <code>from</code>.
+                  required: true
+                  style: form
+                  explode: true
+                  schema:
+                      type: string
+                      format: date
+                      example: "2019-11-14"
+            responses:
+                "200":
+                    description: OK.
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/settlements'
+                "400":
+                    description: Bad request.
+                "401":
+                    description: Unauthorized.
+                "403":
+                    description: Forbidden.
+                "500":
+                    description: Internal Server Error.
+    /settlements/{settlement_id}:
+        get:
+            tags:
+                - Settlements
+            summary: Detalle desglosado para un depósito en fecha seleccionada.
+            description: >-
+                Genera un reporte con los detalles del depósito basado en su **Settlement ID**.
+            operationId: deposit
+            parameters:
+                - name: api-key
+                  in: header
+                  description: Confidential key.
+                  required: true
+                  style: simple
+                  explode: false
+                  schema:
+                      type: string
+                - name: settlement_id
+                  in: path
+                  description: ID del depósito a detallar.
+                  required: true
+                  style: simple
+                  explode: false
+                  schema:
+                      type: string
+                      example: WJ8QHSCJV
+                - name: page_size
+                  in: query
+                  description: Número de elementos a mostrar por página. El valor máximo de elementos por página es de 100.
+                  required: false
+                  explode: false
+                  schema:
+                      type: integer
+                      maximum: 100
+                      minimum: 1
+                      default: 100
+                  example: 50
+                - name: paging
+                  in: query
+                  description: Token de paginación requerido cuando los elementos a mostrar exceden el tamaño de paginación definido en el parámetro <code>paging</code>.
+                  required: false
+                  explode: false
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: OK.
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/settlement_details'
+                "400":
+                    description: Bad request.
+                "401":
+                    description: Unauthorized.
+                "403":
+                    description: Forbidden.
+                "500":
+                    description: Internal Server Error.
+components:
+    schemas:
+        settlements:
+            type: object
+            properties:
+                settlement_date:
+                    type: string
+                    format: date
+                    description: Fecha de pago.
+                    example: "2019-10-15"
+                settlement_id:
+                    type: string
+                    description: ID del reporte.
+                    example: "WJ8QHSCJV"
+                gross_amount:
+                    type: number
+                    description: Total antes de impuestos.
+                    example: 1455.49
+                settled_amount:
+                    type: number
+                    description: Total después de impuestos.
+                    example: 1435.49
+                total_count:
+                    type: string
+                    description: Transacciones total en reporte.
+                    example: 2
+                details_url:
+                    type: string
+                    description: URL detalle.
+                    format: URL
+                    example: “https://testapi-gw.payclip.com/mereconciliation/settlements/WJ8QHSCJV”
+                status:
+                    type: string
+                    description: Estado del reporte.
+                    example: "sent"
+
+        settlement_details:
+            properties:
+                settlement_id:
+                    type: string
+                    description: ID del reporte.
+                    example: "WJ8QHSCJV"
+                merchant_name:
+                    type: string
+                    example: Octavio Martinez
+                settlement_date:
+                    type: string
+                    description: fecha de pago
+                    example: "2019-10-15"
+                gross_amount:
+                    type: number
+                    description: Total antes de impuestos.
+                    example: 1455.49
+                settled_amount:
+                    type: number
+                    description: Total después de impuestos.
+                    example: 1455.49
+                status:
+                    type: string
+                    example: "sent"
+                total_count:
+                    type: number
+                    example: 2
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/details_object'
+                paging:
+                    type: string
+                    description: Token de paginación que se envía en el parámetro de query string <code>paging</code>.
+
+        details_object:
+            type: object
+            properties:
+                date:
+                    type: string
+                    format: date
+                    description: Fecha de creación de la transacción.
+                    example: "2019-10-14"
+                transactions:
+                    type: array
+                    description: Arreglo de objetos 'Transaction'.
+                    items:
+                        $ref: '#/components/schemas/transaction'
+
+        transaction:
+            type: object
+            properties:
+                transaction_id:
+                    type: string
+                    description: ID de la transacción.
+                    example: "5mUV5Dt"
+                settlement_id:
+                    type: string
+                    description: ID del reporte.
+                    example: "WJ8QHSCJV"
+                created_at:
+                    type: string
+                    format: date
+                    description: Fecha de creación. (AAAA-MM-DD)
+                    example: "2019-10-14"
+                transaction_amount:
+                    type: string
+                    description: Monto de la transacción en pesos.
+                    example: 1265
+                installments:
+                    type: boolean
+                    description: Meses sin intereses. Cuando el valor sea 'false', 'monthly_term' tendrá un valor 'null'.
+                    example: true
+                tip:
+                    type: string
+                    description: Monto de la propina en pesos.
+                    example: 170
+                monthly_term:
+                    type: string
+                    description: Plazo para mensualidades.
+                    nullable: true
+                    enum: [3,6,9,12]
+                    example: 12
+                rate:
+                    type: string
+                    description: Porcentaje de comisión.
+                    example: 0.036
+                fee:
+                    type: string
+                    description: Comisión en pesos.
+                    example: 45.54
+                tax:
+                    type: string
+                    description: IVA.
+                    example: 7.29
+                total_retention:
+                    type: string
+                    description: Retención total en pesos.
+                    example: 52.83
+                settled_amount:
+                    type: string
+                    description: Cantidad a depositar.
+                    example: 1265
+                sop_days:
+                    type: string
+                    description: Tiempo a depositar.
+                    example: 1
+                card_brand:
+                    type: string
+                    description: Tipo de tarjeta.
+                    example: "Visa"
+                card_last4:
+                    type: string
+                    description: Últimos cuatro dígitos de la tarjeta con la que se hizo el pago.
+                    example: 4587
+                card_issuer:
+                    type: string
+                    description: Banco emisor de la tarjeta.
+                    example: "BANAMEX"
+                payment_reference:
+                    type: string
+                    description: Referencia.
+                    nullable: true
+                    example: "Compra playeras"
+                user_email:
+                    type: string
+                    description: Correo electrónico del usuario.
+                    format: email
+                    example: "user@example.com"
