@@ -54,6 +54,10 @@ If you use the option `--minify` to shins, the only things you need to take to y
 
 If you use the `--inline` option to shins, then everything is bundled into the `index.html` file and no `pub` directory is required. Fonts are by default loaded from this github repository, but this can be overridden with the `--fonturl` option.
 
+### Multiple Shins pages / portal
+
+There is a simple example of using an [index markdown file](./source/portal.html.md) as an entry point to a collection of Shins pages [here](https://mermade.github.io/shins/portal.html).
+
 ### API
 
 ```javascript
