@@ -2044,17 +2044,18 @@ startTransact();
 <p>Sample</p>
 </blockquote>
 <pre class="highlight tab tab-json"><code>{
-    <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5c1821dbc6b7baf3435e1d23"</span>,
-    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2019-11-20T16:51:12Z"</span>,
-    <span class="hljs-attr">"task"</span>: <span class="hljs-string">"5d97e4abc90a0a0007993e9c"</span>,
+    <span class="hljs-attr">"eventType"</span>: <span class="hljs-string">"task-status-updated"</span>,
+    <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"2020-01-28T22:04:18.778Z"</span>,
+    <span class="hljs-attr">"product"</span>: <span class="hljs-string">"xdeposit"</span>,
     <span class="hljs-attr">"user"</span>: {
-        <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5c17c632e1d8ca3b08b2586f"</span>,
-        <span class="hljs-attr">"identifier"</span>: <span class="hljs-string">"YOUR_UNIQUE_GUID"</span>
+        <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5d8d3fecbf637ef3b11a877a"</span>,
+        <span class="hljs-attr">"identifier"</span>: <span class="hljs-string">"YOUR_INTERNAL_GUID"</span>
     },
-    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"task-status-updated"</span>,
+    <span class="hljs-attr">"task"</span>: <span class="hljs-string">"5e30afde097146a8fc3d5cec"</span>,
     <span class="hljs-attr">"data"</span>: {
         <span class="hljs-attr">"previousStatus"</span>: <span class="hljs-string">"processing"</span>,
-        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"completed"</span>
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"completed"</span>,
+        <span class="hljs-attr">"transferType"</span>: <span class="hljs-string">"total"</span>
     }
 }
 </code></pre>
@@ -2361,6 +2362,11 @@ print(response.text)
 <td><code>expiry</code></td>
 <td>string</td>
 <td>An optional <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date and time by which the <code>AccessToken</code> will expire. By default, it will be set to 24 hours after access token creation.</td>
+</tr>
+<tr>
+<td><code>sendUserInvite</code></td>
+<td>string</td>
+<td>An optional field, that if set to a product (e.g. <code>xdeposit</code> or <code>xbalance</code>, will send a text message to the user with a link to Transact.)</td>
 </tr>
 <tr>
 <td><code>phone</code></td>

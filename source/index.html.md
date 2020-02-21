@@ -196,17 +196,18 @@ To validate a webhook request came from Atomic, we suggest verifying the payload
 
 ```json
 {
-    "_id": "5c1821dbc6b7baf3435e1d23",
-    "created": "2019-11-20T16:51:12Z",
-    "task": "5d97e4abc90a0a0007993e9c",
+    "eventType": "task-status-updated",
+    "eventTime": "2020-01-28T22:04:18.778Z",
+    "product": "xdeposit",
     "user": {
-        "_id": "5c17c632e1d8ca3b08b2586f",
-        "identifier": "YOUR_UNIQUE_GUID"
+        "_id": "5d8d3fecbf637ef3b11a877a",
+        "identifier": "YOUR_INTERNAL_GUID"
     },
-    "type": "task-status-updated",
+    "task": "5e30afde097146a8fc3d5cec",
     "data": {
         "previousStatus": "processing",
-        "status": "completed"
+        "status": "completed",
+        "transferType": "total"
     }
 }
 ```
@@ -464,6 +465,7 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 | ------------------------------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `identifier` <h6>required</h6> | string                | A unique identifier (GUID) from your system that will be used to reference this user.                                                                                                                             |
 | `expiry`                       | string                | An optional [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date and time by which the `AccessToken` will expire. By default, it will be set to 24 hours after access token creation.                          |
+| `sendUserInvite`               | string                | An optional field, that if set to a product (e.g. `xdeposit` or `xbalance`, will send a text message to the user with a link to Transact.)                                                                        |
 | `phone`                        | string                | A mobile phone number for the user is required if you plan on inviting a user to use [Transact](#transact-sdk) via SMS.                                                                                           |
 | `email`                        | string                | An email address for the user is required if you plan on inviting a user to use [Transact](#transact-sdk) via email.                                                                                              |
 | `accounts` <h6>required</h6>   | [[Account](#account)] | An array of bank and/or credit card accounts. At least one bank account is required for an [xDeposit](#xdeposit) transaction, and at least one card account is required for an [xBalance](#xbalance) transaction. |
