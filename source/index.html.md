@@ -160,7 +160,7 @@ An [AccessToken](#create-access-token) is required to initialize Transact, and i
 
 Transact can be initialized by including our JavaScript SDK into your page, and then calling the `Atomic.start` method.
 
-Within the context of a mobile app, we recommend loading Transact into a web view (for example, `WKWebView` on iOS) by building a simple self-hosted wrapper page. In the future, we'll be launching SDKs to make this easier. See this [example iOS app](#TODO) for more information.
+Within the context of a mobile app, we recommend loading Transact into a web view (for example, `WKWebView` on iOS) by building a simple self-hosted wrapper page. In the future, we'll be launching SDKs to make this easier. See this [example iOS app](https://github.com/atomicfi/transact-ios) for more information.
 
 ### SMS
 
