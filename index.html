@@ -1968,8 +1968,8 @@ data-postman-var-1="4d830a56bc79a690a118"></div>
         publicToken: <span class="hljs-string">"PUBLIC_TOKEN"</span>,
         <span class="hljs-comment">// Could be either 'xbalance' or 'xdeposit'</span>
         product: <span class="hljs-string">"xbalance"</span>,
-        <span class="hljs-comment">// Optionally receive webhook events to a URL of your choice</span>
-        webhookUrl: <span class="hljs-string">"https://example.url"</span>,
+        <span class="hljs-comment">// Optionally theme Transact with a *dark* color</span>
+        color: <span class="hljs-string">"#4B39EF"</span>,
         <span class="hljs-attr">onFinish</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
             <span class="hljs-comment">// Called when the user finishes the transaction</span>
             <span class="hljs-comment">// We recommend saving the `data` object which could be useful for support purposes</span>
@@ -2007,8 +2007,8 @@ startTransact();
 <td>The <a href="#products">product</a> to initiate, either <code>xbalance</code> or <code>xdeposit</code></td>
 </tr>
 <tr>
-<td><code>webhookUrl</code></td>
-<td>Optionally, a webhook URL can be configured during initialization.</td>
+<td><code>color</code></td>
+<td>Optionally, a hex color code to add a custom theme to Transact.</td>
 </tr>
 <tr>
 <td><code>onFinish</code></td>

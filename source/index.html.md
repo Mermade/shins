@@ -138,8 +138,8 @@ const startTransact = () => {
         publicToken: "PUBLIC_TOKEN",
         // Could be either 'xbalance' or 'xdeposit'
         product: "xbalance",
-        // Optionally receive webhook events to a URL of your choice
-        webhookUrl: "https://example.url",
+        // Optionally theme Transact with a *dark* color
+        color: "#4B39EF",
         onFinish: function(data) {
             // Called when the user finishes the transaction
             // We recommend saving the `data` object which could be useful for support purposes
@@ -172,7 +172,7 @@ To invite a user to use [Transact](#transact-sdk) over SMS, follow the instructi
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `publicToken` <h6>required</h6> | The public token return during [AccessToken](#create-access-token) creation.                                 |
 | `product` <h6>required</h6>     | The [product](#products) to initiate, either `xbalance` or `xdeposit`                                        |
-| `webhookUrl`                    | Optionally, a webhook URL can be configured during initialization.                                           |
+| `color`                         | Optionally, a hex color code to add a custom theme to Transact.                                              |
 | `onFinish`                      | A function that is called when the user finishes the transaction. The function will receive a `data` object. |
 | `onClose`                       | Called when the user exits Transact prematurely.                                                             |
 
