@@ -1839,12 +1839,12 @@ var n=this.pipeline.run(e.tokenizer(t)),r=new e.Vector,i=[],o=this._fields.reduc
 <blockquote>
 <p>Production Base URL</p>
 </blockquote>
-<pre class="highlight"><code>https://api.atomicfi.com/v1
+<pre class="highlight"><code>https://api.atomicfi.com
 </code></pre>
 <blockquote>
 <p>Sandbox Base URL</p>
 </blockquote>
-<pre class="highlight"><code>https://api-sandbox.atomicfi.com/v1
+<pre class="highlight"><code>https://api-sandbox.atomicfi.com
 </code></pre>
 <h3 id="welcome-to-atomic-s-developer-documentation-">Welcome to Atomic's developer documentation!</h3>
 <p>You'll find resources to help you integrate with <a href="#transact-sdk">Transact</a>, our web app that handles the heavy-lifting of integration, as well as a number of <a href="en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>ful API endpoints.</p>
@@ -2146,7 +2146,7 @@ startTransact();
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
-curl --location --request POST <span class="hljs-string">"https://api.atomicfi.com/v1/access-token"</span> \
+curl --location --request POST <span class="hljs-string">"https://api.atomicfi.com/access-token"</span> \
   --header <span class="hljs-string">"Content-Type: application/json"</span> \
   --header <span class="hljs-string">"x-api-key: f0d0a166-96de-4898-8879-da309801968b"</span> \
   --header <span class="hljs-string">"x-api-secret: afcce08f-95bd-4317-9119-ecb8debae4f2"</span> \
@@ -2185,7 +2185,7 @@ curl --location --request POST <span class="hljs-string">"https://api.atomicfi.c
 
 <span class="hljs-keyword">var</span> options = {
   <span class="hljs-string">'method'</span>: <span class="hljs-string">'POST'</span>,
-  <span class="hljs-string">'hostname'</span>: <span class="hljs-string">'https://api.atomicfi.com/v1'</span>,
+  <span class="hljs-string">'hostname'</span>: <span class="hljs-string">'https://api.atomicfi.com'</span>,
   <span class="hljs-string">'path'</span>: <span class="hljs-string">'/access-token'</span>,
   <span class="hljs-string">'headers'</span>: {
     <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>,
@@ -2221,7 +2221,7 @@ req.end();
 <pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">"uri"</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">"net/http"</span>
 
-url = URI(<span class="hljs-string">"https://api.atomicfi.com/v1/access-token"</span>)
+url = URI(<span class="hljs-string">"https://api.atomicfi.com/access-token"</span>)
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -2237,7 +2237,7 @@ puts response.read_body
 
 </code></pre>
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
-url = <span class="hljs-string">'https://api.atomicfi.com/v1/access-token'</span>
+url = <span class="hljs-string">'https://api.atomicfi.com/access-token'</span>
 payload = <span class="hljs-string">"{\n\t\"identifier\": \"YOUR_INTERNAL_GUID\",\n\t\"phone\": \"8016554444\",\n\t\"email\": \"jdoe@example.org\",\n\t\"names\": [\n\t\t{\n\t\t\t\"firstName\": \"Jane\",\n\t\t\t\"lastName\": \"Doe\"\n\t\t}\n\t],\n\t\"addresses\": [\n\t\t{\n\t\t\t\"line1\": \"123 Atomic Ave.\",\n\t\t\t\"line2\": \"Apt. #1\",\n\t\t\t\"city\": \"Salt Lake City\",\n\t\t\t\"state\": \"UT\",\n\t\t\t\"zipcode\": \"84044\",\n\t\t\t\"country\": \"US\"\n\t\t}\n\t],\n\t\"accounts\": [\n\t\t{\n\t\t\t\"accountNumber\": \"220000000\",\n\t\t\t\"routingNumber\": \"110000000\",\n\t\t\t\"type\": \"checking\",\n\t\t\t\"title\": \"Premier Plus Checking\"\n\t\t}\n\t]\n}"</span>
 headers = {
   <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>,
@@ -2260,7 +2260,7 @@ print(response.text)
 
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
 
-  url := <span class="hljs-string">"https://api.atomicfi.com/v1/access-token"</span>
+  url := <span class="hljs-string">"https://api.atomicfi.com/access-token"</span>
   method := <span class="hljs-string">"POST"</span>
 
   payload := strings.NewReader(<span class="hljs-string">"{\n	\"identifier\": \"YOUR_INTERNAL_GUID\",\n	\"phone\": \"8016554444\",\n	\"email\": \"jdoe@example.org\",\n	\"names\": [\n		{\n			\"firstName\": \"Jane\",\n			\"lastName\": \"Doe\"\n		}\n	],\n	\"addresses\": [\n		{\n			\"line1\": \"123 Atomic Ave.\",\n			\"line2\": \"Apt. #1\",\n			\"city\": \"Salt Lake City\",\n			\"state\": \"UT\",\n			\"zipcode\": \"84044\",\n			\"country\": \"US\"\n		}\n	],\n	\"accounts\": [\n		{\n			\"accountNumber\": \"220000000\",\n			\"routingNumber\": \"110000000\",\n			\"type\": \"checking\",\n			\"title\": \"Premier Plus Checking\"\n		}\n	]\n}"</span>)
@@ -2584,7 +2584,7 @@ print(response.text)
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight tab tab-shell"><code>curl --location --request POST <span class="hljs-string">"https://api.atomicfi.com/v1/task"</span> \
+<pre class="highlight tab tab-shell"><code>curl --location --request POST <span class="hljs-string">"https://api.atomicfi.com/task"</span> \
   --header <span class="hljs-string">"Content-Type: application/json"</span> \
   --header <span class="hljs-string">"x-public-token: e0d2f67e-dc98-45d8-8b22-db76cb52f732"</span> \
   --data <span class="hljs-string">"{
@@ -2603,7 +2603,7 @@ print(response.text)
 
 <span class="hljs-keyword">var</span> options = {
   <span class="hljs-string">'method'</span>: <span class="hljs-string">'POST'</span>,
-  <span class="hljs-string">'hostname'</span>: <span class="hljs-string">'https://api.atomicfi.com/v1'</span>,
+  <span class="hljs-string">'hostname'</span>: <span class="hljs-string">'https://api.atomicfi.com'</span>,
   <span class="hljs-string">'path'</span>: <span class="hljs-string">'/task'</span>,
   <span class="hljs-string">'headers'</span>: {
     <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>,
@@ -2638,7 +2638,7 @@ req.end();
 <pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">"uri"</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">"net/http"</span>
 
-url = URI(<span class="hljs-string">"https://api.atomicfi.com/v1/task"</span>)
+url = URI(<span class="hljs-string">"https://api.atomicfi.com/task"</span>)
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -2653,7 +2653,7 @@ puts response.read_body
 
 </code></pre>
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
-url = <span class="hljs-string">'https://api.atomicfi.com/v1/task'</span>
+url = <span class="hljs-string">'https://api.atomicfi.com/task'</span>
 payload = <span class="hljs-string">"{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>
 headers = {
   <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>,
@@ -2676,7 +2676,7 @@ print(response.text)
 
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
 
-  url := <span class="hljs-string">"https://api.atomicfi.com/v1/task"</span>
+  url := <span class="hljs-string">"https://api.atomicfi.com/task"</span>
   method := <span class="hljs-string">"POST"</span>
 
   payload := strings.NewReader(<span class="hljs-string">"{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>)
@@ -2810,14 +2810,14 @@ print(response.text)
 <blockquote>
 <p>Code samples</p>
 </blockquote>
-<pre class="highlight tab tab-shell"><code>curl --location --request GET <span class="hljs-string">"https://api.atomicfi.com/v1/company/search?query=microsoft&amp;product=deposit"</span> \
+<pre class="highlight tab tab-shell"><code>curl --location --request GET <span class="hljs-string">"https://api.atomicfi.com/company/search?query=microsoft&amp;product=deposit"</span> \
   --header <span class="hljs-string">"x-public-token: e0d2f67e-dc98-45d8-8b22-db76cb52f732"</span>
 </code></pre>
 <pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">var</span> https = <span class="hljs-built_in">require</span>(<span class="hljs-string">'https'</span>);
 
 <span class="hljs-keyword">var</span> options = {
   <span class="hljs-string">'method'</span>: <span class="hljs-string">'GET'</span>,
-  <span class="hljs-string">'hostname'</span>: <span class="hljs-string">'https://api.atomicfi.com/v1'</span>,
+  <span class="hljs-string">'hostname'</span>: <span class="hljs-string">'https://api.atomicfi.com'</span>,
   <span class="hljs-string">'path'</span>: <span class="hljs-string">'/company/search?query=microsoft&amp;product=deposit'</span>,
   <span class="hljs-string">'headers'</span>: {
     <span class="hljs-string">'x-public-token'</span>: <span class="hljs-string">'e0d2f67e-dc98-45d8-8b22-db76cb52f732'</span>
@@ -2847,7 +2847,7 @@ req.end();
 <pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">"uri"</span>
 <span class="hljs-keyword">require</span> <span class="hljs-string">"net/http"</span>
 
-url = URI(<span class="hljs-string">"https://api.atomicfi.com/v1/company/search?query=microsoft&amp;product=deposit"</span>)
+url = URI(<span class="hljs-string">"https://api.atomicfi.com/company/search?query=microsoft&amp;product=deposit"</span>)
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -2860,7 +2860,7 @@ puts response.read_body
 
 </code></pre>
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
-url = <span class="hljs-string">'https://api.atomicfi.com/v1/company/search?query=microsoft&amp;product=deposit'</span>
+url = <span class="hljs-string">'https://api.atomicfi.com/company/search?query=microsoft&amp;product=deposit'</span>
 payload = {}
 headers = {
   <span class="hljs-string">'x-public-token'</span>: <span class="hljs-string">'e0d2f67e-dc98-45d8-8b22-db76cb52f732'</span>
@@ -2882,7 +2882,7 @@ print(response.text)
 
 <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
 
-  url := <span class="hljs-string">"https://api.atomicfi.com/v1/company/search?query=microsoft&amp;product=deposit"</span>
+  url := <span class="hljs-string">"https://api.atomicfi.com/company/search?query=microsoft&amp;product=deposit"</span>
   method := <span class="hljs-string">"GET"</span>
 
   client := &amp;http.Client {

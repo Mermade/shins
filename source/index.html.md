@@ -23,13 +23,13 @@ headingLevel: 2
 > Production Base URL
 
 ```
-https://api.atomicfi.com/v1
+https://api.atomicfi.com
 ```
 
 > Sandbox Base URL
 
 ```
-https://api-sandbox.atomicfi.com/v1
+https://api-sandbox.atomicfi.com
 ```
 
 ### Welcome to Atomic's developer documentation!
@@ -261,7 +261,7 @@ The status of a [Task](#create-task) was changed. Possible statuses include:
 
 ```shell
 # You can also use wget
-curl --location --request POST "https://api.atomicfi.com/v1/access-token" \
+curl --location --request POST "https://api.atomicfi.com/access-token" \
   --header "Content-Type: application/json" \
   --header "x-api-key: f0d0a166-96de-4898-8879-da309801968b" \
   --header "x-api-secret: afcce08f-95bd-4317-9119-ecb8debae4f2" \
@@ -302,7 +302,7 @@ var https = require('https');
 
 var options = {
   'method': 'POST',
-  'hostname': 'https://api.atomicfi.com/v1',
+  'hostname': 'https://api.atomicfi.com',
   'path': '/access-token',
   'headers': {
     'Content-Type': 'application/json',
@@ -340,7 +340,7 @@ req.end();
 require "uri"
 require "net/http"
 
-url = URI("https://api.atomicfi.com/v1/access-token")
+url = URI("https://api.atomicfi.com/access-token")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -358,7 +358,7 @@ puts response.read_body
 
 ```python
 import requests
-url = 'https://api.atomicfi.com/v1/access-token'
+url = 'https://api.atomicfi.com/access-token'
 payload = "{\n\t\"identifier\": \"YOUR_INTERNAL_GUID\",\n\t\"phone\": \"8016554444\",\n\t\"email\": \"jdoe@example.org\",\n\t\"names\": [\n\t\t{\n\t\t\t\"firstName\": \"Jane\",\n\t\t\t\"lastName\": \"Doe\"\n\t\t}\n\t],\n\t\"addresses\": [\n\t\t{\n\t\t\t\"line1\": \"123 Atomic Ave.\",\n\t\t\t\"line2\": \"Apt. #1\",\n\t\t\t\"city\": \"Salt Lake City\",\n\t\t\t\"state\": \"UT\",\n\t\t\t\"zipcode\": \"84044\",\n\t\t\t\"country\": \"US\"\n\t\t}\n\t],\n\t\"accounts\": [\n\t\t{\n\t\t\t\"accountNumber\": \"220000000\",\n\t\t\t\"routingNumber\": \"110000000\",\n\t\t\t\"type\": \"checking\",\n\t\t\t\"title\": \"Premier Plus Checking\"\n\t\t}\n\t]\n}"
 headers = {
   'Content-Type': 'application/json',
@@ -383,7 +383,7 @@ import (
 
 func main() {
 
-  url := "https://api.atomicfi.com/v1/access-token"
+  url := "https://api.atomicfi.com/access-token"
   method := "POST"
 
   payload := strings.NewReader("{\n	\"identifier\": \"YOUR_INTERNAL_GUID\",\n	\"phone\": \"8016554444\",\n	\"email\": \"jdoe@example.org\",\n	\"names\": [\n		{\n			\"firstName\": \"Jane\",\n			\"lastName\": \"Doe\"\n		}\n	],\n	\"addresses\": [\n		{\n			\"line1\": \"123 Atomic Ave.\",\n			\"line2\": \"Apt. #1\",\n			\"city\": \"Salt Lake City\",\n			\"state\": \"UT\",\n			\"zipcode\": \"84044\",\n			\"country\": \"US\"\n		}\n	],\n	\"accounts\": [\n		{\n			\"accountNumber\": \"220000000\",\n			\"routingNumber\": \"110000000\",\n			\"type\": \"checking\",\n			\"title\": \"Premier Plus Checking\"\n		}\n	]\n}")
@@ -581,7 +581,7 @@ Successfully creating an `Access Token` will return a payload with a `data` obje
 > Code samples
 
 ```shell
-curl --location --request POST "https://api.atomicfi.com/v1/task" \
+curl --location --request POST "https://api.atomicfi.com/task" \
   --header "Content-Type: application/json" \
   --header "x-public-token: e0d2f67e-dc98-45d8-8b22-db76cb52f732" \
   --data "{
@@ -602,7 +602,7 @@ var https = require('https');
 
 var options = {
   'method': 'POST',
-  'hostname': 'https://api.atomicfi.com/v1',
+  'hostname': 'https://api.atomicfi.com',
   'path': '/task',
   'headers': {
     'Content-Type': 'application/json',
@@ -639,7 +639,7 @@ req.end();
 require "uri"
 require "net/http"
 
-url = URI("https://api.atomicfi.com/v1/task")
+url = URI("https://api.atomicfi.com/task")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -656,7 +656,7 @@ puts response.read_body
 
 ```python
 import requests
-url = 'https://api.atomicfi.com/v1/task'
+url = 'https://api.atomicfi.com/task'
 payload = "{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"
 headers = {
   'Content-Type': 'application/json',
@@ -681,7 +681,7 @@ import (
 
 func main() {
 
-  url := "https://api.atomicfi.com/v1/task"
+  url := "https://api.atomicfi.com/task"
   method := "POST"
 
   payload := strings.NewReader("{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}")
@@ -773,7 +773,7 @@ Successfully creating a `Task` will return a payload with a `data` object contai
 > Code samples
 
 ```shell
-curl --location --request GET "https://api.atomicfi.com/v1/company/search?query=microsoft&product=deposit" \
+curl --location --request GET "https://api.atomicfi.com/company/search?query=microsoft&product=deposit" \
   --header "x-public-token: e0d2f67e-dc98-45d8-8b22-db76cb52f732"
 ```
 
@@ -782,7 +782,7 @@ var https = require('https');
 
 var options = {
   'method': 'GET',
-  'hostname': 'https://api.atomicfi.com/v1',
+  'hostname': 'https://api.atomicfi.com',
   'path': '/company/search?query=microsoft&product=deposit',
   'headers': {
     'x-public-token': 'e0d2f67e-dc98-45d8-8b22-db76cb52f732'
@@ -814,7 +814,7 @@ req.end();
 require "uri"
 require "net/http"
 
-url = URI("https://api.atomicfi.com/v1/company/search?query=microsoft&product=deposit")
+url = URI("https://api.atomicfi.com/company/search?query=microsoft&product=deposit")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -829,7 +829,7 @@ puts response.read_body
 
 ```python
 import requests
-url = 'https://api.atomicfi.com/v1/company/search?query=microsoft&product=deposit'
+url = 'https://api.atomicfi.com/company/search?query=microsoft&product=deposit'
 payload = {}
 headers = {
   'x-public-token': 'e0d2f67e-dc98-45d8-8b22-db76cb52f732'
@@ -853,7 +853,7 @@ import (
 
 func main() {
 
-  url := "https://api.atomicfi.com/v1/company/search?query=microsoft&product=deposit"
+  url := "https://api.atomicfi.com/company/search?query=microsoft&product=deposit"
   method := "GET"
 
   client := &http.Client {
