@@ -973,3 +973,7 @@ h6 {
 
 .postman-run-button {
   margin-left: 28px; }
+
+.transact-example-platform {
+  width: 130px !important;
+  padding: 15px; }

@@ -986,6 +986,10 @@ h6 {
 
 .postman-run-button {
   margin-left: 28px; }
+
+.transact-example-platform {
+  width: 130px !important;
+  padding: 15px; }
 </style>
     <style media="print">@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
@@ -1986,7 +1990,11 @@ startTransact();
 <p>An <a href="#create-access-token">AccessToken</a> is required to initialize Transact, and is generated server-side using your API key, and the <code>publicToken</code> from the response is returned to your client-side code.</p>
 <h3 id="mobile--amp--web">Mobile &amp; Web</h3>
 <p>Transact can be initialized by including our JavaScript SDK into your page, and then calling the <code>Atomic.start</code> method.</p>
-<p>Within the context of a mobile app, we recommend loading Transact into a web view (for example, <code>WKWebView</code> on iOS) by building a simple self-hosted wrapper page. In the future, we'll be launching SDKs to make this easier. See this <a href="https://github.com/atomicfi/transact-ios">example iOS app</a> for more information.</p>
+<p>Within the context of a mobile app, we recommend loading Transact into a web view (for example, <code>WKWebView</code> on iOS) by building a simple self-hosted wrapper page. Here are examples for <a href="https://github.com/atomicfi/transact-ios">Swift (iOS)</a>, <a href="https://github.com/atomicfi/transact-android">Kotlin (Android)</a>, and <a href="https://github.com/atomicfi/transact-react-native">React Native</a>
+<br />
+<a href="https://github.com/atomicfi/transact-android"><img src="/source/images/kotlin.png" class="transact-example-platform" /></a>
+<a href="https://github.com/atomicfi/transact-ios">&lt;img src=&quot;/source/images/swift.png&quot; class=&quot;transact-example-platform /&gt;</a>
+<a href="https://github.com/atomicfi/transact-react-native"><img src="/source/images/react-native.png" class="transact-example-platform" /></a></p>
 <h3 id="sms">SMS</h3>
 <p>To invite a user to use <a href="#transact-sdk">Transact</a> over SMS, follow the instructions as described in the <a href="#create-access-token">AccessToken</a> section.</p>
 <h3 id="javascript-sdk-parameters">Javascript SDK parameters</h3>

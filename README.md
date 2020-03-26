@@ -17,6 +17,12 @@ Browse to [localhost:4567](http://localhost:4567) - changes to your source `.htm
 
 `node shins.js --unsafe`
 
+## Build Styles
+
+If you make changes to the stylesheets in `/source/stylesheets` you'll need to rebuild the styles.
+
+`node buildstyles.js`
+
 ## Release
 
 Merge code to `master` branch. Since it uses GitHub pages, changes will be automatically applied.
