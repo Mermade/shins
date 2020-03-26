@@ -58,9 +58,9 @@ Our API returns standard HTTP success or error status codes. For errors, we will
 
 # Products
 
-## xBalance
+## Transfer
 
-### Atomic's xBalance product facilitates the transfer of debt balances between financial institutions.
+### Atomic's Transfer product facilitates the transfer of debt balances between financial institutions.
 
 ### Integration options
 
@@ -84,7 +84,7 @@ As a security measure when users are authenticating with their payroll account, 
 
 # Transact SDK
 
-![alt text](/source/images/xbalance-devices.png "Logo Title Text 1")
+![alt text](/source/images/transfer-devices.png "Logo Title Text 1")
 
 ### Atomic Transact SDK is a UI designed to securely handle interactions with our products, while performing the heavy-lifting of integration.
 
@@ -428,7 +428,7 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 | `expiry`                       | string                | An optional [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date and time by which the `AccessToken` will expire. By default, it will be set to 24 hours after access token creation.                          |
 | `phone`                        | string                | A mobile phone number for the user is required if you plan on inviting a user to use [Transact](#transact-sdk) via SMS.                                                                                           |
 | `email`                        | string                | An email address for the user is required if you plan on inviting a user to use [Transact](#transact-sdk) via email.                                                                                              |
-| `accounts` <h6>required</h6>   | [[Account](#account)] | An array of bank and/or credit card accounts. At least one bank account is required for an [xDeposit](#xdeposit) transaction, and at least one card account is required for an [xBalance](#xbalance) transaction. |
+| `accounts` <h6>required</h6>   | [[Account](#account)] | An array of bank and/or credit card accounts. At least one bank account is required for an [xDeposit](#xdeposit) transaction, and at least one card account is required for an [Transfer](#transfer) transaction. |
 | `names`                        | [[Name](#name)]       | Account holder names, for reference.                                                                                                                                                                              |
 | `addresses`                    | [[Address](#address)] | Account holder addresses, for reference.                                                                                                                                                                          |
 
@@ -466,7 +466,7 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 | `routingNumber`                   | string | When account the account is bank account, this is the ABA routing number.                                                 |
 | `type`                            | string | Type of account. Possible values inlcude `card`, `checking`, or `savings`                                                 |
 | `title`                           | string | A friendly name for the account that could be shown to the user.                                                          |
-| `limit`                           | string | A balance transfer limit (in dollars) that may be optionally imposed when executing an [xBalance](#xbalance) transaction. |
+| `limit`                           | string | A balance transfer limit (in dollars) that may be optionally imposed when executing an [Transfer](#transfer) transaction. |
 
 #### Name
 
@@ -548,7 +548,7 @@ curl --location --request POST "https://api.atomicfi.com/v1/task" \
     \"product\": \"xdeposit\",
     \"company\": \"5d77f9e1070856f3828945c6\",
     \"settings\": {
-        \"xbalance\": {
+        \"transfer\": {
             \"amount\": \"500\",
             \"accountNumber\": \"4111111111111\"
         }
@@ -587,7 +587,7 @@ var req = https.request(options, function (res) {
   });
 });
 
-var postData =  "{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}";
+var postData =  "{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}";
 
 req.write(postData);
 
@@ -606,7 +606,7 @@ http = Net::HTTP.new(url.host, url.port)
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = "application/json"
 request["x-public-token"] = "e0d2f67e-dc98-45d8-8b22-db76cb52f732"
-request.body = "{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"
+request.body = "{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"
 
 response = http.request(request)
 puts response.read_body
@@ -617,7 +617,7 @@ puts response.read_body
 ```python
 import requests
 url = 'https://api.atomicfi.com/v1/task'
-payload = "{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"
+payload = "{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"
 headers = {
   'Content-Type': 'application/json',
   'x-public-token': 'e0d2f67e-dc98-45d8-8b22-db76cb52f732'
@@ -644,7 +644,7 @@ func main() {
   url := "https://api.atomicfi.com/v1/task"
   method := "POST"
 
-  payload := strings.NewReader("{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}")
+  payload := strings.NewReader("{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}")
 
   client := &http.Client {
     CheckRedirect: func(req *http.Request, via []*http.Request) error {
@@ -676,7 +676,7 @@ func main() {
     "product": "xdeposit",
     "company": "5d77f9e1070856f3828945c6",
     "settings": {
-        "xbalance": {
+        "transfer": {
             "amount": "500",
             "accountNumber": "4111111111111"
         }
@@ -684,7 +684,7 @@ func main() {
 }
 ```
 
-To request that an [xBalance](#xbalance) transaction is performed, a `Task` object is created that contains instructions on the origin and destination of the balance. A `Task` associated with a user via the `publicToken` used to authenticate the request.
+To request that an [Transfer](#transfer) transaction is performed, a `Task` object is created that contains instructions on the origin and destination of the balance. A `Task` associated with a user via the `publicToken` used to authenticate the request.
 
 ### HTTP Request
 
@@ -700,11 +700,11 @@ To request that an [xBalance](#xbalance) transaction is performed, a `Task` obje
 
 | Name                                                | Type   | Description                                                                                                                                                     |
 | --------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `product` <h6>required</h6>                         | string | Must be set to `xbalance`.                                                                                                                                      |
+| `product` <h6>required</h6>                         | string | Must be set to `transfer`.                                                                                                                                      |
 | `company` <h6>required</h6>                         | string | The `_id` of a [Company](#company-object) object. This will be used as the origin of the balance transfer.                                                      |
-| `settings.xbalance.amount` <h6>required</h6>        | string | A USD amount to be transferred from the origin `company`. May be limited by the `limit` set during `Access Token`'s account creation.                           |
-| `settings.xbalance.accountNumber` <h6>required</h6> | string | The origin `company`'s account number.                                                                                                                          |
-| `settings.xbalance.destinationAccountNumber`        | string | Optionally choose the destination account if there are multiple eligible accounts added during `Access token` creation. Defaults to the first eligible account. |
+| `settings.transfer.amount` <h6>required</h6>        | string | A USD amount to be transferred from the origin `company`. May be limited by the `limit` set during `Access Token`'s account creation.                           |
+| `settings.transfer.accountNumber` <h6>required</h6> | string | The origin `company`'s account number.                                                                                                                          |
+| `settings.transfer.destinationAccountNumber`        | string | Optionally choose the destination account if there are multiple eligible accounts added during `Access token` creation. Defaults to the first eligible account. |
 
 ### Response
 
@@ -862,7 +862,7 @@ Searches for a `Company` using a text `query`. Searches can also be narrowed by 
 | Name                      | Type   | Description                                                                                 |
 | ------------------------- | ------ | ------------------------------------------------------------------------------------------- |
 | `query` <h6>required</h6> | string | Filters companies by name. Uses fuzzy matching to narrow results.                           |
-| `product`                 | string | Filters companies by a specific product. Possible values include `xbalance`, and `xdeposit` |
+| `product`                 | string | Filters companies by a specific product. Possible values include `transfer`, and `xdeposit` |
 
 ### Response
 
@@ -876,7 +876,7 @@ Searches for a `Company` using a text `query`. Searches can also be narrowed by 
             "name": "Wells Fargo",
             "connector": {
                 "_id": "5d38f182512bbf0c06776013",
-                "availableProducts": ["xbalance"]
+                "availableProducts": ["transfer"]
             },
             "branding": {
                 "logo": "https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573.svg",

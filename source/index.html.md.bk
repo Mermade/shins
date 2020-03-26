@@ -73,9 +73,9 @@ Our API returns standard HTTP success or error status codes. For errors, we will
 | 422  | Validation error      | A validation error occurred.    |
 | 50X  | Internal Server Error | An error occurred with our API. |
 
-# xBalance
+# Transfer
 
-### Atomic's xBalance product facilitates the transfer of debt balances between financial institutions.
+### Atomic's Transfer product facilitates the transfer of debt balances between financial institutions.
 
 ## Integration Options
 

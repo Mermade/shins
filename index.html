@@ -1761,12 +1761,12 @@ var n=this.pipeline.run(e.tokenizer(t)),r=new e.Vector,i=[],o=this._fields.reduc
               <ul class="toc-list-h2">
                 
                   <li>
-                    <a href="#xbalance" class="toc-h2 toc-link" data-title="">xBalance</a>
+                    <a href="#transfer" class="toc-h2 toc-link" data-title="">Transfer</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#xdeposit" class="toc-h2 toc-link" data-title="">xDeposit</a>
+                    <a href="#deposit" class="toc-h2 toc-link" data-title="">Deposit</a>
                     
                   </li>
                 
@@ -1911,8 +1911,8 @@ data-postman-var-1="4d830a56bc79a690a118"></div>
 </table>
 <h1 id="products">Products</h1>
 <p><img src="/source/images/atomic-products.png" alt="alt text" title="Products Preview"></p>
-<h2 id="xbalance">xBalance</h2>
-<h3 id="atomic-s-xbalance-product-facilitates-the-transfer-of-debt-balances-between-financial-institutions-">Atomic's xBalance product facilitates the transfer of debt balances between financial institutions.</h3>
+<h2 id="transfer">Transfer</h2>
+<h3 id="atomic-s-transfer-product-facilitates-the-transfer-of-debt-balances-between-financial-institutions-">Atomic's Transfer product facilitates the transfer of debt balances between financial institutions.</h3>
 <h3 id="deployment-options">Deployment options</h3>
 <h4 id="transact-sdk">Transact SDK</h4>
 <p><a href="#transact-sdk">Transact</a> allows the user to easily choose the source of their balance transfer, while the destination is pre-configured during <a href="#create-access-token">Access Token</a> creation.</p>
@@ -1921,10 +1921,10 @@ data-postman-var-1="4d830a56bc79a690a118"></div>
 <h4 id="api">API</h4>
 <p>Atomic's API may be used to initiate a balance transfer by first creating an <a href="#create-access-token">Access Token</a>, and subsequently generating a <a href="#create-task">Task</a>. The status of the task may be monitored through <a href="#webhooks">webhooks</a> and the <a href="https://dashboard.atomicfi.com/">Atomic Dashboard</a>.</p>
 <h3 id="testing">Testing</h3>
-<p>When testing xBalance, you may use <code>4111111111111111</code> as the origin account number. This will mimic a transfer.</p>
-<h2 id="xdeposit">xDeposit</h2>
-<h3 id="atomic-s-xdeposit-product-facilitates-the-switching-of-the-bank-account-s--to-which-a-user-s-direct-deposit-is-credited-">Atomic's xDeposit product facilitates the switching of the bank account(s) to which a user's direct deposit is credited.</h3>
-<p>When users are authenticating with their payroll account, Atomic requires that the xDeposit product be facilitated through <a href="#transact-sdk">Transact</a>.</p>
+<p>When testing Transfer, you may use <code>4111111111111111</code> as the origin account number. This will mimic a transfer.</p>
+<h2 id="deposit">Deposit</h2>
+<h3 id="atomic-s-deposit-product-facilitates-the-switching-of-the-bank-account-s--to-which-a-user-s-direct-deposit-is-credited-">Atomic's Deposit product facilitates the switching of the bank account(s) to which a user's direct deposit is credited.</h3>
+<p>When users are authenticating with their payroll account, Atomic requires that the Deposit product be facilitated through <a href="#transact-sdk">Transact</a>.</p>
 <h3 id="testing">Testing</h3>
 <p>To aid in testing various user experiences, you may use any of these pre-determined &quot;test&quot; credentials for employer authentication. Any password will work, as long as the username is found in this list. When answering MFA questions, any answer will be accepted. If the authentication requires an email, simply append <code>@test.com</code> to the end of the chosen username.</p>
 <table>
@@ -1954,7 +1954,7 @@ data-postman-var-1="4d830a56bc79a690a118"></div>
 </tbody>
 </table>
 <h1 id="transact-sdk">Transact SDK</h1>
-<p><img src="/source/images/xbalance-devices.png" alt="alt text" title="Transact Preview"></p>
+<p><img src="/source/images/transfer-devices.png" alt="alt text" title="Transact Preview"></p>
 <h3 id="atomic-transact-sdk-is-a-ui-designed-to-securely-handle-interactions-with-our-products--while-performing-the-heavy-lifting-of-integration-">Atomic Transact SDK is a UI designed to securely handle interactions with our products, while performing the heavy-lifting of integration.</h3>
 <h3 id="integration">Integration</h3>
 <blockquote>
@@ -1966,8 +1966,8 @@ data-postman-var-1="4d830a56bc79a690a118"></div>
     Atomic.transact({
         <span class="hljs-comment">// Replace with the server-side generated `publicToken`</span>
         publicToken: <span class="hljs-string">"PUBLIC_TOKEN"</span>,
-        <span class="hljs-comment">// Could be either 'xbalance' or 'xdeposit'</span>
-        product: <span class="hljs-string">"xbalance"</span>,
+        <span class="hljs-comment">// Could be either 'transfer' or 'deposit'</span>
+        product: <span class="hljs-string">"transfer"</span>,
         <span class="hljs-comment">// Optionally theme Transact with a *dark* color</span>
         color: <span class="hljs-string">"#4B39EF"</span>,
         <span class="hljs-attr">onFinish</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
@@ -2004,7 +2004,7 @@ startTransact();
 </tr>
 <tr>
 <td><code>product</code> <h6 id="required">required</h6></td>
-<td>The <a href="#products">product</a> to initiate, either <code>xbalance</code> or <code>xdeposit</code></td>
+<td>The <a href="#products">product</a> to initiate, either <code>transfer</code> or <code>deposit</code></td>
 </tr>
 <tr>
 <td><code>color</code></td>
@@ -2046,7 +2046,7 @@ startTransact();
 <pre class="highlight tab tab-json"><code>{
     <span class="hljs-attr">"eventType"</span>: <span class="hljs-string">"task-status-updated"</span>,
     <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"2020-01-28T22:04:18.778Z"</span>,
-    <span class="hljs-attr">"product"</span>: <span class="hljs-string">"xdeposit"</span>,
+    <span class="hljs-attr">"product"</span>: <span class="hljs-string">"deposit"</span>,
     <span class="hljs-attr">"user"</span>: {
         <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5d8d3fecbf637ef3b11a877a"</span>,
         <span class="hljs-attr">"identifier"</span>: <span class="hljs-string">"YOUR_INTERNAL_GUID"</span>
@@ -2366,7 +2366,7 @@ print(response.text)
 <tr>
 <td><code>sendUserInvite</code></td>
 <td>string</td>
-<td>An optional field, that if set to a product (e.g. <code>xdeposit</code> or <code>xbalance</code>), will send a text message to the user with a unique link to access Transact.</td>
+<td>An optional field, that if set to a product (e.g. <code>deposit</code> or <code>transfer</code>), will send a text message to the user with a unique link to access Transact.</td>
 </tr>
 <tr>
 <td><code>phone</code></td>
@@ -2381,7 +2381,7 @@ print(response.text)
 <tr>
 <td><code>accounts</code> <h6 id="required">required</h6></td>
 <td>[<a href="#account">Account</a>]</td>
-<td>An array of bank and/or credit card accounts. At least one bank account is required for an <a href="#xdeposit">xDeposit</a> transaction, and at least one card account is required for an <a href="#xbalance">xBalance</a> transaction.</td>
+<td>An array of bank and/or credit card accounts. At least one bank account is required for an <a href="#deposit">Deposit</a> transaction, and at least one card account is required for an <a href="#transfer">Transfer</a> transaction.</td>
 </tr>
 <tr>
 <td><code>names</code></td>
@@ -2450,7 +2450,7 @@ print(response.text)
 <tr>
 <td><code>transferLimit</code></td>
 <td>string</td>
-<td>A balance transfer limit (in dollars) that may be optionally imposed when executing an <a href="#xbalance">xBalance</a> transaction.</td>
+<td>A balance transfer limit (in dollars) that may be optionally imposed when executing an <a href="#transfer">Transfer</a> transaction.</td>
 </tr>
 </tbody>
 </table>
@@ -2588,10 +2588,10 @@ print(response.text)
   --header <span class="hljs-string">"Content-Type: application/json"</span> \
   --header <span class="hljs-string">"x-public-token: e0d2f67e-dc98-45d8-8b22-db76cb52f732"</span> \
   --data <span class="hljs-string">"{
-    \"product\": \"xdeposit\",
+    \"product\": \"deposit\",
     \"company\": \"5d77f9e1070856f3828945c6\",
     \"settings\": {
-        \"xbalance\": {
+        \"transfer\": {
             \"amount\": \"500\",
             \"accountNumber\": \"4111111111111\"
         }
@@ -2628,7 +2628,7 @@ print(response.text)
   });
 });
 
-<span class="hljs-keyword">var</span> postData =  <span class="hljs-string">"{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>;
+<span class="hljs-keyword">var</span> postData =  <span class="hljs-string">"{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>;
 
 req.write(postData);
 
@@ -2645,7 +2645,7 @@ http = Net::HTTP.new(url.host, url.port)
 request = Net::HTTP::Post.new(url)
 request[<span class="hljs-string">"Content-Type"</span>] = <span class="hljs-string">"application/json"</span>
 request[<span class="hljs-string">"x-public-token"</span>] = <span class="hljs-string">"e0d2f67e-dc98-45d8-8b22-db76cb52f732"</span>
-request.body = <span class="hljs-string">"{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>
+request.body = <span class="hljs-string">"{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>
 
 response = http.request(request)
 puts response.read_body
@@ -2654,7 +2654,7 @@ puts response.read_body
 </code></pre>
 <pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
 url = <span class="hljs-string">'https://api.atomicfi.com/v1/task'</span>
-payload = <span class="hljs-string">"{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>
+payload = <span class="hljs-string">"{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>
 headers = {
   <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/json'</span>,
   <span class="hljs-string">'x-public-token'</span>: <span class="hljs-string">'e0d2f67e-dc98-45d8-8b22-db76cb52f732'</span>
@@ -2679,7 +2679,7 @@ print(response.text)
   url := <span class="hljs-string">"https://api.atomicfi.com/v1/task"</span>
   method := <span class="hljs-string">"POST"</span>
 
-  payload := strings.NewReader(<span class="hljs-string">"{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>)
+  payload := strings.NewReader(<span class="hljs-string">"{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"</span>)
 
   client := &amp;http.Client {
     CheckRedirect: <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(req *http.Request, via []*http.Request)</span> <span class="hljs-title">error</span></span> {
@@ -2707,17 +2707,17 @@ print(response.text)
 <p>Request body example</p>
 </blockquote>
 <pre class="highlight tab tab-json"><code>{
-    <span class="hljs-attr">"product"</span>: <span class="hljs-string">"xdeposit"</span>,
+    <span class="hljs-attr">"product"</span>: <span class="hljs-string">"deposit"</span>,
     <span class="hljs-attr">"company"</span>: <span class="hljs-string">"5d77f9e1070856f3828945c6"</span>,
     <span class="hljs-attr">"settings"</span>: {
-        <span class="hljs-attr">"xbalance"</span>: {
+        <span class="hljs-attr">"transfer"</span>: {
             <span class="hljs-attr">"amount"</span>: <span class="hljs-string">"500"</span>,
             <span class="hljs-attr">"accountNumber"</span>: <span class="hljs-string">"4111111111111"</span>
         }
     }
 }
 </code></pre>
-<p>To request that an <a href="#xbalance">xBalance</a> transaction is performed, a <code>Task</code> object is created that contains instructions on the origin and destination of the balance. A <code>Task</code> associated with a user via the <code>publicToken</code> used to authenticate the request.</p>
+<p>To request that an <a href="#transfer">Transfer</a> transaction is performed, a <code>Task</code> object is created that contains instructions on the origin and destination of the balance. A <code>Task</code> associated with a user via the <code>publicToken</code> used to authenticate the request.</p>
 <h3 id="http-request">HTTP Request</h3>
 <p><code>POST /task</code></p>
 <h3 id="authentication-headers">Authentication headers</h3>
@@ -2748,7 +2748,7 @@ print(response.text)
 <tr>
 <td><code>product</code> <h6 id="required">required</h6></td>
 <td>string</td>
-<td>Must be set to <code>xbalance</code>.</td>
+<td>Must be set to <code>transfer</code>.</td>
 </tr>
 <tr>
 <td><code>company</code> <h6 id="required">required</h6></td>
@@ -2756,12 +2756,12 @@ print(response.text)
 <td>The <code>_id</code> of a <a href="#company-object">Company</a> object. This will be used as the origin of the balance transfer.</td>
 </tr>
 <tr>
-<td><code>settings.xbalance.amount</code> <h6 id="required">required</h6></td>
+<td><code>settings.transfer.amount</code> <h6 id="required">required</h6></td>
 <td>string</td>
 <td>A USD amount to be transferred from the origin <code>company</code>. May be limited by the <code>transferLimit</code> set during <code>Access Token</code>'s account creation.</td>
 </tr>
 <tr>
-<td><code>settings.xbalance.accountNumber</code> <h6 id="required">required</h6></td>
+<td><code>settings.transfer.accountNumber</code> <h6 id="required">required</h6></td>
 <td>string</td>
 <td>The origin <code>company</code>'s account number.</td>
 </tr>
@@ -2812,38 +2812,32 @@ print(response.text)
 </blockquote>
 <pre class="highlight tab tab-shell"><code>curl --location --request GET <span class="hljs-string">"https://api.atomicfi.com/v1/company/search?query=microsoft&amp;product=deposit"</span> \
   --header <span class="hljs-string">"x-public-token: e0d2f67e-dc98-45d8-8b22-db76cb52f732"</span>
-
 </code></pre>
-<p>$.ajax(settings).done(function(response) {
-console.log(response);
-});</p>
-<pre class="highlight"><code>
-```javascript--nodejs
-var https = require('https');
+<pre class="highlight tab tab-javascript--nodejs"><code><span class="hljs-keyword">var</span> https = <span class="hljs-built_in">require</span>(<span class="hljs-string">'https'</span>);
 
-var options = {
-  'method': 'GET',
-  'hostname': 'https://api.atomicfi.com/v1',
-  'path': '/company/search?query=microsoft&amp;product=deposit',
-  'headers': {
-    'x-public-token': 'e0d2f67e-dc98-45d8-8b22-db76cb52f732'
+<span class="hljs-keyword">var</span> options = {
+  <span class="hljs-string">'method'</span>: <span class="hljs-string">'GET'</span>,
+  <span class="hljs-string">'hostname'</span>: <span class="hljs-string">'https://api.atomicfi.com/v1'</span>,
+  <span class="hljs-string">'path'</span>: <span class="hljs-string">'/company/search?query=microsoft&amp;product=deposit'</span>,
+  <span class="hljs-string">'headers'</span>: {
+    <span class="hljs-string">'x-public-token'</span>: <span class="hljs-string">'e0d2f67e-dc98-45d8-8b22-db76cb52f732'</span>
   }
 };
 
-var req = https.request(options, function (res) {
-  var chunks = [];
+<span class="hljs-keyword">var</span> req = https.request(options, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>{
+  <span class="hljs-keyword">var</span> chunks = [];
 
-  res.on(&quot;data&quot;, function (chunk) {
+  res.on(<span class="hljs-string">"data"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">chunk</span>) </span>{
     chunks.push(chunk);
   });
 
-  res.on(&quot;end&quot;, function (chunk) {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
+  res.on(<span class="hljs-string">"end"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">chunk</span>) </span>{
+    <span class="hljs-keyword">var</span> body = Buffer.concat(chunks);
+    <span class="hljs-built_in">console</span>.log(body.toString());
   });
 
-  res.on(&quot;error&quot;, function (error) {
-    console.error(error);
+  res.on(<span class="hljs-string">"error"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+    <span class="hljs-built_in">console</span>.error(error);
   });
 });
 
@@ -2948,7 +2942,7 @@ print(response.text)
 <tr>
 <td><code>product</code></td>
 <td>string</td>
-<td>Filters companies by a specific product. Possible values include <code>xbalance</code>, and <code>xdeposit</code></td>
+<td>Filters companies by a specific product. Possible values include <code>transfer</code>, and <code>deposit</code></td>
 </tr>
 </tbody>
 </table>
@@ -2963,7 +2957,7 @@ print(response.text)
             <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Wells Fargo"</span>,
             <span class="hljs-attr">"connector"</span>: {
                 <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5d38f182512bbf0c06776013"</span>,
-                <span class="hljs-attr">"availableProducts"</span>: [<span class="hljs-string">"xbalance"</span>]
+                <span class="hljs-attr">"availableProducts"</span>: [<span class="hljs-string">"transfer"</span>]
             },
             <span class="hljs-attr">"branding"</span>: {
                 <span class="hljs-attr">"logo"</span>: <span class="hljs-string">"https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573.svg"</span>,

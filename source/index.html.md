@@ -78,9 +78,9 @@ Our API returns standard HTTP success or error status codes. For errors, we will
 
 ![alt text](/source/images/atomic-products.png "Products Preview")
 
-## xBalance
+## Transfer
 
-### Atomic's xBalance product facilitates the transfer of debt balances between financial institutions.
+### Atomic's Transfer product facilitates the transfer of debt balances between financial institutions.
 
 ### Deployment options
 
@@ -98,13 +98,13 @@ Atomic's API may be used to initiate a balance transfer by first creating an [Ac
 
 ### Testing
 
-When testing xBalance, you may use `4111111111111111` as the origin account number. This will mimic a transfer.
+When testing Transfer, you may use `4111111111111111` as the origin account number. This will mimic a transfer.
 
-## xDeposit
+## Deposit
 
-### Atomic's xDeposit product facilitates the switching of the bank account(s) to which a user's direct deposit is credited.
+### Atomic's Deposit product facilitates the switching of the bank account(s) to which a user's direct deposit is credited.
 
-When users are authenticating with their payroll account, Atomic requires that the xDeposit product be facilitated through [Transact](#transact-sdk).
+When users are authenticating with their payroll account, Atomic requires that the Deposit product be facilitated through [Transact](#transact-sdk).
 
 ### Testing
 
@@ -119,7 +119,7 @@ To aid in testing various user experiences, you may use any of these pre-determi
 
 # Transact SDK
 
-![alt text](/source/images/xbalance-devices.png "Transact Preview")
+![alt text](/source/images/transfer-devices.png "Transact Preview")
 
 ### Atomic Transact SDK is a UI designed to securely handle interactions with our products, while performing the heavy-lifting of integration.
 
@@ -136,8 +136,8 @@ const startTransact = () => {
     Atomic.transact({
         // Replace with the server-side generated `publicToken`
         publicToken: "PUBLIC_TOKEN",
-        // Could be either 'xbalance' or 'xdeposit'
-        product: "xbalance",
+        // Could be either 'transfer' or 'deposit'
+        product: "transfer",
         // Optionally theme Transact with a *dark* color
         color: "#4B39EF",
         onFinish: function(data) {
@@ -171,7 +171,7 @@ To invite a user to use [Transact](#transact-sdk) over SMS, follow the instructi
 | Attribute                       | Description                                                                                                  |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `publicToken` <h6>required</h6> | The public token return during [AccessToken](#create-access-token) creation.                                 |
-| `product` <h6>required</h6>     | The [product](#products) to initiate, either `xbalance` or `xdeposit`                                        |
+| `product` <h6>required</h6>     | The [product](#products) to initiate, either `transfer` or `deposit`                                         |
 | `color`                         | Optionally, provide a hex color code to customize Transact.                                                  |
 | `onFinish`                      | A function that is called when the user finishes the transaction. The function will receive a `data` object. |
 | `onClose`                       | Called when the user exits Transact prematurely.                                                             |
@@ -198,7 +198,7 @@ To validate a webhook request came from Atomic, we suggest verifying the payload
 {
     "eventType": "task-status-updated",
     "eventTime": "2020-01-28T22:04:18.778Z",
-    "product": "xdeposit",
+    "product": "deposit",
     "user": {
         "_id": "5d8d3fecbf637ef3b11a877a",
         "identifier": "YOUR_INTERNAL_GUID"
@@ -461,16 +461,16 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 
 ### Request properties
 
-| Name                           | Type                  | Description                                                                                                                                                                                                       |
-| ------------------------------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `identifier` <h6>required</h6> | string                | A unique identifier (GUID) from your system that will be used to reference this user.                                                                                                                             |
-| `expiry`                       | string                | An optional [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date and time by which the `AccessToken` will expire. By default, it will be set to 24 hours after access token creation.                          |
-| `sendUserInvite`               | string                | An optional field, that if set to a product (e.g. `xdeposit` or `xbalance`), will send a text message to the user with a unique link to access Transact.                                                          |
-| `phone`                        | string                | A mobile phone number for the user is required if you plan on inviting a user to use [Transact](#transact-sdk) via SMS.                                                                                           |
-| `email`                        | string                | An email address for the user is required if you plan on inviting a user to use [Transact](#transact-sdk) via email.                                                                                              |
-| `accounts` <h6>required</h6>   | [[Account](#account)] | An array of bank and/or credit card accounts. At least one bank account is required for an [xDeposit](#xdeposit) transaction, and at least one card account is required for an [xBalance](#xbalance) transaction. |
-| `names`                        | [[Name](#name)]       | Account holder names, for reference.                                                                                                                                                                              |
-| `addresses`                    | [[Address](#address)] | Account holder addresses, for reference.                                                                                                                                                                          |
+| Name                           | Type                  | Description                                                                                                                                                                                                     |
+| ------------------------------ | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `identifier` <h6>required</h6> | string                | A unique identifier (GUID) from your system that will be used to reference this user.                                                                                                                           |
+| `expiry`                       | string                | An optional [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date and time by which the `AccessToken` will expire. By default, it will be set to 24 hours after access token creation.                        |
+| `sendUserInvite`               | string                | An optional field, that if set to a product (e.g. `deposit` or `transfer`), will send a text message to the user with a unique link to access Transact.                                                         |
+| `phone`                        | string                | A mobile phone number for the user is required if you plan on inviting a user to use [Transact](#transact-sdk) via SMS.                                                                                         |
+| `email`                        | string                | An email address for the user is required if you plan on inviting a user to use [Transact](#transact-sdk) via email.                                                                                            |
+| `accounts` <h6>required</h6>   | [[Account](#account)] | An array of bank and/or credit card accounts. At least one bank account is required for an [Deposit](#deposit) transaction, and at least one card account is required for an [Transfer](#transfer) transaction. |
+| `names`                        | [[Name](#name)]       | Account holder names, for reference.                                                                                                                                                                            |
+| `addresses`                    | [[Address](#address)] | Account holder addresses, for reference.                                                                                                                                                                        |
 
 ### Nested object properties
 
@@ -506,7 +506,7 @@ An `AccessToken` grants access to Atomic's API resources for a specific user.
 | `routingNumber`                   | string | When account the account is bank account, this is the ABA routing number.                                                 |
 | `type`                            | string | Type of account. Possible values include `card`, `checking`, or `savings`                                                 |
 | `title`                           | string | A friendly name for the account that could be shown to the user.                                                          |
-| `transferLimit`                   | string | A balance transfer limit (in dollars) that may be optionally imposed when executing an [xBalance](#xbalance) transaction. |
+| `transferLimit`                   | string | A balance transfer limit (in dollars) that may be optionally imposed when executing an [Transfer](#transfer) transaction. |
 
 #### Name
 
@@ -585,10 +585,10 @@ curl --location --request POST "https://api.atomicfi.com/v1/task" \
   --header "Content-Type: application/json" \
   --header "x-public-token: e0d2f67e-dc98-45d8-8b22-db76cb52f732" \
   --data "{
-    \"product\": \"xdeposit\",
+    \"product\": \"deposit\",
     \"company\": \"5d77f9e1070856f3828945c6\",
     \"settings\": {
-        \"xbalance\": {
+        \"transfer\": {
             \"amount\": \"500\",
             \"accountNumber\": \"4111111111111\"
         }
@@ -627,7 +627,7 @@ var req = https.request(options, function (res) {
   });
 });
 
-var postData =  "{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}";
+var postData =  "{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}";
 
 req.write(postData);
 
@@ -646,7 +646,7 @@ http = Net::HTTP.new(url.host, url.port)
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = "application/json"
 request["x-public-token"] = "e0d2f67e-dc98-45d8-8b22-db76cb52f732"
-request.body = "{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"
+request.body = "{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"
 
 response = http.request(request)
 puts response.read_body
@@ -657,7 +657,7 @@ puts response.read_body
 ```python
 import requests
 url = 'https://api.atomicfi.com/v1/task'
-payload = "{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"
+payload = "{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}"
 headers = {
   'Content-Type': 'application/json',
   'x-public-token': 'e0d2f67e-dc98-45d8-8b22-db76cb52f732'
@@ -684,7 +684,7 @@ func main() {
   url := "https://api.atomicfi.com/v1/task"
   method := "POST"
 
-  payload := strings.NewReader("{\n    \"product\": \"xdeposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"xbalance\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}")
+  payload := strings.NewReader("{\n    \"product\": \"deposit\",\n    \"company\": \"5d77f9e1070856f3828945c6\",\n    \"settings\": {\n        \"transfer\": {\n            \"amount\": \"500\",\n            \"accountNumber\": \"4111111111111\"\n        }\n    }\n}")
 
   client := &http.Client {
     CheckRedirect: func(req *http.Request, via []*http.Request) error {
@@ -713,10 +713,10 @@ func main() {
 
 ```json
 {
-    "product": "xdeposit",
+    "product": "deposit",
     "company": "5d77f9e1070856f3828945c6",
     "settings": {
-        "xbalance": {
+        "transfer": {
             "amount": "500",
             "accountNumber": "4111111111111"
         }
@@ -724,7 +724,7 @@ func main() {
 }
 ```
 
-To request that an [xBalance](#xbalance) transaction is performed, a `Task` object is created that contains instructions on the origin and destination of the balance. A `Task` associated with a user via the `publicToken` used to authenticate the request.
+To request that an [Transfer](#transfer) transaction is performed, a `Task` object is created that contains instructions on the origin and destination of the balance. A `Task` associated with a user via the `publicToken` used to authenticate the request.
 
 ### HTTP Request
 
@@ -740,10 +740,10 @@ To request that an [xBalance](#xbalance) transaction is performed, a `Task` obje
 
 | Name                                                | Type   | Description                                                                                                                                                                            |
 | --------------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `product` <h6>required</h6>                         | string | Must be set to `xbalance`.                                                                                                                                                             |
+| `product` <h6>required</h6>                         | string | Must be set to `transfer`.                                                                                                                                                             |
 | `company` <h6>required</h6>                         | string | The `_id` of a [Company](#company-object) object. This will be used as the origin of the balance transfer.                                                                             |
-| `settings.xbalance.amount` <h6>required</h6>        | string | A USD amount to be transferred from the origin `company`. May be limited by the `transferLimit` set during `Access Token`'s account creation.                                          |
-| `settings.xbalance.accountNumber` <h6>required</h6> | string | The origin `company`'s account number.                                                                                                                                                 |
+| `settings.transfer.amount` <h6>required</h6>        | string | A USD amount to be transferred from the origin `company`. May be limited by the `transferLimit` set during `Access Token`'s account creation.                                          |
+| `settings.transfer.accountNumber` <h6>required</h6> | string | The origin `company`'s account number.                                                                                                                                                 |
 | `settings.destinationUserAccountId`                 | string | The ID of an optionally chosen destination account if there are multiple eligible accounts added during `Access token` creation. Defaults to the first eligible account if not passed. |
 
 ### Response
@@ -775,14 +775,7 @@ Successfully creating a `Task` will return a payload with a `data` object contai
 ```shell
 curl --location --request GET "https://api.atomicfi.com/v1/company/search?query=microsoft&product=deposit" \
   --header "x-public-token: e0d2f67e-dc98-45d8-8b22-db76cb52f732"
-
 ```
-
-\$.ajax(settings).done(function(response) {
-console.log(response);
-});
-
-````
 
 ```javascript--nodejs
 var https = require('https');
@@ -815,7 +808,7 @@ var req = https.request(options, function (res) {
 
 req.end();
 
-````
+```
 
 ```ruby
 require "uri"
@@ -899,10 +892,10 @@ Searches for a `Company` using a text `query`. Searches can also be narrowed by 
 
 ### Request properties
 
-| Name                      | Type   | Description                                                                                 |
-| ------------------------- | ------ | ------------------------------------------------------------------------------------------- |
-| `query` <h6>required</h6> | string | Filters companies by name. Uses fuzzy matching to narrow results.                           |
-| `product`                 | string | Filters companies by a specific product. Possible values include `xbalance`, and `xdeposit` |
+| Name                      | Type   | Description                                                                                |
+| ------------------------- | ------ | ------------------------------------------------------------------------------------------ |
+| `query` <h6>required</h6> | string | Filters companies by name. Uses fuzzy matching to narrow results.                          |
+| `product`                 | string | Filters companies by a specific product. Possible values include `transfer`, and `deposit` |
 
 ### Response
 
@@ -916,7 +909,7 @@ Searches for a `Company` using a text `query`. Searches can also be narrowed by 
             "name": "Wells Fargo",
             "connector": {
                 "_id": "5d38f182512bbf0c06776013",
-                "availableProducts": ["xbalance"]
+                "availableProducts": ["transfer"]
             },
             "branding": {
                 "logo": "https://atomicfi-public.s3.amazonaws.com/1b27b5a3-db2d-4dbd-83e9-5e256a91d573.svg",
