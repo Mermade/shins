@@ -4,14 +4,13 @@ language_tabs:
   - shell: Shell
   - http: HTTP
   - javascript: JavaScript
-  - javascript--nodejs: Node.JS
   - ruby: Ruby
   - python: Python
+  - php: PHP
   - java: Java
   - go: Go
 toc_footers:
-  - >-
-    <a href="https://mermade.github.io/shins/asyncapi.html">See AsyncAPI
+  - <a href="https://mermade.github.io/shins/asyncapi.html">See AsyncAPI
     example</a>
 includes: []
 search: true
@@ -20,8 +19,9 @@ headingLevel: 2
 
 ---
 
-<!-- Generator: Widdershins v3.6.6 -->
-<h1 id="Swagger-Petstore">Swagger Petstore v1.0.0</h1>
+<!-- Generator: Widdershins v4.0.1 -->
+
+<h1 id="swagger-petstore">Swagger Petstore v1.0.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
@@ -50,7 +50,7 @@ License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a
 * API Key (api_key)
     - Parameter Name: **api_key**, in: header. 
 
-<h1 id="Swagger-Petstore-pet">pet</h1>
+<h1 id="swagger-petstore-pet">pet</h1>
 
 Everything about your Pets
 
@@ -78,26 +78,6 @@ Content-Type: application/json
 ```
 
 ```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Authorization':'Bearer {access-token}'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 const inputBody = '{
   "id": 0,
   "category": {
@@ -119,7 +99,6 @@ const inputBody = '{
 const headers = {
   'Content-Type':'application/json',
   'Authorization':'Bearer {access-token}'
-
 };
 
 fetch('http://petstore.swagger.io/v2/pet',
@@ -160,11 +139,41 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('http://petstore.swagger.io/v2/pet', params={
+r = requests.post('http://petstore.swagger.io/v2/pet', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Authorization' => 'Bearer {access-token}',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://petstore.swagger.io/v2/pet', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -198,7 +207,6 @@ func main() {
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
         "Authorization": []string{"Bearer {access-token}"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -257,13 +265,13 @@ func main() {
 </Pet>
 ```
 
-<h3 id="addPet-parameters">Parameters</h3>
+<h3 id="addpet-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store|
 
-<h3 id="addPet-responses">Responses</h3>
+<h3 id="addpet-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -296,26 +304,6 @@ Content-Type: application/json
 ```
 
 ```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Authorization':'Bearer {access-token}'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet',
-  method: 'put',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 const inputBody = '{
   "id": 0,
   "category": {
@@ -337,7 +325,6 @@ const inputBody = '{
 const headers = {
   'Content-Type':'application/json',
   'Authorization':'Bearer {access-token}'
-
 };
 
 fetch('http://petstore.swagger.io/v2/pet',
@@ -378,11 +365,41 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.put('http://petstore.swagger.io/v2/pet', params={
+r = requests.put('http://petstore.swagger.io/v2/pet', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Authorization' => 'Bearer {access-token}',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('PUT','http://petstore.swagger.io/v2/pet', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -416,7 +433,6 @@ func main() {
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
         "Authorization": []string{"Bearer {access-token}"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -475,13 +491,13 @@ func main() {
 </Pet>
 ```
 
-<h3 id="updatePet-parameters">Parameters</h3>
+<h3 id="updatepet-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|[Pet](#schemapet)|true|Pet object that needs to be added to the store|
 
-<h3 id="updatePet-responses">Responses</h3>
+<h3 id="updatepet-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -511,37 +527,15 @@ curl -X GET http://petstore.swagger.io/v2/pet/findByStatus?status=available \
 ```http
 GET http://petstore.swagger.io/v2/pet/findByStatus?status=available HTTP/1.1
 Host: petstore.swagger.io
-
 Accept: application/xml
 
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/xml',
-  'Authorization':'Bearer {access-token}'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/findByStatus',
-  method: 'get',
-  data: '?status=available',
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 
 const headers = {
   'Accept':'application/xml',
   'Authorization':'Bearer {access-token}'
-
 };
 
 fetch('http://petstore.swagger.io/v2/pet/findByStatus?status=available',
@@ -589,7 +583,39 @@ r = requests.get('http://petstore.swagger.io/v2/pet/findByStatus', params={
 ]
 }, headers = headers)
 
-print r.json()
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/xml',
+    'Authorization' => 'Bearer {access-token}',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://petstore.swagger.io/v2/pet/findByStatus', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -623,7 +649,6 @@ func main() {
     headers := map[string][]string{
         "Accept": []string{"application/xml"},
         "Authorization": []string{"Bearer {access-token}"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -643,9 +668,9 @@ func main() {
 
 Multiple status values can be provided with comma separated strings
 
-<h3 id="findPetsByStatus-parameters">Parameters</h3>
+<h3 id="findpetsbystatus-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |status|query|array[string]|true|Status values that need to be considered for filter|
 
@@ -658,6 +683,8 @@ Multiple status values can be provided with comma separated strings
 |status|sold|
 
 > Example responses
+
+> 200 Response
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -698,30 +725,30 @@ Multiple status values can be provided with comma separated strings
 ]
 ```
 
-<h3 id="findPetsByStatus-responses">Responses</h3>
+<h3 id="findpetsbystatus-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid status value|None|
 
-<h3 id="findPetsByStatus-responseschema">Response Schema</h3>
+<h3 id="findpetsbystatus-responseschema">Response Schema</h3>
 
 Status Code **200**
 
-|Name|Type|Required|Description|
-|---|---|---|---|
-|*anonymous*|[[Pet](#schemapet)]|false|No description|
-|» id|integer(int64)|false|No description|
-|» category|[Category](#schemacategory)|false|No description|
-|»» id|integer(int64)|false|No description|
-|»» name|string|false|No description|
-|» name|string|true|No description|
-|» photoUrls|[string]|true|No description|
-|» tags|[[Tag](#schematag)]|false|No description|
-|»» id|integer(int64)|false|No description|
-|»» name|string|false|No description|
-|» status|string|false|pet status in the store|
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Pet](#schemapet)]|false|none|none|
+|» id|integer(int64)|false|none|none|
+|» category|[Category](#schemacategory)|false|none|none|
+|»» id|integer(int64)|false|none|none|
+|»» name|string|false|none|none|
+|» name|string|true|none|none|
+|» photoUrls|[string]|true|none|none|
+|» tags|[[Tag](#schematag)]|false|none|none|
+|»» id|integer(int64)|false|none|none|
+|»» name|string|false|none|none|
+|» status|string|false|none|pet status in the store|
 
 #### Enumerated Values
 
@@ -753,37 +780,15 @@ curl -X GET http://petstore.swagger.io/v2/pet/findByTags?tags=string \
 ```http
 GET http://petstore.swagger.io/v2/pet/findByTags?tags=string HTTP/1.1
 Host: petstore.swagger.io
-
 Accept: application/xml
 
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/xml',
-  'Authorization':'Bearer {access-token}'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/findByTags',
-  method: 'get',
-  data: '?tags=string',
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 
 const headers = {
   'Accept':'application/xml',
   'Authorization':'Bearer {access-token}'
-
 };
 
 fetch('http://petstore.swagger.io/v2/pet/findByTags?tags=string',
@@ -831,7 +836,39 @@ r = requests.get('http://petstore.swagger.io/v2/pet/findByTags', params={
 ]
 }, headers = headers)
 
-print r.json()
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/xml',
+    'Authorization' => 'Bearer {access-token}',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://petstore.swagger.io/v2/pet/findByTags', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -865,7 +902,6 @@ func main() {
     headers := map[string][]string{
         "Accept": []string{"application/xml"},
         "Authorization": []string{"Bearer {access-token}"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -885,13 +921,15 @@ func main() {
 
 Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.
 
-<h3 id="findPetsByTags-parameters">Parameters</h3>
+<h3 id="findpetsbytags-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |tags|query|array[string]|true|Tags to filter by|
 
 > Example responses
+
+> 200 Response
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -932,30 +970,30 @@ Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 
 ]
 ```
 
-<h3 id="findPetsByTags-responses">Responses</h3>
+<h3 id="findpetsbytags-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid tag value|None|
 
-<h3 id="findPetsByTags-responseschema">Response Schema</h3>
+<h3 id="findpetsbytags-responseschema">Response Schema</h3>
 
 Status Code **200**
 
-|Name|Type|Required|Description|
-|---|---|---|---|
-|*anonymous*|[[Pet](#schemapet)]|false|No description|
-|» id|integer(int64)|false|No description|
-|» category|[Category](#schemacategory)|false|No description|
-|»» id|integer(int64)|false|No description|
-|»» name|string|false|No description|
-|» name|string|true|No description|
-|» photoUrls|[string]|true|No description|
-|» tags|[[Tag](#schematag)]|false|No description|
-|»» id|integer(int64)|false|No description|
-|»» name|string|false|No description|
-|» status|string|false|pet status in the store|
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[Pet](#schemapet)]|false|none|none|
+|» id|integer(int64)|false|none|none|
+|» category|[Category](#schemacategory)|false|none|none|
+|»» id|integer(int64)|false|none|none|
+|»» name|string|false|none|none|
+|» name|string|true|none|none|
+|» photoUrls|[string]|true|none|none|
+|» tags|[[Tag](#schematag)]|false|none|none|
+|»» id|integer(int64)|false|none|none|
+|»» name|string|false|none|none|
+|» status|string|false|none|pet status in the store|
 
 #### Enumerated Values
 
@@ -987,37 +1025,15 @@ curl -X GET http://petstore.swagger.io/v2/pet/{petId} \
 ```http
 GET http://petstore.swagger.io/v2/pet/{petId} HTTP/1.1
 Host: petstore.swagger.io
-
 Accept: application/xml
 
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/xml',
-  'api_key':'API_KEY'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/{petId}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 
 const headers = {
   'Accept':'application/xml',
   'api_key':'API_KEY'
-
 };
 
 fetch('http://petstore.swagger.io/v2/pet/{petId}',
@@ -1058,11 +1074,41 @@ headers = {
   'api_key': 'API_KEY'
 }
 
-r = requests.get('http://petstore.swagger.io/v2/pet/{petId}', params={
+r = requests.get('http://petstore.swagger.io/v2/pet/{petId}', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/xml',
+    'api_key' => 'API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://petstore.swagger.io/v2/pet/{petId}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -1096,7 +1142,6 @@ func main() {
     headers := map[string][]string{
         "Accept": []string{"application/xml"},
         "api_key": []string{"API_KEY"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -1116,13 +1161,15 @@ func main() {
 
 Returns a single pet
 
-<h3 id="getPetById-parameters">Parameters</h3>
+<h3 id="getpetbyid-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |petId|path|integer(int64)|true|ID of pet to return|
 
 > Example responses
+
+> 200 Response
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -1163,7 +1210,7 @@ Returns a single pet
 }
 ```
 
-<h3 id="getPetById-responses">Responses</h3>
+<h3 id="getpetbyid-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -1198,26 +1245,6 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 ```javascript
-var headers = {
-  'Content-Type':'application/x-www-form-urlencoded',
-  'Authorization':'Bearer {access-token}'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/{petId}',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 const inputBody = '{
   "name": "string",
   "status": "string"
@@ -1225,7 +1252,6 @@ const inputBody = '{
 const headers = {
   'Content-Type':'application/x-www-form-urlencoded',
   'Authorization':'Bearer {access-token}'
-
 };
 
 fetch('http://petstore.swagger.io/v2/pet/{petId}',
@@ -1266,11 +1292,41 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('http://petstore.swagger.io/v2/pet/{petId}', params={
+r = requests.post('http://petstore.swagger.io/v2/pet/{petId}', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/x-www-form-urlencoded',
+    'Authorization' => 'Bearer {access-token}',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://petstore.swagger.io/v2/pet/{petId}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -1304,7 +1360,6 @@ func main() {
     headers := map[string][]string{
         "Content-Type": []string{"application/x-www-form-urlencoded"},
         "Authorization": []string{"Bearer {access-token}"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -1330,16 +1385,16 @@ status: string
 
 ```
 
-<h3 id="updatePetWithForm-parameters">Parameters</h3>
+<h3 id="updatepetwithform-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |petId|path|integer(int64)|true|ID of pet that needs to be updated|
-|body|body|object|false|No description|
+|body|body|object|false|none|
 |» name|body|string|false|Updated name of the pet|
 |» status|body|string|false|Updated status of the pet|
 
-<h3 id="updatePetWithForm-responses">Responses</h3>
+<h3 id="updatepetwithform-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -1373,31 +1428,10 @@ api_key: string
 ```
 
 ```javascript
-var headers = {
-  'api_key':'string',
-  'Authorization':'Bearer {access-token}'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/{petId}',
-  method: 'delete',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 
 const headers = {
   'api_key':'string',
   'Authorization':'Bearer {access-token}'
-
 };
 
 fetch('http://petstore.swagger.io/v2/pet/{petId}',
@@ -1438,11 +1472,41 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.delete('http://petstore.swagger.io/v2/pet/{petId}', params={
+r = requests.delete('http://petstore.swagger.io/v2/pet/{petId}', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'api_key' => 'string',
+    'Authorization' => 'Bearer {access-token}',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('DELETE','http://petstore.swagger.io/v2/pet/{petId}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -1476,7 +1540,6 @@ func main() {
     headers := map[string][]string{
         "api_key": []string{"string"},
         "Authorization": []string{"Bearer {access-token}"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -1494,14 +1557,14 @@ func main() {
 
 *Deletes a pet*
 
-<h3 id="deletePet-parameters">Parameters</h3>
+<h3 id="deletepet-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|api_key|header|string|false|No description|
+|api_key|header|string|false|none|
 |petId|path|integer(int64)|true|Pet id to delete|
 
-<h3 id="deletePet-responses">Responses</h3>
+<h3 id="deletepet-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -1537,27 +1600,6 @@ Accept: application/json
 ```
 
 ```javascript
-var headers = {
-  'Content-Type':'multipart/form-data',
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 const inputBody = '{
   "additionalMetadata": "string",
   "file": "string"
@@ -1566,7 +1608,6 @@ const headers = {
   'Content-Type':'multipart/form-data',
   'Accept':'application/json',
   'Authorization':'Bearer {access-token}'
-
 };
 
 fetch('http://petstore.swagger.io/v2/pet/{petId}/uploadImage',
@@ -1609,11 +1650,42 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.post('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', params={
+r = requests.post('http://petstore.swagger.io/v2/pet/{petId}/uploadImage', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'multipart/form-data',
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer {access-token}',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://petstore.swagger.io/v2/pet/{petId}/uploadImage', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -1648,7 +1720,6 @@ func main() {
         "Content-Type": []string{"multipart/form-data"},
         "Accept": []string{"application/json"},
         "Authorization": []string{"Bearer {access-token}"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -1674,16 +1745,18 @@ file: string
 
 ```
 
-<h3 id="uploadFile-parameters">Parameters</h3>
+<h3 id="uploadfile-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |petId|path|integer(int64)|true|ID of pet to update|
-|body|body|object|false|No description|
+|body|body|object|false|none|
 |» additionalMetadata|body|string|false|Additional data to pass to server|
 |» file|body|string(binary)|false|file to upload|
 
 > Example responses
+
+> 200 Response
 
 ```json
 {
@@ -1693,7 +1766,7 @@ file: string
 }
 ```
 
-<h3 id="uploadFile-responses">Responses</h3>
+<h3 id="uploadfile-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -1704,7 +1777,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 petstore_auth ( Scopes: write:pets read:pets )
 </aside>
 
-<h1 id="Swagger-Petstore-store">store</h1>
+<h1 id="swagger-petstore-store">store</h1>
 
 Access to Petstore orders
 
@@ -1725,37 +1798,15 @@ curl -X GET http://petstore.swagger.io/v2/store/inventory \
 ```http
 GET http://petstore.swagger.io/v2/store/inventory HTTP/1.1
 Host: petstore.swagger.io
-
 Accept: application/json
 
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/json',
-  'api_key':'API_KEY'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/store/inventory',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
   'api_key':'API_KEY'
-
 };
 
 fetch('http://petstore.swagger.io/v2/store/inventory',
@@ -1796,11 +1847,41 @@ headers = {
   'api_key': 'API_KEY'
 }
 
-r = requests.get('http://petstore.swagger.io/v2/store/inventory', params={
+r = requests.get('http://petstore.swagger.io/v2/store/inventory', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/json',
+    'api_key' => 'API_KEY',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://petstore.swagger.io/v2/store/inventory', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -1834,7 +1915,6 @@ func main() {
     headers := map[string][]string{
         "Accept": []string{"application/json"},
         "api_key": []string{"API_KEY"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -1856,6 +1936,8 @@ Returns a map of status codes to quantities
 
 > Example responses
 
+> 200 Response
+
 ```json
 {
   "property1": 0,
@@ -1863,19 +1945,19 @@ Returns a map of status codes to quantities
 }
 ```
 
-<h3 id="getInventory-responses">Responses</h3>
+<h3 id="getinventory-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|successful operation|Inline|
 
-<h3 id="getInventory-responseschema">Response Schema</h3>
+<h3 id="getinventory-responseschema">Response Schema</h3>
 
 Status Code **200**
 
-|Name|Type|Required|Description|
-|---|---|---|---|
-|» **additionalProperties**|integer(int32)|false|No description|
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» **additionalProperties**|integer(int32)|false|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1905,38 +1987,17 @@ Accept: application/xml
 ```
 
 ```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/xml'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/store/order',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 const inputBody = '{
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-04-24T13:02:08Z",
+  "shipDate": "2020-03-30T14:38:05Z",
   "status": "placed",
   "complete": false
 }';
 const headers = {
   'Content-Type':'application/json',
   'Accept':'application/xml'
-
 };
 
 fetch('http://petstore.swagger.io/v2/store/order',
@@ -1977,11 +2038,41 @@ headers = {
   'Accept': 'application/xml'
 }
 
-r = requests.post('http://petstore.swagger.io/v2/store/order', params={
+r = requests.post('http://petstore.swagger.io/v2/store/order', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/xml',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://petstore.swagger.io/v2/store/order', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -2015,7 +2106,6 @@ func main() {
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
         "Accept": []string{"application/xml"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -2040,19 +2130,21 @@ func main() {
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-04-24T13:02:08Z",
+  "shipDate": "2020-03-30T14:38:05Z",
   "status": "placed",
   "complete": false
 }
 ```
 
-<h3 id="placeOrder-parameters">Parameters</h3>
+<h3 id="placeorder-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|[Order](#schemaorder)|true|order placed for purchasing the pet|
 
 > Example responses
+
+> 200 Response
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -2060,7 +2152,7 @@ func main() {
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2018-04-24T13:02:08Z</shipDate>
+  <shipDate>2020-03-30T14:38:05Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -2071,13 +2163,13 @@ func main() {
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-04-24T13:02:08Z",
+  "shipDate": "2020-03-30T14:38:05Z",
   "status": "placed",
   "complete": false
 }
 ```
 
-<h3 id="placeOrder-responses">Responses</h3>
+<h3 id="placeorder-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -2104,35 +2196,14 @@ curl -X GET http://petstore.swagger.io/v2/store/order/{orderId} \
 ```http
 GET http://petstore.swagger.io/v2/store/order/{orderId} HTTP/1.1
 Host: petstore.swagger.io
-
 Accept: application/xml
 
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/xml'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 
 const headers = {
   'Accept':'application/xml'
-
 };
 
 fetch('http://petstore.swagger.io/v2/store/order/{orderId}',
@@ -2171,11 +2242,40 @@ headers = {
   'Accept': 'application/xml'
 }
 
-r = requests.get('http://petstore.swagger.io/v2/store/order/{orderId}', params={
+r = requests.get('http://petstore.swagger.io/v2/store/order/{orderId}', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/xml',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://petstore.swagger.io/v2/store/order/{orderId}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -2208,7 +2308,6 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/xml"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -2228,13 +2327,15 @@ func main() {
 
 For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions
 
-<h3 id="getOrderById-parameters">Parameters</h3>
+<h3 id="getorderbyid-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |orderId|path|integer(int64)|true|ID of pet that needs to be fetched|
 
 > Example responses
+
+> 200 Response
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -2242,7 +2343,7 @@ For valid response try integer IDs with value >= 1 and <= 10. Other values will 
   <id>0</id>
   <petId>0</petId>
   <quantity>0</quantity>
-  <shipDate>2018-04-24T13:02:08Z</shipDate>
+  <shipDate>2020-03-30T14:38:05Z</shipDate>
   <status>placed</status>
   <complete>false</complete>
 </Order>
@@ -2253,13 +2354,13 @@ For valid response try integer IDs with value >= 1 and <= 10. Other values will 
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-04-24T13:02:08Z",
+  "shipDate": "2020-03-30T14:38:05Z",
   "status": "placed",
   "complete": false
 }
 ```
 
-<h3 id="getOrderById-responses">Responses</h3>
+<h3 id="getorderbyid-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -2291,20 +2392,6 @@ Host: petstore.swagger.io
 
 ```javascript
 
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/store/order/{orderId}',
-  method: 'delete',
-
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
 fetch('http://petstore.swagger.io/v2/store/order/{orderId}',
 {
   method: 'DELETE'
@@ -2333,11 +2420,36 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('http://petstore.swagger.io/v2/store/order/{orderId}', params={
+r = requests.delete('http://petstore.swagger.io/v2/store/order/{orderId}')
 
-)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('DELETE','http://petstore.swagger.io/v2/store/order/{orderId}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -2385,13 +2497,13 @@ func main() {
 
 For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors
 
-<h3 id="deleteOrder-parameters">Parameters</h3>
+<h3 id="deleteorder-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |orderId|path|integer(int64)|true|ID of the order that needs to be deleted|
 
-<h3 id="deleteOrder-responses">Responses</h3>
+<h3 id="deleteorder-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -2402,7 +2514,7 @@ For valid response try integer IDs with positive integer value. Negative or non-
 This operation does not require authentication
 </aside>
 
-<h1 id="Swagger-Petstore-user">user</h1>
+<h1 id="swagger-petstore-user">user</h1>
 
 Operations about user
 
@@ -2429,25 +2541,6 @@ Content-Type: application/json
 ```
 
 ```javascript
-var headers = {
-  'Content-Type':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 const inputBody = '{
   "id": 0,
   "username": "string",
@@ -2460,7 +2553,6 @@ const inputBody = '{
 }';
 const headers = {
   'Content-Type':'application/json'
-
 };
 
 fetch('http://petstore.swagger.io/v2/user',
@@ -2499,11 +2591,40 @@ headers = {
   'Content-Type': 'application/json'
 }
 
-r = requests.post('http://petstore.swagger.io/v2/user', params={
+r = requests.post('http://petstore.swagger.io/v2/user', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://petstore.swagger.io/v2/user', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -2536,7 +2657,6 @@ func main() {
 
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -2571,13 +2691,13 @@ This can only be done by the logged in user.
 }
 ```
 
-<h3 id="createUser-parameters">Parameters</h3>
+<h3 id="createuser-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|[User](#schemauser)|true|Created user object|
 
-<h3 id="createUser-responses">Responses</h3>
+<h3 id="createuser-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -2608,25 +2728,6 @@ Content-Type: application/json
 ```
 
 ```javascript
-var headers = {
-  'Content-Type':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/createWithArray',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 const inputBody = '[
   {
     "id": 0,
@@ -2641,7 +2742,6 @@ const inputBody = '[
 ]';
 const headers = {
   'Content-Type':'application/json'
-
 };
 
 fetch('http://petstore.swagger.io/v2/user/createWithArray',
@@ -2680,11 +2780,40 @@ headers = {
   'Content-Type': 'application/json'
 }
 
-r = requests.post('http://petstore.swagger.io/v2/user/createWithArray', params={
+r = requests.post('http://petstore.swagger.io/v2/user/createWithArray', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://petstore.swagger.io/v2/user/createWithArray', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -2717,7 +2846,6 @@ func main() {
 
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -2752,13 +2880,13 @@ func main() {
 ]
 ```
 
-<h3 id="createUsersWithArrayInput-parameters">Parameters</h3>
+<h3 id="createuserswitharrayinput-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[UserArray](#schemauserarray)|true|List of user object|
+|body|body|[User](#schemauser)|true|List of user object|
 
-<h3 id="createUsersWithArrayInput-responses">Responses</h3>
+<h3 id="createuserswitharrayinput-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -2789,25 +2917,6 @@ Content-Type: application/json
 ```
 
 ```javascript
-var headers = {
-  'Content-Type':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/createWithList',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 const inputBody = '[
   {
     "id": 0,
@@ -2822,7 +2931,6 @@ const inputBody = '[
 ]';
 const headers = {
   'Content-Type':'application/json'
-
 };
 
 fetch('http://petstore.swagger.io/v2/user/createWithList',
@@ -2861,11 +2969,40 @@ headers = {
   'Content-Type': 'application/json'
 }
 
-r = requests.post('http://petstore.swagger.io/v2/user/createWithList', params={
+r = requests.post('http://petstore.swagger.io/v2/user/createWithList', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('POST','http://petstore.swagger.io/v2/user/createWithList', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -2898,7 +3035,6 @@ func main() {
 
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -2933,13 +3069,13 @@ func main() {
 ]
 ```
 
-<h3 id="createUsersWithListInput-parameters">Parameters</h3>
+<h3 id="createuserswithlistinput-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|body|body|[UserArray](#schemauserarray)|true|List of user object|
+|body|body|[User](#schemauser)|true|List of user object|
 
-<h3 id="createUsersWithListInput-responses">Responses</h3>
+<h3 id="createuserswithlistinput-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -2965,35 +3101,14 @@ curl -X GET http://petstore.swagger.io/v2/user/login?username=string&password=pa
 ```http
 GET http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word HTTP/1.1
 Host: petstore.swagger.io
-
 Accept: application/xml
 
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/xml'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/login',
-  method: 'get',
-  data: '?username=string&password=pa%24%24word',
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 
 const headers = {
   'Accept':'application/xml'
-
 };
 
 fetch('http://petstore.swagger.io/v2/user/login?username=string&password=pa%24%24word',
@@ -3038,7 +3153,38 @@ r = requests.get('http://petstore.swagger.io/v2/user/login', params={
   'username': 'string',  'password': 'pa$$word'
 }, headers = headers)
 
-print r.json()
+print(r.json())
+
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/xml',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://petstore.swagger.io/v2/user/login', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -3071,7 +3217,6 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/xml"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -3089,20 +3234,22 @@ func main() {
 
 *Logs user into the system*
 
-<h3 id="loginUser-parameters">Parameters</h3>
+<h3 id="loginuser-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |username|query|string|true|The user name for login|
 |password|query|string(password)|true|The password for login in clear text|
 
 > Example responses
 
+> 200 Response
+
 ```json
 "string"
 ```
 
-<h3 id="loginUser-responses">Responses</h3>
+<h3 id="loginuser-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -3140,20 +3287,6 @@ Host: petstore.swagger.io
 
 ```javascript
 
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/logout',
-  method: 'get',
-
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
 fetch('http://petstore.swagger.io/v2/user/logout',
 {
   method: 'GET'
@@ -3182,11 +3315,36 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.get('http://petstore.swagger.io/v2/user/logout', params={
+r = requests.get('http://petstore.swagger.io/v2/user/logout')
 
-)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://petstore.swagger.io/v2/user/logout', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -3232,7 +3390,7 @@ func main() {
 
 *Logs out current logged in user session*
 
-<h3 id="logoutUser-responses">Responses</h3>
+<h3 id="logoutuser-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -3258,35 +3416,14 @@ curl -X GET http://petstore.swagger.io/v2/user/{username} \
 ```http
 GET http://petstore.swagger.io/v2/user/{username} HTTP/1.1
 Host: petstore.swagger.io
-
 Accept: application/xml
 
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/xml'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/{username}',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 
 const headers = {
   'Accept':'application/xml'
-
 };
 
 fetch('http://petstore.swagger.io/v2/user/{username}',
@@ -3325,11 +3462,40 @@ headers = {
   'Accept': 'application/xml'
 }
 
-r = requests.get('http://petstore.swagger.io/v2/user/{username}', params={
+r = requests.get('http://petstore.swagger.io/v2/user/{username}', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Accept' => 'application/xml',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('GET','http://petstore.swagger.io/v2/user/{username}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -3362,7 +3528,6 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/xml"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -3380,13 +3545,15 @@ func main() {
 
 *Get user by user name*
 
-<h3 id="getUserByName-parameters">Parameters</h3>
+<h3 id="getuserbyname-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |username|path|string|true|The name that needs to be fetched. Use user1 for testing. |
 
 > Example responses
+
+> 200 Response
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -3415,7 +3582,7 @@ func main() {
 }
 ```
 
-<h3 id="getUserByName-responses">Responses</h3>
+<h3 id="getuserbyname-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -3448,25 +3615,6 @@ Content-Type: application/json
 ```
 
 ```javascript
-var headers = {
-  'Content-Type':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/{username}',
-  method: 'put',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
 const inputBody = '{
   "id": 0,
   "username": "string",
@@ -3479,7 +3627,6 @@ const inputBody = '{
 }';
 const headers = {
   'Content-Type':'application/json'
-
 };
 
 fetch('http://petstore.swagger.io/v2/user/{username}',
@@ -3518,11 +3665,40 @@ headers = {
   'Content-Type': 'application/json'
 }
 
-r = requests.put('http://petstore.swagger.io/v2/user/{username}', params={
+r = requests.put('http://petstore.swagger.io/v2/user/{username}', headers = headers)
 
-}, headers = headers)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$headers = array(
+    'Content-Type' => 'application/json',
+);
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('PUT','http://petstore.swagger.io/v2/user/{username}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -3555,7 +3731,6 @@ func main() {
 
     headers := map[string][]string{
         "Content-Type": []string{"application/json"},
-        
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
@@ -3590,14 +3765,14 @@ This can only be done by the logged in user.
 }
 ```
 
-<h3 id="updateUser-parameters">Parameters</h3>
+<h3 id="updateuser-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |username|path|string|true|name that need to be updated|
 |body|body|[User](#schemauser)|true|Updated user object|
 
-<h3 id="updateUser-responses">Responses</h3>
+<h3 id="updateuser-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -3628,20 +3803,6 @@ Host: petstore.swagger.io
 
 ```javascript
 
-$.ajax({
-  url: 'http://petstore.swagger.io/v2/user/{username}',
-  method: 'delete',
-
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```javascript--nodejs
-const request = require('node-fetch');
-
 fetch('http://petstore.swagger.io/v2/user/{username}',
 {
   method: 'DELETE'
@@ -3670,11 +3831,36 @@ p JSON.parse(result)
 ```python
 import requests
 
-r = requests.delete('http://petstore.swagger.io/v2/user/{username}', params={
+r = requests.delete('http://petstore.swagger.io/v2/user/{username}')
 
-)
+print(r.json())
 
-print r.json()
+```
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+$client = new \GuzzleHttp\Client();
+
+// Define array of request body.
+$request_body = array();
+
+try {
+    $response = $client->request('DELETE','http://petstore.swagger.io/v2/user/{username}', array(
+        'headers' => $headers,
+        'json' => $request_body,
+       )
+    );
+    print_r($response->getBody()->getContents());
+ }
+ catch (\GuzzleHttp\Exception\BadResponseException $e) {
+    // handle exception or api errors.
+    print_r($e->getMessage());
+ }
+
+ // ...
 
 ```
 
@@ -3722,13 +3908,13 @@ func main() {
 
 This can only be done by the logged in user.
 
-<h3 id="deleteUser-parameters">Parameters</h3>
+<h3 id="deleteuser-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |username|path|string|true|The name that needs to be deleted|
 
-<h3 id="deleteUser-responses">Responses</h3>
+<h3 id="deleteuser-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -3741,31 +3927,35 @@ This operation does not require authentication
 
 # Schemas
 
-<h2 id="tocSorder">Order</h2>
-
+<h2 id="tocS_Order">Order</h2>
+<!-- backwards compatibility -->
 <a id="schemaorder"></a>
+<a id="schema_Order"></a>
+<a id="tocSorder"></a>
+<a id="tocsorder"></a>
 
 ```json
 {
   "id": 0,
   "petId": 0,
   "quantity": 0,
-  "shipDate": "2018-04-24T13:02:08Z",
+  "shipDate": "2020-03-30T14:38:05Z",
   "status": "placed",
   "complete": false
 }
+
 ```
 
 ### Properties
 
-|Name|Type|Required|Description|
-|---|---|---|---|
-|id|integer(int64)|false|No description|
-|petId|integer(int64)|false|No description|
-|quantity|integer(int32)|false|No description|
-|shipDate|string(date-time)|false|No description|
-|status|string|false|Order Status|
-|complete|boolean|false|No description|
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|integer(int64)|false|none|none|
+|petId|integer(int64)|false|none|none|
+|quantity|integer(int32)|false|none|none|
+|shipDate|string(date-time)|false|none|none|
+|status|string|false|none|Order Status|
+|complete|boolean|false|none|none|
 
 #### Enumerated Values
 
@@ -3775,27 +3965,34 @@ This operation does not require authentication
 |status|approved|
 |status|delivered|
 
-<h2 id="tocScategory">Category</h2>
-
+<h2 id="tocS_Category">Category</h2>
+<!-- backwards compatibility -->
 <a id="schemacategory"></a>
+<a id="schema_Category"></a>
+<a id="tocScategory"></a>
+<a id="tocscategory"></a>
 
 ```json
 {
   "id": 0,
   "name": "string"
 }
+
 ```
 
 ### Properties
 
-|Name|Type|Required|Description|
-|---|---|---|---|
-|id|integer(int64)|false|No description|
-|name|string|false|No description|
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|integer(int64)|false|none|none|
+|name|string|false|none|none|
 
-<h2 id="tocSuser">User</h2>
-
+<h2 id="tocS_User">User</h2>
+<!-- backwards compatibility -->
 <a id="schemauser"></a>
+<a id="schema_User"></a>
+<a id="tocSuser"></a>
+<a id="tocsuser"></a>
 
 ```json
 {
@@ -3808,42 +4005,50 @@ This operation does not require authentication
   "phone": "string",
   "userStatus": 0
 }
+
 ```
 
 ### Properties
 
-|Name|Type|Required|Description|
-|---|---|---|---|
-|id|integer(int64)|false|No description|
-|username|string|false|No description|
-|firstName|string|false|No description|
-|lastName|string|false|No description|
-|email|string|false|No description|
-|password|string|false|No description|
-|phone|string|false|No description|
-|userStatus|integer(int32)|false|User Status|
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|integer(int64)|false|none|none|
+|username|string|false|none|none|
+|firstName|string|false|none|none|
+|lastName|string|false|none|none|
+|email|string|false|none|none|
+|password|string|false|none|none|
+|phone|string|false|none|none|
+|userStatus|integer(int32)|false|none|User Status|
 
-<h2 id="tocStag">Tag</h2>
-
+<h2 id="tocS_Tag">Tag</h2>
+<!-- backwards compatibility -->
 <a id="schematag"></a>
+<a id="schema_Tag"></a>
+<a id="tocStag"></a>
+<a id="tocstag"></a>
 
 ```json
 {
   "id": 0,
   "name": "string"
 }
+
 ```
 
 ### Properties
 
-|Name|Type|Required|Description|
-|---|---|---|---|
-|id|integer(int64)|false|No description|
-|name|string|false|No description|
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|integer(int64)|false|none|none|
+|name|string|false|none|none|
 
-<h2 id="tocSpet">Pet</h2>
-
+<h2 id="tocS_Pet">Pet</h2>
+<!-- backwards compatibility -->
 <a id="schemapet"></a>
+<a id="schema_Pet"></a>
+<a id="tocSpet"></a>
+<a id="tocspet"></a>
 
 ```json
 {
@@ -3864,18 +4069,19 @@ This operation does not require authentication
   ],
   "status": "available"
 }
+
 ```
 
 ### Properties
 
-|Name|Type|Required|Description|
-|---|---|---|---|
-|id|integer(int64)|false|No description|
-|category|[Category](#schemacategory)|false|No description|
-|name|string|true|No description|
-|photoUrls|[string]|true|No description|
-|tags|[[Tag](#schematag)]|false|No description|
-|status|string|false|pet status in the store|
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|integer(int64)|false|none|none|
+|category|[Category](#schemacategory)|false|none|none|
+|name|string|true|none|none|
+|photoUrls|[string]|true|none|none|
+|tags|[[Tag](#schematag)]|false|none|none|
+|status|string|false|none|pet status in the store|
 
 #### Enumerated Values
 
@@ -3885,9 +4091,12 @@ This operation does not require authentication
 |status|pending|
 |status|sold|
 
-<h2 id="tocSapiresponse">ApiResponse</h2>
-
+<h2 id="tocS_ApiResponse">ApiResponse</h2>
+<!-- backwards compatibility -->
 <a id="schemaapiresponse"></a>
+<a id="schema_ApiResponse"></a>
+<a id="tocSapiresponse"></a>
+<a id="tocsapiresponse"></a>
 
 ```json
 {
@@ -3895,15 +4104,16 @@ This operation does not require authentication
   "type": "string",
   "message": "string"
 }
+
 ```
 
 ### Properties
 
-|Name|Type|Required|Description|
-|---|---|---|---|
-|code|integer(int32)|false|No description|
-|type|string|false|No description|
-|message|string|false|No description|
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|code|integer(int32)|false|none|none|
+|type|string|false|none|none|
+|message|string|false|none|none|
 
 <script type="application/ld+json">
 {
