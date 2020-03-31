@@ -33,6 +33,7 @@ app.engine('html', ejs.renderFile);
 
 if (fs.existsSync('source/includes')) {
     chokidar.watch('source/includes', {}).on('all',function(eventType, filename) {
+        if (args.verbose) console.log(eventType, filename);
         includesModified = true;
     });
 }
@@ -44,7 +45,11 @@ function getLastGenTime(fpath) {
 
 function check(req,res,fpath) {
     fpath = fpath.split('/').join('');
-    var srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
+    var srcStat = {mtime:0};
+    try {
+      srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
+    }
+    catch (ex) {}
     var dstStat = {mtime:getLastGenTime(fpath)};
     if (!args.preserve) {
         try {
@@ -55,8 +60,8 @@ function check(req,res,fpath) {
     if (includesModified || (srcStat.mtime>dstStat.mtime)) {
         includesModified = false;
         lastGenTime[fpath] = new Date();
-        console.log('Rebuilding '+fpath);
         let source = path.join(__dirname,'source',fpath+'.md');
+        console.log('Rebuilding',fpath,'from',source);
         fs.readFile(source,'utf8',function(err,markdown){
             if (markdown) {
                 let options = Object.assign({},args);
