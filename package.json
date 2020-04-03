@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "npx eslint *.js",
+    "lintapp": "npx eslint source/javascripts/app/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update": "node shins --unsafe",
     "build": "node shins",
