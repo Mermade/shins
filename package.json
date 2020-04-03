@@ -48,11 +48,11 @@
     "sanitize-html": "^1.15.0",
     "tiny-opts-parser": "0.0.3",
     "uglify-js": "^2.7.4",
-    "yaml": "^1.7.0"
+    "yaml": "^1.8.3"
   },
   "devDependencies": {
     "ejs-lint": "^0.2.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "node-sass-asset-functions": "^0.1.0"
   }
 }
