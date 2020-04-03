@@ -37,7 +37,7 @@ let globalOptions = {};
 
 function safeReadFileSync(filename,encoding) {
     try {
-        return fs.readFileSync(filename,encoding);
+        return fs.readFileSync(filename,encoding).toString();
     }
     catch (ex) {
         console.error(`shins: included file ${filename} not found`);
