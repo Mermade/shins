@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+// @ts-check
 'use strict';
 
 const fs = require('fs');
@@ -45,9 +45,9 @@ function getLastGenTime(fpath) {
 
 function check(req,res,fpath) {
     fpath = fpath.split('/').join('');
-    var srcStat = {mtime:0};
+    var srcStat = {mtime: new Date(0)};
     try {
-      srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
+        srcStat = fs.statSync(path.join(__dirname,'source',fpath+'.md'));
     }
     catch (ex) {}
     var dstStat = {mtime:getLastGenTime(fpath)};

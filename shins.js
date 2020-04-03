@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @ts-check
 
 'use strict';
 
@@ -47,11 +48,10 @@ options.cli = true;
 
 shins.render(inputStr,options,function(err,str){
     if (err) {
-       console.log(err);
+        console.log(err);
     }
     else {
         str = str.split('\r').join('');
         fs.writeFileSync(options.output||path.join(options.root,'index.html'),str,'utf8');
     }
 });
-
