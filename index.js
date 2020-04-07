@@ -6,6 +6,7 @@ const path = require('path');
 
 const maybe = require('call-me-maybe');
 
+// @ts-ignore
 var hljs = require('highlightjs/highlight.pack.js');
 var hlpath = require.resolve('highlightjs/highlight.pack.js').replace('highlight.pack.js', '');
 
@@ -272,6 +273,7 @@ function render(inputStr, options, callback) {
     }
     return maybe(callback, new Promise(function (resolve, reject) {
         globalOptions = options;
+        // @ts-ignore
         globalOptions.shins = require('./package.json');
 
         inputStr = inputStr.split('\r\n').join('\n');
