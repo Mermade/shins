@@ -1848,7 +1848,7 @@ var n=this.pipeline.run(e.tokenizer(t)),r=new e.Vector,i=[],o=this._fields.reduc
 <blockquote>
 <p>Sandbox Base URL</p>
 </blockquote>
-<pre class="highlight"><code>https://api-sandbox.atomicfi.com
+<pre class="highlight"><code>https://sandbox-api.atomicfi.com
 </code></pre>
 <h3 id="welcome-to-atomic-s-developer-documentation-">Welcome to Atomic's developer documentation!</h3>
 <p>You'll find resources to help you integrate with <a href="#transact-sdk">Transact</a>, our web app that handles the heavy-lifting of integration, as well as a number of <a href="en.wikipedia.org/wiki/Representational_State_Transfer">REST</a>ful API endpoints.</p>
@@ -1974,13 +1974,13 @@ data-postman-var-1="4d830a56bc79a690a118"></div>
         product: <span class="hljs-string">"transfer"</span>,
         <span class="hljs-comment">// Optionally theme Transact with a *dark* color</span>
         color: <span class="hljs-string">"#4B39EF"</span>,
-        <span class="hljs-attr">onFinish</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+        <span class="hljs-attr">onFinish</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>{
             <span class="hljs-comment">// Called when the user finishes the transaction</span>
             <span class="hljs-comment">// We recommend saving the `data` object which could be useful for support purposes</span>
         },
-        <span class="hljs-attr">onClose</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-attr">onClose</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
             <span class="hljs-comment">// Called when the user exits Transact prematurely</span>
-        }
+        },
     });
 };
 

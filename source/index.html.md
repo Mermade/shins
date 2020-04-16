@@ -29,7 +29,7 @@ https://api.atomicfi.com
 > Sandbox Base URL
 
 ```
-https://api-sandbox.atomicfi.com
+https://sandbox-api.atomicfi.com
 ```
 
 ### Welcome to Atomic's developer documentation!
@@ -140,13 +140,13 @@ const startTransact = () => {
         product: "transfer",
         // Optionally theme Transact with a *dark* color
         color: "#4B39EF",
-        onFinish: function(data) {
+        onFinish: function (data) {
             // Called when the user finishes the transaction
             // We recommend saving the `data` object which could be useful for support purposes
         },
-        onClose: function() {
+        onClose: function () {
             // Called when the user exits Transact prematurely
-        }
+        },
     });
 };
 
