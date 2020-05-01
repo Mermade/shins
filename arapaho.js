@@ -19,6 +19,7 @@ let lastGenTime = {};
 if (args.p) args.preserve = args.p;
 if (args.l) args.launch = args.l;
 if (args.h) args.help = args.h;
+if (args.v) args.verbose = args.v;
 
 if (args.help) {
     console.log('Usage: node arapaho [port] [-l|--launch] [-p|--preserve] [shins-options]');
@@ -32,7 +33,7 @@ app.set('view engine', 'html');
 app.engine('html', ejs.renderFile);
 
 if (fs.existsSync('source/includes')) {
-    chokidar.watch('source/includes', {}).on('all',function(eventType, filename) {
+    chokidar.watch('source/includes', {ignoreInitial:true}).on('all',function(eventType, filename) {
         if (args.verbose) console.log(eventType, filename);
         includesModified = true;
     });
@@ -40,7 +41,7 @@ if (fs.existsSync('source/includes')) {
 
 function getLastGenTime(fpath) {
     if (lastGenTime[fpath]) return lastGenTime[fpath];
-    return 0;
+    return new Date(0);
 }
 
 function check(req,res,fpath) {
@@ -90,6 +91,9 @@ function check(req,res,fpath) {
                         }
                     }
                 });
+            }
+            else {
+                res.send(err);
             }
         });
     }
