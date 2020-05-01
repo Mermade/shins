@@ -10,7 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "update": "node shins --unsafe",
     "build": "node shins",
-    "start": "node arapaho -l"
+    "start": "node arapaho -l",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "bin": {
     "shins": "./shins.js"
@@ -50,11 +52,13 @@
     "sanitize-html": "^1.15.0",
     "tiny-opts-parser": "0.0.3",
     "uglify-js": "^2.7.4",
-    "yaml": "^1.9.2"
+    "yaml": "^1.9.2",
+    "snyk": "^1.316.2"
   },
   "devDependencies": {
     "ejs-lint": "^1.1.0",
     "node-sass": "^4.13.1",
     "node-sass-asset-functions": "^0.1.0"
-  }
+  },
+  "snyk": true
 }
