@@ -16,7 +16,7 @@ under the License.
 <% var language_tabs = current_page.data.language_tabs || []; %>
 <% if (current_page.data.includes) { for (var include in current_page.data.includes) { %>
   <% page_content += partial(current_page.data.includes[include]) %>
-<% } %>
+<% } } %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -105,7 +105,7 @@ under the License.
         <%- page_content %>
       </div>
       <div class="dark-box">
-        <% if (language_tabs) %>
+        <% if (language_tabs && language_tabs.length) { %>
           <div class="lang-selector">
             <% for (var lang in language_tabs) { %>
               <% if (typeof language_tabs[lang] === 'object') { %>
