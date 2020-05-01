@@ -34,6 +34,7 @@ const uglify = require('uglify-js');
 const cheerio = require('cheerio');
 const sanitizeHtml = require('sanitize-html');
 
+const seenIds = {};
 let globalOptions = {};
 
 function safeReadFileSync(filename,encoding) {
@@ -179,20 +180,24 @@ function preProcess(content,options) {
     return lines.join('\n');
 }
 
-function cleanId(id) {
-    return id.toLowerCase().replace(/\W/g, '-');
+function cleanId(id, unique) {
+    id = id.toLowerCase().replace(/\W/g, '-');
+    if (unique && seenIds[id]) id += '-' + ++seenIds[id]
+    else seenIds[id] = 1;
+    return id;
 }
 
 function postProcess(content) {
-    // adds id a la GitHub autolinks to automatically-generated headers
-    content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (match, header, title) {
-        return '<' + header + ' id="' + cleanId(title) + '">' + title + '</' + header + '>';
+    // clean up headers which already have ids
+    content = content.replace(/\<(h[123456]) id="(.*)"\>(.*)\<\/h[123456]\>/g, function (match, header, id, title) {
+        return '<' + header + ' id="' + cleanId(id,false) + '">' + title + '</' + header + '>';
     });
 
-    // clean up the other ids as well
-    content = content.replace(/\<(h[123456]) id="(.*)"\>(.*)\<\/h[123456]\>/g, function (match, header, id, title) {
-        return '<' + header + ' id="' + cleanId(id) + '">' + title + '</' + header + '>';
+    // adds id a la GitHub autolinks to automatically-generated headers
+    content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (match, header, title) {
+        return '<' + header + ' id="' + cleanId(title,true) + '">' + title + '</' + header + '>';
     });
+
     content = content + globalOptions.comments.join('\n');
     return content;
 }
@@ -283,6 +288,7 @@ function render(inputStr, options, callback) {
         }
         var headerStr = inputArr[1];
         var header = yaml.parse(headerStr);
+        if (!header) header = {};
 
         /* non-matching languages between Ruby Rouge and highlight.js at 2016/07/10 are
         ['ceylon','common_lisp','conf','cowscript','erb','factor','io','json-doc','liquid','literate_coffeescript','literate_haskell','llvm','make',
