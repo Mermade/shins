@@ -39,7 +39,8 @@ window.onpopstate = function() {
 </script>
 
     
-    <meta name="theme-color" content="#F3F7F9" />
+    <!-- shins; content for the head element from source/includes/_head.md -->
+<meta name="theme-color" content="#F3F7F9">
 <!-- Renderer: Shins v2.4.1-0 -->
 <!-- Generator: Widdershins v4.0.1 -->
 <!-- backwards compatibility -->
@@ -294,7 +295,8 @@ window.onpopstate = function() {
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="swagger-petstore">Swagger Petstore v1.0.0</h1>
+        <!-- Generator: Widdershins v4.0.1 -->
+<h1 id="swagger-petstore">Swagger Petstore v1.0.0</h1>
 <blockquote>
 <p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
 </blockquote>
@@ -422,7 +424,12 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'<
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
     <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>,
 );
 
@@ -648,7 +655,12 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/pet'</
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
     <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>,
 );
 
@@ -874,7 +886,12 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/xml'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
     <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>,
 );
 
@@ -1143,7 +1160,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h4 id="enumerated-values">Enumerated Values</h4>
+<h4 id="enumerated-values-2">Enumerated Values</h4>
 <table>
 <thead>
 <tr>
@@ -1236,7 +1253,12 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/fi
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/xml'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
     <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>,
 );
 
@@ -1482,7 +1504,7 @@ System.out.println(response.toString());
 </tr>
 </tbody>
 </table>
-<h4 id="enumerated-values">Enumerated Values</h4>
+<h4 id="enumerated-values-3">Enumerated Values</h4>
 <table>
 <thead>
 <tr>
@@ -1570,7 +1592,12 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{p
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/xml'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
     <span class="hljs-string">'api_key'</span> =&gt; <span class="hljs-string">'API_KEY'</span>,
 );
 
@@ -1798,7 +1825,12 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/x-www-form-urlencoded'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/x-www-form-urlencoded'</span>,
     <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>,
 );
 
@@ -1998,7 +2030,12 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/pet
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'string'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'api_key'</span> =&gt; <span class="hljs-string">'string'</span>,
     <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>,
 );
 
@@ -2190,7 +2227,12 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/pet/{
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'multipart/form-data'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'multipart/form-data'</span>,
     <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
     <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>,
 );
@@ -2405,7 +2447,12 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/json'</span>,
     <span class="hljs-string">'api_key'</span> =&gt; <span class="hljs-string">'API_KEY'</span>,
 );
 
@@ -2597,7 +2644,12 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/store
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
     <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
 );
 
@@ -2806,7 +2858,12 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/store/
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/xml'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
 );
 
 $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
@@ -2994,7 +3051,17 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/sto
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code>request(<span class="hljs-string">'DELETE'</span>,<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-keyword">array</span>(
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'DELETE'</span>,<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>, <span class="hljs-keyword">array</span>(
         <span class="hljs-string">'headers'</span> =&gt; $headers,
         <span class="hljs-string">'json'</span> =&gt; $request_body,
        )
@@ -3164,7 +3231,12 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user'
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
 );
 
 $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
@@ -3354,7 +3426,12 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
 );
 
 $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
@@ -3545,7 +3622,12 @@ r = requests.post(<span class="hljs-string">'http://petstore.swagger.io/v2/user/
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
 );
 
 $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
@@ -3729,7 +3811,12 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/l
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/xml'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
 );
 
 $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
@@ -3928,7 +4015,17 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/l
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code>request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>, <span class="hljs-keyword">array</span>(
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>, <span class="hljs-keyword">array</span>(
         <span class="hljs-string">'headers'</span> =&gt; $headers,
         <span class="hljs-string">'json'</span> =&gt; $request_body,
        )
@@ -4058,7 +4155,12 @@ r = requests.get(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/xml'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'application/xml'</span>,
 );
 
 $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
@@ -4272,7 +4374,12 @@ r = requests.put(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code> <span class="hljs-string">'application/json'</span>,
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$headers = <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">'Content-Type'</span> =&gt; <span class="hljs-string">'application/json'</span>,
 );
 
 $client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
@@ -4450,7 +4557,17 @@ r = requests.delete(<span class="hljs-string">'http://petstore.swagger.io/v2/use
 print(r.json())
 
 </code></pre>
-<pre class="highlight tab tab-php"><code>request(<span class="hljs-string">'DELETE'</span>,<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-keyword">array</span>(
+<pre class="highlight tab tab-php"><code><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">require</span> <span class="hljs-string">'vendor/autoload.php'</span>;
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'DELETE'</span>,<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>, <span class="hljs-keyword">array</span>(
         <span class="hljs-string">'headers'</span> =&gt; $headers,
         <span class="hljs-string">'json'</span> =&gt; $request_body,
        )
@@ -4553,10 +4670,11 @@ This operation does not require authentication
 </aside>
 <h1 id="schemas">Schemas</h1>
 <h2 id="tocs_order">Order</h2>
-<p><a id="schemaorder"></a>
+<!-- backwards compatibility -->
+<a id="schemaorder"></a>
 <a id="schema_Order"></a>
 <a id="tocSorder"></a>
-<a id="tocsorder"></a></p>
+<a id="tocsorder"></a>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"petId"</span>: <span class="hljs-number">0</span>,
@@ -4623,7 +4741,7 @@ This operation does not require authentication
 </tr>
 </tbody>
 </table>
-<h4 id="enumerated-values">Enumerated Values</h4>
+<h4 id="enumerated-values-4">Enumerated Values</h4>
 <table>
 <thead>
 <tr>
@@ -4647,17 +4765,18 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocs_category">Category</h2>
-<p><a id="schemacategory"></a>
+<!-- backwards compatibility -->
+<a id="schemacategory"></a>
 <a id="schema_Category"></a>
 <a id="tocScategory"></a>
-<a id="tocscategory"></a></p>
+<a id="tocscategory"></a>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
 }
 
 </code></pre>
-<h3 id="properties">Properties</h3>
+<h3 id="properties-2">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -4686,10 +4805,11 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocs_user">User</h2>
-<p><a id="schemauser"></a>
+<!-- backwards compatibility -->
+<a id="schemauser"></a>
 <a id="schema_User"></a>
 <a id="tocSuser"></a>
-<a id="tocsuser"></a></p>
+<a id="tocsuser"></a>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"username"</span>: <span class="hljs-string">"string"</span>,
@@ -4702,7 +4822,7 @@ This operation does not require authentication
 }
 
 </code></pre>
-<h3 id="properties">Properties</h3>
+<h3 id="properties-3">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -4773,17 +4893,18 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocs_tag">Tag</h2>
-<p><a id="schematag"></a>
+<!-- backwards compatibility -->
+<a id="schematag"></a>
 <a id="schema_Tag"></a>
 <a id="tocStag"></a>
-<a id="tocstag"></a></p>
+<a id="tocstag"></a>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"string"</span>
 }
 
 </code></pre>
-<h3 id="properties">Properties</h3>
+<h3 id="properties-4">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -4812,10 +4933,11 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocs_pet">Pet</h2>
-<p><a id="schemapet"></a>
+<!-- backwards compatibility -->
+<a id="schemapet"></a>
 <a id="schema_Pet"></a>
 <a id="tocSpet"></a>
-<a id="tocspet"></a></p>
+<a id="tocspet"></a>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"id"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"category"</span>: {
@@ -4836,7 +4958,7 @@ This operation does not require authentication
 }
 
 </code></pre>
-<h3 id="properties">Properties</h3>
+<h3 id="properties-5">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -4892,7 +5014,7 @@ This operation does not require authentication
 </tr>
 </tbody>
 </table>
-<h4 id="enumerated-values">Enumerated Values</h4>
+<h4 id="enumerated-values-5">Enumerated Values</h4>
 <table>
 <thead>
 <tr>
@@ -4916,10 +5038,11 @@ This operation does not require authentication
 </tbody>
 </table>
 <h2 id="tocs_apiresponse">ApiResponse</h2>
-<p><a id="schemaapiresponse"></a>
+<!-- backwards compatibility -->
+<a id="schemaapiresponse"></a>
 <a id="schema_ApiResponse"></a>
 <a id="tocSapiresponse"></a>
-<a id="tocsapiresponse"></a></p>
+<a id="tocsapiresponse"></a>
 <pre class="highlight tab tab-json"><code>{
   <span class="hljs-attr">"code"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
@@ -4927,7 +5050,7 @@ This operation does not require authentication
 }
 
 </code></pre>
-<h3 id="properties">Properties</h3>
+<h3 id="properties-6">Properties</h3>
 <table>
 <thead>
 <tr>
@@ -4962,6 +5085,17 @@ This operation does not require authentication
 </tr>
 </tbody>
 </table>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "WebAPI",
+  "description": ":dog: :cat: :rabbit: This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+  "documentation": "https://mermade.github.io/shins/asyncapi.html",
+  "termsOfService": "http://swagger.io/terms/",
+  
+  "name": "Swagger Petstore"
+}
+</script>
 <!-- Renderer: Shins v2.4.1-0 -->
 <!-- Generator: Widdershins v4.0.1 -->
 <!-- backwards compatibility -->
