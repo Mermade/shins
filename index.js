@@ -34,7 +34,7 @@ const uglify = require('uglify-js');
 const cheerio = require('cheerio');
 const sanitizeHtml = require('sanitize-html');
 
-const seenIds = {};
+let seenIds = {};
 let globalOptions = {};
 
 function safeReadFileSync(filename,encoding) {
@@ -262,20 +262,19 @@ function getMimeType(imageSource) {
 }
 
 function render(inputStr, options, callback) {
-
-    if (options.attr) md.use(attrs);
-    if (options['no-links']) md.disable('linkify');
-
     if (typeof callback === 'undefined') { // for pre-v1.4.0 compatibility
         callback = options;
         options = {};
     }
+    if (options.attr) md.use(attrs);
+    if (options['no-links']) md.disable('linkify');
     if (options.inline == true) {
         options.minify = true;
     }
     if (typeof options.root === 'undefined') {
         options.root = __dirname;
     }
+    seenIds = {}; // reinitialise
     return maybe(callback, new Promise(function (resolve, reject) {
         globalOptions = options;
         // @ts-ignore
