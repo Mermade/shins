@@ -39,7 +39,7 @@ let globalOptions = {};
 
 function safeReadFileSync(filename,encoding) {
     try {
-        return fs.readFileSync(filename,encoding).toString();
+        return fs.readFileSync(filename,encoding);
     }
     catch (ex) {
         console.error(`shins: included file ${filename} not found`);
@@ -106,7 +106,7 @@ function stylesheet_link_tag(stylesheet, media) {
         if (!fs.existsSync(stylePath)) {
             stylePath = path.join(hlpath, '/styles/' + stylesheet + '.css');
         }
-        var styleContent = safeReadFileSync(stylePath, "utf8");
+        var styleContent = safeReadFileSync(stylePath, 'utf8');
         styleContent = replaceAll(styleContent, '../../source/fonts/', globalOptions.fonturl||'https://raw.githubusercontent.com/Mermade/shins/master/source/fonts/');
         styleContent = replaceAll(styleContent, '../../source/', 'source/');
         if (globalOptions.customCss) {
@@ -127,7 +127,7 @@ function stylesheet_link_tag(stylesheet, media) {
             var target = path.join(globalOptions.root, '/pub/css/' + stylesheet + '.css');
             if (!fs.existsSync(target)) {
                 var source = path.join(hlpath, '/styles/' + stylesheet + '.css');
-                fs.writeFileSync(target, safeReadFileSync(source));
+                fs.writeFileSync(target, safeReadFileSync(source,'utf8'));
             }
         }
         var include = '<link rel="stylesheet" media="' + media + '" href="pub/css/' + stylesheet + '.css">';
@@ -238,7 +238,7 @@ function clean(s) {
 }
 
 function getBase64ImageSource(imageSource, imgContent) {
-    if(!imageSource || !imgContent) return "";
+    if (!imageSource || !imgContent) return "";
 
     var mimeType = getMimeType(imageSource);
     return "data:" + mimeType + ";base64," + Buffer.from(imgContent).toString('base64');
