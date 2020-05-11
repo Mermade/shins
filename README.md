@@ -31,7 +31,7 @@ Version numbers of Shins aim to track the version of Slate they are compatible w
 * To specify a different output filename from the default `./index.html`, use the `--output` or `-o` option.
 * To allow css-style attributes in markdown, specify the `--attr` option.
 * You can specify another location for the `source` and `pub` directories using the `--root` option.
-* To check locally: `node arapaho` or `npm run start` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered. If you use `--launch` or `-l` your default browser will be opened automatically. You can also pass `shins` options on the `arapaho` command-line.
+* To check locally: `node arapaho` or `npm run serve` and browse to [localhost:4567](http://localhost:4567) - changes to your source `.html.md` files and the `source/includes` directory will automatically be picked up and re-rendered. If you use `--launch` or `-l` or `npm run start` your default browser will be opened automatically. You can also pass `shins` options on the `arapaho` command-line.
 * Add, commit and push
 * Then (in your fork) press this button
 
@@ -53,6 +53,16 @@ If you use the option `--minify` to shins, the only things you need to take to y
 ```
 
 If you use the `--inline` option to shins, then everything is bundled into the `index.html` file and no `pub` directory is required. Fonts are by default loaded from this github repository, but this can be overridden with the `--fonturl` option.
+
+### Docker
+
+A `Dockerfile` is included. To build:
+
+* `docker build . -t shins:latest`
+
+to run:
+
+* `docker run -p 4567:4567 shins:latest`
 
 ### Multiple Shins pages / portal
 
@@ -114,7 +124,7 @@ Set `logo-url` if you want the logo image to link to a webpage.
 ### Notes
 
 * Windows is definitely supported
-* Syntax highlighting in 176 [languages](https://highlightjs.org/static/demo/) and 79 [themes](https://highlightjs.org/static/demo/) (you can specify the highlighter theme to use by setting `highlight_theme` in your slate markdown header)
+* Syntax highlighting in 189 [languages](https://highlightjs.org/static/demo/) and 91 [themes](https://highlightjs.org/static/demo/) (you can specify the highlighter theme to use by setting `highlight_theme` in your slate markdown header)
 * Multiple language tabs per language are supported
 * Static TOC as per Slate v2.0
 * [GitHub emoji shortcuts](https://gist.github.com/rxaviers/7360908) are supported
