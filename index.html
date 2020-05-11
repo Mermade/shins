@@ -361,7 +361,7 @@ curl -X POST http://petstore.swagger.io/v2/pet \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
   "id": 0,
   "category": {
@@ -446,7 +446,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -517,7 +517,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"available"</span>
 }
 </code></pre>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<pre class="highlight tab tab-xml"><code><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">Pet</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
@@ -592,7 +592,7 @@ curl -X PUT http://petstore.swagger.io/v2/pet \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
   "id": 0,
   "category": {
@@ -677,7 +677,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -748,7 +748,7 @@ System.out.println(response.toString());
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">"available"</span>
 }
 </code></pre>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<pre class="highlight tab tab-xml"><code><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">Pet</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
@@ -835,7 +835,7 @@ curl -X GET http://petstore.swagger.io/v2/pet/findByStatus?status=available \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Accept</span>: application/xml
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
@@ -908,7 +908,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -1008,7 +1008,7 @@ System.out.println(response.toString());
 <blockquote>
 <p>200 Response</p>
 </blockquote>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<pre class="highlight tab tab-xml"><code><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
@@ -1202,7 +1202,7 @@ curl -X GET http://petstore.swagger.io/v2/pet/findByTags?tags=string \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Accept</span>: application/xml
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
@@ -1275,7 +1275,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -1352,7 +1352,7 @@ System.out.println(response.toString());
 <blockquote>
 <p>200 Response</p>
 </blockquote>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<pre class="highlight tab tab-xml"><code><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
@@ -1546,7 +1546,7 @@ curl -X GET http://petstore.swagger.io/v2/pet/{petId} \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Accept</span>: application/xml
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>,
@@ -1614,7 +1614,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -1691,7 +1691,7 @@ System.out.println(response.toString());
 <blockquote>
 <p>200 Response</p>
 </blockquote>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<pre class="highlight tab tab-xml"><code><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">Pet</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">category</span>&gt;</span>
@@ -1776,7 +1776,7 @@ curl -X POST http://petstore.swagger.io/v2/pet/{petId} \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Content-Type</span>: application/x-www-form-urlencoded
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
   "name": "string",
   "status": "string"
@@ -1847,7 +1847,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -1984,7 +1984,7 @@ curl -X DELETE http://petstore.swagger.io/v2/pet/{petId} \
 
 <span class="http"><span class="hljs-attribute">api_key</span>: string
 
-<span class="undefined"></span></span></code></pre>
+</span></code></pre>
 <pre class="highlight tab tab-javascript"><code>
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'api_key'</span>:<span class="hljs-string">'string'</span>,
@@ -2052,7 +2052,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -2175,7 +2175,7 @@ curl -X POST http://petstore.swagger.io/v2/pet/{petId}/uploadImage \
 <span class="hljs-attribute">Content-Type</span>: multipart/form-data
 <span class="hljs-attribute">Accept</span>: application/json
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
   "additionalMetadata": "string",
   "file": "string"
@@ -2250,7 +2250,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -2401,7 +2401,7 @@ curl -X GET http://petstore.swagger.io/v2/store/inventory \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Accept</span>: application/json
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/json'</span>,
@@ -2469,7 +2469,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -2591,7 +2591,7 @@ curl -X POST http://petstore.swagger.io/v2/store/order \
 <span class="hljs-attribute">Content-Type</span>: application/json
 <span class="hljs-attribute">Accept</span>: application/xml
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
   "id": 0,
   "petId": 0,
@@ -2666,7 +2666,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -2754,7 +2754,7 @@ System.out.println(response.toString());
 <blockquote>
 <p>200 Response</p>
 </blockquote>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<pre class="highlight tab tab-xml"><code><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
@@ -2815,7 +2815,7 @@ curl -X GET http://petstore.swagger.io/v2/store/order/{orderId} \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Accept</span>: application/xml
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>
@@ -2879,7 +2879,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -2955,7 +2955,7 @@ System.out.println(response.toString());
 <blockquote>
 <p>200 Response</p>
 </blockquote>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<pre class="highlight tab tab-xml"><code><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">petId</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">petId</span>&gt;</span>
@@ -3020,7 +3020,7 @@ curl -X DELETE http://petstore.swagger.io/v2/store/order/{orderId}
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">http://petstore.swagger.io/v2/store/order/{orderId}</span> HTTP/1.1
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/store/order/{orderId}'</span>,
 {
@@ -3068,7 +3068,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -3179,7 +3179,7 @@ curl -X POST http://petstore.swagger.io/v2/user \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
   "id": 0,
   "username": "string",
@@ -3252,7 +3252,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -3372,7 +3372,7 @@ curl -X POST http://petstore.swagger.io/v2/user/createWithArray \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'[
   {
     "id": 0,
@@ -3447,7 +3447,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -3568,7 +3568,7 @@ curl -X POST http://petstore.swagger.io/v2/user/createWithList \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'[
   {
     "id": 0,
@@ -3643,7 +3643,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -3764,7 +3764,7 @@ curl -X GET http://petstore.swagger.io/v2/user/login?username=string&amp;passwor
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Accept</span>: application/xml
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>
@@ -3832,7 +3832,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -3984,7 +3984,7 @@ curl -X GET http://petstore.swagger.io/v2/user/<span class="hljs-built_in">logou
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/logout</span> HTTP/1.1
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/logout'</span>,
 {
@@ -4032,7 +4032,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -4112,7 +4112,7 @@ curl -X GET http://petstore.swagger.io/v2/user/{username} \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Accept</span>: application/xml
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 <span class="hljs-keyword">const</span> headers = {
   <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'application/xml'</span>
@@ -4176,7 +4176,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -4251,7 +4251,7 @@ System.out.println(response.toString());
 <blockquote>
 <p>200 Response</p>
 </blockquote>
-<pre class="highlight tab tab-xml"><code><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span> <span class="hljs-meta">?&gt;</span></span>
+<pre class="highlight tab tab-xml"><code><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">User</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span>
@@ -4322,7 +4322,7 @@ curl -X PUT http://petstore.swagger.io/v2/user/{username} \
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 <span class="hljs-attribute">Content-Type</span>: application/json
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code><span class="hljs-keyword">const</span> inputBody = <span class="hljs-string">'{
   "id": 0,
   "username": "string",
@@ -4395,7 +4395,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
@@ -4526,7 +4526,7 @@ curl -X DELETE http://petstore.swagger.io/v2/user/{username}
 <pre class="highlight tab tab-http"><code><span class="hljs-keyword">DELETE</span> <span class="hljs-string">http://petstore.swagger.io/v2/user/{username}</span> HTTP/1.1
 <span class="hljs-attribute">Host</span>: petstore.swagger.io
 
-<span class="undefined"></span></code></pre>
+</code></pre>
 <pre class="highlight tab tab-javascript"><code>
 fetch(<span class="hljs-string">'http://petstore.swagger.io/v2/user/{username}'</span>,
 {
@@ -4574,7 +4574,7 @@ $request_body = <span class="hljs-keyword">array</span>();
     );
     print_r($response-&gt;getBody()-&gt;getContents());
  }
- <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-built_in">Exception</span>\BadResponseException $e) {
     <span class="hljs-comment">// handle exception or api errors.</span>
     print_r($e-&gt;getMessage());
  }
