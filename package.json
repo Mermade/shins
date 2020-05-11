@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "update": "node shins --unsafe",
     "build": "node shins",
-    "start": "node arapaho -l"
+    "start": "node arapaho -l",
+    "serve": "node arapaho"
   },
   "bin": {
     "shins": "./shins.js"
@@ -41,7 +42,7 @@
     "compression": "^1.6.2",
     "ejs": "^2.5.1",
     "express": "^4.15.5",
-    "highlightjs": "^9.10.0",
+    "highlight.js": "^10.0.2",
     "markdown-it": "^10.0.0",
     "markdown-it-attrs": "^1.2.1",
     "markdown-it-emoji": "^1.4.0",
