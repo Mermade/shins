@@ -8,7 +8,7 @@ const maybe = require('call-me-maybe');
 
 // @ts-ignore
 var hljs = require('highlight.js');
-var hlpath = require.resolve('highlight.js');
+var hlpath = path.resolve(require.resolve('highlight.js'),'..','..');
 
 const emoji = require('markdown-it-emoji');
 const attrs = require('markdown-it-attrs');
