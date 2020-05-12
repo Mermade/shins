@@ -62,7 +62,7 @@ A `Dockerfile` is included. To build:
 
 to run:
 
-* `docker run -p 4567:4567 shins:latest`
+* `docker run -p 4567:4567 -v $(pwd)/source:/srv/shins/source shins:latest`
 
 ### Multiple Shins pages / portal
 
