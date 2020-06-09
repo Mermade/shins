@@ -7,6 +7,7 @@
     "lint": "npx eslint *.js",
     "lintejs": "npx ejslint source/layouts/layout.ejs",
     "lintapp": "npx eslint source/javascripts/app/*.js",
+    "lintcss": "npx stylelint source/stylesheets/*.scss",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update": "node shins --unsafe",
     "build": "node shins",
@@ -43,7 +44,7 @@
     "ejs": "^2.5.1",
     "express": "^4.15.5",
     "highlight.js": "^10.0.2",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^11.0.0",
     "markdown-it-attrs": "^1.2.1",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-lazy-headers": "^0.1.3",
@@ -56,6 +57,8 @@
   "devDependencies": {
     "ejs-lint": "^1.1.0",
     "node-sass": "^4.14.1",
-    "node-sass-asset-functions": "^0.1.0"
+    "node-sass-asset-functions": "^0.1.0",
+    "stylelint": "^13.5.0",
+    "stylelint-config-sass-guidelines": "^7.0.0"
   }
 }
