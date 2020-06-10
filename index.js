@@ -72,7 +72,7 @@ function javascript_include_tag(include) {
         }
         else {
             fs.writeFileSync(path.join(globalOptions.root, '/pub/js/shins.js'), bundle.code, 'utf8');
-            includeStr = safeReadFileSync(path.join(globalOptions.root, '/source/javascripts/' + include + '.bundle.inc'), 'utf8');
+            includeStr = safeReadFileSync(path.join(globalOptions.root, '/source/javascripts/' + (include.replace('_nosearch','')) + '.bundle.inc'), 'utf8');
         }
     }
     return includeStr;
