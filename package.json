@@ -51,7 +51,7 @@
     "open": "^7.0.4",
     "sanitize-html": "^1.15.0",
     "tiny-opts-parser": "0.0.3",
-    "uglify-js": "^2.7.4",
+    "uglify-js": "^3.9.4",
     "yaml": "^1.9.2"
   },
   "devDependencies": {
