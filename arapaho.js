@@ -9,7 +9,7 @@ const express = require('express');
 const ejs = require('ejs');
 const compression = require('compression');
 const args = require('tiny-opts-parser')(process.argv);
-const opn = require('opn');
+const open = require('open');
 const chokidar = require('chokidar');
 
 const shins = require('./index.js');
@@ -122,7 +122,7 @@ var server = app.listen(myport, function () {
     console.log('Launching...');
 
     var url = 'http://'+(host === '::' ? 'localhost' : 'host') + ':' +port+'/'
-    opn(url).catch(function (ex) {
+    open(url).catch(function (ex) {
         console.error(`Unable to open URL '${url}'`);
         console.error(ex);
     })
