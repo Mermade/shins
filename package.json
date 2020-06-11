@@ -45,7 +45,7 @@
     "express": "^4.15.5",
     "highlight.js": "^10.0.2",
     "markdown-it": "^11.0.0",
-    "markdown-it-attrs": "^1.2.1",
+    "markdown-it-attrs": "^3.0.3",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-lazy-headers": "^0.1.3",
     "open": "^7.0.4",
