@@ -51,22 +51,24 @@ function safeReadFileSync(filename,encoding) {
 function javascript_include_tag(include) {
     var includeStr = safeReadFileSync(path.join(globalOptions.root, '/source/javascripts/' + include + '.inc'), 'utf8');
     if (globalOptions.minify) {
-        var scripts = [];
+        var scripts = {};
         var includes = includeStr.split('\r').join().split('\n');
         for (var i in includes) {
             var inc = includes[i];
             var elements = inc.split('"');
             if (elements[1]) {
                 if (elements[1] == 'text/javascript') {
-                    scripts.push(path.join(globalOptions.root, 'source/javascripts/all_nosearch.js'));
+                    let scriptName = path.join(globalOptions.root, 'source/javascripts/all_nosearch.js');
+                    scripts[scriptName] = fs.readFileSync(scriptName,'utf8');
                     break;
                 }
                 else {
-                    scripts.push(path.join(globalOptions.root, elements[1]));
+                    let scriptName = path.join(globalOptions.root, elements[1]);
+                    scripts[scriptName] = fs.readFileSync(scriptName,'utf8');
                 }
             }
         }
-        var bundle = uglify.minify(scripts);
+        let bundle = uglify.minify(scripts);
         if (globalOptions.inline) {
             includeStr = '<script>'+bundle.code+'</script>';
         }
