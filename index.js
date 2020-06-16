@@ -159,6 +159,9 @@ function language_array(language_tabs) {
 function preProcess(content,options) {
     let lines = content.split('\r').join('').split('\n');
     const comments = [];
+    if (options.header && options.header.generator) {
+      comments.push('<!-- Generator: '+globalOptions.header.generator+' -->');
+    }
     comments.push('<!-- Renderer: Shins v'+globalOptions.shins.version+' -->');
     for (let l=0;l<lines.length;l++) {
         let line = lines[l];
@@ -289,6 +292,7 @@ function render(inputStr, options, callback) {
         }
         var headerStr = inputArr[1];
         var header = yaml.parse(headerStr);
+        globalOptions.header = header;
         if (!header) header = {};
 
         /* non-matching languages between Ruby Rouge and highlight.js at 2016/07/10 are
