@@ -1,0 +1,78 @@
+.m-square-list{list-style:none;margin-left:0;padding-left:0}
+.m-square-list>li{padding-left:30px}
+.m-square-list>li:before{font-family:arial,helvetica,sans-serif;position:relative;float:left;color:var(--theme-bullet-color);text-indent:-30px;speak:none;content:'\25A0';top:-3px}
+.v--benefits .o-hero__header__headline{max-width:64rem}
+.v--benefits .o-hero__header__copy{max-width:53rem}
+@media screen and (min-width:48rem) and (max-width:1172px){.c-billboard__header__cta{display:flex;flex-direction:column}
+.c-billboard__header__cta .c-button+.c-button{margin-top:.5rem;margin-left:0}
+}
+.o-hero__background--still{background-image:url(/3c5f2/marketing/img/homepage/hero-still-mobile.jpg);background-size:cover;background-repeat:no-repeat;background-position:top center}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){.o-hero__background--still{background-image:url(/3c5f2/marketing/img/homepage/hero-still-mobile@2x.jpg)}
+}
+@media screen and (min-width:48rem) and (max-width:1023px){.o-hero__background--still{background-image:url(/3c5f2/marketing/img/homepage/hero-still-tablet.jpg);background-position:bottom left}
+.c-type-headline-jumbo:lang(de),.c-type-headline-jumbo:lang(fr){margin-top:4rem}
+}
+@media screen and (min-width:48rem) and (max-width:1023px) and (-webkit-min-device-pixel-ratio:2),screen and (min-width:48rem) and (max-width:1023px) and (min-resolution:192dpi){.o-hero__background--still{background-image:url(/3c5f2/marketing/img/homepage/hero-still-tablet@2x.jpg)}
+}
+@media screen and (min-width:64rem){.o-hero__background--still{display:none}
+.is-mobile .o-hero__background--still{display:block;background-image:url(/59662/marketing/img/homepage/video/brand-campaign_hero-poster.jpg);background-position:bottom left}
+}
+@media screen and (min-width:64rem) and (-webkit-min-device-pixel-ratio:2),screen and (min-width:64rem) and (min-resolution:192dpi){.is-mobile .o-hero__background--still{background-image:url(/2f3af/marketing/img/homepage/video/brand-campaign_hero-poster.jpg)}
+}
+.o-hero__background--video{display:none}
+.c-feature-grid.v--three{grid-template-columns:repeat(1,1fr)}
+@media screen and (min-width:64rem){.o-hero__background--video{display:block}
+.c-feature-grid.v--three{grid-template-columns:repeat(2,1fr)}
+}
+@media screen and (min-width:80rem){.c-feature-grid.v--three{grid-template-columns:repeat(3,1fr)}
+}
+.c-feature-grid__item{padding-left:0;padding-right:0}
+.c-type-headline-jumbo{max-width:inherit;margin-left:auto;margin-right:auto}
+.o-section--feature__headline--larger{font-family:Slack-Larsseit,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;font-weight:700;line-height:1.12;letter-spacing:-.8px;font-size:2rem;margin-bottom:1rem}
+@media screen and (min-width:25rem){.o-section--feature__headline--larger{font-size:calc(2rem + (18 * (100vw - 400px)/ 624))}
+}
+@media screen and (min-width:64rem){.o-section--feature__headline--larger{font-size:3.125rem}
+}
+.o-section--feature__headline--larger:lang(ja){font-family:Slack-Tazugane,Tahoma,Slack-Larsseit,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;font-weight:900;line-height:1.25;letter-spacing:.9px;font-size:2rem;margin-bottom:1rem}
+@media screen and (min-width:25rem){.o-section--feature__headline--larger:lang(ja){font-size:calc(2rem + (12 * (100vw - 400px)/ 624))}
+}
+@media screen and (min-width:64rem){.o-section--feature__headline--larger:lang(ja){font-size:2.75rem}
+}
+.o-section--feature__headline--larger:lang(de){@display-as-jumbo :            @font-family-display , 2.1875    , 3.    , 1.055555556 , @font-bold    , -1.5px;font-family:Slack-Larsseit,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;font-weight:700;line-height:1.18181818;letter-spacing:-.8px;font-size:2rem;margin-bottom:1rem}
+@media screen and (min-width:25rem){.o-section--feature__headline--larger:lang(de){font-size:calc(2rem + (12 * (100vw - 400px)/ 624))}
+}
+.o-hero__header{margin-top:5rem}
+@media screen and (min-width:48rem){.o-hero__header{margin-top:0}
+}
+.o-hero__header .c-hero-one-column{max-width:30rem}
+@media screen and (min-width:64rem){.o-section--feature__headline--larger:lang(de){font-size:2.75rem}
+.o-hero__header .c-hero-one-column{max-width:40rem}
+}
+.o-hero__header .c-hero-one-column .c-type-paragraph-hero{max-width:32rem}
+.o-hero__header .c-cta--signup{max-width:20rem;margin-left:auto;margin-right:auto}
+.o-content-container .c-switcher-nav .o-section--feature__link:lang(pt-BR){font-size:1.1rem}
+.o-content-container .o-section--feature__link:lang(de),.o-content-container .o-section--feature__link:lang(ja){border-bottom:none;font-weight:700}
+.o-content-container .c-switcher--icon{flex-shrink:0}
+@media screen and (min-width:0) and (max-width:767px){.c-type-headline-jumbo:lang(de){-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto}
+.o-content-container .o-section--feature__link:lang(de):after,.o-content-container .o-section--feature__link:lang(es):after,.o-content-container .o-section--feature__link:lang(ja):after{display:none}
+.o-section--feature-companies{margin-top:2rem}
+}
+@media screen and (min-width:64rem){.o-hero__header .c-cta--signup{max-width:38rem}
+.o-content-container .o-section--feature__link:lang(fr){font-size:1.1rem}
+.u-padding-left-desktop-only{padding-left:2rem}
+}
+.c-announcement-banner.sessions .headline{font-size:1.5rem}
+.c-announcement-banner.frontiers .c-announcement-banner__dismiss{top:6rem}
+@media screen and (min-width:116.25rem){.c-announcement-banner.frontiers{padding:5rem 25vw 1.5rem 26vw}
+}
+@media screen and (max-width:1023px){.c-announcement-banner.frontiers{padding:4rem 2vw 1.5rem 6vw}
+}
+.c-announcement-banner.frontiers .c-button{margin-right:1.5rem;padding:20px 25px 21px;text-decoration:none}
+.c-announcement-banner.frontiers .headline{font-size:1.5rem}
+@media screen and (max-width:767px){.c-announcement-banner.frontiers .headline{font-size:1.25rem;word-break:keep-all}
+}
+.c-announcement-banner.frontiers .c-announcement-banner__text img{display:inline-block;margin:.5rem 0}
+.c-announcement-banner.frontiers .content__secondary{width:60%}
+@media screen and (max-width:1023px){.c-announcement-banner.frontiers .c-button{padding:.75rem}
+.c-announcement-banner.frontiers .content__secondary{width:100%}
+}

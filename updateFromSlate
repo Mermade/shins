@@ -6,5 +6,5 @@ cp -r ../slate/source/includes source/
 cp -r ../slate/source/javascripts source/
 cp -r ../slate/source/layouts source/
 cp -r ../slate/source/stylesheets source/
-git checkout HEAD source/images/logo.png
+git checkout HEAD source/images/logo-full-light.svg
 echo Please run \'node buildstyle\' to rebuild the .css files

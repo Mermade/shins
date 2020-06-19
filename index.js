@@ -15,7 +15,7 @@ const attrs = require("markdown-it-attrs");
 var md = require("markdown-it")({
     linkify: true,
     html: true,
-    highlight: function(str, lang) {
+    highlight: function (str, lang) {
         var slang = lang.split("--")[0]; // allows multiple language tabs for the same language
         if (slang && hljs.getLanguage(slang)) {
             try {
@@ -34,7 +34,7 @@ var md = require("markdown-it")({
             md.utils.escapeHtml(str) +
             "</code></pre>"
         );
-    }
+    },
 }).use(require("markdown-it-lazy-headers"));
 md.use(emoji);
 const yaml = require("yaml");
@@ -43,7 +43,7 @@ const uglify = require("uglify-js");
 const cheerio = require("cheerio");
 const sanitizeHtml = require("sanitize-html");
 
-let globalOptions = {unsafe: true, inline: true};
+let globalOptions = { unsafe: true, inline: true };
 
 function safeReadFileSync(filename, encoding) {
     try {
@@ -65,10 +65,7 @@ function javascript_include_tag(include) {
     );
     if (globalOptions.minify) {
         var scripts = [];
-        var includes = includeStr
-            .split("\r")
-            .join()
-            .split("\n");
+        var includes = includeStr.split("\r").join().split("\n");
         for (var i in includes) {
             var inc = includes[i];
             var elements = inc.split('"');
@@ -218,16 +215,11 @@ function language_array(language_tabs) {
             result.push(language_tabs[lang]);
         }
     }
-    return JSON.stringify(result)
-        .split('"')
-        .join("&quot;");
+    return JSON.stringify(result).split('"').join("&quot;");
 }
 
 function preProcess(content, options) {
-    let lines = content
-        .split("\r")
-        .join("")
-        .split("\n");
+    let lines = content.split("\r").join("").split("\n");
     const comments = [];
     comments.push(
         "<!-- Renderer: Shins v" + globalOptions.shins.version + " -->"
@@ -247,10 +239,7 @@ function preProcess(content, options) {
             if (options.source)
                 filename = path.resolve(path.dirname(options.source), filename);
             let s = safeReadFileSync(filename, "utf8");
-            let include = s
-                .split("\r")
-                .join("")
-                .split("\n");
+            let include = s.split("\r").join("").split("\n");
             lines.splice(l, 1, ...include);
         } else lines[l] = line;
     }
@@ -264,7 +253,7 @@ function cleanId(id) {
 
 function postProcess(content) {
     // adds id a la GitHub autolinks to automatically-generated headers
-    content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function(
+    content = content.replace(/\<(h[123456])\>(.*)\<\/h[123456]\>/g, function (
         match,
         header,
         title
@@ -285,7 +274,7 @@ function postProcess(content) {
     // clean up the other ids as well
     content = content.replace(
         /\<(h[123456]) id="(.*)"\>(.*)\<\/h[123456]\>/g,
-        function(match, header, id, title) {
+        function (match, header, id, title) {
             return (
                 "<" +
                 header +
@@ -317,7 +306,7 @@ function clean(s) {
             "summary",
             "abbr",
             "meta",
-            "link"
+            "link",
         ]),
         allowedAttributes: {
             a: ["href", "id", "name", "target", "class"],
@@ -336,8 +325,8 @@ function clean(s) {
             h6: ["id"],
             table: ["class"],
             tr: ["class"],
-            td: ["class"]
-        }
+            td: ["class"],
+        },
     };
     // replace things which look like tags which sanitizeHtml will eat
     s = s.split("\n>").join("\n$1$");
@@ -407,7 +396,7 @@ function render(inputStr, options, callback) {
     }
     return maybe(
         callback,
-        new Promise(function(resolve, reject) {
+        new Promise(function (resolve, reject) {
             globalOptions = options;
             globalOptions.shins = require("./package.json");
 
@@ -423,10 +412,10 @@ function render(inputStr, options, callback) {
         ['ceylon','common_lisp','conf','cowscript','erb','factor','io','json-doc','liquid','literate_coffeescript','literate_haskell','llvm','make',
         'objective_c','plaintext','praat','properties','racket','sass','sed','shell','slim','sml','toml','tulip','viml'];*/
             var sh = hljs.getLanguage("bash");
-            hljs.registerLanguage("shell", function(hljs) {
+            hljs.registerLanguage("shell", function (hljs) {
                 return sh;
             });
-            hljs.registerLanguage("sh", function(hljs) {
+            hljs.registerLanguage("sh", function (hljs) {
                 return sh;
             });
 
@@ -440,15 +429,13 @@ function render(inputStr, options, callback) {
             locals.current_page = {};
             locals.current_page.data = header;
             locals.page_content = content;
-            locals.toc_data = function(content) {
+            locals.toc_data = function (content) {
                 var $ = cheerio.load(content);
                 var result = [];
                 var h1, h2, h3, h4, h5;
                 var headingLevel = header.headingLevel || 2;
-                $(":header").each(function(e) {
-                    var tag = $(this)
-                        .get(0)
-                        .tagName.toLowerCase();
+                $(":header").each(function (e) {
+                    var tag = $(this).get(0).tagName.toLowerCase();
                     var entry = {};
                     if (tag === "h1") {
                         entry.id = $(this).attr("id");
@@ -505,7 +492,7 @@ function render(inputStr, options, callback) {
                 return result; //[{id:'test',content:'hello',children:[]}];
             };
             locals.partial = partial;
-            locals.image_tag = function(image, altText, className) {
+            locals.image_tag = function (image, altText, className) {
                 var imageSource = "source/images/" + image;
                 if (globalOptions.inline) {
                     var imgContent = safeReadFileSync(
@@ -523,9 +510,9 @@ function render(inputStr, options, callback) {
                     '">'
                 );
             };
-            locals.logo_image_tag = function() {
+            locals.logo_image_tag = function () {
                 if (!globalOptions.logo)
-                    return locals.image_tag("logo.png", "Logo", "logo");
+                    return locals.image_tag("logo-full-light.svg", "Logo", "logo");
                 var imageSource = path.resolve(
                     process.cwd(),
                     globalOptions.logo
@@ -569,7 +556,7 @@ function render(inputStr, options, callback) {
                 ),
                 locals,
                 ejsOptions,
-                function(err, str) {
+                function (err, str) {
                     if (err) reject(err);
                     else resolve(str);
                 }
@@ -580,7 +567,7 @@ function render(inputStr, options, callback) {
 
 module.exports = {
     render: render,
-    srcDir: function() {
+    srcDir: function () {
         return globalOptions.root;
-    }
+    },
 };
