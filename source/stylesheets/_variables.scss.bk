@@ -21,8 +21,8 @@ under the License.
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #000039 !default;
-$examples-bg: #000039 !default;
+$nav-bg: #1B1464 !default;
+$examples-bg: #1B1464 !default;
 $code-bg: #1e2224 !default;
 $code-annotation-bg: #191d1f !default;
 $nav-subitem-bg: #1e2224 !default;

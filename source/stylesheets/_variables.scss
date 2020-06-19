@@ -21,8 +21,8 @@ under the License.
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #000039 !default;
-$examples-bg: #000039 !default;
+$nav-bg: #1B1464 !default;
+$examples-bg: #1B1464 !default;
 $code-bg: #1e2224 !default;
 $code-annotation-bg: #191d1f !default;
 $nav-subitem-bg: #1e2224 !default;
@@ -35,7 +35,7 @@ $lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse i
 $main-bg: #f3f7f9 !default;
 $aside-notice-bg: #8fbcd4 !default;
 $aside-warning-bg: #c97a7e !default;
-$aside-success-bg: #4b39ef !default;
+$aside-success-bg: #8148F4 !default;
 $search-notice-bg: #c97a7e !default;
 
 // TEXT COLORS
@@ -122,9 +122,9 @@ under the License.
 
 // TG COLORS
 ////////////////////
-$tg-green: #4b39ef;
-$tg-dark-green: #4b39ef;
-$tg-slate: #000039;
+$tg-green: #8148F4;
+$tg-dark-green: #8148F4;
+$tg-slate: #1B1464;
 $tg-grey: #6c7279;
 $tg-teal: #65d5d9;
 $tg-red: #F43EBD;
@@ -141,9 +141,9 @@ $black: #000000;
 // BACKGROUND COLORS
 ////////////////////
 $nav-bg: $base-grey-5;
-$examples-bg: rgba(#000039, 0.8);
+$examples-bg: rgba(#1B1464, 0.8);
 $code-bg: transparent;
-$code-annotation-bg: #000039;
+$code-annotation-bg: #1B1464;
 $search-highlight: rgba(#2fa0dc, 0.3);
 $nav-subitem-bg: $base-grey-5;
 $nav-active-bg: $white;

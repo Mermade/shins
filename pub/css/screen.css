@@ -493,7 +493,7 @@ under the License.
 */
 html,
 body {
-  color: #000039;
+  color: #1B1464;
   padding: 0;
   margin: 0;
   text-rendering: optimizeLegibility;
@@ -584,7 +584,7 @@ body {
       text-decoration: none; }
       .toc-wrapper .search-results a:hover {
         text-decoration: none;
-        color: #000039; }
+        color: #1B1464; }
   .toc-wrapper .tocify-item > a,
   .toc-wrapper .toc-footer li {
     padding: 10px 0;
@@ -606,7 +606,7 @@ body {
   .toc-wrapper .toc-link.active,
   .toc-wrapper .tocify-focus {
     background-color: #ffffff;
-    color: #000039; }
+    color: #1B1464; }
   .toc-wrapper .tocify-subheader {
     display: none;
     background-color: #fbfcfb;
@@ -633,7 +633,7 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
-  color: #000039;
+  color: #1B1464;
   text-decoration: none;
   font-weight: bold;
   line-height: 16px;
@@ -642,7 +642,7 @@ body {
     display: block;
     margin-top: 5px;
     padding: 10px;
-    background-color: #000039;
+    background-color: #1B1464;
     border-radius: 0 3px 3px 0; }
   #nav-button img {
     height: 16px;
@@ -668,10 +668,10 @@ body {
     position: fixed;
     z-index: 50;
     padding: 1em 28px;
-    background-color: #000039; }
+    background-color: #1B1464; }
 
 .lang-selector {
-  background-color: #000039;
+  background-color: #1B1464;
   border-radius: 3px;
   width: 100%; }
   .lang-selector a {
@@ -683,7 +683,7 @@ body {
     line-height: 30px;
     outline: 0; }
     .lang-selector a:active, .lang-selector a:focus {
-      background-color: #000039;
+      background-color: #1B1464;
       color: #ffffff;
       border-radius: 3px; }
     .lang-selector a.active {
@@ -791,10 +791,10 @@ body {
   .content a {
     font-weight: 700;
     text-decoration: none;
-    color: #4b39ef;
+    color: #8148F4;
     transition: linear 50ms; }
     .content a:hover {
-      color: #4b39ef; }
+      color: #8148F4; }
   .content img {
     max-width: 100%; }
   .content code {
@@ -820,7 +820,7 @@ body {
   .content aside.warning:before {
     color: #F43EBD; }
   .content aside.success:before {
-    color: #4b39ef; }
+    color: #8148F4; }
   .content .search-highlight {
     padding: 2px;
     margin: -2px;
@@ -829,7 +829,7 @@ body {
 
 .content pre,
 .content blockquote {
-  background-color: #000039;
+  background-color: #1B1464;
   color: #ffffff;
   padding: 2em 28px;
   margin: 0;
@@ -938,7 +938,7 @@ body {
 .highlight .str,
 .highlight .s2,
 .highlight .s1 {
-  color: #4b39ef; }
+  color: #8148F4; }
 
 .highlight,
 .highlight .w {
@@ -947,7 +947,7 @@ body {
 .faux-toc-link {
   padding: 10px;
   text-decoration: none;
-  color: #000039; }
+  color: #1B1464; }
 
 .opt {
   margin-left: 5px;
