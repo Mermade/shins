@@ -191,6 +191,7 @@ To invite a user to use [Transact](#transact-sdk) over SMS, follow the instructi
 | `publicToken` <h6>required</h6> | The public token return during [AccessToken](#create-access-token) creation.                                 |
 | `product` <h6>required</h6>     | The [product](#products) to initiate. Valid values include `balance` `deposit`, `verify`, or `identify`      |
 | `color`                         | Optionally, provide a hex color code to customize Transact.                                                  |
+| `deeplink`                         | Optionally, start on a specific step. Acceptable values include `search`.                                              |
 | `onFinish`                      | A function that is called when the user finishes the transaction. The function will receive a `data` object. |
 | `onClose`                       | Called when the user exits Transact prematurely.                                                             |
 
