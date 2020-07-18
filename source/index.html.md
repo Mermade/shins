@@ -240,6 +240,58 @@ To validate a webhook request came from Atomic, we suggest verifying the payload
 | `type`    | The [event type](#event-types).          |
 | `data`    | Payload of data describing the event.    |
 
+
+## Outputs
+> Sample
+```json
+{
+    "eventType": "task-status-updated",
+    "eventTime": "2020-01-28T22:04:18.778Z",
+    "product": "verify",
+    "user": {
+        "_id": "5d8d3fecbf637ef3b11a877a",
+        "identifier": "YOUR_INTERNAL_GUID"
+    },
+    "task": "5e30afde097146a8fc3d5cec",
+    "data": {
+        "previousStatus": "processing",
+        "status": "completed",
+        "outputs": {
+            "income": "45000",
+            "incomeType": "yearly",
+            "employeeType": "Fulltime",
+            "employmentStatus": "active",
+            "jobTitle": "Product Manager",
+            "startDate": "4/19/2017",
+            "weeklyHours": "40",
+            "paystubs": ["https://app.payroll.com/payroll_items/123", "https://app.payroll.com/payroll_items/778", "https://app.payroll.com/payroll_items/8932"] ,
+            "accounts": [
+                {  
+                    "accountNumber": "220000000",
+                    "routingNumber": "110000000",
+                    "type": "checking",
+                    "distributionType": "10",
+                    distributionAmount: "100"
+                }
+            ]
+        }    
+      }
+  }
+```
+| Attribute             | Description                                                                       |
+| --------------------- | --------------------------------------------------------------------------------- |
+| `income`              | Income.                                                                           |
+| `incomeType`          | The income type of the employee: yearly, monthly, weekly, daily, or hourly Income.|
+| `employeeType`        | Type of the employee: part-time or full-time.                                     |
+| `employmentStatus`    | The employment status: active or terminated.                                      |
+| `jobTitle`            | The designation.                                                                  |
+| `startDate`           | Start date of the employee.                                                       |
+| `weeklyHours`         | The number of hours of work per week.                                             |
+| `payCycle`            | Payment period type: monthly, biweekly, or weekly.                                |
+| `paystubs`            | An array of URL of paystubs.                                                      |
+| `accounts`            | An array of bank and/or credit card [account](#accounts).                         |
+
+	
 ## Event types
 
 > Task Status Update
