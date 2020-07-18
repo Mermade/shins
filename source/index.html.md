@@ -354,7 +354,7 @@ The status of a [Task](#create-task) was changed. Possible statuses include:
 | `routingNumber`                   | string | When account the account is bank account, this is the ABA routing number.                                                                                                                                                                                                           |
 | `type`                            | string | Type of account. Possible values include `checking` or `savings`                                                                                                                                                                                                                    |
 | `distributionType`                | string | The type of distribution for the account. Possible values include `total`, `percent`, or `fixed`..                                                                                                                                                                                  |
-| `distributionAmount`              | number | The amount being distributed to the account. When `distributionType` is `percent`, the number represents a percentage of the total pay. When `distributionType` is `fixed`, this number represents a fixed dollar amount. This value is not set with `distributionType` is `total`. |
+| `distributionAmount`              | number | The amount being distributed to the account. When `distributionType` is `percent`, the number represents a percentage of the total pay. When `distributionType` is `fixed`, this number represents a fixed dollar amount. This value is not set when `distributionType` is `total`. |
 
 > Sample
 
