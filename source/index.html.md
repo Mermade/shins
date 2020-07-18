@@ -274,7 +274,7 @@ The status of a [Task](#create-task) was changed. Possible statuses include:
 
 ## Outputs
 
-> Sample
+> Sample response for `verify`
 
 ```json
 {
@@ -334,7 +334,7 @@ The status of a [Task](#create-task) was changed. Possible statuses include:
 
 #### Deposit account
 
-> Example
+> Sample deposit account
 
 ```json
 {
@@ -356,7 +356,7 @@ The status of a [Task](#create-task) was changed. Possible statuses include:
 | `distributionType`                | string | The type of distribution for the account. Possible values include `total`, `percent`, or `fixed`..                                                                                                                                                                                  |
 | `distributionAmount`              | number | The amount being distributed to the account. When `distributionType` is `percent`, the number represents a percentage of the total pay. When `distributionType` is `fixed`, this number represents a fixed dollar amount. This value is not set when `distributionType` is `total`. |
 
-> Sample
+> Sample response for `identify`
 
 ```json
 {
