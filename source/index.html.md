@@ -271,7 +271,7 @@ To validate a webhook request came from Atomic, we suggest verifying the payload
                     "routingNumber": "110000000",
                     "type": "checking",
                     "distributionType": "10",
-                    distributionAmount: "100"
+                    "distributionAmount": "100"
                 }
             ]
         }    
@@ -291,6 +291,47 @@ To validate a webhook request came from Atomic, we suggest verifying the payload
 | `paystubs`            | An array of URL of paystubs.                                                      |
 | `accounts`            | An array of bank and/or credit card [account](#accounts).                         |
 
+> Sample
+```json
+{
+      "eventType": "task-status-updated",
+      "eventTime": "2020-01-28T22:04:18.778Z",
+      "product": "identify",
+      "user": {
+          "_id": "5d8d3fecbf637ef3b11a877a",
+          "identifier": "YOUR_INTERNAL_GUID"
+      },
+      "task": "5e30afde097146a8fc3d5cec",
+      "data": {
+          "previousStatus": "processing",
+          "status": "completed",
+          "outputs": {
+              "firstName": "Jane",
+              "lastName": "Appleseed",
+              "dateOfBirth": "6/4/98",
+              "email": "jane@doe.com",
+              "phone": "5558881111",
+              "ssn": "111223333",
+              "address": "123 Street St.",
+              "city": "Salt Lake City",
+              "state": "UT", 
+              "postalcode": "84111"   
+          }    
+        }
+    }
+ ```
+| Attribute    | Description                  |
+| --------------| ----------------------------|
+| `firstName`   | The first name.             |
+| `lastName`    | The last name.              |
+| `dateOfBirth` | The date of birth.          |
+| `email`       | The email ID.               |
+| `phone`       | The phone number.           |
+| `ssn`         | The Social Security Number. |
+| `address`     | The address of the employee.|
+| `city`        | The city.                   |
+| `state`       | The state.                  |
+| `postalcode`  | An The postal Code.         |
 	
 ## Event types
 
