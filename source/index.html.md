@@ -289,7 +289,7 @@ To validate a webhook request came from Atomic, we suggest verifying the payload
 | `weeklyHours`         | The number of hours of work per week.                                             |
 | `payCycle`            | Payment period type: monthly, biweekly, or weekly.                                |
 | `paystubs`            | An array of URL of paystubs.                                                      |
-| `accounts`            | An array of bank and/or credit card [account](#accounts).                         |
+| `accounts`            | An array of bank and/or credit card [account](#account).                         |
 
 > Sample
 ```json
