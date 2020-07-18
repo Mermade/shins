@@ -191,7 +191,7 @@ To invite a user to use [Transact](#transact-sdk) over SMS, follow the instructi
 | `publicToken` <h6>required</h6> | The public token return during [AccessToken](#create-access-token) creation.                                 |
 | `product` <h6>required</h6>     | The [product](#products) to initiate. Valid values include `balance` `deposit`, `verify`, or `identify`      |
 | `color`                         | Optionally, provide a hex color code to customize Transact.                                                  |
-| `deeplink`                         | Optionally, start on a specific step. Acceptable values include `search`.                                              |
+| `deeplink`                      | Optionally, start on a specific step. Acceptable values include `search`.                                    |
 | `onFinish`                      | A function that is called when the user finishes the transaction. The function will receive a `data` object. |
 | `onClose`                       | Called when the user exits Transact prematurely.                                                             |
 
@@ -240,99 +240,6 @@ To validate a webhook request came from Atomic, we suggest verifying the payload
 | `type`    | The [event type](#event-types).          |
 | `data`    | Payload of data describing the event.    |
 
-
-## Outputs
-> Sample
-```json
-{
-    "eventType": "task-status-updated",
-    "eventTime": "2020-01-28T22:04:18.778Z",
-    "product": "verify",
-    "user": {
-        "_id": "5d8d3fecbf637ef3b11a877a",
-        "identifier": "YOUR_INTERNAL_GUID"
-    },
-    "task": "5e30afde097146a8fc3d5cec",
-    "data": {
-        "previousStatus": "processing",
-        "status": "completed",
-        "outputs": {
-            "income": "45000",
-            "incomeType": "yearly",
-            "employeeType": "Fulltime",
-            "employmentStatus": "active",
-            "jobTitle": "Product Manager",
-            "startDate": "4/19/2017",
-            "weeklyHours": "40",
-            "paystubs": ["https://app.payroll.com/payroll_items/123", "https://app.payroll.com/payroll_items/778", "https://app.payroll.com/payroll_items/8932"] ,
-            "accounts": [
-                {  
-                    "accountNumber": "220000000",
-                    "routingNumber": "110000000",
-                    "type": "checking",
-                    "distributionType": "10",
-                    "distributionAmount": "100"
-                }
-            ]
-        }    
-      }
-  }
-```
-| Attribute             | Description                                                                       |
-| --------------------- | --------------------------------------------------------------------------------- |
-| `income`              | Income.                                                                           |
-| `incomeType`          | The income type of the employee: yearly, monthly, weekly, daily, or hourly Income.|
-| `employeeType`        | Type of the employee: part-time or full-time.                                     |
-| `employmentStatus`    | The employment status: active or terminated.                                      |
-| `jobTitle`            | The designation.                                                                  |
-| `startDate`           | Start date of the employee.                                                       |
-| `weeklyHours`         | The number of hours of work per week.                                             |
-| `payCycle`            | Payment period type: monthly, biweekly, or weekly.                                |
-| `paystubs`            | An array of URL of paystubs.                                                      |
-| `accounts`            | An array of bank and/or credit card [account](#account).                         |
-
-> Sample
-```json
-{
-      "eventType": "task-status-updated",
-      "eventTime": "2020-01-28T22:04:18.778Z",
-      "product": "identify",
-      "user": {
-          "_id": "5d8d3fecbf637ef3b11a877a",
-          "identifier": "YOUR_INTERNAL_GUID"
-      },
-      "task": "5e30afde097146a8fc3d5cec",
-      "data": {
-          "previousStatus": "processing",
-          "status": "completed",
-          "outputs": {
-              "firstName": "Jane",
-              "lastName": "Appleseed",
-              "dateOfBirth": "6/4/98",
-              "email": "jane@doe.com",
-              "phone": "5558881111",
-              "ssn": "111223333",
-              "address": "123 Street St.",
-              "city": "Salt Lake City",
-              "state": "UT", 
-              "postalcode": "84111"   
-          }    
-        }
-    }
- ```
-| Attribute    | Description                  |
-| --------------| ----------------------------|
-| `firstName`   | The first name.             |
-| `lastName`    | The last name.              |
-| `dateOfBirth` | The date of birth.          |
-| `email`       | The email ID.               |
-| `phone`       | The phone number.           |
-| `ssn`         | The Social Security Number. |
-| `address`     | The address of the employee.|
-| `city`        | The city.                   |
-| `state`       | The state.                  |
-| `postalcode`  | An The postal Code.         |
-	
 ## Event types
 
 > Task Status Update
@@ -364,6 +271,136 @@ The status of a [Task](#create-task) was changed. Possible statuses include:
 | `processing` | The task has started processing. |
 | `failed`     | The task failed to process.      |
 | `completed`  | The task completed successfully. |
+
+## Outputs
+
+> Sample
+
+```json
+{
+    "eventType": "task-status-updated",
+    "eventTime": "2020-01-28T22:04:18.778Z",
+    "product": "verify",
+    "user": {
+        "_id": "5d8d3fecbf637ef3b11a877a",
+        "identifier": "YOUR_INTERNAL_GUID"
+    },
+    "task": "5e30afde097146a8fc3d5cec",
+    "data": {
+        "previousStatus": "processing",
+        "status": "completed",
+        "outputs": {
+            "income": "45000",
+            "incomeType": "yearly",
+            "employeeType": "Fulltime",
+            "employmentStatus": "active",
+            "jobTitle": "Product Manager",
+            "startDate": "4/19/2017",
+            "weeklyHours": "40",
+            "paystubs": [
+                "https://example.url/payroll_items/123.pdf",
+                "https://example.url/payroll_items/778.pdf",
+                "https://example.url/payroll_items/8932.pdf"
+            ],
+            "accounts": [
+                {
+                    "accountNumber": "220000000",
+                    "routingNumber": "110000000",
+                    "type": "checking",
+                    "distributionType": "total"
+                }
+            ]
+        }
+    }
+}
+```
+
+### Outputs for the `verify` product
+
+| Attribute          | Description                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------- |
+| `income`           | Employee's income, represented as a number.                                                       |
+| `incomeType`       | Employee's income type. Possible values are `yearly`, `monthly`, `weekly`, `daily`, and `hourly`. |
+| `employeeType`     | Employee type. Possible values are `part-time` and `full-time`.                                   |
+| `employmentStatus` | Employment status. Possible values are `active` and `terminated`.                                 |
+| `jobTitle`         | Employee's job title.                                                                             |
+| `startDate`        | Employee's hire date.                                                                             |
+| `weeklyHours`      | Number of hours worked per week.                                                                  |
+| `payCycle`         | Payment period. Possible values are `monthly`, `biweekly`, and `weekly`.                          |
+| `paystubs`         | An array of URLs, each pointing to a downloadable paystub in PDF format.                          |
+| `accounts`         | An array of bank [accounts](#deposit-account) on file for paycheck distributions.                 |
+
+### Nested object properties
+
+#### Deposit account
+
+> Example
+
+```json
+{
+    "accountNumber": "220000000",
+    "routingNumber": "110000000",
+    "type": "checking",
+    "distributionType": "percent",
+    "distributionAmount": "75"
+}
+```
+
+##### Properties
+
+| Name                              | Type   | Description                                                                                                                                                                                                                                                                         |
+| --------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accountNumber` <h6>required</h6> | string | Account number.                                                                                                                                                                                                                                                                     |
+| `routingNumber`                   | string | When account the account is bank account, this is the ABA routing number.                                                                                                                                                                                                           |
+| `type`                            | string | Type of account. Possible values include `checking` or `savings`                                                                                                                                                                                                                    |
+| `distributionType`                | string | The type of distribution for the account. Possible values include `total`, `percent`, or `fixed`..                                                                                                                                                                                  |
+| `distributionAmount`              | number | The amount being distributed to the account. When `distributionType` is `percent`, the number represents a percentage of the total pay. When `distributionType` is `fixed`, this number represents a fixed dollar amount. This value is not set with `distributionType` is `total`. |
+
+> Sample
+
+```json
+{
+    "eventType": "task-status-updated",
+    "eventTime": "2020-01-28T22:04:18.778Z",
+    "product": "identify",
+    "user": {
+        "_id": "5d8d3fecbf637ef3b11a877a",
+        "identifier": "YOUR_INTERNAL_GUID"
+    },
+    "task": "5e30afde097146a8fc3d5cec",
+    "data": {
+        "previousStatus": "processing",
+        "status": "completed",
+        "outputs": {
+            "firstName": "Jane",
+            "lastName": "Appleseed",
+            "dateOfBirth": "6/4/98",
+            "email": "jane@doe.com",
+            "phone": "5558881111",
+            "ssn": "111223333",
+            "address": "123 Example St.",
+            "city": "Salt Lake City",
+            "state": "UT",
+            "postalCode": "84111"
+        }
+    }
+}
+```
+
+### Outputs for the `identify` product
+
+| Attribute     | Description             |
+| ------------- | ----------------------- |
+| `firstName`   | First name.             |
+| `lastName`    | Last name.              |
+| `dateOfBirth` | Date of birth.          |
+| `email`       | Email address.          |
+| `phone`       | Phone number.           |
+| `ssn`         | Social security number. |
+| `address`     | Address street address. |
+| `city`        | Address city.           |
+| `state`       | Address state.          |
+| `postalcode`  | Address postal code.    |
 
 # API Reference
 

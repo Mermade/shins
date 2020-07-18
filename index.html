@@ -1799,12 +1799,12 @@ var n=this.pipeline.run(e.tokenizer(t)),r=new e.Vector,i=[],o=this._fields.reduc
                   </li>
                 
                   <li>
-                    <a href="#outputs" class="toc-h2 toc-link" data-title="">Outputs</a>
+                    <a href="#event-types" class="toc-h2 toc-link" data-title="">Event types</a>
                     
                   </li>
                 
                   <li>
-                    <a href="#event-types" class="toc-h2 toc-link" data-title="">Event types</a>
+                    <a href="#outputs" class="toc-h2 toc-link" data-title="">Outputs</a>
                     
                   </li>
                 
@@ -2117,174 +2117,6 @@ startTransact();
 </tr>
 </tbody>
 </table>
-<h2 id="outputs">Outputs</h2>
-<blockquote>
-<p>Sample</p>
-</blockquote>
-<pre class="highlight tab tab-json"><code>{
-    <span class="hljs-attr">"eventType"</span>: <span class="hljs-string">"task-status-updated"</span>,
-    <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"2020-01-28T22:04:18.778Z"</span>,
-    <span class="hljs-attr">"product"</span>: <span class="hljs-string">"verify"</span>,
-    <span class="hljs-attr">"user"</span>: {
-        <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5d8d3fecbf637ef3b11a877a"</span>,
-        <span class="hljs-attr">"identifier"</span>: <span class="hljs-string">"YOUR_INTERNAL_GUID"</span>
-    },
-    <span class="hljs-attr">"task"</span>: <span class="hljs-string">"5e30afde097146a8fc3d5cec"</span>,
-    <span class="hljs-attr">"data"</span>: {
-        <span class="hljs-attr">"previousStatus"</span>: <span class="hljs-string">"processing"</span>,
-        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"completed"</span>,
-        <span class="hljs-attr">"outputs"</span>: {
-            <span class="hljs-attr">"income"</span>: <span class="hljs-string">"45000"</span>,
-            <span class="hljs-attr">"incomeType"</span>: <span class="hljs-string">"yearly"</span>,
-            <span class="hljs-attr">"employeeType"</span>: <span class="hljs-string">"Fulltime"</span>,
-            <span class="hljs-attr">"employmentStatus"</span>: <span class="hljs-string">"active"</span>,
-            <span class="hljs-attr">"jobTitle"</span>: <span class="hljs-string">"Product Manager"</span>,
-            <span class="hljs-attr">"startDate"</span>: <span class="hljs-string">"4/19/2017"</span>,
-            <span class="hljs-attr">"weeklyHours"</span>: <span class="hljs-string">"40"</span>,
-            <span class="hljs-attr">"paystubs"</span>: [<span class="hljs-string">"https://app.payroll.com/payroll_items/123"</span>, <span class="hljs-string">"https://app.payroll.com/payroll_items/778"</span>, <span class="hljs-string">"https://app.payroll.com/payroll_items/8932"</span>] ,
-            <span class="hljs-attr">"accounts"</span>: [
-                {  
-                    <span class="hljs-attr">"accountNumber"</span>: <span class="hljs-string">"220000000"</span>,
-                    <span class="hljs-attr">"routingNumber"</span>: <span class="hljs-string">"110000000"</span>,
-                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"checking"</span>,
-                    <span class="hljs-attr">"distributionType"</span>: <span class="hljs-string">"10"</span>,
-                    <span class="hljs-attr">"distributionAmount"</span>: <span class="hljs-string">"100"</span>
-                }
-            ]
-        }    
-      }
-  }
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>income</code></td>
-<td>Income.</td>
-</tr>
-<tr>
-<td><code>incomeType</code></td>
-<td>The income type of the employee: yearly, monthly, weekly, daily, or hourly Income.</td>
-</tr>
-<tr>
-<td><code>employeeType</code></td>
-<td>Type of the employee: part-time or full-time.</td>
-</tr>
-<tr>
-<td><code>employmentStatus</code></td>
-<td>The employment status: active or terminated.</td>
-</tr>
-<tr>
-<td><code>jobTitle</code></td>
-<td>The designation.</td>
-</tr>
-<tr>
-<td><code>startDate</code></td>
-<td>Start date of the employee.</td>
-</tr>
-<tr>
-<td><code>weeklyHours</code></td>
-<td>The number of hours of work per week.</td>
-</tr>
-<tr>
-<td><code>payCycle</code></td>
-<td>Payment period type: monthly, biweekly, or weekly.</td>
-</tr>
-<tr>
-<td><code>paystubs</code></td>
-<td>An array of URL of paystubs.</td>
-</tr>
-<tr>
-<td><code>accounts</code></td>
-<td>An array of bank and/or credit card <a href="#account">account</a>.</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Sample</p>
-</blockquote>
-<pre class="highlight tab tab-json"><code>{
-      <span class="hljs-attr">"eventType"</span>: <span class="hljs-string">"task-status-updated"</span>,
-      <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"2020-01-28T22:04:18.778Z"</span>,
-      <span class="hljs-attr">"product"</span>: <span class="hljs-string">"identify"</span>,
-      <span class="hljs-attr">"user"</span>: {
-          <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5d8d3fecbf637ef3b11a877a"</span>,
-          <span class="hljs-attr">"identifier"</span>: <span class="hljs-string">"YOUR_INTERNAL_GUID"</span>
-      },
-      <span class="hljs-attr">"task"</span>: <span class="hljs-string">"5e30afde097146a8fc3d5cec"</span>,
-      <span class="hljs-attr">"data"</span>: {
-          <span class="hljs-attr">"previousStatus"</span>: <span class="hljs-string">"processing"</span>,
-          <span class="hljs-attr">"status"</span>: <span class="hljs-string">"completed"</span>,
-          <span class="hljs-attr">"outputs"</span>: {
-              <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Jane"</span>,
-              <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Appleseed"</span>,
-              <span class="hljs-attr">"dateOfBirth"</span>: <span class="hljs-string">"6/4/98"</span>,
-              <span class="hljs-attr">"email"</span>: <span class="hljs-string">"jane@doe.com"</span>,
-              <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"5558881111"</span>,
-              <span class="hljs-attr">"ssn"</span>: <span class="hljs-string">"111223333"</span>,
-              <span class="hljs-attr">"address"</span>: <span class="hljs-string">"123 Street St."</span>,
-              <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Salt Lake City"</span>,
-              <span class="hljs-attr">"state"</span>: <span class="hljs-string">"UT"</span>, 
-              <span class="hljs-attr">"postalcode"</span>: <span class="hljs-string">"84111"</span>   
-          }    
-        }
-    }
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>firstName</code></td>
-<td>The first name.</td>
-</tr>
-<tr>
-<td><code>lastName</code></td>
-<td>The last name.</td>
-</tr>
-<tr>
-<td><code>dateOfBirth</code></td>
-<td>The date of birth.</td>
-</tr>
-<tr>
-<td><code>email</code></td>
-<td>The email ID.</td>
-</tr>
-<tr>
-<td><code>phone</code></td>
-<td>The phone number.</td>
-</tr>
-<tr>
-<td><code>ssn</code></td>
-<td>The Social Security Number.</td>
-</tr>
-<tr>
-<td><code>address</code></td>
-<td>The address of the employee.</td>
-</tr>
-<tr>
-<td><code>city</code></td>
-<td>The city.</td>
-</tr>
-<tr>
-<td><code>state</code></td>
-<td>The state.</td>
-</tr>
-<tr>
-<td><code>postalcode</code></td>
-<td>An The postal Code.</td>
-</tr>
-</tbody>
-</table>
 <h2 id="event-types">Event types</h2>
 <blockquote>
 <p>Task Status Update</p>
@@ -2329,6 +2161,229 @@ startTransact();
 <tr>
 <td><code>completed</code></td>
 <td>The task completed successfully.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="outputs">Outputs</h2>
+<blockquote>
+<p>Sample</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+    <span class="hljs-attr">"eventType"</span>: <span class="hljs-string">"task-status-updated"</span>,
+    <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"2020-01-28T22:04:18.778Z"</span>,
+    <span class="hljs-attr">"product"</span>: <span class="hljs-string">"verify"</span>,
+    <span class="hljs-attr">"user"</span>: {
+        <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5d8d3fecbf637ef3b11a877a"</span>,
+        <span class="hljs-attr">"identifier"</span>: <span class="hljs-string">"YOUR_INTERNAL_GUID"</span>
+    },
+    <span class="hljs-attr">"task"</span>: <span class="hljs-string">"5e30afde097146a8fc3d5cec"</span>,
+    <span class="hljs-attr">"data"</span>: {
+        <span class="hljs-attr">"previousStatus"</span>: <span class="hljs-string">"processing"</span>,
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"completed"</span>,
+        <span class="hljs-attr">"outputs"</span>: {
+            <span class="hljs-attr">"income"</span>: <span class="hljs-string">"45000"</span>,
+            <span class="hljs-attr">"incomeType"</span>: <span class="hljs-string">"yearly"</span>,
+            <span class="hljs-attr">"employeeType"</span>: <span class="hljs-string">"Fulltime"</span>,
+            <span class="hljs-attr">"employmentStatus"</span>: <span class="hljs-string">"active"</span>,
+            <span class="hljs-attr">"jobTitle"</span>: <span class="hljs-string">"Product Manager"</span>,
+            <span class="hljs-attr">"startDate"</span>: <span class="hljs-string">"4/19/2017"</span>,
+            <span class="hljs-attr">"weeklyHours"</span>: <span class="hljs-string">"40"</span>,
+            <span class="hljs-attr">"paystubs"</span>: [
+                <span class="hljs-string">"https://example.url/payroll_items/123.pdf"</span>,
+                <span class="hljs-string">"https://example.url/payroll_items/778.pdf"</span>,
+                <span class="hljs-string">"https://example.url/payroll_items/8932.pdf"</span>
+            ],
+            <span class="hljs-attr">"accounts"</span>: [
+                {
+                    <span class="hljs-attr">"accountNumber"</span>: <span class="hljs-string">"220000000"</span>,
+                    <span class="hljs-attr">"routingNumber"</span>: <span class="hljs-string">"110000000"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"checking"</span>,
+                    <span class="hljs-attr">"distributionType"</span>: <span class="hljs-string">"total"</span>
+                }
+            ]
+        }
+    }
+}
+</code></pre>
+<h3 id="outputs-for-the--code-verify--code--product">Outputs for the <code>verify</code> product</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>income</code></td>
+<td>Employee's income, represented as a number.</td>
+</tr>
+<tr>
+<td><code>incomeType</code></td>
+<td>Employee's income type. Possible values are <code>yearly</code>, <code>monthly</code>, <code>weekly</code>, <code>daily</code>, and <code>hourly</code>.</td>
+</tr>
+<tr>
+<td><code>employeeType</code></td>
+<td>Employee type. Possible values are <code>part-time</code> and <code>full-time</code>.</td>
+</tr>
+<tr>
+<td><code>employmentStatus</code></td>
+<td>Employment status. Possible values are <code>active</code> and <code>terminated</code>.</td>
+</tr>
+<tr>
+<td><code>jobTitle</code></td>
+<td>Employee's job title.</td>
+</tr>
+<tr>
+<td><code>startDate</code></td>
+<td>Employee's hire date.</td>
+</tr>
+<tr>
+<td><code>weeklyHours</code></td>
+<td>Number of hours worked per week.</td>
+</tr>
+<tr>
+<td><code>payCycle</code></td>
+<td>Payment period. Possible values are <code>monthly</code>, <code>biweekly</code>, and <code>weekly</code>.</td>
+</tr>
+<tr>
+<td><code>paystubs</code></td>
+<td>An array of URLs, each pointing to a downloadable paystub in PDF format.</td>
+</tr>
+<tr>
+<td><code>accounts</code></td>
+<td>An array of bank <a href="#deposit-account">accounts</a> on file for paycheck distributions.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nested-object-properties">Nested object properties</h3>
+<h4 id="deposit-account">Deposit account</h4>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+    <span class="hljs-attr">"accountNumber"</span>: <span class="hljs-string">"220000000"</span>,
+    <span class="hljs-attr">"routingNumber"</span>: <span class="hljs-string">"110000000"</span>,
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"checking"</span>,
+    <span class="hljs-attr">"distributionType"</span>: <span class="hljs-string">"percent"</span>,
+    <span class="hljs-attr">"distributionAmount"</span>: <span class="hljs-string">"75"</span>
+}
+</code></pre>
+<h5 id="properties">Properties</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>accountNumber</code> <h6 id="required">required</h6></td>
+<td>string</td>
+<td>Account number.</td>
+</tr>
+<tr>
+<td><code>routingNumber</code></td>
+<td>string</td>
+<td>When account the account is bank account, this is the ABA routing number.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>Type of account. Possible values include <code>checking</code> or <code>savings</code></td>
+</tr>
+<tr>
+<td><code>distributionType</code></td>
+<td>string</td>
+<td>The type of distribution for the account. Possible values include <code>total</code>, <code>percent</code>, or <code>fixed</code>..</td>
+</tr>
+<tr>
+<td><code>distributionAmount</code></td>
+<td>number</td>
+<td>The amount being distributed to the account. When <code>distributionType</code> is <code>percent</code>, the number represents a percentage of the total pay. When <code>distributionType</code> is <code>fixed</code>, this number represents a fixed dollar amount. This value is not set with <code>distributionType</code> is <code>total</code>.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Sample</p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+    <span class="hljs-attr">"eventType"</span>: <span class="hljs-string">"task-status-updated"</span>,
+    <span class="hljs-attr">"eventTime"</span>: <span class="hljs-string">"2020-01-28T22:04:18.778Z"</span>,
+    <span class="hljs-attr">"product"</span>: <span class="hljs-string">"identify"</span>,
+    <span class="hljs-attr">"user"</span>: {
+        <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5d8d3fecbf637ef3b11a877a"</span>,
+        <span class="hljs-attr">"identifier"</span>: <span class="hljs-string">"YOUR_INTERNAL_GUID"</span>
+    },
+    <span class="hljs-attr">"task"</span>: <span class="hljs-string">"5e30afde097146a8fc3d5cec"</span>,
+    <span class="hljs-attr">"data"</span>: {
+        <span class="hljs-attr">"previousStatus"</span>: <span class="hljs-string">"processing"</span>,
+        <span class="hljs-attr">"status"</span>: <span class="hljs-string">"completed"</span>,
+        <span class="hljs-attr">"outputs"</span>: {
+            <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"Jane"</span>,
+            <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Appleseed"</span>,
+            <span class="hljs-attr">"dateOfBirth"</span>: <span class="hljs-string">"6/4/98"</span>,
+            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"jane@doe.com"</span>,
+            <span class="hljs-attr">"phone"</span>: <span class="hljs-string">"5558881111"</span>,
+            <span class="hljs-attr">"ssn"</span>: <span class="hljs-string">"111223333"</span>,
+            <span class="hljs-attr">"address"</span>: <span class="hljs-string">"123 Example St."</span>,
+            <span class="hljs-attr">"city"</span>: <span class="hljs-string">"Salt Lake City"</span>,
+            <span class="hljs-attr">"state"</span>: <span class="hljs-string">"UT"</span>,
+            <span class="hljs-attr">"postalCode"</span>: <span class="hljs-string">"84111"</span>
+        }
+    }
+}
+</code></pre>
+<h3 id="outputs-for-the--code-identify--code--product">Outputs for the <code>identify</code> product</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>firstName</code></td>
+<td>First name.</td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td>Last name.</td>
+</tr>
+<tr>
+<td><code>dateOfBirth</code></td>
+<td>Date of birth.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Email address.</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>Phone number.</td>
+</tr>
+<tr>
+<td><code>ssn</code></td>
+<td>Social security number.</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>Address street address.</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td>Address city.</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td>Address state.</td>
+</tr>
+<tr>
+<td><code>postalcode</code></td>
+<td>Address postal code.</td>
 </tr>
 </tbody>
 </table>
