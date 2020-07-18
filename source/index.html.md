@@ -292,7 +292,7 @@ The status of a [Task](#create-task) was changed. Possible statuses include:
         "outputs": {
             "income": "45000",
             "incomeType": "yearly",
-            "employeeType": "Fulltime",
+            "employeeType": "fulltime",
             "employmentStatus": "active",
             "jobTitle": "Product Manager",
             "startDate": "4/19/2017",
@@ -321,7 +321,7 @@ The status of a [Task](#create-task) was changed. Possible statuses include:
 | ------------------ | ------------------------------------------------------------------------------------------------- |
 | `income`           | Employee's income, represented as a number.                                                       |
 | `incomeType`       | Employee's income type. Possible values are `yearly`, `monthly`, `weekly`, `daily`, and `hourly`. |
-| `employeeType`     | Employee type. Possible values are `part-time` and `full-time`.                                   |
+| `employeeType`     | Employee type. Possible values are `parttime` and `fulltime`.                                     |
 | `employmentStatus` | Employment status. Possible values are `active` and `terminated`.                                 |
 | `jobTitle`         | Employee's job title.                                                                             |
 | `startDate`        | Employee's hire date.                                                                             |
