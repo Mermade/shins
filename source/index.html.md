@@ -191,7 +191,7 @@ To invite a user to use [Transact](#transact-sdk) over SMS, follow the instructi
 | `publicToken` <h6>required</h6> | The public token return during [AccessToken](#create-access-token) creation.                                 |
 | `product` <h6>required</h6>     | The [product](#products) to initiate. Valid values include `balance` `deposit`, `verify`, or `identify`      |
 | `color`                         | Optionally, provide a hex color code to customize Transact.                                                  |
-| `deeplink`                      | Optionally, start on a specific step. Acceptable values include `search`.                                    |
+| `deeplink`                      | Optionally, start on a specific step. Accepts an object. <table><tr><th>Property</th><th>Value</th></tr><tr><td>`step`<h6>required</h6></td><td>Acceptable values: `search-company` or `login` (if `login`, then `connector` is required)</td></tr><tr><td>`connector`</td><td>Required if the step is `login`. Accepts the [ID](#connector-search) of the connector</td></tr></table>                                   |
 | `onFinish`                      | A function that is called when the user finishes the transaction. The function will receive a `data` object. |
 | `onClose`                       | Called when the user exits Transact prematurely.                                                             |
 
@@ -1080,3 +1080,102 @@ Successfully querying the `Company` search endpoint will return a payload with a
 | `availableProducts` | array  | A list of compatible products.                         |
 | `branding.logo`     | string | Logo for the company, typically an `svg` if available. |
 | `branding.color`    | string | Branding color for the company.                        |
+
+
+Searches for a `Connector` using a text `query`. Searches can also be narrowed by passing in a specific `product`. The primary use case of this endpoint is for an autocomplete search component.
+
+### HTTP Request
+
+`GET /connector/search`
+
+### Authentication headers
+
+| Name             | Description                                                                  |
+| ---------------- | ---------------------------------------------------------------------------- |
+| `x-public-token` | Public token generated during [access token creation](#create-access-token). |
+
+                                            |
+
+### Request properties
+
+| Name                      | Type   | Description                                                                                                     |
+| ------------------------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| `query` <h6>required</h6> | string | Filters connectors by name. Uses fuzzy matching to narrow results.                                               |
+| `product`                 | string | Filters connectors by a specific product. Possible values include `balance`, `verify`, `identify`, and `deposit` |
+
+### Response
+
+> Example response
+
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "5da2a2372a5c5600081d0052",
+            "options": {
+                "inputs": [
+                    {
+                        "title": "Username",
+                        "name": "username",
+                        "type": "text",
+                        "placeholder": "Username"
+                    },
+                    {
+                        "title": "Password",
+                        "name": "password",
+                        "type": "password",
+                        "placeholder": "Password"
+                    }
+                ],
+                "loginRecoveryOptions": [
+                    {
+                        "_id": "5e97992de81d67000802dda7",
+                        "action": "url",
+                        "title": "Recover User ID/Password",
+                        "url": "https://netsecure.adp.com/ilink/pub/smsess/v3/forgot/theme.jsp?returnUrl=https%3A%2F%2Fmy.adp.com%2Fstatic%2Fredbox%2Flogin.html&totalURL=https://my.adp.com/static/redbox/login.html",
+                        "flow": ""
+                    },
+                    {
+                        "_id": "5e97992de81d67000802dda8",
+                        "title": "Create Account",
+                        "url": "https://netsecure.adp.com/pages/sms/ess/v3/pub/ssr/theme.jsp?returnUrl=https%3A%2F%2Fmy.adp.com%2Fstatic%2Fredbox%2Flogin.html",
+                        "action": "url"
+                    }
+                ]
+            },
+            "name": "ADP",
+            "createdAt": "2019-10-13T04:04:07.598Z",
+            "branding": {
+                "color": "#E20000",
+                "logo": {
+                    "_id": "5ed93faa3e36220007d157f6",
+                    "url": "https://atomicfi-public-production.s3.amazonaws.com/a8d7e778-b718-45e0-b639-2305e33e7f95_ADP.svg"
+                }
+            },
+            "authenticators": [
+                {
+                    "_id": "5f0ded47a5892d50f7fb38bb",
+                    "connector": "5f03b5d210b6e90007e536cf",
+                    "buttonLabel": "Sign in with Mocky",
+                    "optional": true
+                }
+            ],
+            "isAuthenticator": false
+        }
+    ]
+}
+```
+
+Successfully querying the `Connector` search endpoint will return a payload with a `data` array of `Connector` objects.
+
+### Connector object
+
+| Name                | Type   | Description                                              |
+| ------------------- | ------ | ------------------------------------------------------   |
+| `_id`               | string | Unique identifier.                                       |
+| `options`           | string | Object of authentications options.                       |
+| `name`              | array  | Name of the connector.                                   |
+| `branding.logo`     | string | Logo for the connector, typically an `svg` if available. |
+| `branding.color`    | string | Branding color for the company.                          |
+| `authenticators`    | string | Array of third party authenticators.                     |
