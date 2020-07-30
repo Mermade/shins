@@ -186,14 +186,14 @@ To invite a user to use [Transact](#transact-sdk) over SMS, follow the instructi
 
 ### Javascript SDK parameters
 
-| Attribute                       | Description                                                                                                  |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `publicToken` <h6>required</h6> | The public token return during [AccessToken](#create-access-token) creation.                                 |
-| `product` <h6>required</h6>     | The [product](#products) to initiate. Valid values include `balance` `deposit`, `verify`, or `identify`      |
-| `color`                         | Optionally, provide a hex color code to customize Transact.                                                  |
-| `deeplink`                      | Optionally, start on a specific step. Accepts an object. <table><tr><th>Property</th><th>Value</th></tr><tr><td>`step`<h6>required</h6></td><td>Acceptable values: `search-company` or `login` (if `login`, then `connector` is required)</td></tr><tr><td>`connector`</td><td>Required if the step is `login`. Accepts the [ID](#connector-search) of the connector</td></tr></table>                                   |
-| `onFinish`                      | A function that is called when the user finishes the transaction. The function will receive a `data` object. |
-| `onClose`                       | Called when the user exits Transact prematurely.                                                             |
+| Attribute                       | Description                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `publicToken` <h6>required</h6> | The public token return during [AccessToken](#create-access-token) creation.                                                                                                                                                                                                                                                                                                           |
+| `product` <h6>required</h6>     | The [product](#products) to initiate. Valid values include `balance` `deposit`, `verify`, or `identify`                                                                                                                                                                                                                                                                                |
+| `color`                         | Optionally, provide a hex color code to customize Transact.                                                                                                                                                                                                                                                                                                                            |
+| `deeplink`                      | Optionally, start on a specific step. Accepts an object. <table><tr><th>Property</th><th>Value</th></tr><tr><td>`step`<h6>required</h6></td><td>Acceptable values: `search-company` or `login` (if `login`, then `connector` is required)</td></tr><tr><td>`connector`</td><td>Required if the step is `login`. Accepts the [ID](#connector-search) of the connector</td></tr></table> |
+| `onFinish`                      | A function that is called when the user finishes the transaction. The function will receive a `data` object.                                                                                                                                                                                                                                                                           |
+| `onClose`                       | Called when the user exits Transact prematurely.                                                                                                                                                                                                                                                                                                                                       |
 
 # Webhooks
 
@@ -1081,6 +1081,7 @@ Successfully querying the `Company` search endpoint will return a payload with a
 | `branding.logo`     | string | Logo for the company, typically an `svg` if available. |
 | `branding.color`    | string | Branding color for the company.                        |
 
+## Connector Search
 
 Searches for a `Connector` using a text `query`. Searches can also be narrowed by passing in a specific `product`. The primary use case of this endpoint is for an autocomplete search component.
 
@@ -1098,8 +1099,8 @@ Searches for a `Connector` using a text `query`. Searches can also be narrowed b
 
 ### Request properties
 
-| Name                      | Type   | Description                                                                                                     |
-| ------------------------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| Name                      | Type   | Description                                                                                                      |
+| ------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
 | `query` <h6>required</h6> | string | Filters connectors by name. Uses fuzzy matching to narrow results.                                               |
 | `product`                 | string | Filters connectors by a specific product. Possible values include `balance`, `verify`, `identify`, and `deposit` |
 
@@ -1171,11 +1172,11 @@ Successfully querying the `Connector` search endpoint will return a payload with
 
 ### Connector object
 
-| Name                | Type   | Description                                              |
-| ------------------- | ------ | ------------------------------------------------------   |
-| `_id`               | string | Unique identifier.                                       |
-| `options`           | string | Object of authentications options.                       |
-| `name`              | array  | Name of the connector.                                   |
-| `branding.logo`     | string | Logo for the connector, typically an `svg` if available. |
-| `branding.color`    | string | Branding color for the company.                          |
-| `authenticators`    | string | Array of third party authenticators.                     |
+| Name             | Type   | Description                                              |
+| ---------------- | ------ | -------------------------------------------------------- |
+| `_id`            | string | Unique identifier.                                       |
+| `options`        | string | Object of authentications options.                       |
+| `name`           | array  | Name of the connector.                                   |
+| `branding.logo`  | string | Logo for the connector, typically an `svg` if available. |
+| `branding.color` | string | Branding color for the company.                          |
+| `authenticators` | string | Array of third party authenticators.                     |
