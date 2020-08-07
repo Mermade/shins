@@ -2,7 +2,7 @@
 
 ### Shins Is Not Slate
 
-**Note: development on Shins has paused. Please see the [Slate v3 Technology Preview](https://github.com/slatedocs/slate/discussions/1271) for where Slate or Shins is headed next.**
+**Note: development on Shins has stopped. Please see [Slant](https://github.com/Mermade/slant) for the replacement.**
 
 Beautiful static documentation for your API.
 
