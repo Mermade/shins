@@ -1,0 +1,561 @@
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Streetlights API 1.0.0 documentation</title>
+
+    <style>
+    </style>
+    <link rel="stylesheet" media="screen" href="pub/css/screen.css">
+    <link rel="stylesheet" media="print" href="pub/css/print.css">
+    <link rel="stylesheet" media="screen" href="pub/css/darkula.css">
+    
+      <script src="source/javascripts/lib/_jquery.js"></script>
+<script src="source/javascripts/lib/_jquery.highlight.js"></script>
+<script src="source/javascripts/lib/_lunr.js"></script>
+<script src="source/javascripts/lib/_imagesloaded.min.js"></script>
+<script src="source/javascripts/lib/_energize.js"></script>
+<script src="source/javascripts/app/_lang.js"></script>
+<script src="source/javascripts/app/_search.js"></script>
+<script src="source/javascripts/app/_toc.js"></script>
+<script type="text/javascript">
+$(function() {
+  loadToc($('#toc'), '.toc-link', '.toc-list-h2, .toc-list-h3, .toc-list-h4, .toc-list-h5, .toc-list-h6', 10);
+  setupLanguages($('body').data('languages'));
+  $('.content').imagesLoaded( function() {
+    recacheHeights();
+    refreshToc();
+  });
+});
+
+window.onpopstate = function() {
+  activateLanguage(getLanguageFromQueryString());
+};
+</script>
+
+    
+    <meta name="theme-color" content="#F3F7F9" />
+<!-- Renderer: Shins v2.6.0 -->
+  </head>
+
+  <body data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="source/images/navbar.png" class="undefined" alt="Navigation">
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="source/images/logo.png" class="logo" alt="Logo">
+      
+      
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      
+      <div id="toc" class="toc-list-h1">
+	  	<ul class="toc-list-h1">
+        
+          <li>
+            <a href="#streetlights-api-1-0-0-documentation" class="toc-h1 toc-link" data-title="Streetlights API 1.0.0 documentation">Streetlights API 1.0.0 documentation</a>
+            
+          </li>
+        
+          <li>
+            <a href="#servers" class="toc-h1 toc-link" data-title="Servers">Servers</a>
+            
+          </li>
+        
+          <li>
+            <a href="#channels" class="toc-h1 toc-link" data-title="Channels">Channels</a>
+            
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#-code-publish--code--smartylighting-streetlights-1-0-event--streetlightid--lighting-measured" class="toc-h2 toc-link" data-title=""><code>publish</code> smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#-code-subscribe--code--smartylighting-streetlights-1-0-action--streetlightid--turn-on" class="toc-h2 toc-link" data-title=""><code>subscribe</code> smartylighting/streetlights/1/0/action/{streetlightId}/turn/on</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#-code-subscribe--code--smartylighting-streetlights-1-0-action--streetlightid--turn-off" class="toc-h2 toc-link" data-title=""><code>subscribe</code> smartylighting/streetlights/1/0/action/{streetlightId}/turn/off</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#-code-subscribe--code--smartylighting-streetlights-1-0-action--streetlightid--dim" class="toc-h2 toc-link" data-title=""><code>subscribe</code> smartylighting/streetlights/1/0/action/{streetlightId}/dim</a>
+                    
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+		</ul>
+      </div>
+      
+        <ul class="toc-footer">
+          
+            <li><a href="https://mermade.github.io/shins/asyncapi.html">See AsyncAPI example</a></li>
+          
+        </ul>
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="streetlights-api-1-0-0-documentation">Streetlights API 1.0.0 documentation</h1>
+<p>The Smartylighting Streetlights API allows you to remotely manage the city lights.</p>
+<h3 id="check-out-its-awesome-features-">Check out its awesome features:</h3>
+<ul>
+<li>Turn a specific streetlight on/off 🌃</li>
+<li>Dim a specific streetlight 😎</li>
+<li>Receive real-time information about environmental lighting conditions 📈</li>
+</ul>
+<p><a name="servers"></a></p>
+<h1 id="servers">Servers</h1>
+<table>
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Protocol</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <td>test.mosquitto.org:{port}</td>
+      <td>mqtt</td>
+      <td>Test broker</td>
+    </tr>
+    <tr>
+      <td>
+        <details>
+          <summary>URL Variables</summary>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Default value</th>
+                <th>Possible values</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>port</td>
+                <td>
+                    1883
+                  </td>
+                <td>
+                  <ul><li>1883</li><li>8883</li></ul>
+                  </td>
+                <td>Secure connection (TLS) is available through port 8883.</td>
+              </tr>
+              </tbody>
+          </table>
+        </details>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <details>
+          <summary>Security Requirements</summary>
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>In</th>
+                <th>Name</th>
+                <th>Scheme</th>
+                <th>Format</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody><tr>
+                <td>apiKey</td>
+                <td>user</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><p>Provide your API key as the user and leave the password empty.</p>
+</td>
+              </tr><tr>
+                <td>oauth2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><p>Flows to support OAuth 2.0</p>
+</td>
+              </tr><tr>
+                <td>openIdConnect</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr></tbody>
+          </table>
+        </details>
+      </td>
+    </tr>
+    </tbody>
+</table>
+<h1 id="channels">Channels</h1>
+<p><a name="channel-smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured"></a></p>
+<p>The topic on which measured values may be produced and consumed.</p>
+<h4 id="channel-parameters">Channel Parameters</h4>
+<h5 id="streetlightid">streetlightId</h5>
+<p>The ID of the streetlight.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>streetlightId </td>
+  <td>string</td>
+  <td> </td>
+  <td><em>Any</em></td>
+</tr>
+    </tbody>
+</table>
+<h2 id="-code-publish--code--smartylighting-streetlights-1-0-event--streetlightid--lighting-measured"><code>publish</code> smartylighting/streetlights/1/0/event/{streetlightId}/lighting/measured</h2>
+<p><em>Inform about environmental lighting conditions of a particular streetlight.</em></p>
+<h4 id="message">Message</h4>
+<p>Inform about environmental lighting conditions of a particular streetlight.</p>
+<h5 id="headers">Headers</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>my-app-header </td>
+  <td>integer</td>
+  <td> </td>
+  <td><em>Any</em></td>
+</tr></tbody>
+</table>
+<blockquote>
+<p>Example of headers <em>(generated)</em></p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;my-app-header&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h5 id="payload">Payload</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>lumens </td>
+  <td>integer</td>
+  <td><p>Light intensity measured in lumens.</p>
+ </td>
+  <td><em>Any</em></td>
+</tr>
+<tr>
+  <td>sentAt </td>
+  <td>string</td>
+  <td><p>Date and time when the message was sent.</p>
+ </td>
+  <td><em>Any</em></td>
+</tr></tbody>
+</table>
+<blockquote>
+<p>Example of payload <em>(generated)</em></p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;lumens&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;sentAt&quot;</span>: <span class="hljs-string">&quot;2019-08-24T14:15:22Z&quot;</span>
+}
+</code></pre>
+<p><a name="channel-smartylighting/streetlights/1/0/action/{streetlightId}/turn/on"></a></p>
+<h4 id="channel-parameters-2">Channel Parameters</h4>
+<h5 id="streetlightid-2">streetlightId</h5>
+<p>The ID of the streetlight.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>streetlightId </td>
+  <td>string</td>
+  <td> </td>
+  <td><em>Any</em></td>
+</tr>
+    </tbody>
+</table>
+<h2 id="-code-subscribe--code--smartylighting-streetlights-1-0-action--streetlightid--turn-on"><code>subscribe</code> smartylighting/streetlights/1/0/action/{streetlightId}/turn/on</h2>
+<h4 id="message-2">Message</h4>
+<p>Command a particular streetlight to turn the lights on or off.</p>
+<h5 id="headers-2">Headers</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>my-app-header </td>
+  <td>integer</td>
+  <td> </td>
+  <td><em>Any</em></td>
+</tr></tbody>
+</table>
+<blockquote>
+<p>Example of headers <em>(generated)</em></p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;my-app-header&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h5 id="payload-2">Payload</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>command </td>
+  <td>string</td>
+  <td><p>Whether to turn on or off the light.</p>
+ </td>
+  <td><code>on</code>, <code>off</code></td>
+</tr>
+<tr>
+  <td>sentAt </td>
+  <td>string</td>
+  <td><p>Date and time when the message was sent.</p>
+ </td>
+  <td><em>Any</em></td>
+</tr></tbody>
+</table>
+<blockquote>
+<p>Example of payload <em>(generated)</em></p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;on&quot;</span>,
+  <span class="hljs-attr">&quot;sentAt&quot;</span>: <span class="hljs-string">&quot;2019-08-24T14:15:22Z&quot;</span>
+}
+</code></pre>
+<p><a name="channel-smartylighting/streetlights/1/0/action/{streetlightId}/turn/off"></a></p>
+<h4 id="channel-parameters-3">Channel Parameters</h4>
+<h5 id="streetlightid-3">streetlightId</h5>
+<p>The ID of the streetlight.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>streetlightId </td>
+  <td>string</td>
+  <td> </td>
+  <td><em>Any</em></td>
+</tr>
+    </tbody>
+</table>
+<h2 id="-code-subscribe--code--smartylighting-streetlights-1-0-action--streetlightid--turn-off"><code>subscribe</code> smartylighting/streetlights/1/0/action/{streetlightId}/turn/off</h2>
+<h4 id="message-3">Message</h4>
+<p>Command a particular streetlight to turn the lights on or off.</p>
+<h5 id="headers-3">Headers</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>my-app-header </td>
+  <td>integer</td>
+  <td> </td>
+  <td><em>Any</em></td>
+</tr></tbody>
+</table>
+<blockquote>
+<p>Example of headers <em>(generated)</em></p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;my-app-header&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h5 id="payload-3">Payload</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>command </td>
+  <td>string</td>
+  <td><p>Whether to turn on or off the light.</p>
+ </td>
+  <td><code>on</code>, <code>off</code></td>
+</tr>
+<tr>
+  <td>sentAt </td>
+  <td>string</td>
+  <td><p>Date and time when the message was sent.</p>
+ </td>
+  <td><em>Any</em></td>
+</tr></tbody>
+</table>
+<blockquote>
+<p>Example of payload <em>(generated)</em></p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;on&quot;</span>,
+  <span class="hljs-attr">&quot;sentAt&quot;</span>: <span class="hljs-string">&quot;2019-08-24T14:15:22Z&quot;</span>
+}
+</code></pre>
+<p><a name="channel-smartylighting/streetlights/1/0/action/{streetlightId}/dim"></a></p>
+<h4 id="channel-parameters-4">Channel Parameters</h4>
+<h5 id="streetlightid-4">streetlightId</h5>
+<p>The ID of the streetlight.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>streetlightId </td>
+  <td>string</td>
+  <td> </td>
+  <td><em>Any</em></td>
+</tr>
+    </tbody>
+</table>
+<h2 id="-code-subscribe--code--smartylighting-streetlights-1-0-action--streetlightid--dim"><code>subscribe</code> smartylighting/streetlights/1/0/action/{streetlightId}/dim</h2>
+<h4 id="message-4">Message</h4>
+<p>Command a particular streetlight to dim the lights.</p>
+<h5 id="headers-4">Headers</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>my-app-header </td>
+  <td>integer</td>
+  <td> </td>
+  <td><em>Any</em></td>
+</tr></tbody>
+</table>
+<blockquote>
+<p>Example of headers <em>(generated)</em></p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;my-app-header&quot;</span>: <span class="hljs-number">0</span>
+}
+</code></pre>
+<h5 id="payload-4">Payload</h5>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Accepted values</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+  <td>percentage </td>
+  <td>integer</td>
+  <td><p>Percentage to which the light should be dimmed to.</p>
+ </td>
+  <td><em>Any</em></td>
+</tr>
+<tr>
+  <td>sentAt </td>
+  <td>string</td>
+  <td><p>Date and time when the message was sent.</p>
+ </td>
+  <td><em>Any</em></td>
+</tr></tbody>
+</table>
+<blockquote>
+<p>Example of payload <em>(generated)</em></p>
+</blockquote>
+<pre class="highlight tab tab-json"><code>{
+  <span class="hljs-attr">&quot;percentage&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-attr">&quot;sentAt&quot;</span>: <span class="hljs-string">&quot;2019-08-24T14:15:22Z&quot;</span>
+}
+</code></pre>
+<!-- Renderer: Shins v2.6.0 -->
+      </div>
+      <div class="dark-box">
+        
+      </div>
+    </div>
+  </body>
+</html>
