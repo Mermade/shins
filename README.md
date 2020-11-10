@@ -2,7 +2,7 @@
 
 ### Shins Is Not Slate
 
-**Note: development on Shins has stopped. Please see [Slant](https://github.com/Mermade/slant) for the replacement.**
+**Note: development on Shins has stopped. Please see [ReSlate](https://github.com/Mermade/reslate) for the replacement.**
 
 Beautiful static documentation for your API.
 
