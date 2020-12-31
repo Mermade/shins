@@ -229,8 +229,10 @@ jQuery.extend = jQuery.fn.extend = function() {
 				src = target[ name ];
 				copy = options[ name ];
 
+                // From https://github.com/DanielRuf/snyk-js-jquery-174006/blob/master/jquery-2.2.4.patch
+                // Prevent Object.prototype pollution
 				// Prevent never-ending loop
-				if ( target === copy ) {
+				if ( name === "__proto__" || target === copy ) {
 					continue;
 				}
 
